@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Weapon {
+class Weapon {
     var name: String?
-    var attributes: [Attribute]?
+    var altFire: AltFire?
+    var stats: [WeaponStat]?
+    var traits: [Trait]?
     var level: [String]?
 }

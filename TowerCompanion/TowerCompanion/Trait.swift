@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Attribute {
+struct Trait {
     var name: String?
     var description: String?
     var level: Int?
