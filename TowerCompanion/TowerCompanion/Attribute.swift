@@ -1,0 +1,14 @@
+//
+//  Attribute.swift
+//  TowerCompanion
+//
+//  Created by Justin on 6/11/23.
+//
+
+import Foundation
+
+struct Attribute {
+    var name: String?
+    var description: String?
+    var level: Int?
+}
