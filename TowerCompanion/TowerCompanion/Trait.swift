@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Trait {
+struct Trait: Codable {
     var name: String?
     var description: String?
     var level: Int?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AltFire {
+struct AltFire: Codable {
     var name: String?
     var level: Int?
     var description: String?

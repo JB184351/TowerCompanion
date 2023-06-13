@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Malfunction {
+struct Malfunction: Codable {
     var name: String?
     var description: String?
     var conditionToRemove: String?

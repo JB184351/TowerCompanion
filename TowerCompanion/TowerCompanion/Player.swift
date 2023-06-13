@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Player {
+final class Player {
     var scoutName: String?
     var weapon: Weapon?
     var artifacts: [String]?

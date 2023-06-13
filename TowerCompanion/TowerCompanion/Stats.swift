@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Stats {
+struct Stats: Codable {
     var weaponDamage: Double?
     var protection: Double?
     var profiencyRate: Double?
