@@ -29,72 +29,101 @@ struct ContentView: View {
     @Query private var towerRuns: [TowerRun]
     
     @State private var scoutName = ""
+    
+    // Weapon Related Variables
     @State private var weapon = ""
+    @State private var altFireName = ""
+    @State private var altFireLevel = 0
+    
+    // Artifacts
     @State private var artificats = ""
-    @State private var parasites = ""
-    @State private var stats = ""
-    @State private var malfunctions = ""
+    
+    // Parasites
+    @State private var parasite = ""
+    @State private var parasitePositiveEffectDescription = ""
+    @State private var parasiteNegativeEffectDescription = ""
+    
+    // Stats
+    @State private var weaponDamageStat = 0.0
+    @State private var protectionStat = 0.0
+    @State private var profiencyRate = 0.0
+    @State private var repairEffiency = 0.0
+    @State private var altFireCooldown = 0.0
+    
+    // Malfunctions
+    @State private var malfunctionName = ""
+    
+    // Score Related Variables
     @State private var score = 0
     @State private var multiplier = 0.0
     @State private var averageMutliplier = 0.0
+    
+    // Phase and Room
     @State private var phase = 0
     @State private var room = 0
+    
+    // Date
     @State private var dateCompleted = Date.now
     
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    // ScoutName
+                    // MARK: - Scoutname
                     Section {
                         TextField("Enter Scout Name", text: $scoutName)
                     } header: {
-                        Text("Enter Scoutname")
+                        Text("Enter Scout Name")
                     }
                     
-                    // Weapon and weapon details
+                    // MARK: - Weapon and weapon details
                     Section {
                         TextField("Enter Weapon Name", text: $weapon)
                         TextField("Enter Weapon Level", text: $weapon)
-                        TextField("Enter Weapon Alt-Fire", text: $weapon)
-                        TextField("Enter Weapon Alt-Fire Level", text: $weapon)
-                        TextField("Enter Weapon Traits and their levels", text: $weapon)
+                        TextField("Enter Weapon Alt-Fire", text: $altFireName)
+                        
+                        Picker("Enter Weapon Alt-Fire Level", selection: $altFireLevel) {
+                            ForEach(1..<4) {
+                                Text("\($0)")
+                            }
+                        }
+    
+                        TextField("Enter Weapon Trait", text: $weapon)
+                        TextField("Enter Weapon Trait", text: $weapon)
+                        TextField("Enter Weapon Trait", text: $weapon)
                     } header: {
                         Text("Enter Weapon Details")
                     }
                     
-                    
-                    // Parasites
+                    // MARK: - Parasites
                     Section {
-                        TextField("Enter Parasites", text: $parasites)
-                        TextField("Enter Parasites", text: $parasites)
-                        TextField("Enter Parasites", text: $parasites)
-                        TextField("Enter Parasites", text: $parasites)
-                        TextField("Enter Parasites", text: $parasites)
+                        TextField("Enter Parasite Name", text: $parasite)
+                        TextField("Enter Parasite Positive Effect", text: $parasite)
+                        TextField("Enter Parasite Negative Effect", text: $parasite)
                     } header: {
                         Text("Enter Parasite Details")
                     }
                     
-                    // Stats
+                    // MARK: - Stats
                     Section {
-                        TextField("Enter Weapon Damage", text: $parasites)
-                        TextField("Enter Protection", text: $parasites)
-                        TextField("Enter Profiency Rate", text: $parasites)
-                        TextField("Enter Repair Effiency", text: $parasites)
-                        TextField("Enter Alt-Fire Cooldown", text: $parasites)
+                        TextField("Enter Weapon Damage", text: $parasite)
+                        TextField("Enter Protection", text: $parasite)
+                        TextField("Enter Profiency Rate", text: $parasite)
+                        TextField("Enter Repair Effiency", text: $parasite)
+                        TextField("Enter Alt-Fire Cooldown", text: $parasite)
                     } header: {
                         Text("Enter Stat Details")
                     }
                     
                     
-                    // Malfunctions
+                    // MARK: - Malfunctions
                     Section {
-                        TextField("Enter Parasites", text: $parasites)
+                        TextField("Enter Malfunctions", text: $malfunctionName)
                     } header: {
                         Text("Enter Malfunction Details")
                     }
                     
-                    // Score
+                    // MARK: - Score
                     Section {
                         TextField("Enter Score", value: $score, format: .number)
                             .keyboardType(.decimalPad)
@@ -102,7 +131,7 @@ struct ContentView: View {
                         Text("Enter Your Score")
                     }
                     
-                    // Multipliers
+                    // MARK: - Multipliers
                     Section {
                         TextField("Enter Mutliplier", value: $multiplier, format: .number)
                             .keyboardType(.decimalPad)
@@ -112,7 +141,7 @@ struct ContentView: View {
                         Text("Enter Multiplier Details")
                     }
                     
-                    // Phase and Room
+                    // MARK: - Phase and Room
                     Section {
                         TextField("Enter Phase", value: $phase, format: .number)
                             .keyboardType(.decimalPad)
@@ -122,7 +151,7 @@ struct ContentView: View {
                         Text("Enter Phase and Room Details")
                     }
                     
-                    // Date completed
+                    // MARK: - Date completed
                     Section {
                         DatePicker("", selection: $dateCompleted)
                             .labelsHidden()
@@ -138,5 +167,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-//        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Item.self, inMemory: true)
 }
