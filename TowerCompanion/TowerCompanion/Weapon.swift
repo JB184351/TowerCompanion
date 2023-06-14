@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Weapon: Codable {
+struct Weapon: Codable {
     var name: String?
     var altFire: AltFire?
     var stats: [WeaponStat]?
