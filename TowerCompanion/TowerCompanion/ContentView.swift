@@ -8,27 +8,16 @@
 import SwiftUI
 import SwiftData
 
-/*
- var scoutName: String?
- var weapon: Weapon?
- var artifacts: [String]?
- var parasites: [Parasite]?
- var augments: [String]?
- var stats: [String]?
- var malfunctions: [Malfunction]?
- var score: Int?
- var multiplier: Double?
- var averageMultiplier: Double?
- var phase: Int?
- var room: Int?
- var dateCompleted: Date?
- */
-
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var towerRuns: [TowerRun]
     
+    @FocusState var focus: Bool
+    
+    // MARK: - Scout Name and Platform Selection
     @State private var scoutName = ""
+    @State private var platform = ""
+    private var platforms = ["PS5", "PC"]
     
     // Weapon Related Variables
     @State private var weapon = ""
@@ -72,6 +61,11 @@ struct ContentView: View {
                     // MARK: - Scoutname
                     Section {
                         TextField("Enter Scout Name", text: $scoutName)
+                        Picker("Select Platform", selection: $platform) {
+                            ForEach(platforms, id: \.self) {
+                                Text($0)
+                            }
+                        }
                     } header: {
                         Text("Enter Scout Name")
                     }
@@ -106,15 +100,14 @@ struct ContentView: View {
                     
                     // MARK: - Stats
                     Section {
-                        TextField("Enter Weapon Damage", text: $parasite)
-                        TextField("Enter Protection", text: $parasite)
-                        TextField("Enter Profiency Rate", text: $parasite)
-                        TextField("Enter Repair Effiency", text: $parasite)
-                        TextField("Enter Alt-Fire Cooldown", text: $parasite)
+                        TextField("Enter Weapon Damage", value: $weaponDamageStat, format: .percent)
+                        TextField("Enter Protection", value: $protectionStat, format: .percent)
+                        TextField("Enter Profiency Rate", value: $profiencyRate, format: .percent)
+                        TextField("Enter Repair Effiency", value: $repairEffiency, format: .percent)
+                        TextField("Enter Alt-Fire Cooldown", value: $altFireCooldown, format: .percent)
                     } header: {
                         Text("Enter Stat Details")
                     }
-                    
                     
                     // MARK: - Malfunctions
                     Section {
@@ -160,7 +153,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("TowerRun")
+            .navigationTitle("Tower Run")
         }
     }
 }

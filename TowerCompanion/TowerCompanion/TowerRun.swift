@@ -21,9 +21,10 @@ final class TowerRun {
     var averageMultiplier: Double?
     var phase: Int?
     var room: Int?
+    var platform: String?
     var dateCompleted: Date?
     
-    init(scoutName: String?, weapon: Weapon?, artifacts: [String]?, parasites: [Parasite]?, stats: [String]?, score: Int?, multiplier: Double?, averageMultiplier: Double?, phase: Int?, room: Int?, dateCompleted: Date?) {
+    init(scoutName: String?, weapon: Weapon?, artifacts: [String]?, parasites: [Parasite]?, stats: [String]?, score: Int?, multiplier: Double?, averageMultiplier: Double?, phase: Int?, room: Int?, platform: String?, dateCompleted: Date?) {
         self.scoutName = scoutName
         self.weapon = weapon
         self.artifacts = artifacts
@@ -34,6 +35,7 @@ final class TowerRun {
         self.averageMultiplier = averageMultiplier
         self.phase = phase
         self.room = room
+        self.platform = platform
         self.dateCompleted = dateCompleted
     }
 }
