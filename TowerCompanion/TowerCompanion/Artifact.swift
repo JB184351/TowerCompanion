@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artifact {
+struct Artifact: Codable {
     var name: String?
     var description: String?
 }
