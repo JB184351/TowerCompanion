@@ -25,7 +25,8 @@ struct ContentView: View {
     @State private var altFireLevel = 0
     
     // Artifacts
-    @State private var artificats = ""
+    @State private var artifactName = ""
+    @State private var artifactDescription = ""
     
     // Parasites
     @State private var parasite = ""
@@ -89,6 +90,15 @@ struct ContentView: View {
                     } header: {
                         Text("Enter Weapon Details")
                     }
+                    
+                    // MARK: - Artifacts
+                    Section {
+                        TextField("Artifact Name", text: $artifactName)
+                        TextField("Artifact Description", text: $artifactDescription)
+                    } header: {
+                        Text("Enter Artifact Description")
+                    }
+                    
                     
                     // MARK: - Parasites
                     Section {
