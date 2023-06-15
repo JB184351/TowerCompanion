@@ -40,7 +40,8 @@ struct ContentView: View {
     @State private var altFireCooldown = 0.0
     
     // Malfunctions
-    @State private var malfunctionName = ""
+    @State private var malfunctionDescription = ""
+    @State private var malfunctionRemoveCondition = ""
     
     // Score Related Variables
     @State private var score = 0
@@ -72,53 +73,54 @@ struct ContentView: View {
                     
                     // MARK: - Weapon and weapon details
                     Section {
-                        TextField("Enter Weapon Name", text: $weapon)
-                        TextField("Enter Weapon Level", text: $weapon)
-                        TextField("Enter Weapon Alt-Fire", text: $altFireName)
+                        TextField("Weapon Name", text: $weapon)
+                        TextField("Weapon Level", text: $weapon)
+                        TextField("Weapon Alt-Fire", text: $altFireName)
                         
-                        Picker("Enter Weapon Alt-Fire Level", selection: $altFireLevel) {
+                        Picker("Weapon Alt-Fire Level", selection: $altFireLevel) {
                             ForEach(1..<4) {
                                 Text("\($0)")
                             }
                         }
     
-                        TextField("Enter Weapon Trait", text: $weapon)
-                        TextField("Enter Weapon Trait", text: $weapon)
-                        TextField("Enter Weapon Trait", text: $weapon)
+                        TextField("Weapon Trait", text: $weapon)
+                        TextField("Weapon Trait", text: $weapon)
+                        TextField("Weapon Trait", text: $weapon)
                     } header: {
                         Text("Enter Weapon Details")
                     }
                     
                     // MARK: - Parasites
                     Section {
-                        TextField("Enter Parasite Name", text: $parasite)
-                        TextField("Enter Parasite Positive Effect", text: $parasite)
-                        TextField("Enter Parasite Negative Effect", text: $parasite)
+                        TextField("Parasite Name", text: $parasite)
+                        TextField("Parasite Positive Effect", text: $parasite)
+                        TextField("Parasite Negative Effect", text: $parasite)
                     } header: {
                         Text("Enter Parasite Details")
                     }
                     
                     // MARK: - Stats
                     Section {
-                        TextField("Enter Weapon Damage", value: $weaponDamageStat, format: .percent)
-                        TextField("Enter Protection", value: $protectionStat, format: .percent)
-                        TextField("Enter Profiency Rate", value: $profiencyRate, format: .percent)
-                        TextField("Enter Repair Effiency", value: $repairEffiency, format: .percent)
-                        TextField("Enter Alt-Fire Cooldown", value: $altFireCooldown, format: .percent)
+                        TextField("Weapon Damage", value: $weaponDamageStat, format: .percent)
+                        TextField("Protection", value: $protectionStat, format: .percent)
+                        TextField("Profiency Rate", value: $profiencyRate, format: .percent)
+                        TextField("Repair Effiency", value: $repairEffiency, format: .percent)
+                        TextField("Alt-Fire Cooldown", value: $altFireCooldown, format: .percent)
                     } header: {
                         Text("Enter Stat Details")
                     }
                     
                     // MARK: - Malfunctions
                     Section {
-                        TextField("Enter Malfunctions", text: $malfunctionName)
+                        TextField("Malfunction Description", text: $malfunctionDescription)
+                        TextField("Malfunction Remove Condition", text: $malfunctionRemoveCondition)
                     } header: {
                         Text("Enter Malfunction Details")
                     }
                     
                     // MARK: - Score
                     Section {
-                        TextField("Enter Score", value: $score, format: .number)
+                        TextField("Score", value: $score, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Your Score")
@@ -126,9 +128,9 @@ struct ContentView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Enter Mutliplier", value: $multiplier, format: .number)
+                        TextField("Mutliplier", value: $multiplier, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Enter Average Multiplier", value: $averageMutliplier, format: .number)
+                        TextField("Average Multiplier", value: $averageMutliplier, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Multiplier Details")
@@ -136,9 +138,9 @@ struct ContentView: View {
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Enter Phase", value: $phase, format: .number)
+                        TextField("Phase", value: $phase, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Enter Room", value: $room, format: .number)
+                        TextField("Room", value: $room, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Phase and Room Details")
