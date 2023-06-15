@@ -12,7 +12,7 @@ import SwiftData
 final class TowerRun {
     var scoutName: String?
     var weapon: Weapon?
-    var artifacts: [String]?
+    var artifacts: [Artifact]?
     var parasites: [Parasite]?
     var stats: [String]?
     var malfunctions: [Malfunction]?
@@ -24,7 +24,7 @@ final class TowerRun {
     var platform: String?
     var dateCompleted: Date?
     
-    init(scoutName: String?, weapon: Weapon?, artifacts: [String]?, parasites: [Parasite]?, stats: [String]?, score: Int?, multiplier: Double?, averageMultiplier: Double?, phase: Int?, room: Int?, platform: String?, dateCompleted: Date?) {
+    init(scoutName: String?, weapon: Weapon?, artifacts: [Artifact]?, parasites: [Parasite]?, stats: [String]?, score: Int?, multiplier: Double?, averageMultiplier: Double?, phase: Int?, room: Int?, platform: String?, dateCompleted: Date?) {
         self.scoutName = scoutName
         self.weapon = weapon
         self.artifacts = artifacts
