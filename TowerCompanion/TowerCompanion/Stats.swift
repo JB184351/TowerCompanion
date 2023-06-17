@@ -8,9 +8,9 @@
 import Foundation
 
 struct Stats: Codable {
-    var weaponDamage: Double?
-    var protection: Double?
-    var profiencyRate: Double?
-    var repairEffiency: Double?
-    var altFireCoolDown: Double?
+    var weaponDamage: Double
+    var protection: Double
+    var profiencyRate: Double
+    var repairEffiency: Double
+    var altFireCoolDown: Double
 }

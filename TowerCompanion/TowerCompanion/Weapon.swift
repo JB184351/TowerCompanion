@@ -8,9 +8,9 @@
 import Foundation
 
 struct Weapon: Codable {
-    var name: String?
-    var altFire: AltFire?
-    var stats: [WeaponStat]?
-    var traits: [Trait]?
-    var level: [String]?
+    var name: String
+    var altFire: AltFire
+    var stats: [WeaponStat]
+    var traits: [Trait]
+    var level: [String]
 }

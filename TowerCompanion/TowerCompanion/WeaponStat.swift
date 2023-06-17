@@ -8,7 +8,7 @@
 import Foundation
 
 class WeaponStat: Codable {
-    var bonusDamage: String?
-    var overloadProjectiles: String?
-    var fireRate: String?
+    var bonusDamage: String
+    var overloadProjectiles: String
+    var fireRate: String
 }

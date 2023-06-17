@@ -10,6 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @Bindable var towerRun: TowerRun
     @Query private var towerRuns: [TowerRun]
     
     @FocusState var focus: Bool
@@ -62,8 +63,8 @@ struct ContentView: View {
                 Form {
                     // MARK: - Scoutname
                     Section {
-                        TextField("Enter Scout Name", text: $scoutName)
-                        Picker("Select Platform", selection: $platform) {
+                        TextField("Enter Scout Name", text: $towerRun.scoutName)
+                        Picker("Select Platform", selection: $towerRun.platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0)
                             }
@@ -74,8 +75,8 @@ struct ContentView: View {
                     
                     // MARK: - Weapon and weapon details
                     Section {
-                        TextField("Weapon Name", text: $weapon)
-                        TextField("Weapon Level", text: $weapon)
+                        TextField("Weapon Name", text: $towerRun.weapon.name)
+                        TextField("Weapon Level", text: $towerRun.weapon.level)
                         TextField("Weapon Alt-Fire", text: $altFireName)
                         
                         Picker("Weapon Alt-Fire Level", selection: $altFireLevel) {

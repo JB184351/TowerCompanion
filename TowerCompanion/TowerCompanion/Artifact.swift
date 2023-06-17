@@ -8,6 +8,6 @@
 import Foundation
 
 struct Artifact: Codable {
-    var name: String?
-    var description: String?
+    var name: String
+    var description: String
 }
