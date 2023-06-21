@@ -10,50 +10,8 @@ import SwiftUI
 struct AddRunView: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var towerRun: TowerRun
-    
-    @FocusState var focus: Bool
-    
-    // MARK: - Scout Name and Platform Selection
-    @State private var scoutName = ""
-    @State private var platform = ""
-    private var platforms = ["PS5", "PC"]
-    
-    // Weapon Related Variables
-    @State private var weapon = ""
-    @State private var altFireName = ""
-    @State private var altFireLevel = 0
-    
-    // Artifacts
-    @State private var artifactName = ""
-    @State private var artifactDescription = ""
-    
-    // Parasites
-    @State private var parasite = ""
-    @State private var parasitePositiveEffectDescription = ""
-    @State private var parasiteNegativeEffectDescription = ""
-    
-    // Stats
-    @State private var weaponDamageStat = 0.0
-    @State private var protectionStat = 0.0
-    @State private var profiencyRate = 0.0
-    @State private var repairEffiency = 0.0
-    @State private var altFireCooldown = 0.0
-    
-    // Malfunctions
-    @State private var malfunctionDescription = ""
-    @State private var malfunctionRemoveCondition = ""
-    
-    // Score Related Variables
-    @State private var score = 0
-    @State private var multiplier = 0.0
-    @State private var averageMutliplier = 0.0
-    
-    // Phase and Room
-    @State private var phase = 0
-    @State private var room = 0
-    
-    // Date
-    @State private var dateCompleted = Date.now
+
+    private let platforms = ["PS5", "PC"]
     
     var body: some View {
         NavigationView {
@@ -128,15 +86,15 @@ struct AddRunView: View {
                     
                     // MARK: - Malfunctions
                     Section {
-                        TextField("Malfunction Description", text: $malfunctionDescription)
-                        TextField("Malfunction Remove Condition", text: $malfunctionRemoveCondition)
+                        TextField("Malfunction Description", text: $towerRun.malfunctions[0].malfunctionDescription)
+                        TextField("Malfunction Remove Condition", text: $towerRun.malfunctions[0].conditionToRemove)
                     } header: {
                         Text("Enter Malfunction Details")
                     }
                     
                     // MARK: - Score
                     Section {
-                        TextField("Score", value: $score, format: .number)
+                        TextField("Score", value: $towerRun.score, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Your Score")
@@ -144,9 +102,9 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Mutliplier", value: $multiplier, format: .number)
+                        TextField("Mutliplier", value: $towerRun.multiplier, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Average Multiplier", value: $averageMutliplier, format: .number)
+                        TextField("Average Multiplier", value: $towerRun.averageMultiplier, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Multiplier Details")
@@ -154,9 +112,9 @@ struct AddRunView: View {
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Phase", value: $phase, format: .number)
+                        TextField("Phase", value: $towerRun.phase, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Room", value: $room, format: .number)
+                        TextField("Room", value: $towerRun.room, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Phase and Room Details")
@@ -164,7 +122,7 @@ struct AddRunView: View {
                     
                     // MARK: - Date completed
                     Section {
-                        DatePicker("", selection: $dateCompleted)
+                        DatePicker("", selection: $towerRun.dateCompleted)
                             .labelsHidden()
                     } header: {
                         Text("Enter The Date and Time Information")
