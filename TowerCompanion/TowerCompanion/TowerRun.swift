@@ -14,7 +14,7 @@ final class TowerRun {
     var weapon: Weapon
     var artifacts: [Artifact]
     var parasites: [Parasite]
-    var stats: [Stat]?
+    var stats: [Stat]
     var malfunctions: [Malfunction]
     var score: Int
     var multiplier: Double

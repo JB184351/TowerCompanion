@@ -117,11 +117,11 @@ struct AddRunView: View {
                     
                     // MARK: - Stats
                     Section {
-                        TextField("Weapon Damage", value: $towerRun.stats[0], format: .text)
-                        TextField("Protection", value: $towerRun.stats[1], format: .text)
-                        TextField("Profiency Rate", value: $towerRun.stats[2], format: .text)
-                        TextField("Repair Effiency", value: $towerRun.stats[3], format: .text)
-                        TextField("Alt-Fire Cooldown", value: $towerRun.stats[4], format: .text)
+                        TextField("Weapon Damage", value: $towerRun.stats[0].weaponDamage, format: .percent)
+                        TextField("Protection", value: $towerRun.stats[1].protection, format: .percent)
+                        TextField("Profiency Rate", value: $towerRun.stats[2].profiencyRate, format: .percent)
+                        TextField("Repair Effiency", value: $towerRun.stats[3].repairEffiency, format: .percent)
+                        TextField("Alt-Fire Cooldown", value: $towerRun.stats[4].altFireCoolDown, format: .percent)
                     } header: {
                         Text("Enter Stat Details")
                     }
