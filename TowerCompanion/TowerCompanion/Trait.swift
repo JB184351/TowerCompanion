@@ -9,6 +9,6 @@ import Foundation
 
 struct Trait: Codable {
     var name: String
-    var description: String
+    var traitDescription: String
     var level: Int
 }

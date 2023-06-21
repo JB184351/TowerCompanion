@@ -8,7 +8,6 @@
 import Foundation
 
 struct Malfunction: Codable {
-    var name: String
-    var description: String
+    var malfunctionDescription: String
     var conditionToRemove: String
 }

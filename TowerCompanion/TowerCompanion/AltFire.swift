@@ -10,5 +10,5 @@ import Foundation
 struct AltFire: Codable {
     var name: String
     var level: Int
-    var description: String
+    var altFireDescription: String
 }

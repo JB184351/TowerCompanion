@@ -12,5 +12,5 @@ struct Weapon: Codable {
     var altFire: AltFire
     var stats: [WeaponStat]
     var traits: [Trait]
-    var level: [String]
+    var level: Int
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-class WeaponStat: Codable {
-    var bonusDamage: String
-    var overloadProjectiles: String
-    var fireRate: String
+struct WeaponStat: Codable {
+    var statOne: String
+    var statTwo: String
+    var statThree: String
 }
