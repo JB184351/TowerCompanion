@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddRunView: View {
+    @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Bindable var towerRun: TowerRun
 
@@ -130,9 +131,14 @@ struct AddRunView: View {
                 }
             }
         }
+        Button("Done") {
+            modelContext.insert(towerRun)
+            dismiss()
+        }
     }
 }
 
-//#Preview {
-//    AddRunView(towerRun: TowerRun())
-//}
+#Preview {
+    AddRunView(towerRun: <#TowerRun#>)
+        .modelContainer(for: TowerRun.self)
+}

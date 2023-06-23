@@ -53,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30B49CDE2A43D5D300E855B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				30BC72192A35556F00F0E49B /* TowerRun.swift */,
+				30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */,
+				3007872D2A3AA7E100D185F4 /* Artifact.swift */,
+				30A7F7C12A37C8D0003AB0B3 /* Stat.swift */,
+				30A7F7C32A37C932003AB0B3 /* AltFire.swift */,
+				30BC721D2A3557B700F0E49B /* Weapon.swift */,
+				30A7F7C52A37CD02003AB0B3 /* WeaponStat.swift */,
+				30BC721F2A3686B300F0E49B /* Trait.swift */,
+				30BC721B2A3555EA00F0E49B /* Parasite.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		30BC71FC2A354FEF00F0E49B = {
 			isa = PBXGroup;
 			children = (
@@ -72,20 +88,12 @@
 		30BC72072A354FEF00F0E49B /* TowerCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				30B49CDE2A43D5D300E855B6 /* Models */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				307A92992A439A8C002A2164 /* AddRunView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
-				30BC72192A35556F00F0E49B /* TowerRun.swift */,
-				30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */,
-				3007872D2A3AA7E100D185F4 /* Artifact.swift */,
-				30A7F7C12A37C8D0003AB0B3 /* Stat.swift */,
-				30A7F7C32A37C932003AB0B3 /* AltFire.swift */,
-				30BC721D2A3557B700F0E49B /* Weapon.swift */,
-				30A7F7C52A37CD02003AB0B3 /* WeaponStat.swift */,
-				30BC721F2A3686B300F0E49B /* Trait.swift */,
-				30BC721B2A3555EA00F0E49B /* Parasite.swift */,
 				30BC72112A354FF000F0E49B /* Preview Content */,
 			);
 			path = TowerCompanion;

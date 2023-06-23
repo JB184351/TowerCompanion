@@ -9,7 +9,8 @@ import Foundation
 import SwiftData
 
 @Model
-final class TowerRun {
+final class TowerRun: Identifiable {
+    let id = UUID()
     var scoutName: String
     var weapon: Weapon
     var artifacts: [Artifact]
