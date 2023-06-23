@@ -29,7 +29,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSheetPresented) {
-                AddRunView(towerRun: towerRuns[0])
+                AddRunView()
             }
         }
     }

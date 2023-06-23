@@ -2,67 +2,18 @@
 //  AddRunView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 6/23/23.
+//  Created by Justin on 6/21/23.
 //
 
 import SwiftUI
 
-struct AddRunView: View {
+struct EditRunView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
-    
-    @State private var scoutName = ""
-    @State private var platform = ""
+    @Bindable var towerRun: TowerRun
+
     private let platforms = ["PS5", "PC"]
-    
-    // Weapon Related Variables
-    @State private var weaponName = ""
-    @State private var weaponLevel = 0
-    @State private var altFireName = ""
-    @State private var altFireLevel = 0
-    @State private var weaponTraits = [String]()
-    
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Launcher", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
-    
-    var altFires: [AltFire] {
-        return AddRunView.getAllAltFires()
-    }
-    
-    // Artifacts
-    @State private var artifactName = ""
-    @State private var artifactDescription = ""
-    
-    var artifactNames: [String] {
-        return AddRunView.getAllArtifactNames()
-    }
-    
-    // Parasites
-    @State private var parasiteName = ""
-    @State private var parasitePositiveEffectDescription = ""
-    @State private var parasiteNegativeEffectDescription = ""
-    
-    // Stats
-    @State private var weaponDamageStat = 0.0
-    @State private var protectionStat = 0.0
-    @State private var profiencyRate = 0.0
-    @State private var repairEffiency = 0.0
-    @State private var altFireCooldown = 0.0
-    
-    // Malfunctions
-    @State private var malfunctionDescription = ""
-    @State private var malfunctionRemoveCondition = ""
-    
-    // Score Related Variables
-    @State private var score = 0
-    @State private var multiplier = 0.0
-    @State private var averageMutliplier = 0.0
-    
-    // Phase and Room
-    @State private var phase = 0
-    @State private var room = 0
-    
-    // Date
-    @State private var dateCompleted = Date.now
     
     var body: some View {
         NavigationView {
@@ -70,8 +21,8 @@ struct AddRunView: View {
                 Form {
                     // MARK: - Scoutname
                     Section {
-                        TextField("Enter Scout Name", text: $scoutName)
-                        Picker("Select Platform", selection: $platform) {
+                        TextField("Enter Scout Name", text: $towerRun.scoutName)
+                        Picker("Select Platform", selection: $towerRun.platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0).tag($0)
                             }
@@ -82,33 +33,32 @@ struct AddRunView: View {
                     
                     // MARK: - Weapon and weapon details
                     Section {
-                        Picker("Weapon Name", selection: $weaponName) {
+                        TextField("Weapon Name", text: $towerRun.weapon.name)
+                        
+                        Picker("Weapon Name", selection: $towerRun.weapon.name) {
                             ForEach(weaponNames, id: \.self) { weaponName in
                                 Text("\(weaponName)").tag(weaponName)
                             }
                         }
                         
-                        Picker("Weapon Level", selection: $weaponLevel) {
+                        Picker("Weapon Level", selection: $towerRun.weapon.level) {
                             ForEach(1..<46) {
                                 Text("\($0)").tag($0)
                             }
                         }
                         
-                        Picker("Weapon Alt-Fire", selection: $altFireName) {
-                            ForEach(altFires, id: \.self) { altFire in
-                                Text(altFire.name).tag(altFire.name)
-                            }
-                        }
                         
-                        Picker("Weapon Alt-Fire Level", selection: $altFireLevel) {
+                        TextField("Weapon Alt-Fire", text: $towerRun.weapon.altFire.name)
+                        
+                        Picker("Weapon Alt-Fire Level", selection: $towerRun.weapon.altFire.level) {
                             ForEach(1..<4) {
                                 Text("\($0)").tag($0)
                             }
                         }
                         
-//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[0].name)
-//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[1].name)
-//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[2].name)
+                        TextField("Weapon Trait", text: $towerRun.weapon.traits[0].name)
+                        TextField("Weapon Trait", text: $towerRun.weapon.traits[1].name)
+                        TextField("Weapon Trait", text: $towerRun.weapon.traits[2].name)
                         
                     } header: {
                         Text("Enter Weapon Details")
@@ -116,11 +66,8 @@ struct AddRunView: View {
                     
                     // MARK: - Artifacts
                     Section {
-                        Picker("Artifacts", selection: $artifactName) {
-                            ForEach(artifactNames, id:\.self) { artifactName in
-                                Text(artifactName).tag(artifactName)
-                            }
-                        }
+                        TextField("Artifact Name", text: $towerRun.artifacts[0].name)
+                        TextField("Artifact Description", text: $towerRun.artifacts[0].artifactDescription)
                     } header: {
                         Text("Enter Artifacts")
                     }
@@ -128,36 +75,35 @@ struct AddRunView: View {
                     
                     // MARK: - Parasites
                     Section {
-                        TextField("Parasite Name", text: $parasiteName)
-                        TextField("Parasite Positive Effect", text: $parasitePositiveEffectDescription)
-                        TextField("Parasite Negative Effect", text: $parasiteNegativeEffectDescription)
+                        TextField("Parasite Name", text: $towerRun.parasites[0].name)
+                        TextField("Parasite Positive Effect", text: $towerRun.parasites[0].positiveDescription)
+                        TextField("Parasite Negative Effect", text: $towerRun.parasites[0].negativeDescription)
                     } header: {
                         Text("Enter Parasite Details")
                     }
                     
                     // MARK: - Stats
                     Section {
-                        Stepper("Weapon Damage \(weaponDamageStat.formatted())%", value: $weaponDamageStat, in: 10...150, step: 5)
-                        Stepper("Protection \(protectionStat.formatted())%", value: $protectionStat, in: 10...150, step: 5)
-                        Stepper("Repair Effiency \(repairEffiency.formatted())%", value: $repairEffiency, in: 10...150, step: 5)
-                        Stepper("Alt-Fire Cooldown \(altFireCooldown.formatted())%", value: $altFireCooldown, in: 10...150, step: 5)
-                        Stepper("Profiency Rate \(profiencyRate.formatted())%", value: $profiencyRate, in: 10...150, step: 5)
-                        
+                        TextField("Weapon Damage", value: $towerRun.stats[0].weaponDamage, format: .percent)
+                        TextField("Protection", value: $towerRun.stats[1].protection, format: .percent)
+                        TextField("Profiency Rate", value: $towerRun.stats[2].profiencyRate, format: .percent)
+                        TextField("Repair Effiency", value: $towerRun.stats[3].repairEffiency, format: .percent)
+                        TextField("Alt-Fire Cooldown", value: $towerRun.stats[4].altFireCoolDown, format: .percent)
                     } header: {
                         Text("Enter Stat Details")
                     }
                     
                     // MARK: - Malfunctions
                     Section {
-                        TextField("Malfunction Description", text: $malfunctionDescription)
-                        TextField("Malfunction Remove Condition", text: $malfunctionRemoveCondition)
+                        TextField("Malfunction Description", text: $towerRun.malfunctions[0].malfunctionDescription)
+                        TextField("Malfunction Remove Condition", text: $towerRun.malfunctions[0].conditionToRemove)
                     } header: {
                         Text("Enter Malfunction Details")
                     }
                     
                     // MARK: - Score
                     Section {
-                        TextField("Score", value: $score, format: .number)
+                        TextField("Score", value: $towerRun.score, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Your Score")
@@ -165,9 +111,9 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Mutliplier", value: $multiplier, format: .percent)
+                        TextField("Mutliplier", value: $towerRun.multiplier, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Average Multiplier", value: $averageMutliplier, format: .percent)
+                        TextField("Average Multiplier", value: $towerRun.averageMultiplier, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Multiplier Details")
@@ -175,9 +121,9 @@ struct AddRunView: View {
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Phase", value: $phase, format: .number)
+                        TextField("Phase", value: $towerRun.phase, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Room", value: $room, format: .number)
+                        TextField("Room", value: $towerRun.room, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Phase and Room Details")
@@ -185,7 +131,7 @@ struct AddRunView: View {
                     
                     // MARK: - Date completed
                     Section {
-                        DatePicker("", selection: $dateCompleted)
+                        DatePicker("", selection: $towerRun.dateCompleted)
                             .labelsHidden()
                     } header: {
                         Text("Enter The Date and Time Information")
@@ -193,13 +139,10 @@ struct AddRunView: View {
                 }
             }
         }
-//        Button("Done") {
-//            
-//            
-//            
-////            modelContext.insert(towerRun)
-//            dismiss()
-//        }
+        Button("Done") {
+            modelContext.insert(towerRun)
+            dismiss()
+        }
     }
     
     private func getAllParasites() -> [Parasite] {
@@ -215,18 +158,12 @@ struct AddRunView: View {
         let latchingOddkeeper = Parasite(name: "Latching Oddkeeper", positiveDescription: "20% chance to not lose a Consumable on use.", negativeDescription: "Suffer damage when using Atropian Keys.")
         let atrophyingWireseker = Parasite(name: "Atrophying Wireseeker", positiveDescription: "Fixes or prevents x1 Malfunction, detaaches afterwards.", negativeDescription: "Reduces Melee Damage by 50%.")
         
-        parasites.append(benignScabshell)
-        parasites.append(benignRotnose)
-        parasites.append(destablilizingFirespur)
-        parasites.append(barbedHuskweaver)
-        parasites.append(constrictingSagetooth)
-        parasites.append(latchingOddkeeper)
-        parasites.append(atrophyingWireseker)
+        
         
         return parasites
     }
     
-    static private func getAllArtifacts() -> [Artifact] {
+    private func getAllArtifacts() -> [Artifact] {
         var artifacts = [Artifact]()
         
         let phantomLimb = Artifact(name: "Phantom Limb", artifactDescription: "Eliminating hostiles has a 10% chance to repair Integrity.")
@@ -279,60 +216,15 @@ struct AddRunView: View {
         return artifacts
     }
     
-    static private func getAllArtifactNames() -> [String] {
-        var artifactNames = [String]()
-        
-        for artifact in getAllArtifacts() {
-            artifactNames.append(artifact.name)
-        }
-        
-        return artifactNames
-    }
-    
-    static private func getAllAltFires() -> [AltFire] {
+    private func getAllAltFires() -> [AltFire] {
         var altFires = [AltFire]()
-        
-        let blastShell = AltFire(name: "Blast Shell", level: 3, altFireDescription: "Lobs a grenade-light projectile that explodes on contact with an enemy, or after enough time has passed.")
-        
-        let doomBringer = AltFire(name: "Doom Bringer", level: 3, altFireDescription: "A chargeable attack that create a large, slow-moving orb that damages anything near it. Detonates in a large explosion once it hits an enemy, or travels far enough. Can destroy red shields; if it his a shield, it may bounce to a new angle.")
-        
-        let horizontalBarrage = AltFire(name: "Horizontal Barrage", level: 3, altFireDescription: "Creates a large, horizontal array of projectiles that do modest amounts of damage. If nothing is hit, it will bounce a bit.")
-        
-        let killSight = AltFire(name: "Killsight", level: 3, altFireDescription: "A sniper-like attack that, if used against the weak spot of an enemy, will do significant amounts of damage.")
-        
-        let proximityMine = AltFire(name: "Proximity Mine", level: 3, altFireDescription: "Lobs a mine that will explode if an enemy comes close enough to it, or enough time has passed.")
-        
-        let shieldBreaker = AltFire(name: "Shield Breaker", level: 3, altFireDescription: "A powerful beam that can destroy red shields and damage enemies using them.")
-        
-        let shockStream = AltFire(name: "Shockstream", level: 3, altFireDescription: "A long, continuous short-range electrical attack that randomly targets things in front of you. Great against packs of enemies.")
-        
-        let tendrilpod = AltFire(name: "Tendrilpod", level: 3, altFireDescription: "Lobs a tentacle creature that does damage over time to whatever enemy is close to it. Seems to stick to enemies if hit, otherwise can do damage to things in its vicinity.")
-        
-        let trackerSwarm = AltFire(name: "Trackerswarm", level: 3, altFireDescription: "Fires a cluster of homing bullets that zero-in on the nearest target.")
-        
-        let verticalBarrage = AltFire(name: "Vertical Barrage", level: 3, altFireDescription: "Like the Horizontal Barrage, but instead fires a 'wall' of projectiles stacked top to bottom.")
-        
-        let voidBeam = AltFire(name: "Voidbeam", level: 3, altFireDescription: "A long, continuous beam that deals increasing damage if kept on a single target.")
-        
-        altFires.append(blastShell)
-        altFires.append(doomBringer)
-        altFires.append(horizontalBarrage)
-        altFires.append(killSight)
-        altFires.append(proximityMine)
-        altFires.append(shieldBreaker)
-        altFires.append(shockStream)
-        altFires.append(tendrilpod)
-        altFires.append(trackerSwarm)
-        altFires.append(verticalBarrage)
-        altFires.append(voidBeam)
         
         return altFires
     }
-    
+        
 }
 
-#Preview {
-    AddRunView()
-        .modelContainer(for: TowerRun.self)
-}
-
+//#Preview {
+//    AddRunView(towerRun: <#TowerRun#>)
+//        .modelContainer(for: TowerRun.self)
+//}
