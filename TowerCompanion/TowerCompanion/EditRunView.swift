@@ -159,6 +159,13 @@ struct EditRunView: View {
         let atrophyingWireseker = Parasite(name: "Atrophying Wireseeker", positiveDescription: "Fixes or prevents x1 Malfunction, detaaches afterwards.", negativeDescription: "Reduces Melee Damage by 50%.")
         
         
+        parasites.append(benignScabshell)
+        parasites.append(benignRotnose)
+        parasites.append(destablilizingFirespur)
+        parasites.append(barbedHuskweaver)
+        parasites.append(constrictingSagetooth)
+        parasites.append(latchingOddkeeper)
+        parasites.append(atrophyingWireseker)
         
         return parasites
     }

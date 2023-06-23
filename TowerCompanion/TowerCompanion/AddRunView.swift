@@ -38,8 +38,14 @@ struct AddRunView: View {
     
     // Parasites
     @State private var parasiteName = ""
-    @State private var parasitePositiveEffectDescription = ""
-    @State private var parasiteNegativeEffectDescription = ""
+    @State private var parasitePositiveEffectDescription = "Positive Effect description will go here"
+    @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
+    @State private var numberOfParasites = 1
+    @State private var isPlacerHolderTextForParasiteDescriptions = true
+    
+    private var parasiteNames: [String] {
+        return AddRunView.getAllParasiteNames()
+    }
     
     // Stats
     @State private var weaponDamageStat = 0.0
@@ -128,9 +134,22 @@ struct AddRunView: View {
                     
                     // MARK: - Parasites
                     Section {
-                        TextField("Parasite Name", text: $parasiteName)
-                        TextField("Parasite Positive Effect", text: $parasitePositiveEffectDescription)
-                        TextField("Parasite Negative Effect", text: $parasiteNegativeEffectDescription)
+                        Picker("Parasites", selection: $parasiteName) {
+                            ForEach(parasiteNames, id:\.self) { parasiteName in
+                                Text(parasiteName).tag(parasiteName)
+                            }
+                        }
+                        .onChange(of: parasiteName) {
+                            isPlacerHolderTextForParasiteDescriptions = false
+                            parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).0
+                            parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).1
+                        }
+                        
+                        Text(parasitePositiveEffectDescription)
+                            .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .black)
+                        Text(parasiteNegativeEffectDescription)
+                            .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .black)
+                        
                     } header: {
                         Text("Enter Parasite Details")
                     }
@@ -202,7 +221,7 @@ struct AddRunView: View {
 //        }
     }
     
-    private func getAllParasites() -> [Parasite] {
+    static private func getAllParasites() -> [Parasite] {
         var parasites = [Parasite]()
         
         // MARK: - TODO
@@ -224,6 +243,26 @@ struct AddRunView: View {
         parasites.append(atrophyingWireseker)
         
         return parasites
+    }
+    
+    private func getParasiteEffectDescriptions(parasiteName: String) -> (String, String) {
+        let parasites = AddRunView.getAllParasites()
+        
+        let parasite = parasites.first(where: { $0.name == parasiteName })!
+        
+        return (parasite.positiveDescription, parasite.negativeDescription)
+    }
+    
+    static private func getAllParasiteNames() -> [String] {
+        var parasiteNames = [String]()
+        
+        let parasites = getAllParasites()
+        
+        for parasite in parasites {
+            parasiteNames.append(parasite.name)
+        }
+        
+        return parasiteNames
     }
     
     static private func getAllArtifacts() -> [Artifact] {
