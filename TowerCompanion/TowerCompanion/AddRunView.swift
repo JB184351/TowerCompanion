@@ -177,7 +177,7 @@ struct AddRunView: View {
                     // MARK: - Score
                     Section {
                         TextField("Score", value: $score, format: .number)
-                            .keyboardType(.decimalPad)
+                            .keyboardType(.numberPad)
                     } header: {
                         Text("Enter Your Score")
                     }
