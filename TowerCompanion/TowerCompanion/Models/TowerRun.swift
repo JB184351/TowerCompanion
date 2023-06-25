@@ -15,17 +15,18 @@ final class TowerRun: Identifiable {
     var weapon: Weapon
     var artifacts: [Artifact]
     var parasites: [Parasite]
-    var stats: [Stat]
+    var stats: Stats
     var malfunctions: [Malfunction]
     var score: Int
     var multiplier: Double
     var averageMultiplier: Double
+    var highestMultiplier: Double
     var phase: Int
     var room: Int
     var platform: String
     var dateCompleted: Date
     
-    init(scoutName: String, weapon: Weapon, artifacts: [Artifact], parasites: [Parasite], stats: [Stat], malfunctions: [Malfunction], score: Int, multiplier: Double, averageMultiplier: Double, phase: Int, room: Int, platform: String, dateCompleted: Date) {
+    init(scoutName: String, weapon: Weapon, artifacts: [Artifact], parasites: [Parasite], stats: Stats, malfunctions: [Malfunction], score: Int, multiplier: Double, averageMultiplier: Double, highestMultplier: Double, phase: Int, room: Int, platform: String, dateCompleted: Date) {
         self.scoutName = scoutName
         self.weapon = weapon
         self.artifacts = artifacts
@@ -35,6 +36,7 @@ final class TowerRun: Identifiable {
         self.score = score
         self.multiplier = multiplier
         self.averageMultiplier = averageMultiplier
+        self.highestMultiplier = highestMultplier
         self.phase = phase
         self.room = room
         self.platform = platform

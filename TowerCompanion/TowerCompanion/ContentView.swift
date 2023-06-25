@@ -18,6 +18,14 @@ struct ContentView: View {
             List {
                 ForEach(towerRuns, id: \.id) { run in
                     Text("\(run.scoutName)")
+                    Text("Total Score was: \(run.score)")
+                    Text("Phase: \(run.phase)")
+                    Text("Room: \(run.room)")
+                    Text("Multiplier: \(run.multiplier.formatted())%")
+                    Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
+                    Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
+                    Spacer()
+                    Spacer()
                 }
             }
             .navigationTitle("TowerRuns")

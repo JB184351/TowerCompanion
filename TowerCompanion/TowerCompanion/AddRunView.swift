@@ -20,7 +20,9 @@ struct AddRunView: View {
     @State private var weaponLevel = 0
     @State private var altFireName = ""
     @State private var altFireLevel = 0
-    @State private var weaponTraits = [String]()
+    @State private var altFIreDescription = ""
+    @State private var weaponTraitNames = [String]()
+    @State private var weaponTraitLevel = 1
     
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Launcher", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
     
@@ -62,6 +64,7 @@ struct AddRunView: View {
     @State private var score = 0
     @State private var multiplier = 0.0
     @State private var averageMutliplier = 0.0
+    @State private var highestMultplier = 0.0
     
     // Phase and Room
     @State private var phase = 0
@@ -112,9 +115,16 @@ struct AddRunView: View {
                             }
                         }
                         
-//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[0].name)
-//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[1].name)
-//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[2].name)
+                        // MARK: - TODO
+                        // Add Weapon Trait Selection Based on Weapon Selection
+//                        Picker("Weapon Traits", selection: $weaponTraits) {
+//                            ForEach(weaponTraits, id: \.self) { weaponTrait in
+//                                Text(weaponTrait).tag(weaponTrait)
+//                            }
+//                        }
+//                        .onChange(of: $weaponName) { oldValue, newValue in
+//                            weaponTraits = getWeaponTraits(from: weaponName)
+//                        }
                         
                     } header: {
                         Text("Enter Weapon Details")
@@ -211,14 +221,15 @@ struct AddRunView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button("Add") {
+                        addTowerRun()
+                        dismiss()
+                    }
+                }
+            }
         }
-//        Button("Done") {
-//            
-//            
-//            
-////            modelContext.insert(towerRun)
-//            dismiss()
-//        }
     }
     
     static private func getAllParasites() -> [Parasite] {
@@ -366,6 +377,67 @@ struct AddRunView: View {
         altFires.append(voidBeam)
         
         return altFires
+    }
+    
+    private func getWeaponTraits(from weaponName: String) -> [String] {
+        if weaponName == "Modified Sidearm SD-M8" {
+            return ["Homing Missile", "Ricochet", "Snubnose Barrel", "Piercing", "Burst Fire", "Sharpnel", "Charging Shot", "Serrated Projectiles", "Hit Reload"]
+        } else if weaponName == "Tachyomatic Carbine" {
+            return ["Armor Piercing", "Critical Hit", "Hardened", "High Caliber", "Rising Pithc", "Payload Rounds", "Leech Rounds", "Hypter-Accurate", "Accelerated"]
+        } else if weaponName == "Spitmaw Blaster" {
+            return ["Wide Maw", "Narrow Maw", "Slug Shot", "Explosive Spitter", "Rapid Spitter", "Backsplash", "Critical Stagger", "Piercing Spit", "Acid Clouds"]
+        } else if weaponName == "Pyroshell Caster" {
+            return ["Streamlined Chamber", "Secondary Explosion", "Bouncy Projectiles", "Sticky Bonus", "Seeking Flares", "Enlarged Chamber", "Anti-Gravity Projectiles", "Auxiliary Projectiles", "Simmering Explosion"]
+        } else if weaponName == "Coilspine Shredder" {
+            return ["Alt-Fire Cooling", "Shattering Discs", "Adrenaline Discs", "Enlarged Chamber", "Twin Discs", "Retarget", "Splitting Discs", "Enhanced Charge", "Negating Discs"]
+        } else if weaponName == "Thermogenic Launcher" {
+            return ["Easy To Use", "Obolite Magnet", "Critical Rockets", "Enlarged Chamber", "Replicating Hits", "Mega Rocket", "Full Auto", "Thermite Rockets", "Tail Fire"]
+        } else if weaponName == "Electropylon Driver" {
+            return ["Obolite Extractor", "Silphium Extractor", "Pylon Web", "Finisher", "Streamlined Chamber", "Enlarged Chamber", "Blade Harmonizer", "Blade Pulse", "Protective Pylons"]
+        } else if weaponName == "Rotgland Lobber" {
+            return ["Durable Rot", "Trailing Rot", "Bouncing Rot", "Enlarged Chamber", "Explosive Rot", "Protective Rot", "Caustic Rot", "Tendril Rot", "Portal Rot"]
+        } else if weaponName == "HollowSeeker" {
+            return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Sharpnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
+        } else if weaponName == "Dreadbound" {
+            return ["Fourth Shard", "Obolite Magnet", "Staggering", "Proection Steal", "Expanding Shards", "Returning Damage", "Explosive Shards", "Damage Steal", "Obolite Generator"]
+        } else {
+            return []
+        }
+    }
+    
+    func addTowerRun() {
+        let altFire = AltFire(name: altFireName, level: altFireLevel, altFireDescription: altFIreDescription)
+        
+        var weaponTraits = [Trait]()
+        
+        for weaponTraitName in weaponTraitNames {
+            let weaponTrait = Trait(name: weaponTraitName, traitDescription: "", level: weaponTraitLevel)
+            weaponTraits.append(weaponTrait)
+        }
+        
+        let weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
+        
+        var artifacts = [Artifact]()
+        
+        for artifactName in artifactNames {
+            let artifact = Artifact(name: artifactName, artifactDescription: "")
+            artifacts.append(artifact)
+        }
+        
+        var parasites = [Parasite]()
+        
+        let parasite = Parasite(name: parasiteName, positiveDescription: parasitePositiveEffectDescription, negativeDescription: parasiteNegativeEffectDescription)
+        parasites.append(parasite)
+        
+        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, profiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
+        
+        var malfunctions = [Malfunction]()
+        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemoveCondition)
+        malfunctions.append(malfunction)
+        
+        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
+        
+        modelContext.insert(towerRun)
     }
     
 }
