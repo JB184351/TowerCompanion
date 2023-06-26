@@ -319,6 +319,21 @@ struct AddRunView: View {
         let silverskin = ["Silverskin" : "Discounts one item by 30%, detaches afterwards."]
         let wireseeker = ["Wireseeker" : "Prevents an upcoming Malfunction or removes an existing Malfunction once, detaches afterward."]
         
+        let negativeActivePrefixes: [[String: String]] = [amnesic, festering, jolting, rupturing, shocking, sparking]
+        let positiveActiveSuffixes: [[String: String]] = [firestinger, lockerfeeder, rotskin, scrapfeeder, shatterskin, silverskin, wireseeker]
+        
+        for negativeActivePrefix in negativeActivePrefixes {
+            for positiveActiveSuffix in positiveActiveSuffixes {
+                for negativeKey in negativeActivePrefix {
+                    for positiveKey in positiveActiveSuffix {
+                        let parasiteName = negativeKey.key + " " + positiveKey.key
+                        let parasite = Parasite(name: parasiteName, positiveDescription: positiveKey.value, negativeDescription: negativeKey.value)
+                        parasites.append(parasite)
+                    }
+                }
+            }
+        }
+        
         parasites.sort { $0.name < $1.name }
         
         return parasites
