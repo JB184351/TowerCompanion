@@ -408,6 +408,7 @@ struct AddRunView: View {
         artifacts.append(pulsatingMass)
         artifacts.append(unifiedPod)
         
+        artifacts.sort { $0.name < $1.name }
         
         return artifacts
     }
