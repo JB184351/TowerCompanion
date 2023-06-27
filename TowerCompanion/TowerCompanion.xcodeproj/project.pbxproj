@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30011E3D2A4A5AF6008F4F10 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30011E3C2A4A5AF6008F4F10 /* Test.swift */; };
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30011E3C2A4A5AF6008F4F10 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				300D83352A463F3F007F5EB4 /* AddRunView.swift */,
+				30011E3C2A4A5AF6008F4F10 /* Test.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
 				30BC72112A354FF000F0E49B /* Preview Content */,
@@ -183,6 +186,7 @@
 				30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				30A7F7C82A37CF55003AB0B3 /* Malfunction.swift in Sources */,
+				30011E3D2A4A5AF6008F4F10 /* Test.swift in Sources */,
 				30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */,
 				30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */,
 				30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */,

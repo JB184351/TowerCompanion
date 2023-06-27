@@ -21,10 +21,13 @@ struct AddRunView: View {
     @State private var altFireName = ""
     @State private var altFireLevel = 0
     @State private var altFIreDescription = ""
-    @State private var weaponTraitNames = [String]()
     @State private var weaponTraitLevel = 1
+    @State private var weaponTraitNamesUsedInRun = [String]()
+    @State private var weaponTraitName = ""
     
-    private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Launcher", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
+    private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
+    
+   @State private var weaponTraitNames = [String]()
     
     var altFires: [AltFire] {
         return AddRunView.getAllAltFires()
@@ -117,14 +120,23 @@ struct AddRunView: View {
                         
                         // MARK: - TODO
                         // Add Weapon Trait Selection Based on Weapon Selection
-//                        Picker("Weapon Traits", selection: $weaponTraits) {
-//                            ForEach(weaponTraits, id: \.self) { weaponTrait in
-//                                Text(weaponTrait).tag(weaponTrait)
-//                            }
-//                        }
-//                        .onChange(of: $weaponName) { oldValue, newValue in
-//                            weaponTraits = getWeaponTraits(from: weaponName)
-//                        }
+                        Picker("Weapon Traits", selection: $weaponTraitName) {
+                            ForEach(weaponTraitNames, id: \.self) { weaponTrait in
+                                Text(weaponTrait).tag(weaponTrait)
+                            }
+                        }
+                        .onAppear() {
+                            weaponTraitNames = getWeaponTraits(from: "Modified Sidearm SD-M8")
+                        }
+                        .onChange(of: weaponName) { oldValue, newValue in
+                            weaponTraitNames = getWeaponTraits(from: weaponName)
+                        }
+                        
+                        Picker("Weapon Trait Level", selection: $weaponTraitLevel) {
+                            ForEach(1..<4) {
+                                Text("\($0)").tag($0)
+                            }
+                        }
                         
                     } header: {
                         Text("Enter Weapon Details")
@@ -480,7 +492,7 @@ struct AddRunView: View {
             return ["Obolite Extractor", "Silphium Extractor", "Pylon Web", "Finisher", "Streamlined Chamber", "Enlarged Chamber", "Blade Harmonizer", "Blade Pulse", "Protective Pylons"]
         } else if weaponName == "Rotgland Lobber" {
             return ["Durable Rot", "Trailing Rot", "Bouncing Rot", "Enlarged Chamber", "Explosive Rot", "Protective Rot", "Caustic Rot", "Tendril Rot", "Portal Rot"]
-        } else if weaponName == "HollowSeeker" {
+        } else if weaponName == "Hollowseeker" {
             return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Sharpnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
         } else if weaponName == "Dreadbound" {
             return ["Fourth Shard", "Obolite Magnet", "Staggering", "Proection Steal", "Expanding Shards", "Returning Damage", "Explosive Shards", "Damage Steal", "Obolite Generator"]
