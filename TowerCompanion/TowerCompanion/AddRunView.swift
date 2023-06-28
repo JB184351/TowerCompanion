@@ -27,7 +27,7 @@ struct AddRunView: View {
     
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
     
-   @State private var weaponTraitNames = [String]()
+    @State private var weaponTraitNames = [String]()
     
     var altFires: [AltFire] {
         return AddRunView.getAllAltFires()
@@ -36,6 +36,9 @@ struct AddRunView: View {
     // Artifacts
     @State private var artifactName = ""
     @State private var artifactDescription = ""
+    @State private var pickerCount = 1
+    @State private var artifactNamesUsedInRun = [String]()
+    @State private var artifactsUsedInRun = [Artifact]()
     
     var artifactNames: [String] {
         return AddRunView.getAllArtifactNames()
@@ -142,15 +145,11 @@ struct AddRunView: View {
                         Text("Enter Weapon Details")
                     }
                     
-                    // MARK: - Artifacts
+                    // MARK: - Artifact View
                     Section {
-                        Picker("Artifacts", selection: $artifactName) {
-                            ForEach(artifactNames, id:\.self) { artifactName in
-                                Text(artifactName).tag(artifactName)
-                            }
-                        }
+                        ArtifactView()
                     } header: {
-                        Text("Enter Artifacts")
+                        Text("Add Aritfacts Here")
                     }
                     
                     
@@ -241,6 +240,18 @@ struct AddRunView: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func addPicker() {
+        pickerCount += 1
+        artifactNamesUsedInRun.append(artifactName) // Default selection for newly added picker
+    }
+    
+    private func storeValues() {
+        for (index, _) in artifactNamesUsedInRun.enumerated() {
+            let artifact = Artifact(name: artifactNamesUsedInRun[index], artifactDescription: "")
+            artifactsUsedInRun.append(artifact)
         }
     }
     
