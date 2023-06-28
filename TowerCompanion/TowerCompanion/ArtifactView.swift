@@ -23,7 +23,7 @@ struct ArtifactView: View {
         "Silver Lattice",
         "Adrenaline Coolant",
         "Disrupting Overloads",
-        "Blown Night",
+        "Blown Nightlight",
         "Golden Coil",
         "Recharging Response",
         "Energy Manipulator",
@@ -46,7 +46,7 @@ struct ArtifactView: View {
     
     var body: some View {
         Section {
-            ForEach(0..<pickerCount, id: \.self) { index in
+            ForEach(0..<1, id: \.self) { index in
                 Picker("Select an item", selection: Binding(
                     get: { artifactNames[index] },
                     set: { artifactNames[index] = $0 }
@@ -59,11 +59,6 @@ struct ArtifactView: View {
         }
         
         Section {
-            Button("Add Picker") {
-                addPicker()
-            }
-            .disabled(artifactsUsedInRun.count == 15)
-            
             Button("Add Artifact(s)") {
                 addArtifact()
             }
@@ -82,15 +77,12 @@ struct ArtifactView: View {
         }
     }
     
-    private func addPicker() {
-        pickerCount += 1
-    }
-    
     private func addArtifact() {
-        print(artifactNamesUsedInRun)
         for (index, _) in artifactNamesUsedInRun.enumerated() {
             let artifact = Artifact(name: artifactNames[index], artifactDescription: "")
             artifactsUsedInRun.append(artifact)
+            
+            artifactNames.remove(at: index)
         }
     }
     
