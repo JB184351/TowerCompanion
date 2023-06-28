@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtifactView: View {
+struct AddArtifactView: View {
     @State private var pickerCount = 1
     @State private var artifactName = ""
     @State private var artifactDescription = ""
@@ -94,5 +94,5 @@ struct ArtifactView: View {
 }
 
 #Preview {
-    ArtifactView()
+    AddArtifactView()
 }
