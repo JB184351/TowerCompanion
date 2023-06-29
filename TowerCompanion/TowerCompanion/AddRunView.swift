@@ -81,57 +81,14 @@ struct AddRunView: View {
                             }
                         }
                     } header: {
-                        Text("Enter Scout Name")
+                        Text("Enter Scout Details")
                     }
                     
                     // MARK: - Weapon and weapon details
                     Section {
-                        Picker("Weapon Name", selection: $weaponName) {
-                            ForEach(weaponNames, id: \.self) { weaponName in
-                                Text("\(weaponName)").tag(weaponName)
-                            }
-                        }
-                        
-                        Picker("Weapon Level", selection: $weaponLevel) {
-                            ForEach(1..<46) {
-                                Text("\($0)").tag($0)
-                            }
-                        }
-                        
-                        Picker("Weapon Alt-Fire", selection: $altFireName) {
-                            ForEach(altFires, id: \.self) { altFire in
-                                Text(altFire.name).tag(altFire.name)
-                            }
-                        }
-                        
-                        Picker("Weapon Alt-Fire Level", selection: $altFireLevel) {
-                            ForEach(1..<4) {
-                                Text("\($0)").tag($0)
-                            }
-                        }
-                        
-                        // MARK: - TODO
-                        // Add Weapon Trait Selection Based on Weapon Selection
-                        Picker("Weapon Traits", selection: $weaponTraitName) {
-                            ForEach(weaponTraitNames, id: \.self) { weaponTrait in
-                                Text(weaponTrait).tag(weaponTrait)
-                            }
-                        }
-                        .onAppear() {
-                            weaponTraitNames = getWeaponTraits(from: "Modified Sidearm SD-M8")
-                        }
-                        .onChange(of: weaponName) { oldValue, newValue in
-                            weaponTraitNames = getWeaponTraits(from: weaponName)
-                        }
-                        
-                        Picker("Weapon Trait Level", selection: $weaponTraitLevel) {
-                            ForEach(1..<4) {
-                                Text("\($0)").tag($0)
-                            }
-                        }
-                        
+                        AddWeaponView()
                     } header: {
-                        Text("Enter Weapon Details")
+                        Text("Add Weapon Details")
                     }
                     
                     // MARK: - Artifact View

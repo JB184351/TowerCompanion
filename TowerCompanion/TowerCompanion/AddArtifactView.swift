@@ -70,7 +70,7 @@ struct AddArtifactView: View {
             .disabled(artifactsUsedInRun.count < 1)
         }
         
-        Section(header: Text("Stored Values")) {
+        Section(header: Text("Artifacts")) {
             ForEach(artifactsUsedInRun, id: \.name) { artifact in
                 Text("\(artifact.name)")
             }
