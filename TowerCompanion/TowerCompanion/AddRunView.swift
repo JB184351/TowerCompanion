@@ -66,7 +66,7 @@ struct AddRunView: View {
                         Text("Enter Scout Details")
                     }
                     
-                    // MARK: - Weapon and weapon details
+                    // MARK: - Weapon
                     Section {
                         AddWeaponView()
                     } header: {
