@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Parasite: Codable {
+struct Parasite: Codable, Hashable {
     var name: String
     var positiveDescription: String
     var negativeDescription: String

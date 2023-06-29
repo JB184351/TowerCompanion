@@ -85,7 +85,7 @@ struct AddRunView: View {
                     Section {
                         AddParasitesView()
                     } header: {
-                        Text("Add Parasite(s)")
+                        Text("Add Parasite(s) (Can Add Up to 5)")
                     }
                     
                     // MARK: - Stats

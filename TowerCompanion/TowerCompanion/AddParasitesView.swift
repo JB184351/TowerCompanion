@@ -12,32 +12,92 @@ struct AddParasitesView: View {
     @State private var parasitePositiveEffectDescription = "Positive Effect description will go here"
     @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
     @State private var numberOfParasites = 1
-    @State private var isPlacerHolderTextForParasiteDescriptions = true
+    @State private var isPlaceHolderEnabled = true
     @State private var parasites = [Parasite]()
+    @State private var parasiteNamesUsedInRun = [String]()
+    @State private var pickerCount = 1
+    @State private var nonComputedParasiteNames = [String]()
     
     private var parasiteNames: [String] {
         return AddParasitesView.getAllParasiteNames()
     }
     
+    init() {
+        _parasiteNamesUsedInRun = State(initialValue: Array(repeating: "", count: 1))
+        _nonComputedParasiteNames = State(initialValue: Array(repeating: "", count: 1))
+    }
+    
     var body: some View {
-        Form {
-            Picker("Parasites", selection: $parasiteName) {
-                ForEach(parasiteNames, id:\.self) { parasiteName in
-                    Text(parasiteName).tag(parasiteName)
+            ForEach(0..<1, id: \.self) { index in
+                Picker("Parasites", selection: Binding(
+                    get: { nonComputedParasiteNames[index] },
+                    set: { nonComputedParasiteNames[index] = $0 }
+                )) {
+                    ForEach(nonComputedParasiteNames, id:\.self) { parasiteName in
+                        Text(parasiteName).tag(parasiteName)
+                    }
                 }
-            }
-            .onChange(of: parasiteName) {
-                isPlacerHolderTextForParasiteDescriptions = false
-                parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).0
-                parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).1
+                .onAppear {
+                    nonComputedParasiteNames = parasiteNames
+                }
+                .onChange(of: nonComputedParasiteNames[index]) {
+                    isPlaceHolderEnabled = false
+                    parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: nonComputedParasiteNames[index]).0
+                    parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: nonComputedParasiteNames[index]).1
+                }
             }
             
             Text(parasitePositiveEffectDescription)
-                .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .green)
+                .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .green)
             Text(parasiteNegativeEffectDescription)
-                .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .red)
+                .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .red)
             
+            Section {
+                Button("Add Parasite") {
+                    addParasite()
+                }
+                .disabled(parasites.count == 5)
+                
+                Button("Remove Selected Parasites") {
+                    clearParasites()
+                }
+                .disabled(parasites.count < 1)
+            }
+            
+            Section {
+                ForEach(parasites, id: \.self) { parasite in
+                    Text(parasite.name)
+                    Text(parasite.positiveDescription)
+                        .foregroundStyle(.green)
+                    Text(parasite.negativeDescription)
+                        .foregroundStyle(.red)
+                }
+            } header: {
+                Text("Parasites")
+            }
+    }
+    
+    private func addPicker() {
+        if !parasitePositiveEffectDescription.isEmpty {
+            pickerCount += 1
+        } else {
+            // MARK: - TODO Add Alert Message Here
+            print("We should present an alert here")
         }
+    }
+    
+    private func addParasite() {
+        for (index, _) in parasiteNamesUsedInRun.enumerated() {
+            let parasite = Parasite(name: nonComputedParasiteNames[index], positiveDescription: parasitePositiveEffectDescription, negativeDescription: parasiteNegativeEffectDescription)
+            parasites.append(parasite)
+            
+            nonComputedParasiteNames.remove(at: index)
+        }
+    }
+    
+    private func clearParasites() {
+        parasites.removeAll()
+        nonComputedParasiteNames = parasiteNames
     }
     
     static private func getAllParasites() -> [Parasite] {
@@ -150,7 +210,7 @@ struct AddParasitesView: View {
     private func getParasiteEffectDescriptions(parasiteName: String) -> (String, String) {
         let parasites = AddParasitesView.getAllParasites()
         
-        let parasite = parasites.first(where: { $0.name == parasiteName })!
+        guard let parasite = parasites.first(where: { $0.name == parasiteName }) else { return ("Cannot get positive effect", "Cannot get negative effect") }
         
         return (parasite.positiveDescription, parasite.negativeDescription)
     }

@@ -112,10 +112,6 @@ struct AddWeaponView: View {
         }
         
         let weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
-        print(weapon.name)
-        print(weapon.traits)
-        print(weapon.altFire)
-        print(weapon.level)
     }
     
     private func clearValues() {
