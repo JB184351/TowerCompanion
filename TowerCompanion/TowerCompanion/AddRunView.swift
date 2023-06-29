@@ -83,24 +83,9 @@ struct AddRunView: View {
                     
                     // MARK: - Parasites
                     Section {
-                        Picker("Parasites", selection: $parasiteName) {
-                            ForEach(parasiteNames, id:\.self) { parasiteName in
-                                Text(parasiteName).tag(parasiteName)
-                            }
-                        }
-                        .onChange(of: parasiteName) {
-                            isPlacerHolderTextForParasiteDescriptions = false
-                            parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).0
-                            parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).1
-                        }
-                        
-                        Text(parasitePositiveEffectDescription)
-                            .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .black)
-                        Text(parasiteNegativeEffectDescription)
-                            .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .black)
-                        
+                        AddParasitesView()
                     } header: {
-                        Text("Enter Parasite Details")
+                        Text("Add Parasite(s)")
                     }
                     
                     // MARK: - Stats

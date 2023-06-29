@@ -13,6 +13,7 @@ struct AddParasitesView: View {
     @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
     @State private var numberOfParasites = 1
     @State private var isPlacerHolderTextForParasiteDescriptions = true
+    @State private var parasites = [Parasite]()
     
     private var parasiteNames: [String] {
         return AddParasitesView.getAllParasiteNames()
@@ -20,26 +21,22 @@ struct AddParasitesView: View {
     
     var body: some View {
         Form {
-            Section {
-                Picker("Parasites", selection: $parasiteName) {
-                    ForEach(parasiteNames, id:\.self) { parasiteName in
-                        Text(parasiteName).tag(parasiteName)
-                    }
+            Picker("Parasites", selection: $parasiteName) {
+                ForEach(parasiteNames, id:\.self) { parasiteName in
+                    Text(parasiteName).tag(parasiteName)
                 }
-                .onChange(of: parasiteName) {
-                    isPlacerHolderTextForParasiteDescriptions = false
-                    parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).0
-                    parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).1
-                }
-                
-                Text(parasitePositiveEffectDescription)
-                    .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .green)
-                Text(parasiteNegativeEffectDescription)
-                    .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .red)
-                
-            } header: {
-                Text("Enter Parasite Details")
             }
+            .onChange(of: parasiteName) {
+                isPlacerHolderTextForParasiteDescriptions = false
+                parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).0
+                parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).1
+            }
+            
+            Text(parasitePositiveEffectDescription)
+                .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .green)
+            Text(parasiteNegativeEffectDescription)
+                .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .red)
+            
         }
     }
     
