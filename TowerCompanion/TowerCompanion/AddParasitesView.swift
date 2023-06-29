@@ -19,7 +19,28 @@ struct AddParasitesView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section {
+                Picker("Parasites", selection: $parasiteName) {
+                    ForEach(parasiteNames, id:\.self) { parasiteName in
+                        Text(parasiteName).tag(parasiteName)
+                    }
+                }
+                .onChange(of: parasiteName) {
+                    isPlacerHolderTextForParasiteDescriptions = false
+                    parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).0
+                    parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: parasiteName).1
+                }
+                
+                Text(parasitePositiveEffectDescription)
+                    .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .green)
+                Text(parasiteNegativeEffectDescription)
+                    .foregroundStyle(isPlacerHolderTextForParasiteDescriptions ? .gray.opacity(0.5) : .red)
+                
+            } header: {
+                Text("Enter Parasite Details")
+            }
+        }
     }
     
     static private func getAllParasites() -> [Parasite] {
