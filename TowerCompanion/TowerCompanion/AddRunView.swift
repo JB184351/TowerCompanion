@@ -163,7 +163,7 @@ struct AddRunView: View {
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button("Add") {
-                        addTowerRun()
+//                        addTowerRun()
                         dismiss()
                     }
                 }
@@ -298,72 +298,7 @@ struct AddRunView: View {
         return parasiteNames
     }
     
-    static private func getAllAltFires() -> [AltFire] {
-        var altFires = [AltFire]()
-        
-        let blastShell = AltFire(name: "Blast Shell", level: 3, altFireDescription: "Lobs a grenade-light projectile that explodes on contact with an enemy, or after enough time has passed.")
-        
-        let doomBringer = AltFire(name: "Doom Bringer", level: 3, altFireDescription: "A chargeable attack that create a large, slow-moving orb that damages anything near it. Detonates in a large explosion once it hits an enemy, or travels far enough. Can destroy red shields; if it his a shield, it may bounce to a new angle.")
-        
-        let horizontalBarrage = AltFire(name: "Horizontal Barrage", level: 3, altFireDescription: "Creates a large, horizontal array of projectiles that do modest amounts of damage. If nothing is hit, it will bounce a bit.")
-        
-        let killSight = AltFire(name: "Killsight", level: 3, altFireDescription: "A sniper-like attack that, if used against the weak spot of an enemy, will do significant amounts of damage.")
-        
-        let proximityMine = AltFire(name: "Proximity Mine", level: 3, altFireDescription: "Lobs a mine that will explode if an enemy comes close enough to it, or enough time has passed.")
-        
-        let shieldBreaker = AltFire(name: "Shield Breaker", level: 3, altFireDescription: "A powerful beam that can destroy red shields and damage enemies using them.")
-        
-        let shockStream = AltFire(name: "Shockstream", level: 3, altFireDescription: "A long, continuous short-range electrical attack that randomly targets things in front of you. Great against packs of enemies.")
-        
-        let tendrilpod = AltFire(name: "Tendrilpod", level: 3, altFireDescription: "Lobs a tentacle creature that does damage over time to whatever enemy is close to it. Seems to stick to enemies if hit, otherwise can do damage to things in its vicinity.")
-        
-        let trackerSwarm = AltFire(name: "Trackerswarm", level: 3, altFireDescription: "Fires a cluster of homing bullets that zero-in on the nearest target.")
-        
-        let verticalBarrage = AltFire(name: "Vertical Barrage", level: 3, altFireDescription: "Like the Horizontal Barrage, but instead fires a 'wall' of projectiles stacked top to bottom.")
-        
-        let voidBeam = AltFire(name: "Voidbeam", level: 3, altFireDescription: "A long, continuous beam that deals increasing damage if kept on a single target.")
-        
-        altFires.append(blastShell)
-        altFires.append(doomBringer)
-        altFires.append(horizontalBarrage)
-        altFires.append(killSight)
-        altFires.append(proximityMine)
-        altFires.append(shieldBreaker)
-        altFires.append(shockStream)
-        altFires.append(tendrilpod)
-        altFires.append(trackerSwarm)
-        altFires.append(verticalBarrage)
-        altFires.append(voidBeam)
-        
-        return altFires
-    }
-    
-    private func getWeaponTraits(from weaponName: String) -> [String] {
-        if weaponName == "Modified Sidearm SD-M8" {
-            return ["Homing Missile", "Ricochet", "Snubnose Barrel", "Piercing", "Burst Fire", "Sharpnel", "Charging Shot", "Serrated Projectiles", "Hit Reload"]
-        } else if weaponName == "Tachyomatic Carbine" {
-            return ["Armor Piercing", "Critical Hit", "Hardened", "High Caliber", "Rising Pithc", "Payload Rounds", "Leech Rounds", "Hypter-Accurate", "Accelerated"]
-        } else if weaponName == "Spitmaw Blaster" {
-            return ["Wide Maw", "Narrow Maw", "Slug Shot", "Explosive Spitter", "Rapid Spitter", "Backsplash", "Critical Stagger", "Piercing Spit", "Acid Clouds"]
-        } else if weaponName == "Pyroshell Caster" {
-            return ["Streamlined Chamber", "Secondary Explosion", "Bouncy Projectiles", "Sticky Bonus", "Seeking Flares", "Enlarged Chamber", "Anti-Gravity Projectiles", "Auxiliary Projectiles", "Simmering Explosion"]
-        } else if weaponName == "Coilspine Shredder" {
-            return ["Alt-Fire Cooling", "Shattering Discs", "Adrenaline Discs", "Enlarged Chamber", "Twin Discs", "Retarget", "Splitting Discs", "Enhanced Charge", "Negating Discs"]
-        } else if weaponName == "Thermogenic Launcher" {
-            return ["Easy To Use", "Obolite Magnet", "Critical Rockets", "Enlarged Chamber", "Replicating Hits", "Mega Rocket", "Full Auto", "Thermite Rockets", "Tail Fire"]
-        } else if weaponName == "Electropylon Driver" {
-            return ["Obolite Extractor", "Silphium Extractor", "Pylon Web", "Finisher", "Streamlined Chamber", "Enlarged Chamber", "Blade Harmonizer", "Blade Pulse", "Protective Pylons"]
-        } else if weaponName == "Rotgland Lobber" {
-            return ["Durable Rot", "Trailing Rot", "Bouncing Rot", "Enlarged Chamber", "Explosive Rot", "Protective Rot", "Caustic Rot", "Tendril Rot", "Portal Rot"]
-        } else if weaponName == "Hollowseeker" {
-            return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Sharpnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
-        } else if weaponName == "Dreadbound" {
-            return ["Fourth Shard", "Obolite Magnet", "Staggering", "Proection Steal", "Expanding Shards", "Returning Damage", "Explosive Shards", "Damage Steal", "Obolite Generator"]
-        } else {
-            return []
-        }
-    }
-    
+    /*
     func addTowerRun() {
         let altFire = AltFire(name: altFireName, level: altFireLevel, altFireDescription: altFIreDescription)
         
@@ -393,6 +328,7 @@ struct AddRunView: View {
         
         modelContext.insert(towerRun)
     }
+     */
     
 }
 
