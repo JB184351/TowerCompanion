@@ -15,17 +15,6 @@ struct AddRunView: View {
     @State private var platform = ""
     private let platforms = ["PS5", "PC"]
     
-    // Parasites
-    @State private var parasiteName = ""
-    @State private var parasitePositiveEffectDescription = "Positive Effect description will go here"
-    @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
-    @State private var numberOfParasites = 1
-    @State private var isPlacerHolderTextForParasiteDescriptions = true
-    
-    private var parasiteNames: [String] {
-        return AddRunView.getAllParasiteNames()
-    }
-    
     // Stats
     @State private var weaponDamageStat = 0.0
     @State private var protectionStat = 0.0
