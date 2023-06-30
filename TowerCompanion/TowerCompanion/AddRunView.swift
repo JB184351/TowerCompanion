@@ -90,11 +90,11 @@ struct AddRunView: View {
                     
                     // MARK: - Stats
                     Section {
-                        Stepper("Weapon Damage \(weaponDamageStat.formatted())%", value: $weaponDamageStat, in: 0...150, step: 5)
-                        Stepper("Protection \(protectionStat.formatted())%", value: $protectionStat, in: 0...150, step: 5)
-                        Stepper("Repair Effiency \(repairEffiency.formatted())%", value: $repairEffiency, in: 0...150, step: 5)
-                        Stepper("Alt-Fire Cooldown \(altFireCooldown.formatted())%", value: $altFireCooldown, in: 0...150, step: 5)
-                        Stepper("Profiency Rate \(profiencyRate.formatted())%", value: $profiencyRate, in: 0...150, step: 5)
+                        Stepper("Weapon Damage \(weaponDamageStat.formatted())%", value: $weaponDamageStat, in: -150...150, step: 5)
+                        Stepper("Protection \(protectionStat.formatted())%", value: $protectionStat, in: -150...150, step: 5)
+                        Stepper("Repair Effiency \(repairEffiency.formatted())%", value: $repairEffiency, in: -150...150, step: 5)
+                        Stepper("Alt-Fire Cooldown \(altFireCooldown.formatted())%", value: $altFireCooldown, in: -150...150, step: 5)
+                        Stepper("Profiency Rate \(profiencyRate.formatted())%", value: $profiencyRate, in: -150...150, step: 5)
                         
                     } header: {
                         Text("Enter Stat Details")
