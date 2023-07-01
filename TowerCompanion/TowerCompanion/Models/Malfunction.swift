@@ -7,7 +7,13 @@
 
 import Foundation
 
+enum MalfunctionType: Codable {
+    case normal
+    case permanent
+}
+
 struct Malfunction: Codable {
     var malfunctionDescription: String
     var conditionToRemove: String
+    var type: MalfunctionType
 }

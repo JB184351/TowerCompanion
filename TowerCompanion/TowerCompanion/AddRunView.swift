@@ -164,10 +164,6 @@ struct AddRunView: View {
         
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
         
-        print(towerRun.weapon.name)
-        print(towerRun.artifacts.first ?? "No artifacts")
-        print(towerRun.parasites.first ?? "No parasites")
-        
         modelContext.insert(towerRun)
     }
      
