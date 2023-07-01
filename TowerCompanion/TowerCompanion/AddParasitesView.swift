@@ -13,7 +13,6 @@ struct AddParasitesView: View {
     @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
     @State private var numberOfParasites = 1
     @State private var isPlaceHolderEnabled = true
-//    @State private var parasites = [Parasite]()
     @State private var parasiteNamesUsedInRun = [String]()
     @State private var pickerCount = 1
     @State private var nonComputedParasiteNames = [String]()

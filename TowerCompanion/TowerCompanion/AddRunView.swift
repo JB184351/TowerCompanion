@@ -15,14 +15,10 @@ struct AddRunView: View {
     @State private var platform = ""
     private let platforms = ["PS5", "PC"]
     
-    // Weapon
     @State var weapon: Weapon
-    
-    // Artifact
     @State var artifacts: [Artifact]
-    
-    // Parasites
     @State var parasites: [Parasite]
+    @State var malfunctions: [Malfunction]
     
     // Stats
     @State private var weaponDamageStat = 0.0
@@ -158,10 +154,6 @@ struct AddRunView: View {
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, profiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-        var malfunctions = [Malfunction]()
-        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemoveCondition, type: .normal)
-        malfunctions.append(malfunction)
-        
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
         
         modelContext.insert(towerRun)
@@ -171,7 +163,7 @@ struct AddRunView: View {
 }
 
 #Preview {
-    AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")])
+    AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")], malfunctions: [Malfunction(malfunctionDescription: "", conditionToRemove: "", type: .normal)])
         .modelContainer(for: TowerRun.self)
 }
 
