@@ -19,6 +19,7 @@ struct AddWeaponView: View {
     @State private var weaponTraitNames: [String] = [""]
     @State private var weaponTraits = [Trait]()
     @State private var altFire = AltFire(name: "", level: 0, altFireDescription: "")
+    @Binding var weapon: Weapon
     
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
     
@@ -26,77 +27,85 @@ struct AddWeaponView: View {
         return AddWeaponView.getAllAltFires()
     }
     
-    init() {
+    init(weapon: Binding<Weapon>) {
         _weaponTraitNamesUsedInRun = State(initialValue: Array(repeating: "", count: 1))
+        self._weapon = weapon
     }
     
     
     var body: some View {
-            Section {
-                Picker("Weapon", selection: $weaponName) {
-                    ForEach(weaponNames, id: \.self) { weaponName in
-                        Text("\(weaponName)").tag(weaponName)
-                    }
+        Section {
+            Picker("Weapon", selection: $weaponName) {
+                ForEach(weaponNames, id: \.self) { weaponName in
+                    Text("\(weaponName)").tag(weaponName)
                 }
-                        
-                Picker("Level", selection: $weaponLevel) {
-                    ForEach(1..<46) {
-                        Text("\($0)").tag($0)
-                    }
-                }
-                
-                Picker("Alt-Fire", selection: $altFireName) {
-                    ForEach(altFires, id: \.self) { altFire in
-                        Text(altFire.name).tag(altFire.name)
-                    }
-                }
-                
-                Picker("Alt-Fire Level", selection: $altFireLevel) {
-                    ForEach(1..<4) {
-                        Text("\($0)").tag($0)
-                    }
-                }
-            
-                ForEach(0..<1, id: \.self) { index in
-                    Picker("Weapon Traits", selection: Binding(
-                        get: { weaponTraitNames[index] },
-                        set: { weaponTraitNames[index] = $0 }
-                    )) {
-                        ForEach(weaponTraitNames, id: \.self) { weaponTrait in
-                            Text(weaponTrait).tag(weaponTrait)
-                        }
-                    }
-                }
-                .onAppear {
-                    weaponTraitNames = getWeaponTraits(from: "Modified Sidearm SD-M8")
-                }
-                .onChange(of: weaponName) { oldValue, newValue in
-                    weaponTraitNames = getWeaponTraits(from: weaponName)
-                }
-                
-                Picker("Weapon Trait Level", selection: $weaponTraitLevel) {
-                    ForEach(1..<4) {
-                        Text("\($0)").tag($0)
-                    }
-                }
-            }
-            Section {
-                Button("Add Weapon Trait") {
-                    addWeaponTrait()
-                }
-                .disabled(weaponTraits.count == 4)
-                
-                Button("Clear All") {
-                    clearValues()
-                }
-                .disabled(weaponTraits.count < 1)
             }
             
-            Section(header: Text("Weapon Traits")) {
-                ForEach(weaponTraits, id: \.name) { weapon in
-                    Text("\(weapon.name) \(weapon.level)")
+            Picker("Level", selection: $weaponLevel) {
+                ForEach(1..<46) {
+                    Text("\($0)").tag($0)
                 }
             }
+            
+            Picker("Alt-Fire", selection: $altFireName) {
+                ForEach(altFires, id: \.self) { altFire in
+                    Text(altFire.name).tag(altFire.name)
+                }
+            }
+            
+            Picker("Alt-Fire Level", selection: $altFireLevel) {
+                ForEach(1..<4) {
+                    Text("\($0)").tag($0)
+                }
+            }
+            
+            ForEach(0..<1, id: \.self) { index in
+                Picker("Weapon Traits", selection: Binding(
+                    get: { weaponTraitNames[index] },
+                    set: { weaponTraitNames[index] = $0 }
+                )) {
+                    ForEach(weaponTraitNames, id: \.self) { weaponTrait in
+                        Text(weaponTrait).tag(weaponTrait)
+                    }
+                }
+            }
+            .onAppear {
+                weaponTraitNames = getWeaponTraits(from: "Modified Sidearm SD-M8")
+            }
+            .onChange(of: weaponName) { oldValue, newValue in
+                weaponTraitNames = getWeaponTraits(from: weaponName)
+                weaponTraits.removeAll()
+            }
+            
+            Picker("Weapon Trait Level", selection: $weaponTraitLevel) {
+                ForEach(1..<4) {
+                    Text("\($0)").tag($0)
+                }
+            }
+        }
+        Section {
+            Button("Add Weapon Trait") {
+                addWeaponTrait()
+            }
+            .disabled(weaponTraits.count == 4)
+            
+            Button("Clear All") {
+                clearValues()
+            }
+            .disabled(weaponTraits.count < 1)
+            
+            Button("Add Weapon") {
+                addWeapon()
+            }
+            
+            
+        }
+        
+        Section(header: Text("Weapon Traits")) {
+            ForEach(weaponTraits, id: \.name) { weapon in
+                Text("\(weapon.name) \(weapon.level)")
+            }
+        }
     }
     
     private func addWeaponTrait() {
@@ -110,13 +119,15 @@ struct AddWeaponView: View {
             
             weaponTraitNames.remove(at: index)
         }
-        
-        let weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
     }
     
     private func clearValues() {
         weaponTraitNamesUsedInRun.removeAll()
         weaponTraits.removeAll()
+    }
+    
+    private func addWeapon() {
+        self.weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
     }
     
     private func getAltFireDescription(for altFireName: String) -> String {
@@ -189,7 +200,7 @@ struct AddWeaponView: View {
         }
     }
 }
-    
-    #Preview {
-        AddWeaponView()
-    }
+
+#Preview {
+    AddWeaponView(weapon: .constant(Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45)))
+}

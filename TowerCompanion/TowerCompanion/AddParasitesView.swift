@@ -13,18 +13,20 @@ struct AddParasitesView: View {
     @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
     @State private var numberOfParasites = 1
     @State private var isPlaceHolderEnabled = true
-    @State private var parasites = [Parasite]()
+//    @State private var parasites = [Parasite]()
     @State private var parasiteNamesUsedInRun = [String]()
     @State private var pickerCount = 1
     @State private var nonComputedParasiteNames = [String]()
+    @Binding var parasites: [Parasite]
     
     private var parasiteNames: [String] {
         return AddParasitesView.getAllParasiteNames()
     }
     
-    init() {
+    init(parasites: Binding<[Parasite]>) {
         _parasiteNamesUsedInRun = State(initialValue: Array(repeating: "", count: 1))
         _nonComputedParasiteNames = State(initialValue: Array(repeating: "", count: 1))
+        self._parasites = parasites
     }
     
     var body: some View {
@@ -229,5 +231,5 @@ struct AddParasitesView: View {
 }
 
 #Preview {
-    AddParasitesView()
+    AddParasitesView(parasites: .constant([Parasite]()))
 }

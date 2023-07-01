@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct AddArtifactView: View {
-    @State private var pickerCount = 1
     @State private var artifactName = ""
     @State private var artifactDescription = ""
     @State private var artifactNamesUsedInRun = [String]()
     @State private var artifactsUsedInRun = [Artifact]()
+    @Binding var artifacts: [Artifact]
     
     @State var artifactNames = [
         "Phantom Limb",
@@ -40,8 +40,9 @@ struct AddArtifactView: View {
     ]
     
     
-    init() {
-        _artifactNamesUsedInRun = State(initialValue: Array(repeating: "", count: pickerCount))
+    init(artifacts: Binding<[Artifact]>) {
+        _artifactNamesUsedInRun = State(initialValue: Array(repeating: "", count: 1))
+        self._artifacts = artifacts
     }
     
     var body: some View {
@@ -62,16 +63,16 @@ struct AddArtifactView: View {
             Button("Add Artifact(s)") {
                 addArtifact()
             }
-            .disabled(artifactsUsedInRun.count == 15)
+            .disabled(artifacts.count == 15)
             
             Button("Clear All") {
                 clearValues()
             }
-            .disabled(artifactsUsedInRun.count < 1)
+            .disabled(artifacts.count < 1)
         }
         
         Section(header: Text("Artifacts")) {
-            ForEach(artifactsUsedInRun, id: \.name) { artifact in
+            ForEach(artifacts, id: \.name) { artifact in
                 Text("\(artifact.name)")
             }
         }
@@ -80,19 +81,19 @@ struct AddArtifactView: View {
     private func addArtifact() {
         for (index, _) in artifactNamesUsedInRun.enumerated() {
             let artifact = Artifact(name: artifactNames[index], artifactDescription: "")
-            artifactsUsedInRun.append(artifact)
+            artifacts.append(artifact)
             
             artifactNames.remove(at: index)
         }
     }
     
     private func clearValues() {
-        artifactNamesUsedInRun.removeAll()
+        artifacts.removeAll()
         artifactsUsedInRun.removeAll()
     }
     
 }
 
 #Preview {
-    AddArtifactView()
+    AddArtifactView(artifacts: .constant([Artifact]()))
 }

@@ -15,6 +15,15 @@ struct AddRunView: View {
     @State private var platform = ""
     private let platforms = ["PS5", "PC"]
     
+    // Weapon
+    @State var weapon: Weapon
+    
+    // Artifact
+    @State var artifacts: [Artifact]
+    
+    // Parasites
+    @State var parasites: [Parasite]
+    
     // Stats
     @State private var weaponDamageStat = 0.0
     @State private var protectionStat = 0.0
@@ -57,14 +66,14 @@ struct AddRunView: View {
                     
                     // MARK: - Weapon
                     Section {
-                        AddWeaponView()
+                        AddWeaponView(weapon: $weapon)
                     } header: {
                         Text("Add Weapon Details")
                     }
                     
                     // MARK: - Artifact View
                     Section {
-                        AddArtifactView()
+                        AddArtifactView(artifacts: $artifacts)
                     } header: {
                         Text("Add Aritfacts Here (Can Add Up To 15)")
                     }
@@ -72,7 +81,7 @@ struct AddRunView: View {
                     
                     // MARK: - Parasites
                     Section {
-                        AddParasitesView()
+                        AddParasitesView(parasites: $parasites)
                     } header: {
                         Text("Add Parasite(s) (Can Add Up to 5)")
                     }
@@ -137,7 +146,7 @@ struct AddRunView: View {
             .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button("Add") {
-//                        addTowerRun()
+                        addTowerRun()
                         dismiss()
                     }
                 }
@@ -145,26 +154,8 @@ struct AddRunView: View {
         }
     }
     
-    /*
+    
     func addTowerRun() {
-        let altFire = AltFire(name: altFireName, level: altFireLevel, altFireDescription: altFIreDescription)
-        
-        var weaponTraits = [Trait]()
-        
-        for weaponTraitName in weaponTraitNames {
-            let weaponTrait = Trait(name: weaponTraitName, traitDescription: "", level: weaponTraitLevel)
-            weaponTraits.append(weaponTrait)
-        }
-        
-        let weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
-        
-        var artifacts = [Artifact]()
-        
-        var parasites = [Parasite]()
-        
-        let parasite = Parasite(name: parasiteName, positiveDescription: parasitePositiveEffectDescription, negativeDescription: parasiteNegativeEffectDescription)
-        parasites.append(parasite)
-        
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, profiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
         var malfunctions = [Malfunction]()
@@ -173,14 +164,18 @@ struct AddRunView: View {
         
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
         
+        print(towerRun.weapon.name)
+        print(towerRun.artifacts.first ?? "No artifacts")
+        print(towerRun.parasites.first ?? "No parasites")
+        
         modelContext.insert(towerRun)
     }
-     */
+     
     
 }
 
 #Preview {
-    AddRunView()
+    AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")])
         .modelContainer(for: TowerRun.self)
 }
 

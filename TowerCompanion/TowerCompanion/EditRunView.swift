@@ -33,32 +33,33 @@ struct EditRunView: View {
                     
                     // MARK: - Weapon and weapon details
                     Section {
-                        TextField("Weapon Name", text: $towerRun.weapon.name)
+//                        guard let weapon = towerRun.weapon else { Text("") }
+//                        TextField("Weapon Name", text: $towerRun.weapon?.name ?? "")
                         
-                        Picker("Weapon Name", selection: $towerRun.weapon.name) {
-                            ForEach(weaponNames, id: \.self) { weaponName in
-                                Text("\(weaponName)").tag(weaponName)
-                            }
-                        }
+//                        Picker("Weapon Name", selection: $towerRun.weapon.name) {
+//                            ForEach(weaponNames, id: \.self) { weaponName in
+//                                Text("\(weaponName)").tag(weaponName)
+//                            }
+//                        }
                         
-                        Picker("Weapon Level", selection: $towerRun.weapon.level) {
-                            ForEach(1..<46) {
-                                Text("\($0)").tag($0)
-                            }
-                        }
+//                        Picker("Weapon Level", selection: $towerRun.weapon.level) {
+//                            ForEach(1..<46) {
+//                                Text("\($0)").tag($0)
+//                            }
+//                        }
                         
-                        
-                        TextField("Weapon Alt-Fire", text: $towerRun.weapon.altFire.name)
-                        
-                        Picker("Weapon Alt-Fire Level", selection: $towerRun.weapon.altFire.level) {
-                            ForEach(1..<4) {
-                                Text("\($0)").tag($0)
-                            }
-                        }
-                        
-                        TextField("Weapon Trait", text: $towerRun.weapon.traits[0].name)
-                        TextField("Weapon Trait", text: $towerRun.weapon.traits[1].name)
-                        TextField("Weapon Trait", text: $towerRun.weapon.traits[2].name)
+//                        
+//                        TextField("Weapon Alt-Fire", text: $towerRun.weapon.altFire.name)
+//                        
+//                        Picker("Weapon Alt-Fire Level", selection: $towerRun.weapon.altFire.level) {
+//                            ForEach(1..<4) {
+//                                Text("\($0)").tag($0)
+//                            }
+//                        }
+//                        
+//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[0].name)
+//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[1].name)
+//                        TextField("Weapon Trait", text: $towerRun.weapon.traits[2].name)
                         
                     } header: {
                         Text("Enter Weapon Details")

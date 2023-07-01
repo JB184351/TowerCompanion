@@ -17,15 +17,24 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(towerRuns, id: \.id) { run in
-                    Text("\(run.scoutName)")
-                    Text("Total Score was: \(run.score)")
-                    Text("Phase: \(run.phase)")
-                    Text("Room: \(run.room)")
-                    Text("Multiplier: \(run.multiplier.formatted())%")
-                    Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
-                    Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
-                    Spacer()
-                    Spacer()
+                    Section {
+                        Text("\(run.scoutName)")
+                        Text("Total Score was: \(run.score)")
+                        Text("\(run.weapon.name)")
+                        
+                        ForEach(run.artifacts, id: \.self) { artifact in
+                            Text("\(artifact.name)")
+                        }
+                        
+                        ForEach(run.parasites, id: \.self) { parasite in
+                            Text("\(parasite.name)")
+                        }
+                        Text("Phase: \(run.phase)")
+                        Text("Room: \(run.room)")
+                        Text("Overall Multiplier: \(run.multiplier.formatted())%")
+                        Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
+                        Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
+                    }
                 }
             }
             .navigationTitle("TowerRuns")
@@ -37,7 +46,8 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSheetPresented) {
-                AddRunView()
+                AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")])
+                    .modelContainer(for: TowerRun.self)
             }
         }
     }
