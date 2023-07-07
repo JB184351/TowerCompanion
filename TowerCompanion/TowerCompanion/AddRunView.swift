@@ -106,7 +106,7 @@ struct AddRunView: View {
                     
                     // MARK: - Score
                     Section {
-                        TextField("Score", value: $score, format: .number)
+                        TextField("Score", value: $score, formatter: numberFormatter)
                             .keyboardType(.numberPad)
                     } header: {
                         Text("Enter Your Score")
@@ -126,10 +126,13 @@ struct AddRunView: View {
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Phase", value: $phase, format: .number)
-                            .keyboardType(.decimalPad)
-                        TextField("Room", value: $room, format: .number)
-                            .keyboardType(.decimalPad)
+                        TextField("Phase", value: $phase, formatter: numberFormatter)
+                            .keyboardType(.numberPad)
+                        Picker("Room", selection: $room) {
+                            ForEach(1..<21) {
+                                Text(String($0)).tag($0)
+                            }
+                        }
                     } header: {
                         Text("Enter Phase and Room Details")
                     }
