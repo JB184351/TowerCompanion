@@ -18,4 +18,5 @@ enum MalfunctionType: Codable, Hashable {
 struct Malfunction: Codable, Hashable {
     var malfunctionDescription: String
     var conditionToRemove: String
+    var type: MalfunctionType
 }

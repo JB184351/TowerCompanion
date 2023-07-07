@@ -15,14 +15,10 @@ struct AddRunView: View {
     @State private var platform = ""
     private let platforms = ["PS5", "PC"]
     
-    // Weapon
     @State var weapon: Weapon
-    
-    // Artifact
     @State var artifacts: [Artifact]
-    
-    // Parasites
     @State var parasites: [Parasite]
+    @State var malfunctions: [Malfunction]
     
     @State var malfunctions: [Malfunction]
     
@@ -165,7 +161,6 @@ struct AddRunView: View {
         print(towerRun.artifacts.first ?? "No artifacts")
         print(towerRun.parasites.first ?? "No parasites")
         print(towerRun.malfunctions)
-        
         modelContext.insert(towerRun)
     }
      
