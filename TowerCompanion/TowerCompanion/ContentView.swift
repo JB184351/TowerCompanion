@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var towerRuns: [TowerRun]
+    @Query(sort: \TowerRun.dateCompleted, order: .reverse) private var towerRuns: [TowerRun]
     @State private var isSheetPresented = false
     
     var body: some View {
