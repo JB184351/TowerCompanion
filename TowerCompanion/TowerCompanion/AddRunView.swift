@@ -27,10 +27,6 @@ struct AddRunView: View {
     @State private var repairEffiency = 0.0
     @State private var altFireCooldown = 0.0
     
-    // Malfunctions
-    @State private var malfunctionDescription = ""
-    @State private var malfunctionRemoveCondition = ""
-    
     // Score Related Variables
     @State private var score = 0
     @State private var multiplier = 0.0

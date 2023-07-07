@@ -31,9 +31,9 @@ struct ContentView: View {
 //                        }
 //                        Text("Phase: \(run.phase)")
 //                        Text("Room: \(run.room)")
-//                        Text("Overall Multiplier: \(run.multiplier.formatted())%")
-//                        Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
-//                        Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
+                        Text("Overall Multiplier: \(run.multiplier.formatted())%")
+                        Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
+                        Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
                         
                         ForEach(run.malfunctions, id: \.self) { malfunction in
                             Text("\(malfunction.malfunctionDescription)")
