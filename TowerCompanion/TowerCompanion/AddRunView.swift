@@ -107,9 +107,11 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Mutliplier", value: $multiplier, format: .percent)
+                        TextField("Mutliplier", value: $multiplier, format: .number)
                             .keyboardType(.decimalPad)
-                        TextField("Average Multiplier", value: $averageMutliplier, format: .percent)
+                        TextField("Average Multiplier", value: $averageMutliplier, format: .number)
+                            .keyboardType(.decimalPad)
+                        TextField("Average Multiplier", value: $highestMultplier, format: .number)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Multiplier Details")
