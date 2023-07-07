@@ -40,6 +40,13 @@ struct AddRunView: View {
     // Date
     @State private var dateCompleted = Date.now
     
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        formatter.zeroSymbol  = ""
+        return formatter
+    }()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -107,11 +114,11 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Mutliplier", value: $multiplier, format: .number)
+                        TextField("Mutliplier", value: $multiplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
-                        TextField("Average Multiplier", value: $averageMutliplier, format: .number)
+                        TextField("Average Multiplier", value: $averageMutliplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
-                        TextField("Average Multiplier", value: $highestMultplier, format: .number)
+                        TextField("Highest Multiplier", value: $highestMultplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
                     } header: {
                         Text("Enter Multiplier Details")
@@ -145,6 +152,10 @@ struct AddRunView: View {
                 }
             }
         }
+    }
+    
+    func validateMultiplier() {
+        
     }
     
     

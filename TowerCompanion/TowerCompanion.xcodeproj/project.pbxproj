@@ -63,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30423EF82A5893FB00235BC1 /* AddViews */ = {
+			isa = PBXGroup;
+			children = (
+				3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */,
+				30B245892A4D03D4000AD9DB /* AddParasitesView.swift */,
+				304A86632A4CD3CB00797D8F /* AddWeaponView.swift */,
+				304243A62A4BA4F400D51678 /* AddArtifactView.swift */,
+			);
+			path = AddViews;
+			sourceTree = "<group>";
+		};
 		304B1C262A57B456004F8973 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,14 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				30B49CDE2A43D5D300E855B6 /* Models */,
+				30423EF82A5893FB00235BC1 /* AddViews */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				300D83352A463F3F007F5EB4 /* AddRunView.swift */,
-				3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */,
-				30B245892A4D03D4000AD9DB /* AddParasitesView.swift */,
-				304A86632A4CD3CB00797D8F /* AddWeaponView.swift */,
-				304243A62A4BA4F400D51678 /* AddArtifactView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
 				30BC72112A354FF000F0E49B /* Preview Content */,
