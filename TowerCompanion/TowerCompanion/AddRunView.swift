@@ -24,6 +24,8 @@ struct AddRunView: View {
     // Parasites
     @State var parasites: [Parasite]
     
+    @State var malfunctions: [Malfunction]
+    
     // Stats
     @State private var weaponDamageStat = 0.0
     @State private var protectionStat = 0.0
@@ -100,8 +102,7 @@ struct AddRunView: View {
                     
                     // MARK: - Malfunctions
                     Section {
-                        TextField("Malfunction Description", text: $malfunctionDescription)
-                        TextField("Malfunction Remove Condition", text: $malfunctionRemoveCondition)
+                        AddMalfunctionsView(malfunctions: $malfunctions)
                     } header: {
                         Text("Enter Malfunction Details")
                     }
@@ -158,15 +159,12 @@ struct AddRunView: View {
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, profiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-        var malfunctions = [Malfunction]()
-        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemoveCondition)
-        malfunctions.append(malfunction)
-        
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
         
         print(towerRun.weapon.name)
         print(towerRun.artifacts.first ?? "No artifacts")
         print(towerRun.parasites.first ?? "No parasites")
+        print(towerRun.malfunctions)
         
         modelContext.insert(towerRun)
     }
@@ -175,7 +173,7 @@ struct AddRunView: View {
 }
 
 #Preview {
-    AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")])
+    AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")], malfunctions: [Malfunction(malfunctionDescription: "", conditionToRemove: "")])
         .modelContainer(for: TowerRun.self)
 }
 

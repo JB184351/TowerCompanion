@@ -18,22 +18,27 @@ struct ContentView: View {
             List {
                 ForEach(towerRuns, id: \.id) { run in
                     Section {
-                        Text("\(run.scoutName)")
-                        Text("Total Score was: \(run.score)")
-                        Text("\(run.weapon.name)")
+//                        Text("\(run.scoutName)")
+//                        Text("Total Score was: \(run.score)")
+//                        Text("\(run.weapon.name)")
+//                        
+//                        ForEach(run.artifacts, id: \.self) { artifact in
+//                            Text("\(artifact.name)")
+//                        }
+//                        
+//                        ForEach(run.parasites, id: \.self) { parasite in
+//                            Text("\(parasite.name)")
+//                        }
+//                        Text("Phase: \(run.phase)")
+//                        Text("Room: \(run.room)")
+//                        Text("Overall Multiplier: \(run.multiplier.formatted())%")
+//                        Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
+//                        Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
                         
-                        ForEach(run.artifacts, id: \.self) { artifact in
-                            Text("\(artifact.name)")
+                        ForEach(run.malfunctions, id: \.self) { malfunction in
+                            Text("\(malfunction.malfunctionDescription)")
+                            
                         }
-                        
-                        ForEach(run.parasites, id: \.self) { parasite in
-                            Text("\(parasite.name)")
-                        }
-                        Text("Phase: \(run.phase)")
-                        Text("Room: \(run.room)")
-                        Text("Overall Multiplier: \(run.multiplier.formatted())%")
-                        Text("Average Multiplier: \(run.averageMultiplier.formatted())%")
-                        Text("Highest Multiplier: \(run.highestMultiplier.formatted())%")
                     }
                 }
             }
@@ -46,7 +51,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $isSheetPresented) {
-                AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")])
+                AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")], malfunctions: [Malfunction(malfunctionDescription: "", conditionToRemove: "")])
                     .modelContainer(for: TowerRun.self)
             }
         }
