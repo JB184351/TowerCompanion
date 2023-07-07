@@ -20,8 +20,6 @@ struct AddRunView: View {
     @State var parasites: [Parasite]
     @State var malfunctions: [Malfunction]
     
-    @State var malfunctions: [Malfunction]
-    
     // Stats
     @State private var weaponDamageStat = 0.0
     @State private var protectionStat = 0.0

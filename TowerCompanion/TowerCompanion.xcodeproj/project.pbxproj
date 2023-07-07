@@ -26,7 +26,6 @@
 		30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721B2A3555EA00F0E49B /* Parasite.swift */; };
 		30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721D2A3557B700F0E49B /* Weapon.swift */; };
 		30BC72202A3686B300F0E49B /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721F2A3686B300F0E49B /* Trait.swift */; };
-		30E0AACA2A508213006ACFEB /* AddMalfunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E0AAC92A508213006ACFEB /* AddMalfunctionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		30BC721B2A3555EA00F0E49B /* Parasite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parasite.swift; sourceTree = "<group>"; };
 		30BC721D2A3557B700F0E49B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		30BC721F2A3686B300F0E49B /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
-		30E0AAC92A508213006ACFEB /* AddMalfunctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMalfunctionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +63,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		304B1C262A57B456004F8973 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		30B49CDE2A43D5D300E855B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +91,7 @@
 			children = (
 				30BC72072A354FEF00F0E49B /* TowerCompanion */,
 				30BC72062A354FEF00F0E49B /* Products */,
+				304B1C262A57B456004F8973 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,7 +214,6 @@
 				307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */,
 				30BC72202A3686B300F0E49B /* Trait.swift in Sources */,
 				30A7F7C62A37CD02003AB0B3 /* WeaponStat.swift in Sources */,
-				30E0AACA2A508213006ACFEB /* AddMalfunctionView.swift in Sources */,
 				30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */,
 				304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */,
 				300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */,
