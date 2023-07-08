@@ -23,7 +23,7 @@ struct TowerRunCardDisplayView: View {
                 .padding(.leading)
             
             HStack {
-                Text("Score: \(score)")
+                Text("\(score)")
                     .foregroundStyle(Color(red: 168/255, green: 203/255, blue: 196/255))
                     .padding(.leading)
                     .bold()
@@ -32,28 +32,28 @@ struct TowerRunCardDisplayView: View {
                 
                 Text("\(date)")
                     .foregroundStyle(.returnalLightBlue)
-                    .padding(.trailing)
+                    .padding(.trailing, 20)
             }
             .font(.caption)
             
             HStack {
-                Text("\(date)")
+                Text("Dreadbound")
                     .foregroundStyle(.returnalLightBlue)
                     .padding(.trailing)
                 
                 Spacer()
                 
-                Text("\(date)")
+                Text("PS5")
                     .foregroundStyle(.returnalLightBlue)
-                    .padding(.trailing)
+                    .padding(.trailing, 100)
             }
             .font(.caption)
             .padding(.leading)
             
         }
-        .background(.returnalDarkGreen)
-        .clipShape(Capsule())
         .padding()
+        .background(.returnalDarkGreen)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
@@ -62,17 +62,5 @@ struct TowerRunCardDisplayView: View {
         .previewLayout(.fixed(width: 400, height: 400))
 }
 
-extension ShapeStyle where Self == Color {
-    static var returnalYellow: Color {
-        Color(red: 238/255, green: 218/255, blue: 32/255)
-    }
-    
-    static var returnalLightBlue: Color {
-        Color(red: 168/255, green: 203/255, blue: 196/255)
-    }
-    
-    static var returnalDarkGreen: Color {
-        Color(red: 16/255, green: 25/255, blue: 25/255)
-    }
-}
+
 

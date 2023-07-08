@@ -27,6 +27,7 @@
 		30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721B2A3555EA00F0E49B /* Parasite.swift */; };
 		30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721D2A3557B700F0E49B /* Weapon.swift */; };
 		30BC72202A3686B300F0E49B /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721F2A3686B300F0E49B /* Trait.swift */; };
+		30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		30BC721B2A3555EA00F0E49B /* Parasite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parasite.swift; sourceTree = "<group>"; };
 		30BC721D2A3557B700F0E49B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		30BC721F2A3686B300F0E49B /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
+		30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnalColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */,
+				30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				300D83352A463F3F007F5EB4 /* AddRunView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */,
+				30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */,
 				30423EFA2A589CB300235BC1 /* TowerRunCardDisplayView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
