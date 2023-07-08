@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddArtifactView: View {
+struct AddArtifactsView: View {
     @State private var artifactName = ""
     @State private var artifactDescription = ""
     @State private var artifactNamesUsedInRun = [String]()
@@ -95,5 +95,5 @@ struct AddArtifactView: View {
 }
 
 #Preview {
-    AddArtifactView(artifacts: .constant([Artifact]()))
+    AddArtifactsView(artifacts: .constant([Artifact]()))
 }

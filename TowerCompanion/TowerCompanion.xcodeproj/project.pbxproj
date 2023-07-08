@@ -10,7 +10,7 @@
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
 		30423EFA2A589CB300235BC1 /* TowerRunCardDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */; };
-		304243A72A4BA4F400D51678 /* AddArtifactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactView.swift */; };
+		304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactsView.swift */; };
 		304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A86632A4CD3CB00797D8F /* AddWeaponView.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
 		3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */; };
@@ -34,7 +34,7 @@
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
 		30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunCardDisplayView.swift; sourceTree = "<group>"; };
-		304243A62A4BA4F400D51678 /* AddArtifactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactView.swift; sourceTree = "<group>"; };
+		304243A62A4BA4F400D51678 /* AddArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactsView.swift; sourceTree = "<group>"; };
 		304A86632A4CD3CB00797D8F /* AddWeaponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeaponView.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
 		3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMalfunctionsView.swift; sourceTree = "<group>"; };
@@ -70,10 +70,11 @@
 		30423EF82A5893FB00235BC1 /* AddViews */ = {
 			isa = PBXGroup;
 			children = (
+				300D83352A463F3F007F5EB4 /* AddRunView.swift */,
 				3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */,
 				30B245892A4D03D4000AD9DB /* AddParasitesView.swift */,
 				304A86632A4CD3CB00797D8F /* AddWeaponView.swift */,
-				304243A62A4BA4F400D51678 /* AddArtifactView.swift */,
+				304243A62A4BA4F400D51678 /* AddArtifactsView.swift */,
 			);
 			path = AddViews;
 			sourceTree = "<group>";
@@ -123,12 +124,11 @@
 			children = (
 				30B49CDE2A43D5D300E855B6 /* Models */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
+				30C8969F2A5A1A38004D016D /* Extensions */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */,
-				30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
-				300D83352A463F3F007F5EB4 /* AddRunView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
 				30BC72112A354FF000F0E49B /* Preview Content */,
@@ -142,6 +142,14 @@
 				30BC72122A354FF000F0E49B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		30C8969F2A5A1A38004D016D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +232,7 @@
 				30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */,
 				30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */,
 				30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */,
-				304243A72A4BA4F400D51678 /* AddArtifactView.swift in Sources */,
+				304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */,
 				3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */,
 				30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */,
 				307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */,

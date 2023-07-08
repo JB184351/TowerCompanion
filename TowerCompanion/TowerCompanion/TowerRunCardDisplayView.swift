@@ -25,7 +25,7 @@ struct TowerRunCardDisplayView: View {
             
             HStack {
                 Text("\(towerRun.score)")
-                    .foregroundStyle(Color(red: 168/255, green: 203/255, blue: 196/255))
+                    .foregroundStyle(.returnalLightBlue)
                     .padding(.leading)
                     .bold()
                     
