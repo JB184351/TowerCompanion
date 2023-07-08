@@ -75,7 +75,7 @@ struct AddRunView: View {
                     
                     // MARK: - Artifact View
                     Section {
-                        AddArtifactView(artifacts: $artifacts)
+                        AddArtifactsView(artifacts: $artifacts)
                     } header: {
                         Text("Add Aritfacts Here (Can Add Up To 15)")
                     }
