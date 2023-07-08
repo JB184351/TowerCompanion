@@ -18,7 +18,7 @@ struct ContentView: View {
             List {
                 ForEach(towerRuns, id: \.id) { run in
                     Section {
-//                        TowerRunCardDisplayView(towerRun: run)
+                        TowerRunCardDisplayView(towerRun: run)
                     }
                 }
             }
@@ -35,6 +35,7 @@ struct ContentView: View {
                     .modelContainer(for: TowerRun.self)
             }
         }
+        
     }
 }
 

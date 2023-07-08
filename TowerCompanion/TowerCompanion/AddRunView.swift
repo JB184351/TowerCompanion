@@ -12,7 +12,7 @@ struct AddRunView: View {
     @Environment(\.modelContext) private var modelContext
     
     @State private var scoutName = ""
-    @State private var platform = ""
+    @State private var platform = "PS5"
     private let platforms = ["PS5", "PC"]
     
     @State var weapon: Weapon
@@ -35,14 +35,16 @@ struct AddRunView: View {
     
     // Phase and Room
     @State private var phase = 0
-    @State private var room = 0
+    @State private var room = 1
     
     // Date
     @State private var dateCompleted = Date.now
     
+    @FocusState private var textFieldFocus: Bool
+    
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.numberStyle = .none
+        formatter.numberStyle = .decimal
         formatter.zeroSymbol  = ""
         return formatter
     }()
@@ -54,6 +56,7 @@ struct AddRunView: View {
                     // MARK: - Scoutname
                     Section {
                         TextField("Enter Scout Name", text: $scoutName)
+                            .focused($textFieldFocus)
                         Picker("Select Platform", selection: $platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0).tag($0)
@@ -108,6 +111,7 @@ struct AddRunView: View {
                     Section {
                         TextField("Score", value: $score, formatter: numberFormatter)
                             .keyboardType(.numberPad)
+                            .focused($textFieldFocus)
                     } header: {
                         Text("Enter Your Score")
                     }
@@ -116,10 +120,13 @@ struct AddRunView: View {
                     Section {
                         TextField("Mutliplier", value: $multiplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
+                            .focused($textFieldFocus)
                         TextField("Average Multiplier", value: $averageMutliplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
+                            .focused($textFieldFocus)
                         TextField("Highest Multiplier", value: $highestMultplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
+                            .focused($textFieldFocus)
                     } header: {
                         Text("Enter Multiplier Details")
                     }
@@ -128,6 +135,7 @@ struct AddRunView: View {
                     Section {
                         TextField("Phase", value: $phase, formatter: numberFormatter)
                             .keyboardType(.numberPad)
+                            .focused($textFieldFocus)
                         Picker("Room", selection: $room) {
                             ForEach(1..<21) {
                                 Text(String($0)).tag($0)
@@ -151,6 +159,12 @@ struct AddRunView: View {
                     Button("Add") {
                         addTowerRun()
                         dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        textFieldFocus = false
                     }
                 }
             }
