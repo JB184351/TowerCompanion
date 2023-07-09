@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
-		30423EFA2A589CB300235BC1 /* TowerRunCardDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */; };
+		30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */; };
 		304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactsView.swift */; };
 		304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A86632A4CD3CB00797D8F /* AddWeaponView.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
-		30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunCardDisplayView.swift; sourceTree = "<group>"; };
+		30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunHighlightView.swift; sourceTree = "<group>"; };
 		304243A62A4BA4F400D51678 /* AddArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactsView.swift; sourceTree = "<group>"; };
 		304A86632A4CD3CB00797D8F /* AddWeaponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeaponView.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 				30C8969F2A5A1A38004D016D /* Extensions */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
-				30423EF92A589CB300235BC1 /* TowerRunCardDisplayView.swift */,
+				30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
@@ -224,7 +224,7 @@
 			files = (
 				30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */,
 				30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */,
-				30423EFA2A589CB300235BC1 /* TowerRunCardDisplayView.swift in Sources */,
+				30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */,

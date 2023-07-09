@@ -18,7 +18,7 @@ struct ContentView: View {
             List {
                 ForEach(towerRuns, id: \.id) { run in
                     Section {
-                        TowerRunCardDisplayView(towerRun: run)
+                        TowerRunHighlightView(towerRun: run)
                     }
                 }
             }
@@ -34,6 +34,8 @@ struct ContentView: View {
                 AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")], malfunctions: [Malfunction(malfunctionDescription: "", conditionToRemove: "")])
                     .modelContainer(for: TowerRun.self)
             }
+            .scrollContentBackground(.hidden)
+            .scrollIndicators(.automatic)
         }
         
     }

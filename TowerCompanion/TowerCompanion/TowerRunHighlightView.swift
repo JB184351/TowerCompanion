@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct TowerRunCardDisplayView: View {
-    @State private var name = "DR_JRB"
+struct TowerRunHighlightView: View {
+    @State private var scoutName = "DR_JRB"
     @State private var score = 1_136_000
-    @State private var date = Date.now.formatted()
+    @State private var platform = "PS5"
+    @State private var weaponName = "Dreadbound"
+    @State private var dateCompleted = Date.now
     
     let towerRun: TowerRun
     
@@ -38,7 +40,7 @@ struct TowerRunCardDisplayView: View {
             .font(.caption)
             
             HStack {
-                Text("\(towerRun.weapon.name)")
+                Text(towerRun.weapon.name)
                     .foregroundStyle(.returnalLightBlue)
                     .padding(.trailing)
                 
@@ -59,8 +61,7 @@ struct TowerRunCardDisplayView: View {
 }
 
 //#Preview {
-//    TowerRunCardDisplayView()
-//        .previewLayout(.fixed(width: 400, height: 400))
+//    TowerRunHighlightView()
 //}
 
 
