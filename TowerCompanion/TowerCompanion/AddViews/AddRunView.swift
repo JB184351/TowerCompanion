@@ -112,6 +112,7 @@ struct AddRunView: View {
                         TextField("Score", value: $score, formatter: numberFormatter)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
+                            .ignoresSafeArea(.keyboard, edges: .bottom)
                     } header: {
                         Text("Enter Your Score")
                     }
@@ -168,13 +169,11 @@ struct AddRunView: View {
                     }
                 }
             }
+            .onTapGesture {
+                textFieldFocus = false
+            }
         }
     }
-    
-    func validateMultiplier() {
-        
-    }
-    
     
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, profiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
@@ -195,4 +194,3 @@ struct AddRunView: View {
     AddRunView(weapon: Weapon(name: "Dreadbound", altFire: AltFire(name: "Shieldbreaker", level: 3, altFireDescription: ""), traits: [Trait(name: "Expanding Shards", traitDescription: "", level: 3)], level: 45), artifacts: [Artifact(name: "", artifactDescription: "")], parasites: [Parasite(name: "", positiveDescription: "", negativeDescription: "")], malfunctions: [Malfunction(malfunctionDescription: "", conditionToRemove: "")])
         .modelContainer(for: TowerRun.self)
 }
-
