@@ -57,6 +57,9 @@ struct AddRunView: View {
                     Section {
                         TextField("Enter Scout Name", text: $scoutName)
                             .focused($textFieldFocus)
+                            .onTapGesture {
+                                textFieldFocus = false
+                            }
                         Picker("Select Platform", selection: $platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0).tag($0)
@@ -169,9 +172,6 @@ struct AddRunView: View {
                     }
                 }
             }
-            .onTapGesture {
-                textFieldFocus = false
-            }
         }
     }
     
@@ -180,10 +180,6 @@ struct AddRunView: View {
         
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
         
-        print(towerRun.weapon.name)
-        print(towerRun.artifacts.first ?? "No artifacts")
-        print(towerRun.parasites.first ?? "No parasites")
-        print(towerRun.malfunctions)
         modelContext.insert(towerRun)
     }
      
