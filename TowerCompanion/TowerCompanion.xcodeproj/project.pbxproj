@@ -28,6 +28,7 @@
 		30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721D2A3557B700F0E49B /* Weapon.swift */; };
 		30BC72202A3686B300F0E49B /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721F2A3686B300F0E49B /* Trait.swift */; };
 		30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */; };
+		30C896A32A5A4441004D016D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C896A22A5A4441004D016D /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		30BC721D2A3557B700F0E49B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		30BC721F2A3686B300F0E49B /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnalColorExtension.swift; sourceTree = "<group>"; };
+		30C896A22A5A4441004D016D /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		30C8969F2A5A1A38004D016D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				30C896A22A5A4441004D016D /* View.swift */,
 				30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */,
 			);
 			path = Extensions;
@@ -234,6 +237,7 @@
 				30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */,
 				304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */,
 				3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */,
+				30C896A32A5A4441004D016D /* View.swift in Sources */,
 				30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */,
 				307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */,
 				30BC72202A3686B300F0E49B /* Trait.swift in Sources */,

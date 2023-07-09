@@ -12,6 +12,7 @@ struct AddArtifactsView: View {
     @State private var artifactDescription = ""
     @State private var artifactNamesUsedInRun = [String]()
     @State private var artifactsUsedInRun = [Artifact]()
+    @State private var isFirstView = false
     @Binding var artifacts: [Artifact]
     
     @State var artifactNames = [
@@ -58,6 +59,15 @@ struct AddArtifactsView: View {
                 }
             }
         }
+        .onAppear {
+            // Some reason the artifacts array gets 1 item
+            // inserted so I'm removing it forcibly until I
+            // can figure out why that is
+            if !isFirstView {
+                artifacts.removeAll()
+                isFirstView = true
+            }
+        }
         
         Section {
             Button("Add Artifact(s)") {
@@ -76,6 +86,7 @@ struct AddArtifactsView: View {
                 Text("\(artifact.name)")
             }
         }
+        .isHidden(artifacts.count == 0)
     }
     
     private func addArtifact() {

@@ -16,6 +16,7 @@ struct AddParasitesView: View {
     @State private var parasiteNamesUsedInRun = [String]()
     @State private var pickerCount = 1
     @State private var nonComputedParasiteNames = [String]()
+    @State private var isFirstView = false
     @Binding var parasites: [Parasite]
     
     private var parasiteNames: [String] {
@@ -29,53 +30,62 @@ struct AddParasitesView: View {
     }
     
     var body: some View {
-            ForEach(0..<1, id: \.self) { index in
-                Picker("Parasites", selection: Binding(
-                    get: { nonComputedParasiteNames[index] },
-                    set: { nonComputedParasiteNames[index] = $0 }
-                )) {
-                    ForEach(nonComputedParasiteNames, id:\.self) { parasiteName in
-                        Text(parasiteName).tag(parasiteName)
-                    }
+        ForEach(0..<1, id: \.self) { index in
+            Picker("Parasites", selection: Binding(
+                get: { nonComputedParasiteNames[index] },
+                set: { nonComputedParasiteNames[index] = $0 }
+            )) {
+                ForEach(nonComputedParasiteNames, id:\.self) { parasiteName in
+                    Text(parasiteName).tag(parasiteName)
                 }
-                .onAppear {
+            }
+            // Some reason the parasites array gets 1 item
+            // inserted so I'm removing it forcibly until I
+            // can figure out why that is
+            .onAppear {
+                if !isFirstView {
+                    parasites.removeAll()
                     nonComputedParasiteNames = parasiteNames
-                }
-                .onChange(of: nonComputedParasiteNames[index]) {
-                    isPlaceHolderEnabled = false
-                    parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: nonComputedParasiteNames[index]).0
-                    parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: nonComputedParasiteNames[index]).1
+                    isFirstView = true
                 }
             }
-            
-            Text(parasitePositiveEffectDescription)
-                .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .green)
-            Text(parasiteNegativeEffectDescription)
-                .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .red)
-            
-            Section {
-                Button("Add Parasite") {
-                    addParasite()
-                }
-                .disabled(parasites.count == 5)
-                
-                Button("Remove Selected Parasites") {
-                    clearParasites()
-                }
-                .disabled(parasites.count < 1)
+            .onChange(of: nonComputedParasiteNames[index]) {
+                isPlaceHolderEnabled = false
+                parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: nonComputedParasiteNames[index]).0
+                parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: nonComputedParasiteNames[index]).1
             }
-            
-            Section {
-                ForEach(parasites, id: \.self) { parasite in
-                    Text(parasite.name)
-                    Text(parasite.positiveDescription)
-                        .foregroundStyle(.green)
-                    Text(parasite.negativeDescription)
-                        .foregroundStyle(.red)
-                }
-            } header: {
-                Text("Parasites")
+        }
+        
+        Text(parasitePositiveEffectDescription)
+            .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .green)
+        Text(parasiteNegativeEffectDescription)
+            .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .red)
+        
+        Section {
+            Button("Add Parasite") {
+                addParasite()
             }
+            .disabled(parasites.count == 5)
+            
+            Button("Remove Selected Parasites") {
+                clearParasites()
+            }
+            .disabled(parasites.count < 1)
+        }
+        
+        Section {
+            ForEach(parasites, id: \.self) { parasite in
+                Text(parasite.name)
+                Text(parasite.positiveDescription)
+                    .foregroundStyle(.green)
+                Text(parasite.negativeDescription)
+                    .foregroundStyle(.red)
+            }
+        } header: {
+            Text("Parasites")
+        }
+        .isHidden(parasites.count < 1)
+        
     }
     
     private func addPicker() {

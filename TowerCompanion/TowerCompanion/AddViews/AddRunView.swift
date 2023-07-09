@@ -80,7 +80,7 @@ struct AddRunView: View {
                     Section {
                         AddArtifactsView(artifacts: $artifacts)
                     } header: {
-                        Text("Add Aritfacts Here (Can Add Up To 15)")
+                        Text("Add Aritfacts (Can Add Up To 15)")
                     }
                     
                     
