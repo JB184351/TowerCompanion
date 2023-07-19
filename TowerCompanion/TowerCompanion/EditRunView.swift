@@ -65,23 +65,23 @@ struct EditRunView: View {
                         Text("Enter Weapon Details")
                     }
                     
-                    // MARK: - Artifacts
-                    Section {
-                        TextField("Artifact Name", text: $towerRun.artifacts[0].name)
-                        TextField("Artifact Description", text: $towerRun.artifacts[0].artifactDescription)
-                    } header: {
-                        Text("Enter Artifacts")
-                    }
+//                    // MARK: - Artifacts
+//                    Section {
+//                        TextField("Artifact Name", text: $towerRun.artifacts[0]?.name)
+//                        TextField("Artifact Description", text: $towerRun.artifacts[0]?.artifactDescription)
+//                    } header: {
+//                        Text("Enter Artifacts")
+//                    }
                     
                     
                     // MARK: - Parasites
-                    Section {
-                        TextField("Parasite Name", text: $towerRun.parasites[0].name)
-                        TextField("Parasite Positive Effect", text: $towerRun.parasites[0].positiveDescription)
-                        TextField("Parasite Negative Effect", text: $towerRun.parasites[0].negativeDescription)
-                    } header: {
-                        Text("Enter Parasite Details")
-                    }
+//                    Section {
+//                        TextField("Parasite Name", text: $towerRun.parasites[0]?.name)
+//                        TextField("Parasite Positive Effect", text: $towerRun.parasites[0]?.positiveDescription)
+//                        TextField("Parasite Negative Effect", text: $towerRun.parasites[0]?.negativeDescription)
+//                    } header: {
+//                        Text("Enter Parasite Details")
+//                    }
                     
                     // MARK: - Stats
                     Section {
@@ -95,12 +95,12 @@ struct EditRunView: View {
                     }
                     
                     // MARK: - Malfunctions
-                    Section {
-                        TextField("Malfunction Description", text: $towerRun.malfunctions[0].malfunctionDescription)
-                        TextField("Malfunction Remove Condition", text: $towerRun.malfunctions[0].conditionToRemove)
-                    } header: {
-                        Text("Enter Malfunction Details")
-                    }
+//                    Section {
+//                        TextField("Malfunction Description", text: $towerRun.malfunctions[0]?.malfunctionDescription)
+//                        TextField("Malfunction Remove Condition", text: $towerRun.malfunctions[0]?.conditionToRemove)
+//                    } header: {
+//                        Text("Enter Malfunction Details")
+//                    }
                     
                     // MARK: - Score
                     Section {

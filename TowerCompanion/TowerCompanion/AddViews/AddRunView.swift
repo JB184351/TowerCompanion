@@ -38,6 +38,7 @@ struct AddRunView: View {
     @State private var room = 1
     
     // Date
+    @State private var dateStarted = Date.now
     @State private var dateCompleted = Date.now
     
     @FocusState private var textFieldFocus: Bool
@@ -149,12 +150,23 @@ struct AddRunView: View {
                         Text("Enter Phase and Room Details")
                     }
                     
-                    // MARK: - Date completed
-                    Section {
-                        DatePicker("", selection: $dateCompleted)
-                            .labelsHidden()
-                    } header: {
-                        Text("Enter The Date and Time Information")
+                    Group {
+                        // MARK: - Date started
+                        Section {
+                            DatePicker("", selection: $dateStarted)
+                                .labelsHidden()
+                        } header: {
+                            Text("Enter The Date and Time Information")
+                        }
+                        
+                        
+                        // MARK: - Date completed
+                        Section {
+                            DatePicker("", selection: $dateCompleted)
+                                .labelsHidden()
+                        } header: {
+                            Text("Enter The Date and Time Information")
+                        }
                     }
                 }
             }
@@ -178,7 +190,7 @@ struct AddRunView: View {
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, profiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateCompleted: dateCompleted)
+        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateStarted: dateStarted, dateCompleted: dateCompleted)
         
         modelContext.insert(towerRun)
     }

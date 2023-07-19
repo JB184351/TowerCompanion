@@ -20,11 +20,13 @@ struct TowerRunDetailView: View {
                         Section {
                             Text("Scout Name: DR_JRB")
                                 .font(.headline)
+                                .fontWeight(.heavy)
                                 .fontDesign(.monospaced)
                                 .foregroundStyle(.returnalYellow)
                                 .padding(.leading)
                             Text("Platform: PS5")
                                 .font(.headline)
+                                .fontWeight(.heavy)
                                 .fontDesign(.monospaced)
                                 .foregroundStyle(.returnalYellow)
                                 .padding(.leading)
