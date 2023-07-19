@@ -9,10 +9,10 @@ import SwiftUI
 
 struct AddWeaponView: View {
     // Weapon Related Variables
-    @State private var weaponName = ""
+    @State private var weaponName = "Modified Sidearm SD-M8"
     @State private var weaponLevel = 0
     @State private var altFireName = ""
-    @State private var altFireLevel = 0
+    @State private var altFireLevel = 1
     @State private var altFIreDescription = ""
     @State private var weaponTraitLevel = 1
     @State private var weaponTraitNamesUsedInRun = [String]()

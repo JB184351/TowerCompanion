@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 final class TowerRun: Identifiable {
-    let id = UUID()
+    let id: UUID
     var scoutName: String
     var weapon: Weapon
     var artifacts: [Artifact]
@@ -27,6 +27,7 @@ final class TowerRun: Identifiable {
     var dateCompleted: Date
     
     init(scoutName: String, weapon: Weapon, artifacts: [Artifact], parasites: [Parasite], stats: Stats, malfunctions: [Malfunction], score: Int, multiplier: Double, averageMultiplier: Double, highestMultplier: Double, phase: Int, room: Int, platform: String, dateCompleted: Date) {
+        self.id = UUID()
         self.scoutName = scoutName
         self.weapon = weapon
         self.artifacts = artifacts

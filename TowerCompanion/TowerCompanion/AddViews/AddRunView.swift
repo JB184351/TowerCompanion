@@ -34,7 +34,7 @@ struct AddRunView: View {
     @State private var highestMultplier = 0.0
     
     // Phase and Room
-    @State private var phase = 0
+    @State private var phase = 1
     @State private var room = 1
     
     // Date

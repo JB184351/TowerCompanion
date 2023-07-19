@@ -51,132 +51,177 @@ struct TowerRunDetailView: View {
                                 .padding(.leading)
                                 .foregroundStyle(.returnalLightBlue)
                             
-                            Text("Final Multiplier: 98.2%")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Average Multiplier: 68.9%")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Highest Multiplier: 100%")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            
-                            Text("Date Completed: July 11, 2021")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                        } header: {
-                            Text("Scout Details")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .foregroundStyle(.returnalYellow)
-                                .padding(.leading)
-                        }
-                        
-                        Spacer()
-                        
-                        Section {
-                            Text("Weapon Name")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Weapon Level")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Weapon AltFire")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            
                             Spacer()
                             
-                            ForEach(1..<5) {
+                            Group {
+                                Text("Final Multiplier: 98.2%")
+                                    .font(.headline)
+                                    .fontDesign(.monospaced)
+                                    .padding(.leading)
+                                    .foregroundStyle(.returnalLightBlue)
+                                Text("Average Multiplier: 68.9%")
+                                    .font(.headline)
+                                    .fontDesign(.monospaced)
+                                    .padding(.leading)
+                                    .foregroundStyle(.returnalLightBlue)
+                                Text("Highest Multiplier: 100%")
+                                    .font(.headline)
+                                    .fontDesign(.monospaced)
+                                    .padding(.leading)
+                                    .foregroundStyle(.returnalLightBlue)
+                                
                                 Spacer()
-                                Text("Weapon Trait \($0)")
+                                
+                                Text("Date Completed: July 11, 2021")
                                     .font(.headline)
+                                    .fontWeight(.heavy)
                                     .fontDesign(.monospaced)
                                     .padding(.leading)
                                     .foregroundStyle(.returnalLightBlue)
                             }
-                        } header: {
-                            Text("Weapon Details")
-                                .font(.title2)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
+                            
+                            
                         }
                         
                         Spacer()
                         
-                        Section {
-                            ForEach(1..<16) {
-                                Text("Artifact \($0)")
+                        DisclosureGroup("Weapon Details") {
+                            VStack {
+                                Text("Weapon Name")
+                                    .font(.headline)
+                                    .fontDesign(.monospaced)
+                                    .padding(.leading)
+                                    .foregroundStyle(.returnalLightBlue)
+                                
+                                Text("Weapon Level")
                                     .font(.headline)
                                     .fontDesign(.monospaced)
                                     .padding(.leading)
                                     .foregroundStyle(.returnalLightBlue)
                             }
-                        } header: {
-                            Text("Artifacts")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                                DisclosureGroup("Weapon AltFire") {
+                                    VStack {
+                                        Text("Weapon AltFire Description")
+                                            .font(.headline)
+                                            .fontDesign(.monospaced)
+                                            .padding(.leading)
+                                        .foregroundStyle(.returnalLightBlue)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                                 .font(.headline)
-                                .fontWeight(.heavy)
                                 .fontDesign(.monospaced)
                                 .padding(.leading)
                                 .foregroundStyle(.returnalLightBlue)
-                        }
-                        
-                        Spacer()
-                        
-                        Section {
+                            
                             Spacer()
-                            ForEach(1..<6) {
-                                Text("Parasite \($0)")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.purple)
-                            }
-                        } header: {
-                            Text("Parasites")
+                            
+                            ForEach(1..<5) { weaponTrait in
+                                Spacer()
+                                DisclosureGroup("Weapon Trait \(weaponTrait)") {
+                                    VStack {
+                                        Text("Weapon Trait \(weaponTrait) Description")
+                                            .font(.headline)
+                                            .fontDesign(.monospaced)
+                                            .padding(.leading)
+                                            .foregroundStyle(.returnalLightBlue)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                                 .font(.headline)
-                                .fontWeight(.heavy)
+                                .fontDesign(.monospaced)
+                                .padding(.leading)
+                                .foregroundStyle(.returnalLightBlue)
+                            }
+                        }
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .fontDesign(.monospaced)
+                        .padding(.leading)
+                        .foregroundStyle(.returnalLightBlue)
+                        
+                        
+                        Spacer()
+                        
+                        DisclosureGroup("Artifacts") {
+                            ForEach(1..<16) { artifact in
+                                DisclosureGroup("Artifact \(artifact)") {
+                                    VStack {
+                                        Text("Artifact \(artifact) Description")
+                                            .font(.headline)
+                                            .fontDesign(.monospaced)
+                                            .padding(.leading)
+                                        .foregroundStyle(.returnalLightBlue)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                            }
+                            .font(.headline)
+                            .fontDesign(.monospaced)
+                            .padding(.leading)
+                            .foregroundStyle(.returnalLightBlue)
+                        }
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .fontDesign(.monospaced)
+                        .padding(.leading)
+                        .foregroundStyle(.returnalLightBlue)
+                        
+                        Spacer()
+                        
+                        DisclosureGroup("Parasites") {
+                            Spacer()
+                            ForEach(1..<6) { parasite in
+                                DisclosureGroup("Parasite \(parasite)") {
+                                    VStack {
+                                        Text("Parasite \(parasite) Description")
+                                            .font(.headline)
+                                            .fontDesign(.monospaced)
+                                            .padding(.leading)
+                                            .foregroundStyle(.purple)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                .font(.headline)
                                 .fontDesign(.monospaced)
                                 .padding(.leading)
                                 .foregroundStyle(.purple)
+                            }
                         }
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .fontDesign(.monospaced)
+                        .padding(.leading)
+                        .foregroundStyle(.purple)
                         
                         Spacer()
                         
-                        Section {
+                        DisclosureGroup("Malfunctions") {
                             Spacer()
-                            ForEach(1..<8) {
-                                Text("Malfunction \($0)")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.red)
-                            }
-                        } header: {
-                            Text("Malfunctions")
+                            ForEach(1..<8) { malfunction in
+                                DisclosureGroup("Malfunction \(malfunction)") {
+                                    VStack {
+                                        Text("Malfunction \(malfunction) Description")
+                                            .font(.headline)
+                                            .fontDesign(.monospaced)
+                                            .padding(.leading)
+                                            .foregroundStyle(.red)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                                 .font(.headline)
-                                .fontWeight(.heavy)
                                 .fontDesign(.monospaced)
                                 .padding(.leading)
                                 .foregroundStyle(.red)
+                            }
                         }
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .fontDesign(.monospaced)
+                        .padding(.leading)
+                        .foregroundStyle(.red)
                         
                         Spacer()
                         
@@ -185,62 +230,26 @@ struct TowerRunDetailView: View {
                 }
                 .backgroundStyle(.returnalDarkGreen)
                 
-                Group {
-                    VStack(alignment: .leading) {
-                        Section {
-                            Spacer()
-                            ForEach(1..<6) {
-                                Text("Stat \($0)")
-                                    .font(.headline)
-                                    .fontWeight(.heavy)
-                                    .fontDesign(.monospaced)
-                                    .foregroundStyle(.returnalYellow)
-                                    .padding(.leading)
-
-                            }
-                        } header: {
-                            Text("Stats")
+                DisclosureGroup("Stats") {
+                    Spacer()
+                    ForEach(1..<6) { stat in
+                        VStack {
+                            Text("Stat \(stat) Description")
                                 .font(.headline)
                                 .fontWeight(.heavy)
                                 .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
+                                .foregroundStyle(.returnalYellow)
+                            .padding(.leading)
                         }
-                        
-                        Spacer()
-                        
-                        Section {
-                            Text("Final Multiplier: 98.2%")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Average Multiplier: 68.9%")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Highest Multiplier: 100%")
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                        } header: {
-                            Text("Multiplier Details")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                        }
-                        .backgroundStyle(.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
-                
-                
+                .font(.title2)
+                .fontWeight(.heavy)
+                .fontDesign(.monospaced)
+                .padding(.leading)
+                .foregroundStyle(.returnalLightBlue)
             }
             .navigationTitle("Run Details")
             .background(.returnalDarkGreen)
