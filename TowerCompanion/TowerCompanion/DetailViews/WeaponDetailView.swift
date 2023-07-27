@@ -21,11 +21,7 @@ struct WeaponDetailView: View {
             
                 DisclosureGroup("Weapon AltFire") {
                     VStack {
-                        Text("Weapon AltFire Description")
-                            .font(.headline)
-                            .fontDesign(.monospaced)
-                            .padding(.leading)
-                        .foregroundStyle(.returnalLightBlue)
+                        TextHeaadline(text: "Weapon Level: 3", color: .returnalLightBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -40,7 +36,7 @@ struct WeaponDetailView: View {
                 Spacer()
                 DisclosureGroup("Weapon Trait \(weaponTrait)") {
                     VStack {
-                        TextHeaadline(text: "Weapon Trait \(weaponTrait) Description")
+                        TextHeaadline(text: "Weapon Trait \(weaponTrait) Description", color: .returnalLightBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
