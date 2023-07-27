@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddRunView: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     
     @State private var scoutName = ""
     @State private var platform = "PS5"

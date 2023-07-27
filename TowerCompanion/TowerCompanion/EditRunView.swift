@@ -84,15 +84,15 @@ struct EditRunView: View {
 //                    }
                     
                     // MARK: - Stats
-                    Section {
-                        TextField("Weapon Damage", value: $towerRun.stats.weaponDamage, format: .percent)
-                        TextField("Protection", value: $towerRun.stats.protection, format: .percent)
-                        TextField("Profiency Rate", value: $towerRun.stats.profiencyRate, format: .percent)
-                        TextField("Repair Effiency", value: $towerRun.stats.repairEffiency, format: .percent)
-                        TextField("Alt-Fire Cooldown", value: $towerRun.stats.altFireCoolDown, format: .percent)
-                    } header: {
-                        Text("Enter Stat Details")
-                    }
+//                    Section {
+//                        TextField("Weapon Damage", value: $towerRun.stats.weaponDamage, format: .percent)
+//                        TextField("Protection", value: $towerRun.stats.protection, format: .percent)
+//                        TextField("Profiency Rate", value: $towerRun.stats.profiencyRate, format: .percent)
+//                        TextField("Repair Effiency", value: $towerRun.stats.repairEffiency, format: .percent)
+//                        TextField("Alt-Fire Cooldown", value: $towerRun.stats.altFireCoolDown, format: .percent)
+//                    } header: {
+//                        Text("Enter Stat Details")
+//                    }
                     
                     // MARK: - Malfunctions
 //                    Section {

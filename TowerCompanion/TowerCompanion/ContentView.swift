@@ -9,17 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     @Query(sort: \TowerRun.dateCompleted, order: .reverse) private var towerRuns: [TowerRun]
     @State private var isSheetPresented = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(towerRuns, id: \.id) { run in
-                    Section {
-                        TowerRunHighlightView(towerRun: run)
-                    }
+                ForEach(towerRuns) { run in
+                    TowerRunHighlightView(towerRun: run)
                 }
             }
             .navigationTitle("TowerRuns")

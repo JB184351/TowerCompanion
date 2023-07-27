@@ -18,132 +18,29 @@ struct TowerRunDetailView: View {
                 Group {
                     VStack(alignment: .leading) {
                         Section {
-                            Text("Scout Name: DR_JRB")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .foregroundStyle(.returnalYellow)
-                                .padding(.leading)
-                            Text("Platform: PS5")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .foregroundStyle(.returnalYellow)
-                                .padding(.leading)
-                            
-                            Spacer()
-            
-                            Text("Score: \(score)")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            Text("Phase: 3")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            
-                            Text("Room: 19")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
+                            HeavyTextHeadline(text: "Scout Name: DR_JRB", color: .returnalYellow)
+                            HeavyTextHeadline(text: "PS5", color: .returnalYellow)
                             
                             Spacer()
                             
-                            Group {
-                                Text("Final Multiplier: 98.2%")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.returnalLightBlue)
-                                Text("Average Multiplier: 68.9%")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.returnalLightBlue)
-                                Text("Highest Multiplier: 100%")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.returnalLightBlue)
-                                
-                                Spacer()
-                                
-                                Text("Date Completed: July 11, 2021")
-                                    .font(.headline)
-                                    .fontWeight(.heavy)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.returnalLightBlue)
-                            }
+                            HeavyTextHeadline(text: "Score: \(score)", color: .returnalLightBlue)
+                            HeavyTextHeadline(text: "Phase: 3", color: .returnalLightBlue)
+                            HeavyTextHeadline(text: "Room: 19", color: .returnalLightBlue)
                             
+                            Spacer()
                             
+                            HeavyTextHeadline(text: "Final Multiplier: 98.2%", color: .returnalLightBlue)
+                            HeavyTextHeadline(text: "Average Multiplier: 68.9%", color: .returnalLightBlue)
+                            HeavyTextHeadline(text: "Highest Multiplier: 100%", color: .returnalLightBlue)
+                            
+                            Spacer()
+                            
+                            HeavyTextHeadline(text: "Date Completed: July 11, 2021", color: .returnalLightBlue)
                         }
                         
                         Spacer()
                         
-                        DisclosureGroup("Weapon Details") {
-                            VStack {
-                                Text("Weapon Name")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.returnalLightBlue)
-                                
-                                Text("Weapon Level")
-                                    .font(.headline)
-                                    .fontDesign(.monospaced)
-                                    .padding(.leading)
-                                    .foregroundStyle(.returnalLightBlue)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                                DisclosureGroup("Weapon AltFire") {
-                                    VStack {
-                                        Text("Weapon AltFire Description")
-                                            .font(.headline)
-                                            .fontDesign(.monospaced)
-                                            .padding(.leading)
-                                        .foregroundStyle(.returnalLightBlue)
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            
-                            Spacer()
-                            
-                            ForEach(1..<5) { weaponTrait in
-                                Spacer()
-                                DisclosureGroup("Weapon Trait \(weaponTrait)") {
-                                    VStack {
-                                        Text("Weapon Trait \(weaponTrait) Description")
-                                            .font(.headline)
-                                            .fontDesign(.monospaced)
-                                            .padding(.leading)
-                                            .foregroundStyle(.returnalLightBlue)
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.returnalLightBlue)
-                            }
-                        }
-                        .font(.title2)
-                        .fontWeight(.heavy)
-                        .fontDesign(.monospaced)
-                        .padding(.leading)
-                        .foregroundStyle(.returnalLightBlue)
-                        
+                        WeaponDetailView()
                         
                         Spacer()
                         
@@ -151,11 +48,7 @@ struct TowerRunDetailView: View {
                             ForEach(1..<16) { artifact in
                                 DisclosureGroup("Artifact \(artifact)") {
                                     VStack {
-                                        Text("Artifact \(artifact) Description")
-                                            .font(.headline)
-                                            .fontDesign(.monospaced)
-                                            .padding(.leading)
-                                        .foregroundStyle(.returnalLightBlue)
+                                        TextHeaadline(text: "Artifact \(artifact) Description", color: .returnalLightBlue)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 }
@@ -178,11 +71,7 @@ struct TowerRunDetailView: View {
                             ForEach(1..<6) { parasite in
                                 DisclosureGroup("Parasite \(parasite)") {
                                     VStack {
-                                        Text("Parasite \(parasite) Description")
-                                            .font(.headline)
-                                            .fontDesign(.monospaced)
-                                            .padding(.leading)
-                                            .foregroundStyle(.purple)
+                                        TextHeaadline(text: "Parasite \(parasite) Description", color: .purple)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 }
@@ -205,11 +94,7 @@ struct TowerRunDetailView: View {
                             ForEach(1..<8) { malfunction in
                                 DisclosureGroup("Malfunction \(malfunction)") {
                                     VStack {
-                                        Text("Malfunction \(malfunction) Description")
-                                            .font(.headline)
-                                            .fontDesign(.monospaced)
-                                            .padding(.leading)
-                                            .foregroundStyle(.red)
+                                        TextHeaadline(text: "Malfunction \(malfunction) Description", color: .red)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 }
@@ -236,12 +121,7 @@ struct TowerRunDetailView: View {
                     Spacer()
                     ForEach(1..<6) { stat in
                         VStack {
-                            Text("Stat \(stat) Description")
-                                .font(.headline)
-                                .fontWeight(.heavy)
-                                .fontDesign(.monospaced)
-                                .foregroundStyle(.returnalYellow)
-                            .padding(.leading)
+                            HeavyTextHeadline(text: "Stat \(stat) Description", color: .returnalYellow)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         

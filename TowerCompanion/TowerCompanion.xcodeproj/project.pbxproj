@@ -13,11 +13,15 @@
 		30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */; };
 		304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactsView.swift */; };
 		304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304A86632A4CD3CB00797D8F /* AddWeaponView.swift */; };
+		305363D02A71FBA4006D3ACC /* HeavyTextHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305363CF2A71FBA4006D3ACC /* HeavyTextHeadline.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
 		3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */; };
 		30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C12A37C8D0003AB0B3 /* Stat.swift */; };
 		30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C32A37C932003AB0B3 /* AltFire.swift */; };
 		30A7F7C82A37CF55003AB0B3 /* Malfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */; };
+		30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */; };
+		30AA61502A71F1DE005D69B7 /* TextHeaadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */; };
+		30AA61532A71F34A005D69B7 /* DisclosureGroupText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */; };
 		30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B245892A4D03D4000AD9DB /* AddParasitesView.swift */; };
 		30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */; };
 		30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC720C2A354FEF00F0E49B /* ContentView.swift */; };
@@ -38,11 +42,15 @@
 		30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunHighlightView.swift; sourceTree = "<group>"; };
 		304243A62A4BA4F400D51678 /* AddArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactsView.swift; sourceTree = "<group>"; };
 		304A86632A4CD3CB00797D8F /* AddWeaponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeaponView.swift; sourceTree = "<group>"; };
+		305363CF2A71FBA4006D3ACC /* HeavyTextHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeavyTextHeadline.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
 		3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMalfunctionsView.swift; sourceTree = "<group>"; };
 		30A7F7C12A37C8D0003AB0B3 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		30A7F7C32A37C932003AB0B3 /* AltFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltFire.swift; sourceTree = "<group>"; };
 		30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Malfunction.swift; sourceTree = "<group>"; };
+		30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponDetailView.swift; sourceTree = "<group>"; };
+		30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeaadline.swift; sourceTree = "<group>"; };
+		30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupText.swift; sourceTree = "<group>"; };
 		30B245892A4D03D4000AD9DB /* AddParasitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParasitesView.swift; sourceTree = "<group>"; };
 		30BC72052A354FEF00F0E49B /* TowerCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerCompanionApp.swift; sourceTree = "<group>"; };
@@ -88,6 +96,24 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		30AA614E2A71EFEB005D69B7 /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		30AA61512A71F328005D69B7 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */,
+				305363CF2A71FBA4006D3ACC /* HeavyTextHeadline.swift */,
+				30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		30B49CDE2A43D5D300E855B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +153,8 @@
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30C8969F2A5A1A38004D016D /* Extensions */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
+				30AA614E2A71EFEB005D69B7 /* DetailViews */,
+				30AA61512A71F328005D69B7 /* CustomViews */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				304229B12A5DE005009364DF /* TowerRunDetailView.swift */,
 				30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */,
@@ -231,12 +259,15 @@
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */,
+				30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */,
 				30A7F7C82A37CF55003AB0B3 /* Malfunction.swift in Sources */,
+				30AA61532A71F34A005D69B7 /* DisclosureGroupText.swift in Sources */,
 				304229B22A5DE005009364DF /* TowerRunDetailView.swift in Sources */,
 				30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */,
 				30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */,
 				30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */,
 				304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */,
+				305363D02A71FBA4006D3ACC /* HeavyTextHeadline.swift in Sources */,
 				3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */,
 				30C896A32A5A4441004D016D /* View.swift in Sources */,
 				30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */,
@@ -244,6 +275,7 @@
 				30BC72202A3686B300F0E49B /* Trait.swift in Sources */,
 				30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */,
 				304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */,
+				30AA61502A71F1DE005D69B7 /* TextHeaadline.swift in Sources */,
 				300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
