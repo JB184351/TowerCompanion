@@ -15,123 +15,46 @@ struct TowerRunDetailView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Group {
-                    VStack(alignment: .leading) {
-                        Section {
-                            HeavyTextHeadline(text: "Scout Name: DR_JRB", color: .returnalYellow)
-                            HeavyTextHeadline(text: "PS5", color: .returnalYellow)
-                            
-                            Spacer()
-                            
-                            HeavyTextHeadline(text: "Score: \(score)", color: .returnalLightBlue)
-                            HeavyTextHeadline(text: "Phase: 3", color: .returnalLightBlue)
-                            HeavyTextHeadline(text: "Room: 19", color: .returnalLightBlue)
-                            
-                            Spacer()
-                            
-                            HeavyTextHeadline(text: "Final Multiplier: 98.2%", color: .returnalLightBlue)
-                            HeavyTextHeadline(text: "Average Multiplier: 68.9%", color: .returnalLightBlue)
-                            HeavyTextHeadline(text: "Highest Multiplier: 100%", color: .returnalLightBlue)
-                            
-                            Spacer()
-                            
-                            HeavyTextHeadline(text: "Date Completed: July 11, 2021", color: .returnalLightBlue)
-                        }
+                VStack(alignment: .leading) {
+                    Section {
+                        HeavyTextHeadline(text: "Scout Name: DR_JRB", color: .returnalYellow)
+                        HeavyTextHeadline(text: "PS5", color: .returnalYellow)
                         
                         Spacer()
                         
-                        WeaponDetailView()
+                        HeavyTextHeadline(text: "Score: \(score)", color: .returnalLightBlue)
+                        HeavyTextHeadline(text: "Phase: 3", color: .returnalLightBlue)
+                        HeavyTextHeadline(text: "Room: 19", color: .returnalLightBlue)
                         
                         Spacer()
                         
-                        DisclosureGroup("Artifacts") {
-                            ForEach(1..<16) { artifact in
-                                DisclosureGroup("Artifact \(artifact)") {
-                                    VStack {
-                                        TextHeaadline(text: "Artifact \(artifact) Description", color: .returnalLightBlue)
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-                            .font(.headline)
-                            .fontDesign(.monospaced)
-                            .padding(.leading)
-                            .foregroundStyle(.returnalLightBlue)
-                        }
-                        .font(.title2)
-                        .fontWeight(.heavy)
-                        .fontDesign(.monospaced)
-                        .padding(.leading)
-                        .foregroundStyle(.returnalLightBlue)
+                        HeavyTextHeadline(text: "Final Multiplier: 98.2%", color: .returnalLightBlue)
+                        HeavyTextHeadline(text: "Average Multiplier: 68.9%", color: .returnalLightBlue)
+                        HeavyTextHeadline(text: "Highest Multiplier: 100%", color: .returnalLightBlue)
                         
                         Spacer()
                         
-                        DisclosureGroup("Parasites") {
-                            Spacer()
-                            ForEach(1..<6) { parasite in
-                                DisclosureGroup("Parasite \(parasite)") {
-                                    VStack {
-                                        TextHeaadline(text: "Parasite \(parasite) Description", color: .purple)
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.purple)
-                            }
-                        }
-                        .font(.title2)
-                        .fontWeight(.heavy)
-                        .fontDesign(.monospaced)
-                        .padding(.leading)
-                        .foregroundStyle(.purple)
-                        
-                        Spacer()
-                        
-                        DisclosureGroup("Malfunctions") {
-                            Spacer()
-                            ForEach(1..<8) { malfunction in
-                                DisclosureGroup("Malfunction \(malfunction)") {
-                                    VStack {
-                                        TextHeaadline(text: "Malfunction \(malfunction) Description", color: .red)
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                                .font(.headline)
-                                .fontDesign(.monospaced)
-                                .padding(.leading)
-                                .foregroundStyle(.red)
-                            }
-                        }
-                        .font(.title2)
-                        .fontWeight(.heavy)
-                        .fontDesign(.monospaced)
-                        .padding(.leading)
-                        .foregroundStyle(.red)
-                        
-                        Spacer()
-                        
+                        HeavyTextHeadline(text: "Date Completed: July 11, 2021", color: .returnalLightBlue)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .backgroundStyle(.returnalDarkGreen)
-                
-                DisclosureGroup("Stats") {
+                    
                     Spacer()
-                    ForEach(1..<6) { stat in
-                        VStack {
-                            HeavyTextHeadline(text: "Stat \(stat) Description", color: .returnalYellow)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                    }
+                    WeaponDetailView()
+                    
+                    Spacer()
+                    ArtifactsDetailView()
+                    
+                    Spacer()
+                    ParasitesDetailView()
+                    
+                    Spacer()
+                    MalfunctionsDetailView()
+                    
+                    Spacer()
+                    StatsDetailView()
+                    
                 }
-                .font(.title2)
-                .fontWeight(.heavy)
-                .fontDesign(.monospaced)
-                .padding(.leading)
-                .foregroundStyle(.returnalLightBlue)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .backgroundStyle(.returnalDarkGreen)
             }
             .navigationTitle("Run Details")
             .background(.returnalDarkGreen)
