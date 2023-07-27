@@ -17,7 +17,7 @@ struct TowerRunDetailView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     HeavyTextHeadline(text: "Scout Name: DR_JRB", color: .returnalYellow)
-                    HeavyTextHeadline(text: "PS5", color: .returnalYellow)
+                    HeavyTextHeadline(text: "Platform: PS5", color: .returnalYellow)
                     
                     Spacer()
                     

@@ -14,14 +14,16 @@ struct WeaponDetailView: View {
         DisclosureGroup("Weapon Details") {
             VStack {
                 Spacer()
-                TextHeaadline(text: "Weapon Name")
-                TextHeaadline(text: "Weapon Level: 3")
+                TextHeaadline(text: "DreadBound", color: .returnalLightBlue)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                TextHeaadline(text: "45", color: .returnalLightBlue)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-                DisclosureGroup("Weapon AltFire") {
+                DisclosureGroup("Shieldbreaker") {
                     VStack {
-                        TextHeaadline(text: "Weapon Level: 3", color: .returnalLightBlue)
+                        TextHeaadline(text: "Shieldbreaker Description a;flajs;dlkfja;sldkfja;sldkjfa;sldkfj", color: .returnalLightBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -33,7 +35,6 @@ struct WeaponDetailView: View {
             Spacer()
             
             ForEach(1..<5) { weaponTrait in
-                Spacer()
                 DisclosureGroup("Weapon Trait \(weaponTrait)") {
                     VStack {
                         TextHeaadline(text: "Weapon Trait \(weaponTrait) Description", color: .returnalLightBlue)
