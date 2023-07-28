@@ -71,12 +71,16 @@ struct AddArtifactsView: View {
         
         Section {
             Button("Add Artifact(s)") {
-                addArtifact()
+                withAnimation {
+                    addArtifact()
+                }
             }
             .disabled(artifacts.count == 15)
             
             Button("Clear All") {
-                clearValues()
+                withAnimation {
+                    clearValues()
+                }
             }
             .disabled(artifacts.count < 1)
         }

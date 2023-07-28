@@ -85,17 +85,23 @@ struct AddWeaponView: View {
         }
         Section {
             Button("Add Weapon Trait") {
-                addWeaponTrait()
+                withAnimation {
+                    addWeaponTrait()
+                }
             }
             .disabled(weaponTraits.count == 4)
             
             Button("Clear All") {
-                clearValues()
+                withAnimation {
+                    clearValues()
+                }
             }
             .disabled(weaponTraits.count < 1)
             
             Button("Add Weapon") {
-                addWeapon()
+                withAnimation {
+                    addWeapon()
+                }
             }
             
             

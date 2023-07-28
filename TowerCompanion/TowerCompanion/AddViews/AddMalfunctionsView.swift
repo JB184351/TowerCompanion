@@ -23,12 +23,16 @@ struct AddMalfunctionsView: View {
                 .isHidden(isPermanent)
             
             Button("Add Malfunction") {
-                addMalfunction()
+                withAnimation() {
+                    addMalfunction()
+                }
             }
             .disabled(malfunctions.count == 7 || malfunctionDescription.isEmpty)
             
             Button("Clear All Malfunctions") {
-                reset()
+                withAnimation {
+                    reset()
+                }
             }
             .disabled(malfunctions.count < 1)
         }

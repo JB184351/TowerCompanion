@@ -63,12 +63,16 @@ struct AddParasitesView: View {
         
         Section {
             Button("Add Parasite") {
-                addParasite()
+                withAnimation {
+                    addParasite()
+                }
             }
             .disabled(parasites.count == 5)
             
             Button("Remove Selected Parasites") {
-                clearParasites()
+                withAnimation {
+                    clearParasites()
+                }
             }
             .disabled(parasites.count < 1)
         }
@@ -85,7 +89,6 @@ struct AddParasitesView: View {
             Text("Parasites")
         }
         .isHidden(parasites.count < 1)
-        
     }
     
     private func addPicker() {
