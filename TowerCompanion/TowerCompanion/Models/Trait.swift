@@ -12,7 +12,7 @@ struct Trait: Codable {
     var traitDescription: String
     var level: Int
     
-    private func getWeaponTraitDescriptionForDreadbound(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForDreadbound(trait: String) -> String {
         switch trait {
         case "Fourth Shard":
             return "This weapon fires out a fourth shard."
@@ -37,7 +37,7 @@ struct Trait: Codable {
         }
     }
     
-    private func getWeaponTraitDescriptionForHollowseeker(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForHollowseeker(trait: String) -> String {
         switch trait {
         case "Phasing Rounds":
             return "Projectiles can pass through surfaces."
@@ -62,7 +62,7 @@ struct Trait: Codable {
         }
     }
     
-    private func getWeaponTraitDescriptionForRotglandLobber(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForRotglandLobber(trait: String) -> String {
         switch trait {
         case "Durable Rot":
             return "Increases the duration of the rot."
@@ -87,7 +87,7 @@ struct Trait: Codable {
         }
     }
     
-    private func getWeaponTraitDescriptionForCoilspineShredder(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForCoilspineShredder(trait: String) -> String {
         switch trait {
         case "Alt-Fire Cooling":
             return "Reduces the cooldown of the current active Alt-Fire."
@@ -112,7 +112,7 @@ struct Trait: Codable {
         }
     }
     
-    private func getWeaponTraitDescriptionForElectropylon(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForElectropylon(trait: String) -> String {
         switch trait {
         case "Obolite Extractor":
             return "Hostiles have a higher chance to drop Obolite Chunks."
@@ -137,7 +137,7 @@ struct Trait: Codable {
         }
     }
     
-    private func getWeaponTraitDescriptionForTachyomaticCarbine(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForTachyomaticCarbine(trait: String) -> String {
         switch trait {
         case "Armor Piercing":
             return "Projectiles will pierce hostiles and ricochet off of surfaces."
@@ -157,10 +157,12 @@ struct Trait: Codable {
             return "Accuracy and recoil greatly improved."
         case "Accelerated":
             return "Kills decrease dash cooldown and increase firerate."
+        default:
+            return ""
         }
     }
     
-    private func getWeaponTraitDescriptionForThermogenicLauncher(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForThermogenicLauncher(trait: String) -> String {
         switch trait {
         case "Easy to Use":
             return "Kills reward extra Profieiency."
@@ -185,7 +187,7 @@ struct Trait: Codable {
         }
     }
     
-    private func getWeaponTraitDescriptionForPyroshellCaster(trait: String) -> String {
+    private static func getWeaponTraitDescriptionForPyroshellCaster(trait: String) -> String {
         switch trait {
         case "Streamlined Chamber":
             return "This weapon has a faster fire rate."

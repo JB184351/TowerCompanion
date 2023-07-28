@@ -107,6 +107,7 @@
 		30AA614E2A71EFEB005D69B7 /* DetailViews */ = {
 			isa = PBXGroup;
 			children = (
+				304229B12A5DE005009364DF /* TowerRunDetailView.swift */,
 				30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */,
 				305363D12A720940006D3ACC /* ArtifactsDetailView.swift */,
 				305363D32A720997006D3ACC /* ParasitesDetailView.swift */,
@@ -161,14 +162,13 @@
 		30BC72072A354FEF00F0E49B /* TowerCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30B49CDE2A43D5D300E855B6 /* Models */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30C8969F2A5A1A38004D016D /* Extensions */,
-				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
 				30AA61512A71F328005D69B7 /* CustomViews */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
-				304229B12A5DE005009364DF /* TowerRunDetailView.swift */,
 				30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
