@@ -16,21 +16,21 @@ struct ParasitesDetailView: View {
             ForEach(1..<6) { parasite in
                 DisclosureGroup("Parasite \(parasite)") {
                     VStack {
-                        TextHeaadline(text: "Parasite \(parasite) Description", color: .purple)
+                        TextHeaadline(text: "Parasite \(parasite) Description", color: .returnalPurple)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .font(.headline)
                 .fontDesign(.monospaced)
                 .padding(.leading)
-                .foregroundStyle(.purple)
+                .foregroundStyle(.returnalPurple)
             }
         }
         .font(.title2)
         .fontWeight(.heavy)
         .fontDesign(.monospaced)
         .padding(.leading)
-        .foregroundStyle(.purple)
+        .foregroundStyle(.returnalPurple)
     }
 }
 

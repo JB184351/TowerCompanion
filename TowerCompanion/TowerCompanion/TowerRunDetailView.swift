@@ -52,7 +52,6 @@ struct TowerRunDetailView: View {
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .backgroundStyle(.returnalDarkGreen)
             }
             .navigationTitle("Run Details")
             .background(.returnalDarkGreen)

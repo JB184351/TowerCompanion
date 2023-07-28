@@ -18,7 +18,11 @@ extension ShapeStyle where Self == Color {
     }
     
     static var returnalDarkGreen: Color {
-        Color(red: 16/255, green: 25/255, blue: 25/255)
+        Color(red: 15/255, green: 30/255, blue: 28/255)
+    }
+    
+    static var returnalPurple: Color {
+        Color(red: 195/255, green: 119/255, blue: 253/255)
     }
 }
 
@@ -32,6 +36,10 @@ extension Color {
     }
     
     static var returnalDarkGreen: Color {
-        Color(red: 16/255, green: 25/255, blue: 25/255)
+        Color(red: 15/255, green: 30/255, blue: 28/255)
+    }
+    
+    static var returnalPurple: Color {
+        Color(red: 195/255, green: 119/255, blue: 253/255)
     }
 }

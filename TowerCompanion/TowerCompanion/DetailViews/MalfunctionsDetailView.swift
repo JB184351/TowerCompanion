@@ -24,6 +24,7 @@ struct MalfunctionsDetailView: View {
                 .fontDesign(.monospaced)
                 .padding(.leading)
                 .foregroundStyle(.red)
+                
             }
         }
         .font(.title2)

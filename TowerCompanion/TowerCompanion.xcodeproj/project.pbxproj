@@ -26,7 +26,6 @@
 		30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */; };
 		30AA61502A71F1DE005D69B7 /* TextHeaadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */; };
 		30AA61532A71F34A005D69B7 /* DisclosureGroupText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */; };
-		30AE07992A7325F600C46A85 /* TestDisclosureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE07982A7325F600C46A85 /* TestDisclosureGroup.swift */; };
 		30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B245892A4D03D4000AD9DB /* AddParasitesView.swift */; };
 		30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */; };
 		30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC720C2A354FEF00F0E49B /* ContentView.swift */; };
@@ -60,7 +59,6 @@
 		30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponDetailView.swift; sourceTree = "<group>"; };
 		30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeaadline.swift; sourceTree = "<group>"; };
 		30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupText.swift; sourceTree = "<group>"; };
-		30AE07982A7325F600C46A85 /* TestDisclosureGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDisclosureGroup.swift; sourceTree = "<group>"; };
 		30B245892A4D03D4000AD9DB /* AddParasitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParasitesView.swift; sourceTree = "<group>"; };
 		30BC72052A354FEF00F0E49B /* TowerCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerCompanionApp.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */,
-				30AE07982A7325F600C46A85 /* TestDisclosureGroup.swift */,
 				305363D12A720940006D3ACC /* ArtifactsDetailView.swift */,
 				305363D32A720997006D3ACC /* ParasitesDetailView.swift */,
 				305363D52A7209CF006D3ACC /* MalfunctionsDetailView.swift */,
@@ -277,7 +274,6 @@
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */,
-				30AE07992A7325F600C46A85 /* TestDisclosureGroup.swift in Sources */,
 				30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */,
 				30A7F7C82A37CF55003AB0B3 /* Malfunction.swift in Sources */,
 				30AA61532A71F34A005D69B7 /* DisclosureGroupText.swift in Sources */,
