@@ -12,8 +12,8 @@ struct Trait: Codable {
     var traitDescription: String
     var level: Int
     
-    static func getWeaponTraitDescriptionForDreadbound(traitDescription: String) -> String {
-        switch traitDescription {
+    private func getWeaponTraitDescriptionForDreadbound(trait: String) -> String {
+        switch trait {
         case "Fourth Shard":
             return "This weapon fires out a fourth shard."
         case "Obolite Magnet":
@@ -35,5 +35,16 @@ struct Trait: Codable {
         default:
             return ""
         }
+    }
+    
+    func getWeaponTraitDescriptions(weapon: Weapon) -> [String] {
+        var weaponTraits = [String]()
+        
+        switch weapon.name {
+        case "Dreadbound":
+            weaponTraits.append(get)
+        }
+        
+        return ""
     }
 }

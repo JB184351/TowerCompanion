@@ -23,7 +23,7 @@ struct WeaponDetailView: View {
             
                 DisclosureGroup("Shieldbreaker") {
                     VStack {
-                        TextHeaadline(text: "Shieldbreaker Description a;flajs;dlkfja;sldkfja;sldkjfa;sldkfj", color: .returnalLightBlue)
+                        TextHeaadline(text: "Shieldbreaker Description", color: .returnalLightBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
