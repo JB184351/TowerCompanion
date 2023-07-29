@@ -19,8 +19,10 @@ struct AddMalfunctionsView: View {
             Toggle("Is this a permanent Malfunction?", isOn: $isPermanent)
 
             TextField("Enter the Malfunction Description", text: $malfunctionDescription)
-            TextField("Enter Malfunction Removal Condition", text: $malfunctionRemovalCondition)
-                .isHidden(isPermanent)
+            
+            if !isPermanent {
+                TextField("Enter Malfunction Removal Condition", text: $malfunctionRemovalCondition)
+            }
             
             Button("Add Malfunction") {
                 withAnimation() {
@@ -46,17 +48,23 @@ struct AddMalfunctionsView: View {
             }
         }
         
-        Section {
-            ForEach(malfunctions, id: \.self) { malfunction in
-                Text(malfunction.malfunctionDescription)
-                Text(malfunction.conditionToRemove)
+        if malfunctions.count < 1 {
+            Section {
+                ForEach(malfunctions, id: \.self) { malfunction in
+                    Text(malfunction.malfunctionDescription)
+                    
+                    if malfunction.malfunctionType == .normal {
+                        Text(malfunction.conditionToRemove)
+                    }
+                }
             }
+        } else {
+            EmptyView()
         }
-        .isHidden(malfunctions.count == 0)
     }
     
     private func addMalfunction() {
-        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemovalCondition)
+        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemovalCondition, malfunctionType: .normal)
         malfunctions.append(malfunction)
         
         malfunctionDescription = ""

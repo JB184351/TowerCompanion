@@ -77,18 +77,21 @@ struct AddParasitesView: View {
             .disabled(parasites.count < 1)
         }
         
-        Section {
-            ForEach(parasites, id: \.self) { parasite in
-                Text(parasite.name)
-                Text(parasite.positiveDescription)
-                    .foregroundStyle(.green)
-                Text(parasite.negativeDescription)
-                    .foregroundStyle(.red)
+        if parasites.count < 1 {
+            Section {
+                ForEach(parasites, id: \.self) { parasite in
+                    Text(parasite.name)
+                    Text(parasite.positiveDescription)
+                        .foregroundStyle(.green)
+                    Text(parasite.negativeDescription)
+                        .foregroundStyle(.red)
+                }
+            } header: {
+                Text("Parasites")
             }
-        } header: {
-            Text("Parasites")
+        } else {
+            EmptyView()
         }
-        .isHidden(parasites.count < 1)
     }
     
     private func addPicker() {

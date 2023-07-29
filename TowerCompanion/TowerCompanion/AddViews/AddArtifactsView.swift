@@ -85,12 +85,15 @@ struct AddArtifactsView: View {
             .disabled(artifacts.count < 1)
         }
         
-        Section(header: Text("Artifacts")) {
-            ForEach(artifacts, id: \.name) { artifact in
-                Text("\(artifact.name)")
+        if artifacts.count < 1 {
+            Section(header: Text("Artifacts")) {
+                ForEach(artifacts, id: \.name) { artifact in
+                    Text("\(artifact.name)")
+                }
             }
+        } else {
+            EmptyView()
         }
-        .isHidden(artifacts.count == 0)
     }
     
     private func addArtifact() {

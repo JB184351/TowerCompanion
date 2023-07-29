@@ -18,7 +18,7 @@ struct AddWeaponView: View {
     @State private var weaponTraitNamesUsedInRun = [String]()
     @State private var weaponTraitNames: [String] = [""]
     @State private var weaponTraits = [Trait]()
-    @State private var altFire = AltFire(name: "", level: 0, altFireDescription: "")
+    @State private var altFire = AltFire(name: "", level: 1, altFireDescription: "")
     @Binding var weapon: Weapon
     
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
@@ -103,14 +103,16 @@ struct AddWeaponView: View {
                     addWeapon()
                 }
             }
-            
-            
         }
         
-        Section(header: Text("Weapon Traits")) {
-            ForEach(weaponTraits, id: \.name) { weapon in
-                Text("\(weapon.name) \(weapon.level)")
+        if weaponTraits.count > 0 {
+            Section(header: Text("Weapon Traits")) {
+                ForEach(weaponTraits, id: \.name) { weapon in
+                    Text("\(weapon.name) \(weapon.level)")
+                }
             }
+        } else {
+            EmptyView()
         }
     }
     
