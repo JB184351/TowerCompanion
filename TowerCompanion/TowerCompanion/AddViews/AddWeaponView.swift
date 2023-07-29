@@ -181,27 +181,28 @@ struct AddWeaponView: View {
     }
 
     private func getWeaponTraits(from weaponName: String) -> [String] {
-        if weaponName == "Modified Sidearm SD-M8" {
+        switch weaponName {
+        case "Modified Sidearm SD-M8":
             return ["Homing Missile", "Ricochet", "Snubnose Barrel", "Piercing", "Burst Fire", "Sharpnel", "Charging Shot", "Serrated Projectiles", "Hit Reload"]
-        } else if weaponName == "Tachyomatic Carbine" {
+        case "Tachyomatic Carbine":
             return ["Armor Piercing", "Critical Hit", "Hardened", "High Caliber", "Rising Pithc", "Payload Rounds", "Leech Rounds", "Hypter-Accurate", "Accelerated"]
-        } else if weaponName == "Spitmaw Blaster" {
+        case "Spitmaw Blaster":
             return ["Wide Maw", "Narrow Maw", "Slug Shot", "Explosive Spitter", "Rapid Spitter", "Backsplash", "Critical Stagger", "Piercing Spit", "Acid Clouds"]
-        } else if weaponName == "Pyroshell Caster" {
+        case "Pyroshell Caster":
             return ["Streamlined Chamber", "Secondary Explosion", "Bouncy Projectiles", "Sticky Bonus", "Seeking Flares", "Enlarged Chamber", "Anti-Gravity Projectiles", "Auxiliary Projectiles", "Simmering Explosion"]
-        } else if weaponName == "Coilspine Shredder" {
+        case "Coilspine Shredder":
             return ["Alt-Fire Cooling", "Shattering Discs", "Adrenaline Discs", "Enlarged Chamber", "Twin Discs", "Retarget", "Splitting Discs", "Enhanced Charge", "Negating Discs"]
-        } else if weaponName == "Thermogenic Launcher" {
+        case "Thermogenic Launcher":
             return ["Easy To Use", "Obolite Magnet", "Critical Rockets", "Enlarged Chamber", "Replicating Hits", "Mega Rocket", "Full Auto", "Thermite Rockets", "Tail Fire"]
-        } else if weaponName == "Electropylon Driver" {
+        case "Electropylon Driver":
             return ["Obolite Extractor", "Silphium Extractor", "Pylon Web", "Finisher", "Streamlined Chamber", "Enlarged Chamber", "Blade Harmonizer", "Blade Pulse", "Protective Pylons"]
-        } else if weaponName == "Rotgland Lobber" {
+        case "Rotgland Lobber":
             return ["Durable Rot", "Trailing Rot", "Bouncing Rot", "Enlarged Chamber", "Explosive Rot", "Protective Rot", "Caustic Rot", "Tendril Rot", "Portal Rot"]
-        } else if weaponName == "Hollowseeker" {
+        case "Hollowseeker":
             return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Sharpnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
-        } else if weaponName == "Dreadbound" {
+        case "Dreadbound":
             return ["Fourth Shard", "Obolite Magnet", "Staggering", "Proection Steal", "Expanding Shards", "Returning Damage", "Explosive Shards", "Damage Steal", "Obolite Generator"]
-        } else {
+        default:
             return []
         }
     }
