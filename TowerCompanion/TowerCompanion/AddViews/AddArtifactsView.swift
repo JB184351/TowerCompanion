@@ -95,7 +95,7 @@ struct AddArtifactsView: View {
     
     private func addArtifact() {
         for (index, _) in artifactNamesUsedInRun.enumerated() {
-            let artifact = Artifact(name: artifactNames[index], artifactDescription: "")
+            let artifact = Artifact(name: artifactNames[index], artifactDescription: getAtrifactDescription(artifactName: artifactNames[index]))
             artifacts.append(artifact)
             
             artifactNames.remove(at: index)
@@ -107,7 +107,7 @@ struct AddArtifactsView: View {
         artifactsUsedInRun.removeAll()
     }
     
-    private func getAllAtrifactDescriptions(artifactName: String) -> String {
+    private func getAtrifactDescription(artifactName: String) -> String {
         switch artifactName {
         case "Phantom Limb":
             return "While equipped, each kill has a 10% chance of healing you."
