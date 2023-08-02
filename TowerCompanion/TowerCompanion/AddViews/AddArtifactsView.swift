@@ -14,6 +14,30 @@ struct AddArtifactsView: View {
     @State private var artifactsUsedInRun = [Artifact]()
     @State private var isFirstView = false
     @Binding var artifacts: [Artifact]
+    let allArtifactNames = [
+        "Phantom Limb",
+        "Wound Seekers",
+        "Execution Rush",
+        "Recharging Overload",
+        "Fractal Nail",
+        "Silver Lattice",
+        "Adrenaline Coolant",
+        "Disrupting Overloads",
+        "Blown Nightlight",
+        "Golden Coil",
+        "Recharging Response",
+        "Energy Manipulator",
+        "Resinous Shield",
+        "Reactive Stabilizers",
+        "Repair Circuit",
+        "Adrenaline Enhancer",
+        "Progenitor Egg",
+        "Resin Enhancer",
+        "Execution Coolant",
+        "Murmuring Cocoon",
+        "Pulsating Mass",
+        "Unified Pod"
+    ]
     
     @State var artifactNames = [
         "Phantom Limb",
@@ -85,14 +109,12 @@ struct AddArtifactsView: View {
             .disabled(artifacts.count < 1)
         }
         
-        if artifacts.count < 1 {
+        if artifacts.count > 0 {
             Section(header: Text("Artifacts")) {
                 ForEach(artifacts, id: \.name) { artifact in
                     Text("\(artifact.name)")
                 }
             }
-        } else {
-            EmptyView()
         }
     }
     
@@ -101,13 +123,14 @@ struct AddArtifactsView: View {
             let artifact = Artifact(name: artifactNames[index], artifactDescription: getAtrifactDescription(artifactName: artifactNames[index]))
             artifacts.append(artifact)
             
-            artifactNames.remove(at: index)
+            artifactNames.removeAll { $0 == artifactNames[index] }
         }
     }
     
     private func clearValues() {
         artifacts.removeAll()
         artifactsUsedInRun.removeAll()
+        artifactNames = allArtifactNames
     }
     
     private func getAtrifactDescription(artifactName: String) -> String {
