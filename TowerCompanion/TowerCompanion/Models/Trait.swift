@@ -212,6 +212,56 @@ struct Trait: Codable {
         }
     }
     
+    private static func getWeaponTraitDescriptionsForPistol(trait: String) -> String {
+        switch trait {
+        case "Homing Missile":
+            return "Fires homing missiles in addition to normal projectiles."
+        case "Ricochet":
+            return "Projectiles will ricochet off surfaces and angle towards nearby targets."
+        case "Snubnose Barrel":
+            return "Deals more damage at the cost of accuracy."
+        case "Piercing":
+            return "Projectiles will pierce through hostiles, potentially damaging hostiles behind them."
+        case "Burst Fire":
+            return "Fires multiple projectiles in a single burst at a penalty to recoil."
+        case "Sharpnel":
+            return "Projectiles have a chance to explode into multiple shards on impact."
+        case "Charging Shot":
+            return "Projectiles require charging, but are much more powerful."
+        case "Serrated Projectiles":
+            return "Projectiles cause additional damage over time."
+        case "Hit Reload":
+            return "Successful hits have a chance to instantly reload the weapon."
+        default:
+            return ""
+        }
+    }
+    
+    static private func getWeaponTraitDescriptionForSpitMaw(trait: String) -> String {
+        switch trait {
+        case "Wide Maw":
+            return "Projectiles deal additional damage but have a wider spread."
+        case "Narrow Maw":
+            return "Projectiles have a tighter spread."
+        case "Slug Shot":
+            return "Fires an additional straight line projectile."
+        case "Explosive Spit":
+            return "Projectiles explode upon hitting an enemy or after a set distance."
+        case "Rapid Spitter":
+            return "Gives full-auto fire."
+        case "Backsplash":
+            return "High chance to regain a projectile if all pellets hit a target."
+        case "Critical Stagger":
+            return "Projectiles may deal additional damage to staggered hostiles."
+        case "Piercing Spit":
+            return "Projectiles will pierce through hostiles and explode on delay."
+        case "Acid Clouds":
+            return "Each shot leaves behind an acid cloud that can damage enemies."
+        default:
+            return ""
+        }
+    }
+    
     static func getWeaponTraitDescriptions(weaponName: String, trait: String) -> String {
         switch weaponName {
         case "Dreadbound":
@@ -230,6 +280,10 @@ struct Trait: Codable {
             return getWeaponTraitDescriptionForPyroshellCaster(trait: trait)
         case "Coilspine Shredder":
             return getWeaponTraitDescriptionForCoilspineShredder(trait: trait)
+        case "Modified Sidearm SD-M8":
+            return getWeaponTraitDescriptionsForPistol(trait: trait)
+        case "Spitmaw Blaster":
+            return getWeaponTraitDescriptionForSpitMaw(trait: trait)
         default:
             return ""
         }

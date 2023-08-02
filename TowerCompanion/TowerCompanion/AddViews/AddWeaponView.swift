@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddWeaponView: View {
-    // Weapon Related Variables
     @State private var weaponName = "Modified Sidearm SD-M8"
     @State private var weaponLevel = 0
     @State private var altFireName = ""
@@ -107,8 +106,8 @@ struct AddWeaponView: View {
         
         if weaponTraits.count > 0 {
             Section(header: Text("Weapon Traits")) {
-                ForEach(weaponTraits, id: \.name) { weapon in
-                    Text("\(weapon.name) \(weapon.level)")
+                ForEach(weaponTraits, id: \.name) { trait in
+                    Text("\(trait.name) \(trait.level)")
                 }
             }
         } else {
@@ -117,15 +116,12 @@ struct AddWeaponView: View {
     }
     
     private func addWeaponTrait() {
-        let altFireDescription = getAltFireDescription(for: altFireName)
-        
         for (index, _) in weaponTraitNamesUsedInRun.enumerated() {
-            altFire = AltFire(name: altFireName, level: altFireLevel, altFireDescription: altFireDescription)
             let trait = Trait(name: weaponTraitNames[index], traitDescription: "", level: weaponTraitLevel)
             
             weaponTraits.append(trait)
             
-            weaponTraitNames.remove(at: index)
+            weaponTraitNames.removeAll(where: { $0 == weaponTraitNames[index] } )
         }
     }
     
@@ -135,6 +131,9 @@ struct AddWeaponView: View {
     }
     
     private func addWeapon() {
+        let altFireDescription = getAltFireDescription(for: altFireName)
+        altFire = AltFire(name: altFireName, level: altFireLevel, altFireDescription: altFireDescription)
+        
         self.weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
     }
     
@@ -181,7 +180,7 @@ struct AddWeaponView: View {
         
         return altFires
     }
-
+    
     private func getWeaponTraits(from weaponName: String) -> [String] {
         switch weaponName {
         case "Modified Sidearm SD-M8":
