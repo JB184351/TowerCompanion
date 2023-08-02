@@ -47,8 +47,11 @@ struct AddMalfunctionsView: View {
                 isFirstView = true
             }
         }
+        .onChange(of: isPermanent) { oldValue, newValue in
+            malfunctionRemovalCondition = ""
+        }
         
-        if malfunctions.count < 1 {
+        if malfunctions.count > 0 {
             Section {
                 ForEach(malfunctions, id: \.self) { malfunction in
                     Text(malfunction.malfunctionDescription)
@@ -58,13 +61,13 @@ struct AddMalfunctionsView: View {
                     }
                 }
             }
-        } else {
-            EmptyView()
         }
     }
     
     private func addMalfunction() {
-        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemovalCondition, malfunctionType: .normal)
+        let malfunctionType: MalfunctionType = isPermanent ? .permanent : .normal
+        
+        let malfunction = Malfunction(malfunctionDescription: malfunctionDescription, conditionToRemove: malfunctionRemovalCondition, malfunctionType: malfunctionType)
         malfunctions.append(malfunction)
         
         malfunctionDescription = ""
@@ -78,6 +81,6 @@ struct AddMalfunctionsView: View {
     
 }
 
-//#Preview {
-//    AddMalfunctionsView(malfunctions: .constant([Malfunction]()))
-//}
+#Preview {
+    AddMalfunctionsView(malfunctions: .constant([Malfunction]()))
+}
