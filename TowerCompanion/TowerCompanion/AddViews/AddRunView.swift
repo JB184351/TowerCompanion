@@ -150,23 +150,21 @@ struct AddRunView: View {
                         Text("Enter Phase and Room Details")
                     }
                     
-                    Group {
-                        // MARK: - Date started
-                        Section {
-                            DatePicker("", selection: $dateStarted)
-                                .labelsHidden()
-                        } header: {
-                            Text("Enter The Date and Time Information")
-                        }
-                        
-                        
-                        // MARK: - Date completed
-                        Section {
-                            DatePicker("", selection: $dateCompleted)
-                                .labelsHidden()
-                        } header: {
-                            Text("Enter The Date and Time Information")
-                        }
+                    // MARK: - Date started
+                    Section {
+                        DatePicker("", selection: $dateStarted)
+                            .labelsHidden()
+                    } header: {
+                        Text("Enter Start Run Date/Time")
+                    }
+                    
+                    
+                    // MARK: - Date completed
+                    Section {
+                        DatePicker("", selection: $dateCompleted)
+                            .labelsHidden()
+                    } header: {
+                        Text("Enter End Run Date/Time")
                     }
                 }
             }
@@ -194,8 +192,6 @@ struct AddRunView: View {
         
         modelContext.insert(towerRun)
     }
-     
-    
 }
 
 #Preview {
