@@ -55,19 +55,17 @@ struct AddRunView: View {
             VStack {
                 Form {
                     // MARK: - Scoutname
-                    Section {
+                    Section(header: Text("Enter Scout Details")) {
                         TextField("Enter Scout Name", text: $scoutName)
                             .focused($textFieldFocus)
-                            .onTapGesture {
-                                textFieldFocus = false
-                            }
                         Picker("Select Platform", selection: $platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0).tag($0)
                             }
                         }
-                    } header: {
-                        Text("Enter Scout Details")
+                    }
+                    .onTapGesture {
+                        textFieldFocus = false
                     }
                     
                     // MARK: - Weapon
@@ -105,10 +103,8 @@ struct AddRunView: View {
                     }
                     
                     // MARK: - Malfunctions
-                    Section {
+                    Section(header: Text("Enter Malfunction Details")) {
                         AddMalfunctionsView(malfunctions: $malfunctions)
-                    } header: {
-                        Text("Enter Malfunction Details")
                     }
                     
                     // MARK: - Score
@@ -182,6 +178,9 @@ struct AddRunView: View {
                     }
                 }
             }
+        }
+        .onTapGesture {
+            textFieldFocus = false
         }
     }
     
