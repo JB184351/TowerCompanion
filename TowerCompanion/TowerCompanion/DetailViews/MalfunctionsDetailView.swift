@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct MalfunctionsDetailView: View {
-//    let malfunctions: [Malfunction]
+    let malfunctions: [Malfunction]
     
     var body: some View {
         DisclosureGroup("Malfunctions") {
             Spacer()
-            ForEach(1..<8) { malfunction in
-                DisclosureGroup("Malfunction \(malfunction)") {
+            ForEach(malfunctions, id: \.self) { malfunction in
+                DisclosureGroup("Malfunctions") {
                     VStack {
-                        TextHeaadline(text: "Malfunction \(malfunction) Description", color: .red)
+                        TextHeadline(text: malfunction.malfunctionDescription, color: .red)
+                        
+                        if malfunction.malfunctionType == .normal {
+                            TextHeadline(text: malfunction.conditionToRemove, color: .red)
+                        }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -35,6 +39,6 @@ struct MalfunctionsDetailView: View {
     }
 }
 
-#Preview {
-    MalfunctionsDetailView()
-}
+//#Preview {
+//    MalfunctionsDetailView()
+//}

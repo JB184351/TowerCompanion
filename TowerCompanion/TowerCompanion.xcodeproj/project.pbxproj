@@ -24,7 +24,7 @@
 		30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C32A37C932003AB0B3 /* AltFire.swift */; };
 		30A7F7C82A37CF55003AB0B3 /* Malfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */; };
 		30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */; };
-		30AA61502A71F1DE005D69B7 /* TextHeaadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */; };
+		30AA61502A71F1DE005D69B7 /* TextHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA614F2A71F1DE005D69B7 /* TextHeadline.swift */; };
 		30AA61532A71F34A005D69B7 /* DisclosureGroupText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */; };
 		30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B245892A4D03D4000AD9DB /* AddParasitesView.swift */; };
 		30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */; };
@@ -57,7 +57,7 @@
 		30A7F7C32A37C932003AB0B3 /* AltFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltFire.swift; sourceTree = "<group>"; };
 		30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Malfunction.swift; sourceTree = "<group>"; };
 		30AA614C2A71EF95005D69B7 /* WeaponDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponDetailView.swift; sourceTree = "<group>"; };
-		30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeaadline.swift; sourceTree = "<group>"; };
+		30AA614F2A71F1DE005D69B7 /* TextHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeadline.swift; sourceTree = "<group>"; };
 		30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupText.swift; sourceTree = "<group>"; };
 		30B245892A4D03D4000AD9DB /* AddParasitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParasitesView.swift; sourceTree = "<group>"; };
 		30BC72052A354FEF00F0E49B /* TowerCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +120,7 @@
 		30AA61512A71F328005D69B7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				30AA614F2A71F1DE005D69B7 /* TextHeaadline.swift */,
+				30AA614F2A71F1DE005D69B7 /* TextHeadline.swift */,
 				305363CF2A71FBA4006D3ACC /* HeavyTextHeadline.swift */,
 				30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */,
 			);
@@ -291,7 +291,7 @@
 				30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */,
 				305363D42A720997006D3ACC /* ParasitesDetailView.swift in Sources */,
 				304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */,
-				30AA61502A71F1DE005D69B7 /* TextHeaadline.swift in Sources */,
+				30AA61502A71F1DE005D69B7 /* TextHeadline.swift in Sources */,
 				300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

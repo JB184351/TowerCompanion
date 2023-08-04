@@ -64,9 +64,6 @@ struct AddRunView: View {
                             }
                         }
                     }
-                    .onTapGesture {
-                        textFieldFocus = false
-                    }
                     
                     // MARK: - Weapon
                     Section {
@@ -178,9 +175,6 @@ struct AddRunView: View {
                     }
                 }
             }
-        }
-        .onTapGesture {
-            textFieldFocus = false
         }
     }
     

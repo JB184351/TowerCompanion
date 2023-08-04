@@ -33,7 +33,7 @@ struct Trait: Codable {
         case "Obolite Generator":
             return "This weapon generates Obolites every time the shards from this weapon hit an enemy."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -58,7 +58,7 @@ struct Trait: Codable {
         case "Portal Turret":
             return "Creates a projectile-firing portal that targets nearby hostiles."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -83,7 +83,7 @@ struct Trait: Codable {
         case "Portal Rot":
             return "Hostiles killed by the rot create a projectile-firing portal."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -108,7 +108,7 @@ struct Trait: Codable {
         case "Negating Discs":
             return "Projectiles from this weapon can destroy enemy projectiles."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -133,7 +133,7 @@ struct Trait: Codable {
         case "Protective Pylons":
             return "Selene has more Protection when near a pylon."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -158,7 +158,7 @@ struct Trait: Codable {
         case "Accelerated":
             return "Kills decrease dash cooldown and increase firerate."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -208,7 +208,7 @@ struct Trait: Codable {
         case "Simmering Explosion":
             return "Projectiles deal damage to nearby hostiles before and after exploding."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -233,7 +233,7 @@ struct Trait: Codable {
         case "Hit Reload":
             return "Successful hits have a chance to instantly reload the weapon."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -258,7 +258,7 @@ struct Trait: Codable {
         case "Acid Clouds":
             return "Each shot leaves behind an acid cloud that can damage enemies."
         default:
-            return ""
+            return "Couldn't get weapon trait description"
         }
     }
     
@@ -285,7 +285,7 @@ struct Trait: Codable {
         case "Spitmaw Blaster":
             return getWeaponTraitDescriptionForSpitMaw(trait: trait)
         default:
-            return ""
+            return "Couldn't get weapon trait description for \(weaponName) with \(trait)"
         }
     }
 }

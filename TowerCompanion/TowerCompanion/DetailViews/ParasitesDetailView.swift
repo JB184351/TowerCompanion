@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ParasitesDetailView: View {
-//    let parasites: [Parasite]
+    let parasites: [Parasite]
 
     var body: some View {
         DisclosureGroup("Parasites") {
             Spacer()
-            ForEach(1..<6) { parasite in
-                DisclosureGroup("Parasite \(parasite)") {
+            ForEach(parasites, id: \.self) { parasite in
+                DisclosureGroup("Parasite \(parasite.name)") {
                     VStack {
-                        TextHeaadline(text: "Parasite \(parasite) Description", color: .returnalPurple)
+                        TextHeadline(text: parasite.positiveDescription, color: .green)
+                        TextHeadline(text: parasite.negativeDescription, color: .red)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -34,6 +35,6 @@ struct ParasitesDetailView: View {
     }
 }
 
-#Preview {
-    ParasitesDetailView()
-}
+//#Preview {
+//    ParasitesDetailView()
+//}

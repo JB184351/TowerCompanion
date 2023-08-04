@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ArtifactsDetailView: View {
-//    let artifacts: [Artifact] 
+    let artifacts: [Artifact] 
     
     var body: some View {
         DisclosureGroup("Artifacts") {
-            ForEach(1..<16) { artifact in
-                DisclosureGroup("Artifact \(artifact)") {
+            ForEach(artifacts, id: \.name) { artifact in
+                DisclosureGroup("\(artifact.name)") {
                     VStack {
-                        TextHeaadline(text: "Artifact \(artifact) Description", color: .returnalLightBlue)
+                        TextHeadline(text: artifact.artifactDescription, color: .returnalLightBlue)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -33,6 +33,6 @@ struct ArtifactsDetailView: View {
     }
 }
 
-#Preview {
-    ArtifactsDetailView()
-}
+//#Preview {
+//    ArtifactsDetailView()
+//}

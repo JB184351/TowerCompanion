@@ -117,6 +117,8 @@ struct AddWeaponView: View {
     
     private func addWeaponTrait() {
         for (index, _) in weaponTraitNamesUsedInRun.enumerated() {
+            let traitDescription = Trait.getWeaponTraitDescriptions(weaponName: weaponName, trait: weaponTraitNames[index])
+            
             let trait = Trait(name: weaponTraitNames[index], traitDescription: "", level: weaponTraitLevel)
             
             weaponTraits.append(trait)
@@ -154,7 +156,7 @@ struct AddWeaponView: View {
         
         let proximityMine = AltFire(name: "Proximity Mine", level: 3, altFireDescription: "Lobs a mine that will explode if an enemy comes close enough to it, or enough time has passed.")
         
-        let shieldBreaker = AltFire(name: "Shield Breaker", level: 3, altFireDescription: "A powerful beam that can destroy red shields and damage enemies using them.")
+        let shieldBreaker = AltFire(name: "Shieldbreaker", level: 3, altFireDescription: "A powerful beam that can destroy red shields and damage enemies using them.")
         
         let shockStream = AltFire(name: "Shockstream", level: 3, altFireDescription: "A long, continuous short-range electrical attack that randomly targets things in front of you. Great against packs of enemies.")
         

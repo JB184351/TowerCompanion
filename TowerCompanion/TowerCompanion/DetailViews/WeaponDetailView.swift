@@ -8,44 +8,51 @@
 import SwiftUI
 
 struct WeaponDetailView: View {
-//    let weapon: Weapon
+    let weapon: Weapon
     
     var body: some View {
         DisclosureGroup("Weapon Details") {
             VStack {
                 Spacer()
-                TextHeaadline(text: "DreadBound", color: .returnalLightBlue)
+                TextHeadline(text: weapon.name, color: .returnalLightBlue)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                TextHeaadline(text: "45", color: .returnalLightBlue)
+                TextHeadline(text: "\(weapon.level)", color: .returnalLightBlue)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-                DisclosureGroup("Shieldbreaker") {
-                    VStack {
-                        TextHeaadline(text: "Shieldbreaker Description", color: .returnalLightBlue)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+            DisclosureGroup("Alt-Fire: \(weapon.altFire.name)") {
+                VStack {
+                    TextHeadline(text: weapon.altFire.altFireDescription, color: .returnalLightBlue)
                 }
-                .font(.headline)
-                .fontDesign(.monospaced)
-                .padding(.leading)
-                .foregroundStyle(.returnalLightBlue)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .font(.headline)
+            .fontDesign(.monospaced)
+            .padding(.leading)
+            .foregroundStyle(.returnalLightBlue)
             
             Spacer()
             
-            ForEach(1..<5) { weaponTrait in
-                DisclosureGroup("Weapon Trait \(weaponTrait)") {
-                    VStack {
-                        TextHeaadline(text: "Weapon Trait \(weaponTrait) Description", color: .returnalLightBlue)
+            DisclosureGroup("Weapon Traits") {
+                ForEach(weapon.traits, id: \.name) { weaponTrait in
+                    DisclosureGroup(weaponTrait.name + " \(weaponTrait.level)") {
+                        VStack {
+                            TextHeadline(text: weaponTrait.traitDescription, color: .returnalLightBlue)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.headline)
+                    .fontDesign(.monospaced)
+                    .padding(.leading)
+                    .foregroundStyle(.returnalLightBlue)
                 }
-                .font(.headline)
-                .fontDesign(.monospaced)
-                .padding(.leading)
-                .foregroundStyle(.returnalLightBlue)
             }
+            .font(.title2)
+            .fontWeight(.heavy)
+            .fontDesign(.monospaced)
+            .padding(.leading)
+            .foregroundStyle(.returnalLightBlue)
         }
         .font(.title2)
         .fontWeight(.heavy)
@@ -55,6 +62,6 @@ struct WeaponDetailView: View {
     }
 }
 
-#Preview {
-    WeaponDetailView()
-}
+//#Preview {
+//    WeaponDetailView(weapon: .constant)
+//}

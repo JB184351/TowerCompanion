@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct StatsDetailView: View {
-//    let stats: Stats 
+    let stats: Stats
     
     var body: some View {
         DisclosureGroup("Stats") {
             Spacer()
-            ForEach(1..<6) { stat in
-                VStack {
-                    HeavyTextHeadline(text: "Stat \(stat) Description", color: .returnalYellow)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
+            VStack {
+                HeavyTextHeadline(text: "\(stats.weaponDamage)%", color: .returnalYellow)
+                HeavyTextHeadline(text: "\(stats.protection)%", color: .returnalYellow)
+                HeavyTextHeadline(text: "\(stats.profiencyRate)%", color: .returnalYellow)
+                HeavyTextHeadline(text: "\(stats.repairEffiency)%", color: .returnalYellow)
+                HeavyTextHeadline(text: "\(stats.altFireCoolDown)%", color: .returnalYellow)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .font(.title2)
         .fontWeight(.heavy)
@@ -29,6 +30,6 @@ struct StatsDetailView: View {
     }
 }
 
-#Preview {
-    StatsDetailView()
-}
+//#Preview {
+//    StatsDetailView()
+//}

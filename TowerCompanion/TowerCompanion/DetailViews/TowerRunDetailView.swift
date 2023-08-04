@@ -9,46 +9,52 @@ import SwiftUI
 
 struct TowerRunDetailView: View {
     
-    //    let towerRun: TowerRun
-    var score = 132_350_343
+    let towerRun: TowerRun
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    HeavyTextHeadline(text: "Scout Name: DR_JRB", color: .returnalYellow)
-                    HeavyTextHeadline(text: "Platform: PS5", color: .returnalYellow)
+                    HeavyTextHeadline(text: "Scout Name: \(towerRun.scoutName)", color: .returnalYellow)
+                    HeavyTextHeadline(text: "Platform: \(towerRun.platform)", color: .returnalYellow)
                     
                     Spacer()
                     
-                    HeavyTextHeadline(text: "Score: \(score)", color: .returnalLightBlue)
-                    HeavyTextHeadline(text: "Phase: 3", color: .returnalLightBlue)
-                    HeavyTextHeadline(text: "Room: 19", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Score: \(towerRun.score)", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Phase: \(towerRun.phase)", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Room: \(towerRun.room)", color: .returnalLightBlue)
                     
                     Spacer()
                     
-                    HeavyTextHeadline(text: "Final Multiplier: 98.2%", color: .returnalLightBlue)
-                    HeavyTextHeadline(text: "Average Multiplier: 68.9%", color: .returnalLightBlue)
-                    HeavyTextHeadline(text: "Highest Multiplier: 100%", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Final Multiplier: \(towerRun.multiplier)%", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Average Multiplier: \(towerRun.averageMultiplier)%", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Highest Multiplier: \(towerRun.highestMultiplier)%", color: .returnalLightBlue)
                     
                     Spacer()
                     
-                    HeavyTextHeadline(text: "Date Completed: July 11, 2021", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Date Started: \(towerRun.dateStarted.formatted())", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Date Completed: \(towerRun.dateCompleted.formatted())", color: .returnalLightBlue)
                     
                     Spacer()
-                    WeaponDetailView()
+                    WeaponDetailView(weapon: towerRun.weapon)
                     
                     Spacer()
-                    ArtifactsDetailView()
+                    if let artifacts = towerRun.artifacts {
+                        ArtifactsDetailView(artifacts: artifacts)
+                    }
                     
                     Spacer()
-                    ParasitesDetailView()
+                    if let parasites = towerRun.parasites {
+                        ParasitesDetailView(parasites: parasites)
+                    }
                     
                     Spacer()
-                    MalfunctionsDetailView()
+                    if let malfunctions = towerRun.malfunctions {
+                        MalfunctionsDetailView(malfunctions: malfunctions)
+                    }
                     
                     Spacer()
-                    StatsDetailView()
+                    StatsDetailView(stats: towerRun.stats)
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -60,6 +66,6 @@ struct TowerRunDetailView: View {
     }
 }
 
-#Preview {
-    TowerRunDetailView()
-}
+//#Preview {
+//    TowerRunDetailView()
+//}

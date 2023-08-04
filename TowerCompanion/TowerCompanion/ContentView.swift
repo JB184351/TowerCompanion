@@ -18,7 +18,9 @@ struct ContentView: View {
             List {
                 ForEach(towerRuns) { run in
                     Section {
-                        TowerRunHighlightView(towerRun: run)
+                        NavigationLink(destination: TowerRunDetailView(towerRun: run)) {
+                            TowerRunHighlightView(towerRun: run)
+                        }
                     }
                 }
             }

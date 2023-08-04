@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextHeaadline: View {
+struct TextHeadline: View {
     var text = "Testing"
     var color: Color = .returnalLightBlue
     
@@ -21,5 +21,5 @@ struct TextHeaadline: View {
 }
 
 #Preview {
-    TextHeaadline()
+    TextHeadline()
 }
