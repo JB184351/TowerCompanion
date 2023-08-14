@@ -13,12 +13,12 @@ struct StatsDetailView: View {
     var body: some View {
         DisclosureGroup("Stats") {
             Spacer()
-            VStack {
-                HeavyTextHeadline(text: "\(stats.weaponDamage)%", color: .returnalYellow)
-                HeavyTextHeadline(text: "\(stats.protection)%", color: .returnalYellow)
-                HeavyTextHeadline(text: "\(stats.profiencyRate)%", color: .returnalYellow)
-                HeavyTextHeadline(text: "\(stats.repairEffiency)%", color: .returnalYellow)
-                HeavyTextHeadline(text: "\(stats.altFireCoolDown)%", color: .returnalYellow)
+            VStack(alignment: .leading) {
+                HeavyTextHeadline(text: "Weapon Damage: \(stats.weaponDamage)%", color: .returnalLightBlue)
+                HeavyTextHeadline(text: "Proection: \(stats.protection)%", color: .returnalLightBlue)
+                HeavyTextHeadline(text: "Proficiency Rate: \(stats.proficiencyRate)%", color: .returnalLightBlue)
+                HeavyTextHeadline(text: "Repair Effienciency: \(stats.repairEffiency)%", color: .returnalLightBlue)
+                HeavyTextHeadline(text: "Alt-Fire Cooldown: \(stats.altFireCoolDown) seconds", color: .returnalLightBlue)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
