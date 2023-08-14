@@ -23,7 +23,7 @@ struct AddRunView: View {
     // Stats
     @State private var weaponDamageStat = 0.0
     @State private var protectionStat = 0.0
-    @State private var profiencyRate = 0.0
+    @State private var proficiencyRate = 0.0
     @State private var repairEffiency = 0.0
     @State private var altFireCooldown = 0.0
     
@@ -93,7 +93,7 @@ struct AddRunView: View {
                         Stepper("Protection \(protectionStat.formatted())%", value: $protectionStat, in: -150...150, step: 5)
                         Stepper("Repair Effiency \(repairEffiency.formatted())%", value: $repairEffiency, in: -150...150, step: 5)
                         Stepper("Alt-Fire Cooldown \(altFireCooldown.formatted()) seconds", value: $altFireCooldown, in: -150...150, step: 5)
-                        Stepper("Profiency Rate \(profiencyRate.formatted())%", value: $profiencyRate, in: -150...150, step: 5)
+                        Stepper("Profiency Rate \(proficiencyRate.formatted())%", value: $proficiencyRate, in: -150...150, step: 5)
                         
                     } header: {
                         Text("Enter Stat Details")
@@ -179,7 +179,7 @@ struct AddRunView: View {
     }
     
     func addTowerRun() {
-        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: profiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
+        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateStarted: dateStarted, dateCompleted: dateCompleted)
         
