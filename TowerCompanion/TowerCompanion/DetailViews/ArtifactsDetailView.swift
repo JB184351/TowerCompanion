@@ -13,7 +13,7 @@ struct ArtifactsDetailView: View {
     var body: some View {
         DisclosureGroup("Artifacts") {
             ForEach(artifacts, id: \.name) { artifact in
-                DisclosureGroup("\(artifact.name)") {
+                DisclosureGroup(artifact.name) {
                     VStack {
                         TextHeadline(text: artifact.artifactDescription, color: .returnalLightBlue)
                     }

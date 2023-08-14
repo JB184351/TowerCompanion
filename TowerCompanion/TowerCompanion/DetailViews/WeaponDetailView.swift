@@ -21,7 +21,7 @@ struct WeaponDetailView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            DisclosureGroup("Alt-Fire: \(weapon.altFire.name)") {
+            DisclosureGroup(weapon.altFire.name) {
                 VStack {
                     TextHeadline(text: weapon.altFire.altFireDescription, color: .returnalLightBlue)
                 }
