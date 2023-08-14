@@ -77,7 +77,7 @@ struct AddParasitesView: View {
             .disabled(parasites.count < 1)
         }
         
-        if parasites.count < 1 {
+        if parasites.count > 0 {
             Section {
                 ForEach(parasites, id: \.self) { parasite in
                     Text(parasite.name)
