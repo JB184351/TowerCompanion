@@ -14,7 +14,7 @@ struct ParasitesDetailView: View {
         DisclosureGroup("Parasites") {
             Spacer()
             ForEach(parasites, id: \.self) { parasite in
-                DisclosureGroup("Parasite \(parasite.name)") {
+                DisclosureGroup("\(parasite.name)") {
                     VStack {
                         TextHeadline(text: parasite.positiveDescription, color: .green)
                         TextHeadline(text: parasite.negativeDescription, color: .red)
