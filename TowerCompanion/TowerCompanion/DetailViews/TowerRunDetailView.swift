@@ -20,7 +20,7 @@ struct TowerRunDetailView: View {
                     
                     Spacer()
                     
-                    HeavyTextHeadline(text: "Score: \(towerRun.score)", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Score: \(towerRun.score.formatted())", color: .returnalLightBlue)
                     HeavyTextHeadline(text: "Phase: \(towerRun.phase)", color: .returnalLightBlue)
                     HeavyTextHeadline(text: "Room: \(towerRun.room)", color: .returnalLightBlue)
                     
