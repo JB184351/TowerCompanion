@@ -116,7 +116,7 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Mutliplier", value: $multiplier, formatter: numberFormatter)
+                        TextField("Final Mutliplier", value: $multiplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                         TextField("Average Multiplier", value: $averageMutliplier, formatter: numberFormatter)
