@@ -40,7 +40,7 @@ struct TowerRunHighlightView: View {
             .font(.caption)
             
             HStack {
-                Text("Weapon Name")
+                Text(towerRun.weapon.name)
                     .foregroundStyle(.returnalLightBlue)
                     .padding(.trailing)
                 
