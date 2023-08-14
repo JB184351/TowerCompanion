@@ -10,7 +10,7 @@ import SwiftUI
 struct AddWeaponView: View {
     @State private var weaponName = "Modified Sidearm SD-M8"
     @State private var weaponLevel = 0
-    @State private var altFireName = ""
+    @State private var altFireName = "Blast Shell"
     @State private var altFireLevel = 1
     @State private var altFIreDescription = ""
     @State private var weaponTraitLevel = 1
@@ -119,7 +119,7 @@ struct AddWeaponView: View {
         for (index, _) in weaponTraitNamesUsedInRun.enumerated() {
             let traitDescription = Trait.getWeaponTraitDescriptions(weaponName: weaponName, trait: weaponTraitNames[index])
             
-            let trait = Trait(name: weaponTraitNames[index], traitDescription: "", level: weaponTraitLevel)
+            let trait = Trait(name: weaponTraitNames[index], traitDescription: traitDescription, level: weaponTraitLevel)
             
             weaponTraits.append(trait)
             
