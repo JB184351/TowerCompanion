@@ -32,6 +32,7 @@ struct AddRunView: View {
     @State private var multiplier = 0.0
     @State private var averageMutliplier = 0.0
     @State private var highestMultplier = 0.0
+    @State private var multiplierTooHighAlert = false
     
     // Phase and Room
     @State private var phase = 1
@@ -46,6 +47,7 @@ struct AddRunView: View {
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
         formatter.zeroSymbol  = ""
         return formatter
     }()
@@ -118,12 +120,39 @@ struct AddRunView: View {
                         TextField("Final Mutliplier", value: $multiplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
+                            .onChange(of: multiplier) { oldValue, newValue in
+                                if newValue > 100.00 || newValue < 0.00 {
+                                    multiplierTooHighAlert = true
+                                    multiplier = 0.0
+                                }
+                            }
+                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
+                                Button("OK", role: .none) { }
+                            }
                         TextField("Average Multiplier", value: $averageMutliplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
+                            .onChange(of: averageMutliplier) { oldValue, newValue in
+                                if newValue > 100.00 || newValue < 0.00 {
+                                    multiplierTooHighAlert = true
+                                    averageMutliplier = 0.0
+                                }
+                            }
+                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
+                                Button("OK", role: .none) { }
+                            }
                         TextField("Highest Multiplier", value: $highestMultplier, formatter: numberFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
+                            .onChange(of: highestMultplier) { oldValue, newValue in
+                                if newValue > 100.00 || newValue < 0.00 {
+                                    multiplierTooHighAlert = true
+                                    highestMultplier = 0.0
+                                }
+                            }
+                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
+                                Button("OK", role: .none) { }
+                            }
                     } header: {
                         Text("Enter Multiplier Details")
                     }
@@ -175,6 +204,10 @@ struct AddRunView: View {
                 }
             }
         }
+    }
+    
+    func presentAlert() {
+        
     }
     
     func addTowerRun() {
