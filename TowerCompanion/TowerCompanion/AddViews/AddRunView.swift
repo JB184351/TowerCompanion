@@ -57,7 +57,6 @@ struct AddRunView: View {
                     // MARK: - Scoutname
                     Section(header: Text("Enter Scout Details")) {
                         TextField("Enter Scout Name", text: $scoutName)
-                            .focused($textFieldFocus)
                         Picker("Select Platform", selection: $platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0).tag($0)
