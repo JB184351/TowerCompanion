@@ -208,10 +208,6 @@ struct AddRunView: View {
         }
     }
     
-    func presentAlert() {
-        
-    }
-    
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
