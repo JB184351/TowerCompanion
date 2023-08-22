@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//import SwiftData
 
 struct AddRunView: View {
     @Environment(\.dismiss) private var dismiss
@@ -110,7 +111,6 @@ struct AddRunView: View {
                         TextField("Score", value: $score, formatter: numberFormatter)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
-                            .ignoresSafeArea(.keyboard, edges: .bottom)
                     } header: {
                         Text("Enter Your Score")
                     }

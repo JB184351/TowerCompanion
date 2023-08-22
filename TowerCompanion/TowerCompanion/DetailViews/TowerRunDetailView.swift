@@ -40,17 +40,23 @@ struct TowerRunDetailView: View {
                     
                     Spacer()
                     if let artifacts = towerRun.artifacts {
-                        ArtifactsDetailView(artifacts: artifacts)
+                        if artifacts.count > 0 {
+                            ArtifactsDetailView(artifacts: artifacts)
+                        }
                     }
                     
                     Spacer()
                     if let parasites = towerRun.parasites {
-                        ParasitesDetailView(parasites: parasites)
+                        if parasites.count > 0 {
+                            ParasitesDetailView(parasites: parasites)
+                        }
                     }
                     
                     Spacer()
                     if let malfunctions = towerRun.malfunctions {
-                        MalfunctionsDetailView(malfunctions: malfunctions)
+                        if malfunctions.count > 0 {
+                            MalfunctionsDetailView(malfunctions: malfunctions)
+                        }
                     }
                     
                     Spacer()
