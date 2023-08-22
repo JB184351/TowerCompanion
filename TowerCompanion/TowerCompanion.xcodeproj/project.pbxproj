@@ -123,6 +123,7 @@
 				30AA614F2A71F1DE005D69B7 /* TextHeadline.swift */,
 				305363CF2A71FBA4006D3ACC /* HeavyTextHeadline.swift */,
 				30AA61522A71F34A005D69B7 /* DisclosureGroupText.swift */,
+				30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -169,7 +170,6 @@
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
 				30AA61512A71F328005D69B7 /* CustomViews */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
-				30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */,
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
