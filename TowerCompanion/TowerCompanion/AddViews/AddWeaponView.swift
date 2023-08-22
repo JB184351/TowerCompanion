@@ -14,7 +14,7 @@ struct AddWeaponView: View {
     @State private var altFireLevel = 1
     @State private var altFIreDescription = ""
     @State private var weaponTraitLevel = 1
-    @State private var weaponTraitNamesUsedInRun = [String]()
+    @State private var weaponTraitName = "Homing Missile"
     @State private var weaponTraitNames: [String] = [""]
     @State private var weaponTraits = [Trait]()
     @State private var altFire = AltFire(name: "", level: 1, altFireDescription: "")
@@ -23,11 +23,10 @@ struct AddWeaponView: View {
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
     
     var altFires: [AltFire] {
-        return AddWeaponView.getAllAltFires()
+        return AltFire.getAllAltFires()
     }
     
     init(weapon: Binding<Weapon>) {
-        _weaponTraitNamesUsedInRun = State(initialValue: Array(repeating: "", count: 1))
         self._weapon = weapon
     }
     
@@ -58,21 +57,17 @@ struct AddWeaponView: View {
                 }
             }
             
-            ForEach(0..<1, id: \.self) { index in
-                Picker("Weapon Traits", selection: Binding(
-                    get: { weaponTraitNames[index] },
-                    set: { weaponTraitNames[index] = $0 }
-                )) {
-                    ForEach(weaponTraitNames, id: \.self) { weaponTrait in
-                        Text(weaponTrait).tag(weaponTrait)
-                    }
+            Picker("Traits", selection: $weaponTraitName) {
+                ForEach(weaponTraitNames, id: \.self) { traitName in
+                    Text(traitName).tag(traitName)
                 }
             }
             .onAppear {
-                weaponTraitNames = getWeaponTraits(from: "Modified Sidearm SD-M8")
+                weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
             }
             .onChange(of: weaponName) { oldValue, newValue in
-                weaponTraitNames = getWeaponTraits(from: weaponName)
+                weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
+                weaponTraitName = weaponTraitNames[0]
                 weaponTraits.removeAll()
             }
             
@@ -102,6 +97,7 @@ struct AddWeaponView: View {
                     addWeapon()
                 }
             }
+            .disabled(weaponTraits.count < 1)
         }
         
         if weaponTraits.count > 0 {
@@ -116,20 +112,20 @@ struct AddWeaponView: View {
     }
     
     private func addWeaponTrait() {
-        for (index, _) in weaponTraitNamesUsedInRun.enumerated() {
-            let traitDescription = Trait.getWeaponTraitDescriptions(weaponName: weaponName, trait: weaponTraitNames[index])
-            
-            let trait = Trait(name: weaponTraitNames[index], traitDescription: traitDescription, level: weaponTraitLevel)
-            
-            weaponTraits.append(trait)
-            
-            weaponTraitNames.removeAll(where: { $0 == weaponTraitNames[index] } )
-        }
+        let traitDescription = Trait.getWeaponTraitDescriptions(weaponName: weaponName, trait: weaponTraitName)
+        
+        let trait = Trait(name: weaponTraitName, traitDescription: traitDescription, level: weaponTraitLevel)
+        
+        weaponTraits.append(trait)
+        
+        weaponTraitNames.removeAll(where: { $0 == weaponTraitName } )
+        
+        weaponTraitName = weaponTraitNames[0]
     }
     
     private func clearValues() {
-        weaponTraitNamesUsedInRun.removeAll()
         weaponTraits.removeAll()
+        weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
     }
     
     private func addWeapon() {
@@ -140,74 +136,7 @@ struct AddWeaponView: View {
     }
     
     private func getAltFireDescription(for altFireName: String) -> String {
-        AddWeaponView.getAllAltFires().first(where: { $0.name == altFireName })?.altFireDescription ?? ""
-    }
-    
-    static private func getAllAltFires() -> [AltFire] {
-        var altFires = [AltFire]()
-        
-        let blastShell = AltFire(name: "Blast Shell", level: 3, altFireDescription: "Lobs a grenade-light projectile that explodes on contact with an enemy, or after enough time has passed.")
-        
-        let doomBringer = AltFire(name: "Doom Bringer", level: 3, altFireDescription: "A chargeable attack that create a large, slow-moving orb that damages anything near it. Detonates in a large explosion once it hits an enemy, or travels far enough. Can destroy red shields; if it his a shield, it may bounce to a new angle.")
-        
-        let horizontalBarrage = AltFire(name: "Horizontal Barrage", level: 3, altFireDescription: "Creates a large, horizontal array of projectiles that do modest amounts of damage. If nothing is hit, it will bounce a bit.")
-        
-        let killSight = AltFire(name: "Killsight", level: 3, altFireDescription: "A sniper-like attack that, if used against the weak spot of an enemy, will do significant amounts of damage.")
-        
-        let proximityMine = AltFire(name: "Proximity Mine", level: 3, altFireDescription: "Lobs a mine that will explode if an enemy comes close enough to it, or enough time has passed.")
-        
-        let shieldBreaker = AltFire(name: "Shieldbreaker", level: 3, altFireDescription: "A powerful beam that can destroy red shields and damage enemies using them.")
-        
-        let shockStream = AltFire(name: "Shockstream", level: 3, altFireDescription: "A long, continuous short-range electrical attack that randomly targets things in front of you. Great against packs of enemies.")
-        
-        let tendrilpod = AltFire(name: "Tendrilpod", level: 3, altFireDescription: "Lobs a tentacle creature that does damage over time to whatever enemy is close to it. Seems to stick to enemies if hit, otherwise can do damage to things in its vicinity.")
-        
-        let trackerSwarm = AltFire(name: "Trackerswarm", level: 3, altFireDescription: "Fires a cluster of homing bullets that zero-in on the nearest target.")
-        
-        let verticalBarrage = AltFire(name: "Vertical Barrage", level: 3, altFireDescription: "Like the Horizontal Barrage, but instead fires a 'wall' of projectiles stacked top to bottom.")
-        
-        let voidBeam = AltFire(name: "Voidbeam", level: 3, altFireDescription: "A long, continuous beam that deals increasing damage if kept on a single target.")
-        
-        altFires.append(blastShell)
-        altFires.append(doomBringer)
-        altFires.append(horizontalBarrage)
-        altFires.append(killSight)
-        altFires.append(proximityMine)
-        altFires.append(shieldBreaker)
-        altFires.append(shockStream)
-        altFires.append(tendrilpod)
-        altFires.append(trackerSwarm)
-        altFires.append(verticalBarrage)
-        altFires.append(voidBeam)
-        
-        return altFires
-    }
-    
-    private func getWeaponTraits(from weaponName: String) -> [String] {
-        switch weaponName {
-        case "Modified Sidearm SD-M8":
-            return ["Homing Missile", "Ricochet", "Snubnose Barrel", "Piercing", "Burst Fire", "Sharpnel", "Charging Shot", "Serrated Projectiles", "Hit Reload"]
-        case "Tachyomatic Carbine":
-            return ["Armor Piercing", "Critical Hit", "Hardened", "High Caliber", "Rising Pithc", "Payload Rounds", "Leech Rounds", "Hypter-Accurate", "Accelerated"]
-        case "Spitmaw Blaster":
-            return ["Wide Maw", "Narrow Maw", "Slug Shot", "Explosive Spitter", "Rapid Spitter", "Backsplash", "Critical Stagger", "Piercing Spit", "Acid Clouds"]
-        case "Pyroshell Caster":
-            return ["Streamlined Chamber", "Secondary Explosion", "Bouncy Projectiles", "Sticky Bonus", "Seeking Flares", "Enlarged Chamber", "Anti-Gravity Projectiles", "Auxiliary Projectiles", "Simmering Explosion"]
-        case "Coilspine Shredder":
-            return ["Alt-Fire Cooling", "Shattering Discs", "Adrenaline Discs", "Enlarged Chamber", "Twin Discs", "Retarget", "Splitting Discs", "Enhanced Charge", "Negating Discs"]
-        case "Thermogenic Launcher":
-            return ["Easy To Use", "Obolite Magnet", "Critical Rockets", "Enlarged Chamber", "Replicating Hits", "Mega Rocket", "Full Auto", "Thermite Rockets", "Tail Fire"]
-        case "Electropylon Driver":
-            return ["Obolite Extractor", "Silphium Extractor", "Pylon Web", "Finisher", "Streamlined Chamber", "Enlarged Chamber", "Blade Harmonizer", "Blade Pulse", "Protective Pylons"]
-        case "Rotgland Lobber":
-            return ["Durable Rot", "Trailing Rot", "Bouncing Rot", "Enlarged Chamber", "Explosive Rot", "Protective Rot", "Caustic Rot", "Tendril Rot", "Portal Rot"]
-        case "Hollowseeker":
-            return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Sharpnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
-        case "Dreadbound":
-            return ["Fourth Shard", "Obolite Magnet", "Staggering", "Proection Steal", "Expanding Shards", "Returning Damage", "Explosive Shards", "Damage Steal", "Obolite Generator"]
-        default:
-            return []
-        }
+        AltFire.getAllAltFires().first(where: { $0.name == altFireName })?.altFireDescription ?? ""
     }
 }
 
