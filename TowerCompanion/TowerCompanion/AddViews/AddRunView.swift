@@ -45,11 +45,20 @@ struct AddRunView: View {
     
     @FocusState private var textFieldFocus: Bool
     
-    let numberFormatter: NumberFormatter = {
+    let percentFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 2
         formatter.zeroSymbol  = ""
+        return formatter
+    }()
+    
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        formatter.zeroSymbol = ""
+        formatter.formatterBehavior = .default
+        
         return formatter
     }()
     
@@ -108,7 +117,7 @@ struct AddRunView: View {
                     
                     // MARK: - Score
                     Section {
-                        TextField("Score", value: $score, formatter: numberFormatter)
+                        TextField("Score", value: $score, format: .number)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
                     } header: {
@@ -117,7 +126,7 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Average Multiplier", value: $averageMutliplier, formatter: numberFormatter)
+                        TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                             .onChange(of: averageMutliplier) { oldValue, newValue in
@@ -130,7 +139,7 @@ struct AddRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
-                        TextField("Highest Multiplier", value: $highestMultplier, formatter: numberFormatter)
+                        TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                             .onChange(of: highestMultplier) { oldValue, newValue in
@@ -143,7 +152,7 @@ struct AddRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
-                        TextField("Final Mutliplier", value: $multiplier, formatter: numberFormatter)
+                        TextField("Final Mutliplier", value: $multiplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                             .onChange(of: multiplier) { oldValue, newValue in
@@ -161,7 +170,7 @@ struct AddRunView: View {
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Phase", value: $phase, formatter: numberFormatter)
+                        TextField("Phase", value: $phase, formatter: percentFormatter)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
                         Picker("Room", selection: $room) {
