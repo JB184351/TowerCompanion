@@ -23,6 +23,12 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        let runToDelete = towerRuns[index]
+                        modelContext.delete(runToDelete)
+                    }
+                })
             }
             .navigationTitle("TowerRuns")
             .navigationBarTitleDisplayMode(.inline)
