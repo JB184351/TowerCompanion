@@ -25,6 +25,15 @@ struct Parasite: Codable, Hashable {
         let silphicBladeSpinner = Parasite(name: "Silphic Bladespinner", positiveDescription: bladeSpinner, negativeDescription: silphic)
         let silphicGoldSpinner = Parasite(name: "Silphic Goldspinner", positiveDescription: goldSpinner, negativeDescription: silphic)
         
+        // Found  this one when I was playing on 8/28/2023
+        // Not sure if I've seen these prefixes/suffixes with other
+        // Parasies, will keep my eyes on it.
+        let barbed = "Weapon Damage decreased by 15%."
+        let fleshStinger = "Damage dealt to weak points increased by 30%."
+        
+        let barbedFleshStinger = Parasite(name: "Barbed FleshStinger", positiveDescription: fleshStinger, negativeDescription: barbed)
+        
+        parasites.append(barbedFleshStinger)
         parasites.append(silphicGoldSpinner)
         parasites.append(silphicBladeSpinner)
         
@@ -120,14 +129,6 @@ struct Parasite: Codable, Hashable {
     }
     
     static func getAllParasiteNames() -> [String] {
-        var parasiteNames = [String]()
-        
-        let parasites = getAllParasites()
-        
-        for parasite in parasites {
-            parasiteNames.append(parasite.name)
-        }
-        
-        return parasiteNames
+        return getAllParasites().map { $0.name }
     }
 }

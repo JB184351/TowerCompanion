@@ -80,4 +80,8 @@ struct AltFire: Codable, Hashable {
         
         return altFires
     }
+    
+    static func getAllAltFireNames() -> [String] {
+        return getAllAltFires().map { $0.name }
+    }
 }
