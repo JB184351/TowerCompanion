@@ -13,6 +13,8 @@ struct AddSkillValuesView: View {
     @State private var peakAdrenaline = 0
     @State private var midairMelee = 0
     
+    @FocusState private var textFieldFocus: Bool
+    
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

@@ -13,6 +13,8 @@ struct AddExplorerValuesView: View {
     @State private var obolitesCollected = 0
     @State private var calibratorsCollected = 0
     
+    @FocusState private var textFieldFocus: Bool
+    
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
