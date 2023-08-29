@@ -23,11 +23,14 @@ struct AddCombatValuesView: View {
     }()
     
     var body: some View {
-        Form {
-            TextField("Enter Number of Weak Point Kills", value: $weakPointKills, formatter: numberFormatter)
-            TextField("Enter Number of Melee Kilss", value: $meleeKills, formatter: numberFormatter)
-            TextField("Enter the number of Hostiles eliminated", value: $hostilesEliminated, formatter: numberFormatter)
-            TextField("Enter the Number of Malformed Hostiles Eliminated", value: $malformedHostilesEliminated, formatter: numberFormatter)
+        NavigationView {
+            Form {
+                TextField("Enter Number of Weak Point Kills", value: $weakPointKills, formatter: numberFormatter)
+                TextField("Enter Number of Melee Kilss", value: $meleeKills, formatter: numberFormatter)
+                TextField("Enter the number of Hostiles eliminated", value: $hostilesEliminated, formatter: numberFormatter)
+                TextField("Enter the Number of Malformed Hostiles Eliminated", value: $malformedHostilesEliminated, formatter: numberFormatter)
+            }
+            .navigationTitle("Combat Values")
         }
     }
 }
