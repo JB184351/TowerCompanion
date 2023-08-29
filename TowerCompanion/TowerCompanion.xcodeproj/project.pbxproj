@@ -20,6 +20,7 @@
 		305363D82A720A09006D3ACC /* StatsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305363D72A720A09006D3ACC /* StatsDetailView.swift */; };
 		3070706B2A9D78D8002ADCC4 /* AddCombatValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070706A2A9D78D8002ADCC4 /* AddCombatValuesView.swift */; };
 		3070706D2A9D7CCC002ADCC4 /* AddExplorerValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070706C2A9D7CCB002ADCC4 /* AddExplorerValuesView.swift */; };
+		3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070706E2A9D7F52002ADCC4 /* AddSkillValuesView.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
 		3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */; };
 		30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C12A37C8D0003AB0B3 /* Stat.swift */; };
@@ -59,6 +60,7 @@
 		305363D72A720A09006D3ACC /* StatsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailView.swift; sourceTree = "<group>"; };
 		3070706A2A9D78D8002ADCC4 /* AddCombatValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCombatValuesView.swift; sourceTree = "<group>"; };
 		3070706C2A9D7CCB002ADCC4 /* AddExplorerValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExplorerValuesView.swift; sourceTree = "<group>"; };
+		3070706E2A9D7F52002ADCC4 /* AddSkillValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSkillValuesView.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
 		3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMalfunctionsView.swift; sourceTree = "<group>"; };
 		30A7F7C12A37C8D0003AB0B3 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				304243A62A4BA4F400D51678 /* AddArtifactsView.swift */,
 				3070706A2A9D78D8002ADCC4 /* AddCombatValuesView.swift */,
 				3070706C2A9D7CCB002ADCC4 /* AddExplorerValuesView.swift */,
+				3070706E2A9D7F52002ADCC4 /* AddSkillValuesView.swift */,
 			);
 			path = AddViews;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */,
 				30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */,
 				305363D82A720A09006D3ACC /* StatsDetailView.swift in Sources */,
+				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */,
