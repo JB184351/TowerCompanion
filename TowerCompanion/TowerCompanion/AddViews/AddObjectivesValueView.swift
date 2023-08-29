@@ -27,22 +27,22 @@ struct AddObjectivesValueView: View {
         NavigationView {
             Form {
                 Text("Enter Enter Number of Pyliods that were Eliminated")
-                TextField("", value: $pyliodsEliminated, formatter: numberFormatter)
+                TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                 
                 Text("Enter Number of Algos that you defeated")
-                TextField("", value: $pyliodsEliminated, formatter: numberFormatter)
+                TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                 
                 Text("Enter Number of Algos final forms that you defeated")
-                TextField("", value: $pyliodsEliminated, formatter: numberFormatter)
+                TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                 
                 Text("Enter Number of Algos infinity forms that you defeated")
-                TextField("", value: $pyliodsEliminated, formatter: numberFormatter)
+                TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
             }

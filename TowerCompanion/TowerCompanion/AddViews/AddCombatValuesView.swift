@@ -27,19 +27,23 @@ struct AddCombatValuesView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Enter Number of Weak Point Kills", value: $weakPointKills, formatter: numberFormatter)
+                Text("Enter Number of Weak Point Kills")
+                TextField("Enter the Number Here", value: $weakPointKills, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                 
-                TextField("Enter Number of Melee Kills", value: $meleeKills, formatter: numberFormatter)
+                Text("Enter Number of Melee Kills")
+                TextField("Enter the Number Here", value: $meleeKills, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                 
-                TextField("Enter the number of Hostiles eliminated", value: $hostilesEliminated, formatter: numberFormatter)
+                Text("Enter the number of Hostiles eliminated")
+                TextField("Enter the Number Here", value: $hostilesEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                 
-                TextField("Enter the Number of Malformed Hostiles Eliminated", value: $malformedHostilesEliminated, formatter: numberFormatter)
+                Text("Enter the Number of Malformed Hostiles Eliminated")
+                TextField("Enter the Number Here", value: $malformedHostilesEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
             }

@@ -27,10 +27,25 @@ struct AddExplorerValuesView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Enter Number of Floors cleared", value: $floorsCleared, formatter: numberFormatter)
-                TextField("Enter Number of Silphiums found", value: $silphiumFound, formatter: numberFormatter)
-                TextField("Enter the number of Obolites collected", value: $obolitesCollected, formatter: numberFormatter)
-                TextField("Enter the Number of Calibrators collected", value: $calibratorsCollected, formatter: numberFormatter)
+                Text("Enter Number of Floors cleared")
+                TextField("Enter the Number Here", value: $floorsCleared, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+               
+                Text("Enter Number of Silphiums found")
+                TextField("Enter the Number Here", value: $silphiumFound, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+                
+                Text("Enter the number of Obolites collected")
+                TextField("Enter the Number Here", value: $obolitesCollected, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+                
+                Text("Enter the Number of Calibrators collected")
+                TextField("Enter the Number Here", value: $calibratorsCollected, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
             }
             .navigationTitle("Explorer Values")
         }
