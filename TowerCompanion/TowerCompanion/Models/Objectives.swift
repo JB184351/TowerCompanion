@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Objectives {
+struct Objectives: Codable {
     let pylioidsEliminated: Int
     let algosDefeated: Int
     let algosFinalFormDefeated: Int
