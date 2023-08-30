@@ -33,7 +33,7 @@ struct AddRunView: View {
     
     // Score Related Variables
     @State private var score = 0
-    @State private var multiplier = 0.0
+    @State private var finalMultiplier = 0.0
     @State private var averageMutliplier = 0.0
     @State private var highestMultplier = 0.0
     @State private var multiplierTooHighAlert = false
@@ -155,13 +155,13 @@ struct AddRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
-                        TextField("Final Mutliplier", value: $multiplier, formatter: percentFormatter)
+                        TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
-                            .onChange(of: multiplier) { oldValue, newValue in
+                            .onChange(of: finalMultiplier) { oldValue, newValue in
                                 if newValue > 100.00 || newValue < 1.00 {
                                     multiplierTooHighAlert = true
-                                    multiplier = 0.0
+                                    finalMultiplier = 0.0
                                 }
                             }
                             .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
@@ -223,7 +223,7 @@ struct AddRunView: View {
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
+        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: finalMultiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
 
         modelContext.insert(towerRun)
     }
