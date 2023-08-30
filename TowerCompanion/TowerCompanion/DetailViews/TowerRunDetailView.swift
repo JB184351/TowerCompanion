@@ -26,7 +26,7 @@ struct TowerRunDetailView: View {
                     
                     Spacer()
                     
-                    HeavyTextHeadline(text: "Final Multiplier: \(towerRun.multiplier)%", color: .returnalLightBlue)
+                    HeavyTextHeadline(text: "Final Multiplier: \(towerRun.finalMultiplier)%", color: .returnalLightBlue)
                     HeavyTextHeadline(text: "Average Multiplier: \(towerRun.averageMultiplier)%", color: .returnalLightBlue)
                     HeavyTextHeadline(text: "Highest Multiplier: \(towerRun.highestMultiplier)%", color: .returnalLightBlue)
                     

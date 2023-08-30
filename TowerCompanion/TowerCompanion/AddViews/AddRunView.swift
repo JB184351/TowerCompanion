@@ -19,6 +19,10 @@ struct AddRunView: View {
     @State var artifacts: [Artifact]
     @State var parasites: [Parasite]
     @State var malfunctions: [Malfunction]
+    @State var combatValues: Combat?
+    @State var explorerValues: Explorer?
+    @State var skillValues: Skill?
+    @State var objectiveValues: Objectives?
     
     // Stats
     @State private var weaponDamageStat = 0.0
@@ -217,11 +221,11 @@ struct AddRunView: View {
     }
     
     func addTowerRun() {
-//        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
+        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-//        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, dateStarted: dateStarted, dateCompleted: dateCompleted)
-//        
-//        modelContext.insert(towerRun)
+        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: multiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
+
+        modelContext.insert(towerRun)
     }
 }
 

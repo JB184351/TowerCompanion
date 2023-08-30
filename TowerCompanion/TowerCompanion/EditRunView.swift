@@ -112,7 +112,7 @@ struct EditRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Mutliplier", value: $towerRun.multiplier, format: .number)
+                        TextField("Mutliplier", value: $towerRun.finalMultiplier, format: .number)
                             .keyboardType(.decimalPad)
                         TextField("Average Multiplier", value: $towerRun.averageMultiplier, format: .number)
                             .keyboardType(.decimalPad)

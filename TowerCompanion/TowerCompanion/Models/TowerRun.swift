@@ -17,7 +17,7 @@ final class TowerRun {
     var stats: Stats
     var malfunctions: [Malfunction]?
     var score: Int
-    var multiplier: Double
+    var finalMultiplier: Double
     var averageMultiplier: Double
     var highestMultiplier: Double
     var phase: Int
@@ -38,7 +38,7 @@ final class TowerRun {
         self.stats = stats
         self.malfunctions = malfunctions
         self.score = score
-        self.multiplier = multiplier
+        self.finalMultiplier = multiplier
         self.averageMultiplier = averageMultiplier
         self.highestMultiplier = highestMultplier
         self.phase = phase

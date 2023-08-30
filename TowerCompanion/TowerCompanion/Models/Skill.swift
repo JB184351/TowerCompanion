@@ -10,6 +10,6 @@ import Foundation
 struct Skill: Codable {
     let perfectFloors: Int
     let consecutivePerfectFloors: Int
-    let peakAdrenaline: Int
+    let peakAdrenaline: Double
     let midairMelee: Int
 }
