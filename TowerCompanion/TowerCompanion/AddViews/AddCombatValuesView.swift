@@ -12,6 +12,7 @@ struct AddCombatValuesView: View {
     @State private var meleeKills = 0
     @State private var hostilesEliminated = 0
     @State private var malformedHostilesEliminated = 0
+    @Binding var combatValues: Combat?
     
     @FocusState private var textFieldFocus: Bool
     
@@ -46,12 +47,43 @@ struct AddCombatValuesView: View {
                 TextField("Enter the Number Here", value: $malformedHostilesEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
+                
+                Section {
+                    NavigationLink(destination: AddExplorerValuesView()) {
+                        Text("Submit")
+                    }
+                    .disabled(shouldDisableButton())
+                    .onTapGesture {
+                        combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                    }
+                }
             }
             .navigationTitle("Combat Values")
+            .onAppear {
+                combatValues = nil
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: AddExplorerValuesView()) {
+                        Text(combatValues == nil ? "Skip" : "Next")
+                    }
+                    .onTapGesture {
+                        if !shouldDisableButton() {
+                            combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                        } else {
+                            combatValues = nil
+                        }
+                    }
+                }
+            }
         }
+    }
+    
+    private func shouldDisableButton() -> Bool {
+        return !(weakPointKills > 0 || meleeKills > 0 || hostilesEliminated > 0 || malformedHostilesEliminated > 0)
     }
 }
 
 #Preview {
-    AddCombatValuesView()
+    AddCombatValuesView(combatValues: .constant(Combat(weakPointKills: 0, meleeKills: 0, hostilesEliminated: 0, malformedHostilesEliminated: 0)))
 }
