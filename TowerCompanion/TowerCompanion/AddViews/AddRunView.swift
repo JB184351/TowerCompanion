@@ -185,32 +185,14 @@ struct AddRunView: View {
                         Text("Enter Phase and Room Details")
                     }
                     
-                    // MARK: - Combat
+                    // MARK: - Combat/Explorer/Skill/Objectives
                     Section {
-                        AddCombatValuesView(combatValues: $combatValues)
+                        NavigationLink("Add Combat", destination: AddCombatValuesView(combatValues: $combatValues))
+                        NavigationLink("Add Explorer", destination: AddExplorerValuesView(explorerValues: $explorerValues))
+                        NavigationLink("Add Skill", destination: AddSkillValuesView(skillValues: $skillValues))
+                        NavigationLink("Add Objectives", destination: AddObjectivesValueView(objectiveValues: $objectiveValues))
                     } header: {
-                        Text("Add Combat Values (Will be shown after death)")
-                    }
-                    
-                    // MARK: - Explorer
-                    Section {
-                        AddExplorerValuesView(explorerValues: $explorerValues)
-                    } header: {
-                        Text("Add Explorer Values (Will be shown after death)")
-                    }
-                    
-                    // MARK: - Skill
-                    Section {
-                        AddSkillValuesView(skillValues: $skillValues)
-                    } header: {
-                        Text("Add Skill Values (Will be shown after death)")
-                    }
-                    
-                    // MARK: - Objectives
-                    Section {
-                        AddObjectivesValueView(objectiveValues: $objectiveValues)
-                    } header: {
-                        Text("Add Objective Values (Will be shown after death)")
+                        Text("Add Post Death Values")
                     }
                     
                     // MARK: - Date started
