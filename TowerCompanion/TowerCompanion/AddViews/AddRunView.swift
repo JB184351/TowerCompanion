@@ -127,6 +127,20 @@ struct AddRunView: View {
                         Text("Enter Your Score")
                     }
                     
+                    // MARK: - Phase and Room
+                    Section {
+                        TextField("Phase", value: $phase, formatter: percentFormatter)
+                            .keyboardType(.numberPad)
+                            .focused($textFieldFocus)
+                        Picker("Room", selection: $room) {
+                            ForEach(1..<21) {
+                                Text(String($0)).tag($0)
+                            }
+                        }
+                    } header: {
+                        Text("Enter Phase and Room Details")
+                    }
+                    
                     // MARK: - Multipliers
                     Section {
                         TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
@@ -169,20 +183,6 @@ struct AddRunView: View {
                             }
                     } header: {
                         Text("Enter Multiplier Details")
-                    }
-                    
-                    // MARK: - Phase and Room
-                    Section {
-                        TextField("Phase", value: $phase, formatter: percentFormatter)
-                            .keyboardType(.numberPad)
-                            .focused($textFieldFocus)
-                        Picker("Room", selection: $room) {
-                            ForEach(1..<21) {
-                                Text(String($0)).tag($0)
-                            }
-                        }
-                    } header: {
-                        Text("Enter Phase and Room Details")
                     }
                     
                     // MARK: - Combat/Explorer/Skill/Objectives
