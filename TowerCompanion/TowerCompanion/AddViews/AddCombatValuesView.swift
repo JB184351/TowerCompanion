@@ -60,6 +60,13 @@ struct AddCombatValuesView: View {
                     }
             }
             .navigationTitle("Combat Values")
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        textFieldFocus = false
+                    }
+                }
+            }
         }
     }
 }

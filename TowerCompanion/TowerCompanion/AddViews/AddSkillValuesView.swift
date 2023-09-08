@@ -61,6 +61,13 @@ struct AddSkillValuesView: View {
                     }
             }
             .navigationTitle("Skill Values")
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        textFieldFocus = false
+                    }
+                }
+            }
         }
     }
 }

@@ -61,6 +61,13 @@ struct AddObjectivesValueView: View {
                     }
             }
             .navigationTitle("Objective Values")
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        textFieldFocus = false
+                    }
+                }
+            }
         }
     }
     

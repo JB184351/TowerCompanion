@@ -64,6 +64,13 @@ struct AddExplorerValuesView: View {
                     }
             }
             .navigationTitle("Explorer Values")
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        textFieldFocus = false
+                    }
+                }
+            }
         }
     }
 }
