@@ -12,6 +12,7 @@ struct AddSkillValuesView: View {
     @State private var consecutivePerfectFloors = 0
     @State private var peakAdrenaline = 0.0
     @State private var midairMelee = 0
+    @Binding var skillValues: Skill?
     
     @FocusState private var textFieldFocus: Bool
     
@@ -25,33 +26,40 @@ struct AddSkillValuesView: View {
     }()
     
     var body: some View {
-        NavigationView {
-            Form {
-                Text("Enter Number of Perfect Floors Here")
-                TextField("Enter Number Here", value: $perfectFloors, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
-                
-                Text("Add Number of consectuive Perfect floors")
-                TextField("Enter Number Here", value: $consecutivePerfectFloors, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
-                
-                Text("Enter Peak Adrenaline Value Here")
-                TextField("Enter Value Here", value: $peakAdrenaline, formatter: numberFormatter)
-                    .keyboardType(.decimalPad)
-                    .focused($textFieldFocus)
-                
-                Text("Add Number of Mid-Air Melee kills.")
-                TextField("Enter Number Here", value: $midairMelee, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+        Text("Enter Number of Perfect Floors Here")
+        TextField("Enter Number Here", value: $perfectFloors, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onChange(of: perfectFloors) { oldValue, newValue in
+                skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
             }
-            .navigationTitle("Skill Values")
-        }
+        
+        Text("Add Number of consectuive Perfect floors")
+        TextField("Enter Number Here", value: $consecutivePerfectFloors, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onChange(of: consecutivePerfectFloors) { oldValue, newValue in
+                skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
+            }
+        
+        Text("Enter Peak Adrenaline Value Here")
+        TextField("Enter Value Here", value: $peakAdrenaline, formatter: numberFormatter)
+            .keyboardType(.decimalPad)
+            .focused($textFieldFocus)
+            .onChange(of: peakAdrenaline) { oldValue, newValue in
+                skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
+            }
+        
+        Text("Add Number of Mid-Air Melee kills.")
+        TextField("Enter Number Here", value: $midairMelee, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onChange(of: midairMelee) { oldValue, newValue in
+                skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
+            }
     }
 }
 
 #Preview {
-    AddSkillValuesView()
+    AddSkillValuesView(skillValues: .constant(Skill(perfectFloors: 0, consecutivePerfectFloors: 0, peakAdrenaline: 0, midairMelee: 0)))
 }
