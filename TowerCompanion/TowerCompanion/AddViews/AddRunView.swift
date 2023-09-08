@@ -185,6 +185,12 @@ struct AddRunView: View {
                         Text("Enter Phase and Room Details")
                     }
                     
+                    Section {
+                        AddCombatValuesView(combatValues: $combatValues)
+                    } header: {
+                        Text("Add Combat Values (Will be Shown After Death)")
+                    }
+                    
                     // MARK: - Date started
                     Section {
                         DatePicker("", selection: $dateStarted)
