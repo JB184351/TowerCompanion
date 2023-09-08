@@ -15,7 +15,7 @@ struct StatsDetailView: View {
             Spacer()
             VStack(alignment: .leading) {
                 HeavyTextHeadline(text: "Weapon Damage: \(stats.weaponDamage)%", color: .returnalLightBlue)
-                HeavyTextHeadline(text: "Proection: \(stats.protection)%", color: .returnalLightBlue)
+                HeavyTextHeadline(text: "Protection: \(stats.protection)%", color: .returnalLightBlue)
                 HeavyTextHeadline(text: "Proficiency Rate: \(stats.proficiencyRate)%", color: .returnalLightBlue)
                 HeavyTextHeadline(text: "Repair Effienciency: \(stats.repairEffiency)%", color: .returnalLightBlue)
                 HeavyTextHeadline(text: "Alt-Fire Cooldown: \(stats.altFireCoolDown) seconds", color: .returnalLightBlue)
