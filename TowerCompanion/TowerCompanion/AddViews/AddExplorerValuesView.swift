@@ -12,6 +12,7 @@ struct AddExplorerValuesView: View {
     @State private var silphiumFound = 0
     @State private var obolitesCollected = 0
     @State private var calibratorsCollected = 0
+    @Binding var explorerValues: Explorer?
     
     @FocusState private var textFieldFocus: Bool
     
@@ -25,33 +26,43 @@ struct AddExplorerValuesView: View {
     }()
     
     var body: some View {
-        NavigationView {
-            Form {
-                Text("Enter Number of Floors cleared")
-                TextField("Enter the Number Here", value: $floorsCleared, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
-               
-                Text("Enter Number of Silphiums found")
-                TextField("Enter the Number Here", value: $silphiumFound, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
-                
-                Text("Enter the number of Obolites collected")
-                TextField("Enter the Number Here", value: $obolitesCollected, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
-                
-                Text("Enter the Number of Calibrators collected")
-                TextField("Enter the Number Here", value: $calibratorsCollected, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+        Text("Enter Number of Floors cleared")
+        TextField("Enter the Number Here", value: $floorsCleared, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onAppear {
+                explorerValues = Explorer(floorsCleared: 0, silphiumFound: 0, obolitesCollected: 0, calibratorsCollected: 0)
             }
-            .navigationTitle("Explorer Values")
-        }
+            .onChange(of: floorsCleared) { oldValue, newValue in
+                explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
+            }
+        
+        Text("Enter Number of Silphiums found")
+        TextField("Enter the Number Here", value: $silphiumFound, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onChange(of: silphiumFound) { oldValue, newValue in
+                explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
+            }
+        
+        Text("Enter the number of Obolites collected")
+        TextField("Enter the Number Here", value: $obolitesCollected, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onChange(of: obolitesCollected) { oldValue, newValue in
+                explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
+            }
+        
+        Text("Enter the Number of Calibrators collected")
+        TextField("Enter the Number Here", value: $calibratorsCollected, formatter: numberFormatter)
+            .keyboardType(.numberPad)
+            .focused($textFieldFocus)
+            .onChange(of: calibratorsCollected) { oldValue, newValue in
+                explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
+            }
     }
 }
 
 #Preview {
-    AddExplorerValuesView()
+    AddExplorerValuesView(explorerValues: .constant(Explorer(floorsCleared: 0, silphiumFound: 0, obolitesCollected: 0, calibratorsCollected: 0)))
 }
