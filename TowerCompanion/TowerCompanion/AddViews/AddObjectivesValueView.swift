@@ -26,45 +26,44 @@ struct AddObjectivesValueView: View {
     }()
     
     var body: some View {
-        Text("Enter Enter Number of Pyliods that were Eliminated")
-        TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
-            .keyboardType(.numberPad)
-            .focused($textFieldFocus)
-            .onChange(of: pyliodsEliminated) { oldValue, newValue in
-                objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+        NavigationView {
+            Form {
+                Text("Enter Enter Number of Pyliods that were Eliminated")
+                TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+                    .onChange(of: pyliodsEliminated) { oldValue, newValue in
+                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                    }
+                
+                Text("Enter Number of Algos that you defeated")
+                TextField("Enter Number Here", value: $algosDefeated, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+                    .onChange(of: algosDefeated) { oldValue, newValue in
+                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                    }
+                
+                Text("Enter Number of Algos final forms that you defeated")
+                TextField("Enter Number Here", value: $algosFinalFormDefeated, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+                    .onChange(of: algosFinalFormDefeated) { oldValue, newValue in
+                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                    }
+                
+                Text("Enter Number of Algos infinity forms that you defeated")
+                TextField("Enter Number Here", value: $algosInfinityFormDefeated, formatter: numberFormatter)
+                    .keyboardType(.numberPad)
+                    .focused($textFieldFocus)
+                    .onChange(of: algosInfinityFormDefeated) { oldValue, newValue in
+                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                    }
             }
-        
-        Text("Enter Number of Algos that you defeated")
-        TextField("Enter Number Here", value: $algosDefeated, formatter: numberFormatter)
-            .keyboardType(.numberPad)
-            .focused($textFieldFocus)
-            .onChange(of: algosDefeated) { oldValue, newValue in
-                objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
-            }
-        
-        Text("Enter Number of Algos final forms that you defeated")
-        TextField("Enter Number Here", value: $algosFinalFormDefeated, formatter: numberFormatter)
-            .keyboardType(.numberPad)
-            .focused($textFieldFocus)
-            .onChange(of: algosFinalFormDefeated) { oldValue, newValue in
-                objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
-            }
-        
-        Text("Enter Number of Algos infinity forms that you defeated")
-        TextField("Enter Number Here", value: $algosInfinityFormDefeated, formatter: numberFormatter)
-            .keyboardType(.numberPad)
-            .focused($textFieldFocus)
-            .onChange(of: algosInfinityFormDefeated) { oldValue, newValue in
-                objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
-            }
+            .navigationTitle("Objective Values")
+        }
     }
-//        .toolbar {
-//            ToolbarItem(placement: .keyboard) {
-//                Button("Done") {
-//                    textFieldFocus = false
-//                }
-//            }
-//        }
+    
 }
 
 #Preview {
