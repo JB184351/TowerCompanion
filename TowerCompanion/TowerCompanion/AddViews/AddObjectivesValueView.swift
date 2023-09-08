@@ -41,6 +41,12 @@ struct AddObjectivesValueView: View {
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: algosDefeated) { oldValue, newValue in
+                        if algosDefeated > 2 {
+                            algosDefeated = 2
+                        } else if algosDefeated < 0 {
+                            algosDefeated = 0
+                        }
+                        
                         objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
                     }
                 
@@ -49,6 +55,12 @@ struct AddObjectivesValueView: View {
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: algosFinalFormDefeated) { oldValue, newValue in
+                        if algosFinalFormDefeated > 1 {
+                            algosFinalFormDefeated = 1
+                        } else {
+                            algosFinalFormDefeated = 0
+                        }
+                        
                         objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
                     }
                 
