@@ -185,10 +185,18 @@ struct AddRunView: View {
                         Text("Enter Phase and Room Details")
                     }
                     
+                    // MARK: - Combat
                     Section {
                         AddCombatValuesView(combatValues: $combatValues)
                     } header: {
                         Text("Add Combat Values (Will be Shown After Death)")
+                    }
+                    
+                    // MARK: - Explorer
+                    Section {
+                        AddExplorerValuesView(explorerValues: $explorerValues)
+                    } header: {
+                        Text("Add Explorer Values (Will be Shown After Death)")
                     }
                     
                     // MARK: - Date started
