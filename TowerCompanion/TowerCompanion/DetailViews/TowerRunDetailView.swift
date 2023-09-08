@@ -66,6 +66,18 @@ struct TowerRunDetailView: View {
                         CombatDetailView(combat: combatValues)
                     }
                     
+                    if let explorer = towerRun.explorer {
+                        ExplorerDetailsView(explorer: explorer)
+                    }
+                    
+                    if let skill = towerRun.skill {
+                        SkillDetailView(skill: skill)
+                    }
+                    
+                    if let objectives = towerRun.objectives {
+                        ObjectivesDetailView(objectives: objectives)
+                    }
+                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
