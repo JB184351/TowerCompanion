@@ -62,6 +62,10 @@ struct TowerRunDetailView: View {
                     Spacer()
                     StatsDetailView(stats: towerRun.stats)
                     
+                    if let combatValues = towerRun.combat {
+                        CombatDetailView(combat: combatValues)
+                    }
+                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
