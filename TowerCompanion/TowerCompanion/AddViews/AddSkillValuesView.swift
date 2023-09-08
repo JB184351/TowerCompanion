@@ -49,6 +49,12 @@ struct AddSkillValuesView: View {
                     .keyboardType(.decimalPad)
                     .focused($textFieldFocus)
                     .onChange(of: peakAdrenaline) { oldValue, newValue in
+                        if peakAdrenaline > 5.0 {
+                            peakAdrenaline = 5.0
+                        } else if peakAdrenaline < 0.0 {
+                            peakAdrenaline = 0.0
+                        }
+                        
                         skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
                     }
                 
