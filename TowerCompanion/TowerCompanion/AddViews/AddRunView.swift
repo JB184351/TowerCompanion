@@ -206,6 +206,13 @@ struct AddRunView: View {
                         Text("Add Skill Values (Will be shown after death)")
                     }
                     
+                    // MARK: - Objectives
+                    Section {
+                        AddObjectivesValueView(objectiveValues: $objectiveValues)
+                    } header: {
+                        Text("Add Objective Values (Will be shown after death)")
+                    }
+                    
                     // MARK: - Date started
                     Section {
                         DatePicker("", selection: $dateStarted)
