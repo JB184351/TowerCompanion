@@ -189,14 +189,21 @@ struct AddRunView: View {
                     Section {
                         AddCombatValuesView(combatValues: $combatValues)
                     } header: {
-                        Text("Add Combat Values (Will be Shown After Death)")
+                        Text("Add Combat Values (Will be shown after death)")
                     }
                     
                     // MARK: - Explorer
                     Section {
                         AddExplorerValuesView(explorerValues: $explorerValues)
                     } header: {
-                        Text("Add Explorer Values (Will be Shown After Death)")
+                        Text("Add Explorer Values (Will be shown after death)")
+                    }
+                    
+                    // MARK: - Skill
+                    Section {
+                        AddSkillValuesView(skillValues: $skillValues)
+                    } header: {
+                        Text("Add Skill Values (Will be shown after death)")
                     }
                     
                     // MARK: - Date started
