@@ -11,15 +11,14 @@ struct AddArtifactsView: View {
     @State private var currentlySelectedArtifact = "Adrenaline Coolant"
     @State private var listOfArtifacts: [String] = []
     @State private var isFirstView = false
+    private var artifactNames: [String] {
+        return Artifact.getAllArtifacts().map { $0.name }
+    }
     
     @Binding var artifacts: [Artifact]
     
     init(artifacts: Binding<[Artifact]>) {
         self._artifacts = artifacts
-    }
-    
-    var artifactNames: [String] {
-        return Artifact.getAllArtifacts().map { $0.name }
     }
     
     var body: some View {
