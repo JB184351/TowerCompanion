@@ -15,6 +15,9 @@ struct TowerRunDetailView: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
+                    NavigationLink("Edit This Run", destination: EditRunView(towerRun: towerRun))
+                    Spacer()
+                    
                     HeavyTextHeadline(text: "Scout Name: \(towerRun.scoutName)", color: .returnalYellow)
                     HeavyTextHeadline(text: "Platform: \(towerRun.platform)", color: .returnalYellow)
                     

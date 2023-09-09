@@ -16,10 +16,10 @@ struct EditRunView: View {
     @State private var platform = "PS5"
     private let platforms = ["PS5", "PC"]
     
-    @State var weapon: Weapon
-    @State var artifacts: [Artifact]
-    @State var parasites: [Parasite]
-    @State var malfunctions: [Malfunction]
+    @State var weapon: Weapon = Weapon(name: "", altFire: AltFire(name: "", level: 1, altFireDescription: ""), traits: [], level: 1)
+    @State var artifacts: [Artifact] = []
+    @State var parasites: [Parasite] = []
+    @State var malfunctions: [Malfunction] = []
     @State var combatValues: Combat?
     @State var explorerValues: Explorer?
     @State var skillValues: Skill?
@@ -121,7 +121,7 @@ struct EditRunView: View {
                     
                     // MARK: - Score
                     Section {
-                        TextField(towerRun.score == 0 ? "Score" : "\(towerRun.score)", value: $score, formatter: numberFormatter)
+                        TextField("Score", value: $score, formatter: numberFormatter)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
                     } header: {
@@ -130,7 +130,7 @@ struct EditRunView: View {
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField(towerRun.phase == 1 ? "Phase" : "\(towerRun.phase)", value: $phase, formatter: percentFormatter)
+                        TextField("Phase", value: $phase, formatter: percentFormatter)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
                         Picker(towerRun.room == 1 ? "Room" : "\(towerRun.room)", selection: $room) {
@@ -144,7 +144,7 @@ struct EditRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField(towerRun.averageMultiplier == 0.0 ? "Average Multiplier" : "\(towerRun.averageMultiplier)", value: $averageMutliplier, formatter: percentFormatter)
+                        TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                             .onChange(of: averageMutliplier) { oldValue, newValue in
@@ -157,7 +157,7 @@ struct EditRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
-                        TextField(towerRun.highestMultiplier == 0.0 ? "Highest Multiplier" : "\(towerRun.highestMultiplier)", value: $highestMultplier, formatter: percentFormatter)
+                        TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                             .onChange(of: highestMultplier) { oldValue, newValue in
@@ -170,7 +170,7 @@ struct EditRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
-                        TextField(towerRun.finalMultiplier == 0.0 ? "Final Mutliplier" : "\(towerRun.finalMultiplier)", value: $finalMultiplier, formatter: percentFormatter)
+                        TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
                             .onChange(of: finalMultiplier) { oldValue, newValue in
@@ -200,9 +200,6 @@ struct EditRunView: View {
                     Section {
                         DatePicker("", selection: $dateStarted)
                             .labelsHidden()
-                            .onAppear {
-                                dateStarted = towerRun.dateStarted
-                            }
                     } header: {
                         Text("Enter Start Run Date/Time")
                     }
@@ -212,9 +209,6 @@ struct EditRunView: View {
                     Section {
                         DatePicker("", selection: $dateCompleted)
                             .labelsHidden()
-                            .onAppear {
-                                dateCompleted = towerRun.dateCompleted
-                            }
                     } header: {
                         Text("Enter End Run Date/Time")
                     }
@@ -222,7 +216,7 @@ struct EditRunView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    Button("Add") {
+                    Button("Update") {
                         updateTowerRun()
                         dismiss()
                     }
@@ -234,15 +228,84 @@ struct EditRunView: View {
                     }
                 }
             }
+            .onAppear {
+                updateEditView()
+            }
         }
     }
     
-    func updateTowerRun() {
+    private func updateEditView() {
+        scoutName = towerRun.scoutName
+        weapon = towerRun.weapon
+        
+        if let artifacts = towerRun.artifacts {
+            self.artifacts = artifacts
+        }
+        
+        if let parasites = towerRun.parasites {
+            self.parasites = parasites
+        }
+        
+        weaponDamageStat = towerRun.stats.weaponDamage
+        protectionStat = towerRun.stats.protection
+        proficiencyRate = towerRun.stats.proficiencyRate
+        repairEffiency = towerRun.stats.repairEffiency
+        altFireCooldown = towerRun.stats.altFireCoolDown
+        
+        if let malfunctions = towerRun.malfunctions {
+            self.malfunctions = malfunctions
+        }
+        
+        score = towerRun.score
+        finalMultiplier = towerRun.finalMultiplier
+        averageMutliplier = towerRun.averageMultiplier
+        highestMultplier = towerRun.highestMultiplier
+        phase = towerRun.phase
+        room = towerRun.room
+        platform = towerRun.platform
+        
+        if let combat = towerRun.combat {
+            combatValues = combat
+        }
+        
+        if let explorer = towerRun.explorer {
+            explorerValues = explorer
+        }
+        
+        if let skill = towerRun.skill {
+            skillValues = skill
+        }
+        
+        if let objectives = towerRun.objectives {
+            objectiveValues = objectives
+        }
+        
+        dateStarted = towerRun.dateStarted
+        dateCompleted = towerRun.dateCompleted
+    }
+    
+    private func updateTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: finalMultiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
-        
-        modelContext.insert(towerRun)
+        towerRun.scoutName = scoutName
+        towerRun.weapon = weapon
+        towerRun.artifacts = artifacts
+        towerRun.parasites = parasites
+        towerRun.stats = stats
+        towerRun.malfunctions = malfunctions
+        towerRun.score = score
+        towerRun.finalMultiplier = finalMultiplier
+        towerRun.averageMultiplier = averageMutliplier
+        towerRun.highestMultiplier = highestMultplier
+        towerRun.phase = phase
+        towerRun.room = room
+        towerRun.platform = platform
+        towerRun.combat = combatValues
+        towerRun.explorer = explorerValues
+        towerRun.skill = skillValues
+        towerRun.objectives = objectiveValues
+        towerRun.dateStarted = dateStarted
+        towerRun.dateCompleted = dateCompleted
     }
 }
 
