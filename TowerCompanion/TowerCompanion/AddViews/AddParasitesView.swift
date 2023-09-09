@@ -94,15 +94,6 @@ struct AddParasitesView: View {
         }
     }
     
-    private func addPicker() {
-        if !parasitePositiveEffectDescription.isEmpty {
-            pickerCount += 1
-        } else {
-            // MARK: - TODO Add Alert Message Here
-            print("We should present an alert here")
-        }
-    }
-    
     private func addParasite() {
         for (index, _) in parasiteNamesUsedInRun.enumerated() {
             let parasite = Parasite(name: nonComputedParasiteNames[index], positiveDescription: parasitePositiveEffectDescription, negativeDescription: parasiteNegativeEffectDescription)
