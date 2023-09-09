@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AddArtifactsView: View {
-    @State private var artifactsUsedInRun = [Artifact]()
-    @State private var isFirstView = false
     @State private var currentlySelectedArtifact = "Adrenaline Coolant"
     @State private var listOfArtifacts: [String] = []
+    @State private var isFirstView = false
+    
     @Binding var artifacts: [Artifact]
     
     init(artifacts: Binding<[Artifact]>) {
