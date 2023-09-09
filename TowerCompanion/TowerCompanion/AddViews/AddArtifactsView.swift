@@ -8,78 +8,25 @@
 import SwiftUI
 
 struct AddArtifactsView: View {
-    @State private var artifactName = ""
-    @State private var artifactDescription = ""
-    @State private var artifactNamesUsedInRun = [String]()
     @State private var artifactsUsedInRun = [Artifact]()
     @State private var isFirstView = false
+    @State private var currentlySelectedArtifact = "Adrenaline Coolant"
+    @State private var listOfArtifacts: [String] = []
     @Binding var artifacts: [Artifact]
-    let allArtifactNames = [
-        "Phantom Limb",
-        "Wound Seekers",
-        "Execution Rush",
-        "Recharging Overload",
-        "Fractal Nail",
-        "Silver Lattice",
-        "Adrenaline Coolant",
-        "Disrupting Overloads",
-        "Blown Nightlight",
-        "Golden Coil",
-        "Recharging Response",
-        "Energy Manipulator",
-        "Resinous Shield",
-        "Reactive Stabilizers",
-        "Repair Circuit",
-        "Adrenaline Enhancer",
-        "Progenitor Egg",
-        "Resin Enhancer",
-        "Execution Coolant",
-        "Murmuring Cocoon",
-        "Pulsating Mass",
-        "Unified Pod"
-    ]
-    
-    @State var artifactNames = [
-        "Phantom Limb",
-        "Wound Seekers",
-        "Execution Rush",
-        "Recharging Overload",
-        "Fractal Nail",
-        "Silver Lattice",
-        "Adrenaline Coolant",
-        "Disrupting Overloads",
-        "Blown Nightlight",
-        "Golden Coil",
-        "Recharging Response",
-        "Energy Manipulator",
-        "Resinous Shield",
-        "Reactive Stabilizers",
-        "Repair Circuit",
-        "Adrenaline Enhancer",
-        "Progenitor Egg",
-        "Resin Enhancer",
-        "Execution Coolant",
-        "Murmuring Cocoon",
-        "Pulsating Mass",
-        "Unified Pod"
-    ]
-    
     
     init(artifacts: Binding<[Artifact]>) {
-        _artifactNamesUsedInRun = State(initialValue: Array(repeating: "", count: 1))
         self._artifacts = artifacts
+    }
+    
+    var artifactNames: [String] {
+        return Artifact.getAllArtifacts().map { $0.name }
     }
     
     var body: some View {
         Section {
-            ForEach(0..<1, id: \.self) { index in
-                Picker("Select an item", selection: Binding(
-                    get: { artifactNames[index] },
-                    set: { artifactNames[index] = $0 }
-                )) {
-                    ForEach(artifactNames, id: \.self) { artifactName in
-                        Text(artifactName).tag(artifactName)
-                    }
+            Picker("Artifacts", selection: $currentlySelectedArtifact) {
+                ForEach(listOfArtifacts, id: \.self) { artifactName in
+                    Text(artifactName).tag(artifactName)
                 }
             }
         }
@@ -91,6 +38,8 @@ struct AddArtifactsView: View {
                 artifacts.removeAll()
                 isFirstView = true
             }
+            
+            listOfArtifacts = artifactNames
         }
         
         Section {
@@ -119,21 +68,18 @@ struct AddArtifactsView: View {
     }
     
     private func addArtifact() {
-        for (index, _) in artifactNamesUsedInRun.enumerated() {
-            let artifactName = artifactNames[index]
-            let artifactDescription = Artifact.getAtrifactDescription(artifactName: artifactName)
-            
-            let artifact = Artifact(name: artifactName, artifactDescription: artifactDescription)
-            artifacts.append(artifact)
-            
-            artifactNames.removeAll { $0 == artifactNames[index] }
-        }
+        let artifactDescription = Artifact.getAllArtifacts().filter( { $0.name == currentlySelectedArtifact }).description
+        let artifact = Artifact(name: currentlySelectedArtifact, artifactDescription: artifactDescription)
+        
+        artifacts.append(artifact)
+        listOfArtifacts.removeAll(where: { $0 == currentlySelectedArtifact })
+        currentlySelectedArtifact = listOfArtifacts[0]
     }
     
     private func clearValues() {
         artifacts.removeAll()
-        artifactsUsedInRun.removeAll()
-        artifactNames = allArtifactNames
+        listOfArtifacts = artifactNames
+        currentlySelectedArtifact = listOfArtifacts[0]
     }
     
 }
