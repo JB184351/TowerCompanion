@@ -82,7 +82,7 @@ struct EditRunView: View {
                     
                     // MARK: - Weapon
                     Section {
-                        EditWeaponsView(weapon: $weapon)
+                        EditWeaponView(weapon: $weapon)
                     } header: {
                         Text("Add Weapon Details")
                     }
