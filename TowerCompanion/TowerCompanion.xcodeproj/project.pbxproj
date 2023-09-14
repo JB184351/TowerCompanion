@@ -10,6 +10,7 @@
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
 		303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */; };
+		303313AA2AB38A2A00FDCF48 /* EditParasitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */; };
 		304229B22A5DE005009364DF /* TowerRunDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304229B12A5DE005009364DF /* TowerRunDetailView.swift */; };
 		30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */; };
 		304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactsView.swift */; };
@@ -57,6 +58,7 @@
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
 		303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArtifactsView.swift; sourceTree = "<group>"; };
+		303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditParasitesView.swift; sourceTree = "<group>"; };
 		304229B12A5DE005009364DF /* TowerRunDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunDetailView.swift; sourceTree = "<group>"; };
 		30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunHighlightView.swift; sourceTree = "<group>"; };
 		304243A62A4BA4F400D51678 /* AddArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactsView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
 				303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */,
 				30DF8B562AAD43F100938ECB /* EditWeaponView.swift */,
+				303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */,
 			);
 			path = EditViews;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				3070706B2A9D78D8002ADCC4 /* AddCombatValuesView.swift in Sources */,
 				30DF8B4E2AAB964100938ECB /* CombatDetailView.swift in Sources */,
 				307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */,
+				303313AA2AB38A2A00FDCF48 /* EditParasitesView.swift in Sources */,
 				30BC72202A3686B300F0E49B /* Trait.swift in Sources */,
 				30FE1A0B2A9D313F00D1D2F4 /* Objectives.swift in Sources */,
 				30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */,

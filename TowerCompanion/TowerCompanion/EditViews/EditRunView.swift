@@ -97,7 +97,7 @@ struct EditRunView: View {
                     
                     // MARK: - Parasites
                     Section {
-                        AddParasitesView(parasites: $parasites)
+                        EditParasitesView(parasites: $parasites)
                     } header: {
                         Text("Add Parasite(s) (Can Add Up to 5)")
                     }
