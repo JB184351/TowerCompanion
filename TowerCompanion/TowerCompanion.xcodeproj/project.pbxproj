@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
+		303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */; };
 		304229B22A5DE005009364DF /* TowerRunDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304229B12A5DE005009364DF /* TowerRunDetailView.swift */; };
 		30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */; };
 		304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactsView.swift */; };
@@ -45,7 +46,7 @@
 		30DF8B502AAB98C000938ECB /* ExplorerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B4F2AAB98C000938ECB /* ExplorerDetailsView.swift */; };
 		30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */; };
 		30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */; };
-		30DF8B572AAD43F100938ECB /* WeaponEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B562AAD43F100938ECB /* WeaponEditView.swift */; };
+		30DF8B572AAD43F100938ECB /* EditWeaponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B562AAD43F100938ECB /* EditWeaponsView.swift */; };
 		30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A042A9D307C00D1D2F4 /* Combat.swift */; };
 		30FE1A072A9D30CA00D1D2F4 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */; };
 		30FE1A092A9D30F900D1D2F4 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A082A9D30F900D1D2F4 /* Skill.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
+		303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArtifactsView.swift; sourceTree = "<group>"; };
 		304229B12A5DE005009364DF /* TowerRunDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunDetailView.swift; sourceTree = "<group>"; };
 		30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunHighlightView.swift; sourceTree = "<group>"; };
 		304243A62A4BA4F400D51678 /* AddArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactsView.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		30DF8B4F2AAB98C000938ECB /* ExplorerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsView.swift; sourceTree = "<group>"; };
 		30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectivesDetailView.swift; sourceTree = "<group>"; };
-		30DF8B562AAD43F100938ECB /* WeaponEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponEditView.swift; sourceTree = "<group>"; };
+		30DF8B562AAD43F100938ECB /* EditWeaponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponsView.swift; sourceTree = "<group>"; };
 		30FE1A042A9D307C00D1D2F4 /* Combat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combat.swift; sourceTree = "<group>"; };
 		30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
 		30FE1A082A9D30F900D1D2F4 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -237,7 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				307A92992A439A8C002A2164 /* EditRunView.swift */,
-				30DF8B562AAD43F100938ECB /* WeaponEditView.swift */,
+				303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */,
+				30DF8B562AAD43F100938ECB /* EditWeaponsView.swift */,
 			);
 			path = EditViews;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */,
 				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
+				303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */,
 				30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */,
@@ -348,7 +352,7 @@
 				30FE1A0B2A9D313F00D1D2F4 /* Objectives.swift in Sources */,
 				30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */,
 				305363D42A720997006D3ACC /* ParasitesDetailView.swift in Sources */,
-				30DF8B572AAD43F100938ECB /* WeaponEditView.swift in Sources */,
+				30DF8B572AAD43F100938ECB /* EditWeaponsView.swift in Sources */,
 				30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */,
 				304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */,
 				30AA61502A71F1DE005D69B7 /* TextHeadline.swift in Sources */,

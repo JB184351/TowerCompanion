@@ -82,14 +82,14 @@ struct EditRunView: View {
                     
                     // MARK: - Weapon
                     Section {
-                        WeaponEditView(weapon: $weapon)
+                        EditWeaponsView(weapon: $weapon)
                     } header: {
                         Text("Add Weapon Details")
                     }
                     
                     // MARK: - Artifact View
                     Section {
-                        AddArtifactsView(artifacts: $artifacts)
+                        EditArtifactsView(artifacts: $artifacts)
                     } header: {
                         Text("Add Aritfacts (Can Add Up To 15)")
                     }

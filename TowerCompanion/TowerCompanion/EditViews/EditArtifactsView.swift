@@ -1,16 +1,16 @@
 //
-//  ArtifactView.swift
+//  EditArtifactsView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 6/27/23.
+//  Created by Justin on 9/13/23.
 //
 
 import SwiftUI
 
-struct AddArtifactsView: View {
+struct EditArtifactsView: View {
     @State private var currentlySelectedArtifact = "Adrenaline Coolant"
     @State private var listOfArtifacts: [String] = []
-    @State private var isFirstView = false
+    //    @State private var isFirstView = false
     private var artifactNames: [String] {
         return Artifact.getAllArtifacts().map { $0.name }
     }
@@ -28,20 +28,7 @@ struct AddArtifactsView: View {
                     Text(artifactName).tag(artifactName)
                 }
             }
-        }
-        .onAppear {
-            // Some reason the artifacts array gets 1 item
-            // inserted so I'm removing it forcibly until I
-            // can figure out why that is
-            if !isFirstView {
-                artifacts.removeAll()
-                isFirstView = true
-            }
             
-            listOfArtifacts = artifactNames
-        }
-        
-        Section {
             Button("Add Artifact(s)") {
                 withAnimation {
                     addArtifact()
@@ -55,13 +42,28 @@ struct AddArtifactsView: View {
                 }
             }
             .disabled(artifacts.count < 1)
-        }
-        
-        if artifacts.count > 0 {
-            Section(header: Text("Artifacts")) {
+            
+            Section {
                 ForEach(artifacts, id: \.name) { artifact in
-                    Text("\(artifact.name)")
+                    Text(artifact.name)
                 }
+            } header: {
+                artifacts.count > 0 ? Text("Artifacts") : Text("")
+            }
+        }
+        .onAppear {
+            if artifacts.count > 0 {
+                var allArtifactNames = artifactNames
+                
+                for artifact in artifacts {
+                    if allArtifactNames.contains(artifact.name) {
+                        allArtifactNames.removeAll { $0 == artifact.name }
+                    }
+                }
+                
+                listOfArtifacts = allArtifactNames
+            } else {
+                listOfArtifacts = artifactNames
             }
         }
     }
@@ -82,6 +84,6 @@ struct AddArtifactsView: View {
     }
 }
 
-#Preview {
-    AddArtifactsView(artifacts: .constant([Artifact]()))
-}
+//#Preview {
+//    EditArtifactsView()
+//}

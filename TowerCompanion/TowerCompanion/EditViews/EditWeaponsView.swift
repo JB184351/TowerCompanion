@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WeaponEditView: View {
+struct EditWeaponsView: View {
     @State private var weaponName = "Modified Sidearm SD-M8"
     @State private var weaponLevel = 0
     @State private var altFireName = "Blast Shell"
