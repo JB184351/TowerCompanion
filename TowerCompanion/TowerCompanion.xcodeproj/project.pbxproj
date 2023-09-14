@@ -45,6 +45,7 @@
 		30DF8B502AAB98C000938ECB /* ExplorerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B4F2AAB98C000938ECB /* ExplorerDetailsView.swift */; };
 		30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */; };
 		30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */; };
+		30DF8B572AAD43F100938ECB /* WeaponEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B562AAD43F100938ECB /* WeaponEditView.swift */; };
 		30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A042A9D307C00D1D2F4 /* Combat.swift */; };
 		30FE1A072A9D30CA00D1D2F4 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */; };
 		30FE1A092A9D30F900D1D2F4 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A082A9D30F900D1D2F4 /* Skill.swift */; };
@@ -92,6 +93,7 @@
 		30DF8B4F2AAB98C000938ECB /* ExplorerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsView.swift; sourceTree = "<group>"; };
 		30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectivesDetailView.swift; sourceTree = "<group>"; };
+		30DF8B562AAD43F100938ECB /* WeaponEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponEditView.swift; sourceTree = "<group>"; };
 		30FE1A042A9D307C00D1D2F4 /* Combat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combat.swift; sourceTree = "<group>"; };
 		30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
 		30FE1A082A9D30F900D1D2F4 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -205,7 +207,7 @@
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
 				30AA61512A71F328005D69B7 /* CustomViews */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
-				307A92992A439A8C002A2164 /* EditRunView.swift */,
+				30DF8B552AAD436400938ECB /* EditViews */,
 				30C8969F2A5A1A38004D016D /* Extensions */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
 				30BC72102A354FF000F0E49B /* TowerCompanion.entitlements */,
@@ -229,6 +231,15 @@
 				30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30DF8B552AAD436400938ECB /* EditViews */ = {
+			isa = PBXGroup;
+			children = (
+				307A92992A439A8C002A2164 /* EditRunView.swift */,
+				30DF8B562AAD43F100938ECB /* WeaponEditView.swift */,
+			);
+			path = EditViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 				30FE1A0B2A9D313F00D1D2F4 /* Objectives.swift in Sources */,
 				30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */,
 				305363D42A720997006D3ACC /* ParasitesDetailView.swift in Sources */,
+				30DF8B572AAD43F100938ECB /* WeaponEditView.swift in Sources */,
 				30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */,
 				304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */,
 				30AA61502A71F1DE005D69B7 /* TextHeadline.swift in Sources */,
