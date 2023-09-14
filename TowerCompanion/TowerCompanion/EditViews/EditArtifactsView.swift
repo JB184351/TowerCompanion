@@ -10,7 +10,6 @@ import SwiftUI
 struct EditArtifactsView: View {
     @State private var currentlySelectedArtifact = "Adrenaline Coolant"
     @State private var listOfArtifacts: [String] = []
-    //    @State private var isFirstView = false
     private var artifactNames: [String] {
         return Artifact.getAllArtifacts().map { $0.name }
     }
