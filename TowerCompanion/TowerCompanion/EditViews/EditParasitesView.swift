@@ -10,7 +10,6 @@ import SwiftUI
 struct EditParasitesView: View {
     @State private var parasitePositiveEffectDescription = "Positive Effect description will go here"
     @State private var parasiteNegativeEffectDescription = "Negative Effect description will go here"
-    @State private var isPlaceHolderEnabled = true
     @State private var currentlySelectedParasiteName = "Amenesic Firestinger"
     @State private var allParasiteNames: [String] = []
     @Binding var parasites: [Parasite]
@@ -31,15 +30,14 @@ struct EditParasitesView: View {
                 }
             }
             .onChange(of: currentlySelectedParasiteName) {
-                isPlaceHolderEnabled = false
                 parasitePositiveEffectDescription = getParasiteEffectDescriptions(parasiteName: currentlySelectedParasiteName).0
                 parasiteNegativeEffectDescription = getParasiteEffectDescriptions(parasiteName: currentlySelectedParasiteName).1
             }
             
             Text(parasitePositiveEffectDescription)
-                .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .green)
+                .foregroundStyle(.green)
             Text(parasiteNegativeEffectDescription)
-                .foregroundStyle(isPlaceHolderEnabled ? .gray.opacity(0.5) : .red)
+                .foregroundStyle(.red)
             
             Section {
                 Button("Add Parasite") {
