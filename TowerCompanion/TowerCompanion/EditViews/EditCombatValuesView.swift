@@ -56,7 +56,7 @@ struct EditCombatValuesView: View {
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: malformedHostilesEliminated) { oldValue, newValue in
-                        combatValues = Combat(weakPointKills: newValue, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                        combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
                     }
             }
             .onAppear {
