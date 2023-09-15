@@ -27,6 +27,7 @@
 		3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3070706E2A9D7F52002ADCC4 /* AddSkillValuesView.swift */; };
 		307070712A9D80F5002ADCC4 /* AddObjectivesValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307070702A9D80F5002ADCC4 /* AddObjectivesValueView.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
+		3090D7F92AB52179000605D7 /* EditExplorerValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090D7F82AB52179000605D7 /* EditExplorerValuesView.swift */; };
 		3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */; };
 		30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C12A37C8D0003AB0B3 /* Stat.swift */; };
 		30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C32A37C932003AB0B3 /* AltFire.swift */; };
@@ -77,6 +78,7 @@
 		3070706E2A9D7F52002ADCC4 /* AddSkillValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSkillValuesView.swift; sourceTree = "<group>"; };
 		307070702A9D80F5002ADCC4 /* AddObjectivesValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObjectivesValueView.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
+		3090D7F82AB52179000605D7 /* EditExplorerValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExplorerValuesView.swift; sourceTree = "<group>"; };
 		3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMalfunctionsView.swift; sourceTree = "<group>"; };
 		30A7F7C12A37C8D0003AB0B3 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		30A7F7C32A37C932003AB0B3 /* AltFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltFire.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */,
 				303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */,
 				303313AD2AB4D06E00FDCF48 /* EditCombatValuesView.swift */,
+				3090D7F82AB52179000605D7 /* EditExplorerValuesView.swift */,
 			);
 			path = EditViews;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				304229B22A5DE005009364DF /* TowerRunDetailView.swift in Sources */,
 				30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */,
 				303313AC2AB3968100FDCF48 /* EditMalfunctionsView.swift in Sources */,
+				3090D7F92AB52179000605D7 /* EditExplorerValuesView.swift in Sources */,
 				30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */,
 				30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */,
 				304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */,
