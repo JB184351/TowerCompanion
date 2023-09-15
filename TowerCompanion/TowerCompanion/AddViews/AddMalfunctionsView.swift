@@ -54,11 +54,8 @@ struct AddMalfunctionsView: View {
         if malfunctions.count > 0 {
             Section {
                 ForEach(malfunctions, id: \.self) { malfunction in
-                    Text(malfunction.malfunctionDescription)
-                    
-                    if malfunction.malfunctionType == .normal {
-                        Text(malfunction.conditionToRemove)
-                    }
+                    Text(malfunction.malfunctionType == .normal ? "Malfucntion: \(malfunction.malfunctionDescription) \nCondition To Remove: \(malfunction.conditionToRemove)" : malfunction.malfunctionDescription)
+                        .multilineTextAlignment(.leading)
                 }
             }
         }

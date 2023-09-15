@@ -40,7 +40,7 @@ struct EditMalfunctionsView: View {
             
             Section {
                 ForEach(malfunctions, id: \.self) { malfunction in
-                    Text(malfunction.malfunctionType == .normal ? "\(malfunction.malfunctionDescription) \n\(malfunction.conditionToRemove)" : malfunction.malfunctionDescription)
+                    Text(malfunction.malfunctionType == .normal ? "Malfucntion: \(malfunction.malfunctionDescription) \nCondition To Remove: \(malfunction.conditionToRemove)" : malfunction.malfunctionDescription)
                         .multilineTextAlignment(.leading)
                 }
                 .onDelete(perform: { indexSet in
