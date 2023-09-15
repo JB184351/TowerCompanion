@@ -116,7 +116,7 @@ struct EditRunView: View {
                     
                     // MARK: - Malfunctions
                     Section(header: Text("Enter Malfunction Details")) {
-                        AddMalfunctionsView(malfunctions: $malfunctions)
+                        EditMalfunctionsView(malfunctions: $malfunctions)
                     }
                     
                     // MARK: - Score
