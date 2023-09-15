@@ -12,6 +12,7 @@
 		303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */; };
 		303313AA2AB38A2A00FDCF48 /* EditParasitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */; };
 		303313AC2AB3968100FDCF48 /* EditMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */; };
+		303313AE2AB4D06E00FDCF48 /* EditCombatValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313AD2AB4D06E00FDCF48 /* EditCombatValuesView.swift */; };
 		304229B22A5DE005009364DF /* TowerRunDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304229B12A5DE005009364DF /* TowerRunDetailView.swift */; };
 		30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */; };
 		304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304243A62A4BA4F400D51678 /* AddArtifactsView.swift */; };
@@ -61,6 +62,7 @@
 		303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArtifactsView.swift; sourceTree = "<group>"; };
 		303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditParasitesView.swift; sourceTree = "<group>"; };
 		303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMalfunctionsView.swift; sourceTree = "<group>"; };
+		303313AD2AB4D06E00FDCF48 /* EditCombatValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCombatValuesView.swift; sourceTree = "<group>"; };
 		304229B12A5DE005009364DF /* TowerRunDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunDetailView.swift; sourceTree = "<group>"; };
 		30423EF92A589CB300235BC1 /* TowerRunHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowerRunHighlightView.swift; sourceTree = "<group>"; };
 		304243A62A4BA4F400D51678 /* AddArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtifactsView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				30DF8B562AAD43F100938ECB /* EditWeaponView.swift */,
 				303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */,
 				303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */,
+				303313AD2AB4D06E00FDCF48 /* EditCombatValuesView.swift */,
 			);
 			path = EditViews;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				305363D62A7209CF006D3ACC /* MalfunctionsDetailView.swift in Sources */,
 				30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */,
 				30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */,
+				303313AE2AB4D06E00FDCF48 /* EditCombatValuesView.swift in Sources */,
 				305363D82A720A09006D3ACC /* StatsDetailView.swift in Sources */,
 				30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */,
 				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
