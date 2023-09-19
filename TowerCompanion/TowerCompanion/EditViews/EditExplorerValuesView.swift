@@ -76,6 +76,9 @@ struct EditExplorerValuesView: View {
                     }
                 }
             }
+            .onDisappear {
+                explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
+            }
         }
     }
 }

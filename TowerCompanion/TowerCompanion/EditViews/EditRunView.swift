@@ -189,7 +189,7 @@ struct EditRunView: View {
                     // MARK: - Combat/Explorer/Skill/Objectives
                     Section {
                         NavigationLink("Add Combat", destination: EditCombatValuesView(combatValues: $combatValues))
-                        NavigationLink("Add Explorer", destination: AddExplorerValuesView(explorerValues: $explorerValues))
+                        NavigationLink("Add Explorer", destination: EditExplorerValuesView(explorerValues: $explorerValues))
                         NavigationLink("Add Skill", destination: AddSkillValuesView(skillValues: $skillValues))
                         NavigationLink("Add Objectives", destination: AddObjectivesValueView(objectiveValues: $objectiveValues))
                     } header: {

@@ -75,6 +75,9 @@ struct EditCombatValuesView: View {
                     }
                 }
             }
+            .onDisappear {
+                combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+            }
         }
     }
 }
