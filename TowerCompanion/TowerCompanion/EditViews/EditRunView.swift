@@ -71,7 +71,7 @@ struct EditRunView: View {
             VStack {
                 Form {
                     // MARK: - Scoutname
-                    Section(header: Text("Enter Scout Details")) {
+                    Section(header: Text("Edit Scout Details")) {
                         TextField(towerRun.scoutName.isEmpty ? "Enter Scout Name" : towerRun.scoutName, text: $scoutName)
                         Picker("Select Platform", selection: $platform) {
                             ForEach(platforms, id: \.self) {
@@ -84,14 +84,14 @@ struct EditRunView: View {
                     Section {
                         EditWeaponView(weapon: $weapon)
                     } header: {
-                        Text("Add Weapon Details")
+                        Text("Edit Weapon Details")
                     }
                     
                     // MARK: - Artifact View
                     Section {
                         EditArtifactsView(artifacts: $artifacts)
                     } header: {
-                        Text("Add Aritfacts (Can Add Up To 15)")
+                        Text("Edit Aritfacts (Can Add Up To 15)")
                     }
                     
                     
@@ -99,7 +99,7 @@ struct EditRunView: View {
                     Section {
                         EditParasitesView(parasites: $parasites)
                     } header: {
-                        Text("Add Parasite(s) (Can Add Up to 5)")
+                        Text("Edit Parasite(s) (Can Add Up to 5)")
                     }
                     
                     // MARK: - Stats
@@ -111,7 +111,7 @@ struct EditRunView: View {
                         Stepper("Profiency Rate \(proficiencyRate.formatted())%", value: $proficiencyRate, in: -150...150, step: 5)
                         
                     } header: {
-                        Text("Enter Stat Details")
+                        Text("Edit Stat Details")
                     }
                     
                     // MARK: - Malfunctions
@@ -125,7 +125,7 @@ struct EditRunView: View {
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
                     } header: {
-                        Text("Enter Your Score")
+                        Text("Edit Your Score")
                     }
                     
                     // MARK: - Phase and Room
@@ -139,7 +139,7 @@ struct EditRunView: View {
                             }
                         }
                     } header: {
-                        Text("Enter Phase and Room Details")
+                        Text("Edit Phase and Room Details")
                     }
                     
                     // MARK: - Multipliers
@@ -191,7 +191,7 @@ struct EditRunView: View {
                         NavigationLink("Edit Combat", destination: EditCombatValuesView(combatValues: $combatValues))
                         NavigationLink("Edit Explorer", destination: EditExplorerValuesView(explorerValues: $explorerValues))
                         NavigationLink("Edit Skill", destination: EditSkillValuesView(skillValues: $skillValues))
-                        NavigationLink("Edit Objectives", destination: AddObjectivesValueView(objectiveValues: $objectiveValues))
+                        NavigationLink("Edit Objectives", destination: EditObjectivesValuesView(objectiveValues: $objectiveValues))
                     } header: {
                         Text("Edit Post Death Values")
                     }
