@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+extension HorizontalAlignment {
+    
+}
+
 struct TowerRunHighlightView: View {
     let towerRun: TowerRun
     
@@ -29,20 +33,17 @@ struct TowerRunHighlightView: View {
                 
                 Text("\(towerRun.dateCompleted.formatted())")
                     .foregroundStyle(.returnalLightBlue)
-                    .padding(.trailing, 20)
             }
             .font(.caption)
             
             HStack {
                 Text(towerRun.weapon.name)
                     .foregroundStyle(.returnalLightBlue)
-                    .padding(.trailing)
                 
                 Spacer()
                 
                 Text(towerRun.platform)
                     .foregroundStyle(.returnalLightBlue)
-                    .padding(.trailing, 100)
             }
             .font(.caption)
             .padding(.leading)
