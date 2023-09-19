@@ -14,10 +14,10 @@ struct ObjectivesDetailView: View {
         DisclosureGroup("Objectives") {
             Spacer()
             VStack(alignment: .leading) {
-                TextHeadline(text: "Floors Cleared: \(objectives.pylioidsEliminated)", color: .returnalLightBlue)
-                TextHeadline(text: "Silphium Found: \(objectives.algosDefeated)", color: .returnalLightBlue)
-                TextHeadline(text: "Obolites Collected: \(objectives.algosFinalFormDefeated)", color: .returnalLightBlue)
-                TextHeadline(text: "Calibrators Collected: \(objectives.algosInfinityFormDefeated)", color: .returnalLightBlue)
+                TextHeadline(text: "Pylioids defeated: \(objectives.pylioidsEliminated)", color: .returnalLightBlue)
+                TextHeadline(text: "Algos defeated: \(objectives.algosDefeated)", color: .returnalLightBlue)
+                TextHeadline(text: "Algos Final form defeated: \(objectives.algosFinalFormDefeated)", color: .returnalLightBlue)
+                TextHeadline(text: "Algos Infinity forms defeated: \(objectives.algosInfinityFormDefeated)", color: .returnalLightBlue)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
