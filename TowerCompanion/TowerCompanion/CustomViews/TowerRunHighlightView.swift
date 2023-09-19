@@ -8,12 +8,6 @@
 import SwiftUI
 
 struct TowerRunHighlightView: View {
-    @State private var scoutName = "DR_JRB"
-    @State private var score = 1_136_000
-    @State private var platform = "PS5"
-    @State private var weaponName = "Dreadbound"
-    @State private var dateCompleted = Date.now
-    
     let towerRun: TowerRun
     
     var body: some View {
