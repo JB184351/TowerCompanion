@@ -188,12 +188,12 @@ struct EditRunView: View {
                     
                     // MARK: - Combat/Explorer/Skill/Objectives
                     Section {
-                        NavigationLink("Add Combat", destination: EditCombatValuesView(combatValues: $combatValues))
-                        NavigationLink("Add Explorer", destination: EditExplorerValuesView(explorerValues: $explorerValues))
-                        NavigationLink("Add Skill", destination: AddSkillValuesView(skillValues: $skillValues))
-                        NavigationLink("Add Objectives", destination: AddObjectivesValueView(objectiveValues: $objectiveValues))
+                        NavigationLink("Edit Combat", destination: EditCombatValuesView(combatValues: $combatValues))
+                        NavigationLink("Edit Explorer", destination: EditExplorerValuesView(explorerValues: $explorerValues))
+                        NavigationLink("Edit Skill", destination: EditSkillValuesView(skillValues: $skillValues))
+                        NavigationLink("Edit Objectives", destination: AddObjectivesValueView(objectiveValues: $objectiveValues))
                     } header: {
-                        Text("Add Post Death Values")
+                        Text("Edit Post Death Values")
                     }
                     
                     // MARK: - Date Started
@@ -201,7 +201,7 @@ struct EditRunView: View {
                         DatePicker("", selection: $dateStarted)
                             .labelsHidden()
                     } header: {
-                        Text("Enter Start Run Date/Time")
+                        Text("Edit Start Run Date/Time")
                     }
                     
                     
@@ -210,7 +210,7 @@ struct EditRunView: View {
                         DatePicker("", selection: $dateCompleted)
                             .labelsHidden()
                     } header: {
-                        Text("Enter End Run Date/Time")
+                        Text("Edit End Run Date/Time")
                     }
                 }
             }

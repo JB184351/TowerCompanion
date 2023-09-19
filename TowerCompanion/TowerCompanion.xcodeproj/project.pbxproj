@@ -254,8 +254,8 @@
 				303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */,
 				303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */,
 				303313AD2AB4D06E00FDCF48 /* EditCombatValuesView.swift */,
-				30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */,
 				3090D7F82AB52179000605D7 /* EditExplorerValuesView.swift */,
+				30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */,
 			);
 			path = EditViews;
 			sourceTree = "<group>";
