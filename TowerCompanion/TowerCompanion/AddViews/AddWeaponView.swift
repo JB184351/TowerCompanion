@@ -91,13 +91,6 @@ struct AddWeaponView: View {
                 }
             }
             .disabled(weaponTraits.count < 1)
-            
-            Button("Add Weapon") {
-                withAnimation {
-                    addWeapon()
-                }
-            }
-            .disabled(weaponTraits.count < 1)
         }
         
         if weaponTraits.count > 0 {
@@ -115,8 +108,12 @@ struct AddWeaponView: View {
         let traitDescription = Trait.getWeaponTraitDescriptions(weaponName: weaponName, trait: weaponTraitName)
         
         let trait = Trait(name: weaponTraitName, traitDescription: traitDescription, level: weaponTraitLevel)
-        
         weaponTraits.append(trait)
+        
+        let altFireDescription = getAltFireDescription(for: altFireName)
+        altFire = AltFire(name: altFireName, level: altFireLevel, altFireDescription: altFireDescription)
+        
+        self.weapon = Weapon(name: weaponName, altFire: altFire, traits: weaponTraits, level: weaponLevel)
         
         weaponTraitNames.removeAll(where: { $0 == weaponTraitName } )
         
