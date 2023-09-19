@@ -13,6 +13,11 @@ struct ContentView: View {
     @Query(sort: \TowerRun.dateCompleted, order: .reverse) private var towerRuns: [TowerRun]
     @State private var isSheetPresented = false
     
+    init() {
+        // Large Navigation Title
+         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -45,6 +50,7 @@ struct ContentView: View {
             }
             .scrollContentBackground(.hidden)
             .scrollIndicators(.automatic)
+            .foregroundStyle(.white)
         }
         
     }
