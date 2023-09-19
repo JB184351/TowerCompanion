@@ -67,7 +67,13 @@ struct AddArtifactsView: View {
     }
     
     private func addArtifact() {
-        let artifactDescription = Artifact.getAllArtifacts().filter( { $0.name == currentlySelectedArtifact }).description
+        var artifactDescription = ""
+        if let description = Artifact.getAllArtifacts().first(where: { $0.name == currentlySelectedArtifact })?.artifactDescription {
+            artifactDescription = description
+        } else {
+            artifactDescription = "Description can't be found"
+        }
+        
         let artifact = Artifact(name: currentlySelectedArtifact, artifactDescription: artifactDescription)
         
         artifacts.append(artifact)
