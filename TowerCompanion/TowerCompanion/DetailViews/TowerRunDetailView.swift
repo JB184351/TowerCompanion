@@ -10,12 +10,12 @@ import SwiftUI
 struct TowerRunDetailView: View {
     
     let towerRun: TowerRun
+    @State private var isEditViewPresented = false
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    NavigationLink("Edit This Run", destination: EditRunView(towerRun: towerRun))
                     Spacer()
                     
                     HeavyTextHeadline(text: "Scout Name: \(towerRun.scoutName)", color: .returnalYellow)
@@ -86,6 +86,16 @@ struct TowerRunDetailView: View {
             }
             .navigationTitle("Run Details")
             .background(.returnalDarkGreen)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Edit") {
+                        isEditViewPresented = true
+                    }
+                }
+            }
+            .sheet(isPresented: $isEditViewPresented, content: {
+                EditRunView(towerRun: towerRun)
+            })
         }
         .scrollIndicators(.automatic)
     }
