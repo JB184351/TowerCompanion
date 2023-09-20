@@ -13,7 +13,7 @@ struct TowerCompanionApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(for: TowerRun.self)
     }
