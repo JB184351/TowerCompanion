@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-extension HorizontalAlignment {
-    
-}
-
 struct TowerRunHighlightView: View {
     let towerRun: TowerRun
     
