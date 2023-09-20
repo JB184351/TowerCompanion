@@ -22,6 +22,7 @@ struct ContentView: View {
                             TowerRunHighlightView(towerRun: run)
                         }
                     }
+                    .listRowBackground(Color.returnalDarkGreen)
                 }
                 .onDelete(perform: { indexSet in
                     for index in indexSet {
