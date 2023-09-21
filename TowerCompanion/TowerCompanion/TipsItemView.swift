@@ -24,7 +24,7 @@ struct TipsItemView: View {
             Button(item?.displayPrice ?? "-") {
                 if let item = item {
                     Task {
-                        await store.purhcase(item)
+                        await store.purchase(item)
                     }
                 }
             }

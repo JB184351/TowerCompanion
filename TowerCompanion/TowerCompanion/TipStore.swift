@@ -10,7 +10,7 @@ import StoreKit
 
 typealias PurchaseResult = Product.PurchaseResult
 
-enum TipError: Error {
+enum TipError: LocalizedError {
     case failedVerification
 }
 
@@ -28,7 +28,7 @@ final class TipStore: ObservableObject {
         }
     }
     
-    func purhcase(_ item: Product) async {
+    func purchase(_ item: Product) async {
         do {
             let result = try await item.purchase()
             try await handlePurchase(from: result)
@@ -36,6 +36,10 @@ final class TipStore: ObservableObject {
             // MARK: - TODO handle actual errors
             print(error.localizedDescription)
         }
+    }
+    
+    func reset() {
+        action = nil
     }
 }
 

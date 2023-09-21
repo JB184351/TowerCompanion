@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct SettingsView: View {
     @State private var showTips = false
@@ -40,9 +41,9 @@ struct SettingsView: View {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     showThanks = true
+                    store.reset()
                 }
             }
-
         })
     }
 }
