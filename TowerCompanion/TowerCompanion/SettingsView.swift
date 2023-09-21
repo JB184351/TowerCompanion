@@ -8,11 +8,46 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var showTips = false
+    @State private var showThanks = false
+    @StateObject private var store = TipStore()
+    
     var body: some View {
-        Text("Welcome to Settings!")
+        VStack {
+            Button("Tip Me") {
+                showTips.toggle()
+            }
+            .tint(.blue)
+            .buttonStyle(.bordered)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .sheet(isPresented: $showTips, content: {
+            TipsView()
+                .environmentObject(store)
+        })
+        .overlay(alignment: .bottom) {
+            if showThanks {
+                ThanksView {
+                    showThanks = false
+                }
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+                
+            }
+        }
+        .onChange(of: store.action, { oldValue, newValue in
+            if newValue == .successful {
+                showTips = false
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    showThanks = true
+                }
+            }
+
+        })
     }
 }
 
 #Preview {
     SettingsView()
 }
+
