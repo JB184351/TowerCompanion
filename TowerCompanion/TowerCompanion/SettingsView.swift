@@ -45,6 +45,7 @@ struct SettingsView: View {
                 }
             }
         })
+        .alert(isPresented: $store.hasError, error: store.error) {}
     }
 }
 
