@@ -60,9 +60,6 @@ struct EditMalfunctionsView: View {
             }
             .disabled(malfunctions.count < 1)
         }
-        // Some reason the malfunctions array gets 1 item
-        // inserted so I'm removing it forcibly until I
-        // can figure out why that is
         .onAppear {
             if malfunctions.count > 0 {
                 let permanentMalfunctions = malfunctions.filter({ $0.malfunctionType == .permanent })
