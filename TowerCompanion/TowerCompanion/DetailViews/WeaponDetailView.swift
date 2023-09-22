@@ -48,11 +48,6 @@ struct WeaponDetailView: View {
                     .foregroundStyle(.returnalLightBlue)
                 }
             }
-            .font(.title2)
-            .fontWeight(.heavy)
-            .fontDesign(.monospaced)
-            .padding(.leading)
-            .foregroundStyle(.returnalLightBlue)
         }
         .font(.title2)
         .fontWeight(.heavy)
