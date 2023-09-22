@@ -16,4 +16,17 @@ struct Malfunction: Codable, Hashable {
     var malfunctionDescription: String
     var conditionToRemove: String
     var malfunctionType: MalfunctionType
+    
+    static func getAllPermanentMalfunctions() -> [String] {
+        let obolitesDisappear = "Obolites disappear 1.5s faster"
+        let loseObolites = "Lose Oboloites when suffering damage."
+        let midAir = "While in midair, -50% Weapon Damage"
+        let counterOnHit = "Hostiles counter on hit."
+        let meleeCooldown = "Melee cooldown increased by 2s."
+        let anotherThing = "asdfasdf"
+        
+        let permanentMalfunctions = [obolitesDisappear, loseObolites, midAir, counterOnHit, meleeCooldown, anotherThing]
+        
+        return permanentMalfunctions
+    }
 }
