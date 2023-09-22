@@ -23,9 +23,10 @@ struct Malfunction: Codable, Hashable {
         let midAir = "While in midair, -50% Weapon Damage"
         let counterOnHit = "Hostiles counter on hit."
         let meleeCooldown = "Melee cooldown increased by 2s."
-        let anotherThing = "asdfasdf"
+        let stationary = "While stationary, Weapon Damage reduced by 75%"
+        let reduceIntegrity = "Max Integrity reduced."
         
-        let permanentMalfunctions = [obolitesDisappear, loseObolites, midAir, counterOnHit, meleeCooldown, anotherThing]
+        let permanentMalfunctions = [obolitesDisappear, loseObolites, midAir, counterOnHit, meleeCooldown, stationary, reduceIntegrity]
         
         return permanentMalfunctions
     }
