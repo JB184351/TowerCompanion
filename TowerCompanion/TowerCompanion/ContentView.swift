@@ -32,6 +32,7 @@ struct ContentView: View {
                 })
             }
             .navigationTitle("TowerRuns")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
                     isSheetPresented = true
