@@ -62,9 +62,6 @@ struct EditWeaponView: View {
                     Text(traitName).tag(traitName)
                 }
             }
-            .onAppear {
-                weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
-            }
             .onChange(of: weaponName) { oldValue, newValue in
                 weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
                 weaponTraitName = weaponTraitNames[0]
@@ -107,6 +104,16 @@ struct EditWeaponView: View {
             altFireLevel = weapon.altFire.level
             altFIreDescription = weapon.altFire.altFireDescription
             weaponTraits = weapon.traits
+            
+            weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
+            
+            if weaponTraits.count > 0 {
+                for weaponTrait in weaponTraits {
+                    if weaponTraitNames.contains(weaponTrait.name) {
+                        weaponTraitNames.removeAll(where: { $0 == weaponTrait.name })
+                    }
+                }
+            }
         }
     }
     
