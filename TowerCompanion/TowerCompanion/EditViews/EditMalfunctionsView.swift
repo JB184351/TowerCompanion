@@ -61,16 +61,17 @@ struct EditMalfunctionsView: View {
             .disabled(malfunctions.count < 1)
         }
         .onAppear {
-            if malfunctions.count > 0 {
-                let permanentMalfunctions = malfunctions.filter({ $0.malfunctionType == .permanent })
-                
+            listOfPermanentMalfunctions = permanentMalfunctions
+            let permanentMalfunctions = malfunctions.filter({ $0.malfunctionType == .permanent })
+            
+            if permanentMalfunctions.count > 0 {
                 for malfunction in permanentMalfunctions {
                     if listOfPermanentMalfunctions.contains(malfunction.malfunctionDescription) {
                         listOfPermanentMalfunctions.removeAll(where: { $0 == malfunction.malfunctionDescription })
                     }
                 }
             } else {
-                listOfPermanentMalfunctions = permanentMalfunctions
+                listOfPermanentMalfunctions = permanentMalfunctions.map({ $0.malfunctionDescription })
             }
         }
         .onChange(of: isPermanent) { oldValue, newValue in
