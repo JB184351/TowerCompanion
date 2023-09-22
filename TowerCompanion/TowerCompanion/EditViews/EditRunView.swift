@@ -212,6 +212,10 @@ struct EditRunView: View {
                     } header: {
                         Text("Edit End Run Date/Time")
                     }
+                    
+                    Button("Dismiss") {
+                        dismiss()
+                    }
                 }
             }
             .toolbar {

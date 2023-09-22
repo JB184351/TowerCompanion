@@ -211,6 +211,10 @@ struct AddRunView: View {
                     } header: {
                         Text("Enter End Run Date/Time")
                     }
+                    
+                    Button("Dismiss") {
+                        dismiss()
+                    }
                 }
             }
             .toolbar {
