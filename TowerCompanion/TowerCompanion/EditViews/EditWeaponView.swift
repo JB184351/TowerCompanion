@@ -114,6 +114,8 @@ struct EditWeaponView: View {
                     }
                 }
             }
+            
+            weaponTraitName = weaponTraitNames[0]
         }
     }
     
@@ -137,6 +139,7 @@ struct EditWeaponView: View {
         weaponTraits.removeAll()
         weapon.traits = []
         weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
+        weaponTraitName = weaponTraitNames[0]
     }
     
     private func addWeapon() {

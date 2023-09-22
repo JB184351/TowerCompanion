@@ -123,6 +123,7 @@ struct AddWeaponView: View {
     private func clearValues() {
         weaponTraits.removeAll()
         weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
+        weaponTraitName = weaponTraitNames[0]
     }
     
     private func addWeapon() {
