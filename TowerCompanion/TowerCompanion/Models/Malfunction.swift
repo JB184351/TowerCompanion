@@ -26,8 +26,11 @@ struct Malfunction: Codable, Hashable {
         let stationary = "While stationary, Weapon Damage reduced by 75%."
         let reduceIntegrity = "Reduced Max Integrity."
         let acid = "Hostiles leave pools of acid upon death."
+        let hostilesHeal = "Hostiles heal on attack."
+        let hostilesExplode = "Hostiles explode upon death."
+        let fabricationCost = "Fabrication costs increased by 50%."
         
-        let permanentMalfunctions = [obolitesDisappear, loseObolites, midAir, counterOnHit, meleeCooldown, stationary, reduceIntegrity, acid]
+        let permanentMalfunctions = [obolitesDisappear, loseObolites, midAir, counterOnHit, meleeCooldown, stationary, reduceIntegrity, acid, hostilesHeal, hostilesExplode, fabricationCost]
         
         return permanentMalfunctions
     }
