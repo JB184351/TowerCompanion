@@ -94,6 +94,7 @@ struct AddParasitesView: View {
         parasites.append(parasite)
         
         allParasiteNames.removeAll(where: { $0 == parasite.name })
+        currentlySelectedParasiteName = allParasiteNames[0]
     }
     
     private func clearParasites() {
