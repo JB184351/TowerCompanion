@@ -69,7 +69,7 @@ struct Parasite: Codable, Hashable {
         let sageTooth = ["Sagetooth" : "Increases Proficiency Rate by 20%."]
         let scabshell = ["Scabshell" : "Increases Protection by 15%."]
         let silverscale = ["Silverscale" : "Fabrication costs reduced by 15%."]
-        let slowstich = ["Slowstich" : "Autorepairs while at Low Integrity."]
+        let slowstich = ["Slowstitch" : "Autorepairs while at Low Integrity."]
         let wiretail = ["Wiretail" : "Reduces Malfunction probability."]
         
         let negativePassivePrefixes: [[String : String]] = [atrophing, brittle, caustic, constricting, corrosive, destabilizing, distracting, impairing, latching, lethargic, malicious, oily, ominous, sedating, slimy, sluggish, benign]
