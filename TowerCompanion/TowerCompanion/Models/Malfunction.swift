@@ -19,7 +19,7 @@ struct Malfunction: Codable, Hashable {
     
     static func getAllPermanentMalfunctions() -> [String] {
         let obolitesDisappear = "Obolites disappear 1.5s faster."
-        let loseObolites = "Lose Oboloites when suffering damage."
+        let loseObolites = "Lose Obolites when suffering damage."
         let midAir = "While in midair, Weapon Damage reduced by 50%."
         let counterOnHit = "Hostiles counter on hit."
         let meleeCooldown = "Melee cooldown increased by 2s."
