@@ -28,16 +28,16 @@ struct EditObjectivesValuesView: View {
     var body: some View {
         NavigationView {
             Form {
-                Text("Enter Enter Number of Pyliods that were Eliminated")
-                TextField("Enter Number Here", value: $pyliodsEliminated, formatter: numberFormatter)
+                Text("Enter the number of Pyliods eliminated")
+                TextField("Enter value here", value: $pyliodsEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: pyliodsEliminated) { oldValue, newValue in
                         objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
                     }
                 
-                Text("Enter Number of Algos that you defeated")
-                TextField("Enter Number Here", value: $algosDefeated, formatter: numberFormatter)
+                Text("Enter the number of Algos eliminated")
+                TextField("Enter value here", value: $algosDefeated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: algosDefeated) { oldValue, newValue in
@@ -50,8 +50,8 @@ struct EditObjectivesValuesView: View {
                         objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
                     }
                 
-                Text("Enter Number of Algos final forms that you defeated")
-                TextField("Enter Number Here", value: $algosFinalFormDefeated, formatter: numberFormatter)
+                Text("Enter the number of Algos final forms eliminated")
+                TextField("Enter value here", value: $algosFinalFormDefeated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: algosFinalFormDefeated) { oldValue, newValue in
@@ -64,8 +64,8 @@ struct EditObjectivesValuesView: View {
                         objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
                     }
                 
-                Text("Enter Number of Algos infinity forms that you defeated")
-                TextField("Enter Number Here", value: $algosInfinityFormDefeated, formatter: numberFormatter)
+                Text("Enter the number of Algos infinity forms eliminated")
+                TextField("Enter value here", value: $algosInfinityFormDefeated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: algosInfinityFormDefeated) { oldValue, newValue in
