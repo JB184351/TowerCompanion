@@ -27,16 +27,16 @@ struct AddCombatValuesView: View {
     var body: some View {
         NavigationView {
             Form {
-                Text("Enter Number of Weak Point Kills")
-                TextField("Enter the Number Here", value: $weakPointKills, formatter: numberFormatter)
+                Text("Enter the number of Weak Point kills")
+                TextField("Enter value here", value: $weakPointKills, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: weakPointKills) { oldValue, newValue in
                         combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
                     }
                 
-                Text("Enter Number of Melee Kills")
-                TextField("Enter the Number Here", value: $meleeKills, formatter: numberFormatter)
+                Text("Enter the number of Melee kills")
+                TextField("Enter value here", value: $meleeKills, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: meleeKills) { oldValue, newValue in
@@ -44,15 +44,15 @@ struct AddCombatValuesView: View {
                     }
                 
                 Text("Enter the number of Hostiles eliminated")
-                TextField("Enter the Number Here", value: $hostilesEliminated, formatter: numberFormatter)
+                TextField("Enter value here", value: $hostilesEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: hostilesEliminated) { oldValue, newValue in
                         combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
                     }
                 
-                Text("Enter the Number of Malformed Hostiles Eliminated")
-                TextField("Enter the Number Here", value: $malformedHostilesEliminated, formatter: numberFormatter)
+                Text("Enter the number of Malformed Hostiles eliminated")
+                TextField("Enter value here", value: $malformedHostilesEliminated, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: malformedHostilesEliminated) { oldValue, newValue in
