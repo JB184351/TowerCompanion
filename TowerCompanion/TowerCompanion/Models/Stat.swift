@@ -11,6 +11,6 @@ struct Stats: Codable {
     var weaponDamage: Double
     var protection: Double
     var proficiencyRate: Double
-    var repairEffiency: Double
+    var repairEfficiency: Double
     var altFireCoolDown: Double
 }

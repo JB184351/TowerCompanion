@@ -259,7 +259,7 @@ struct EditRunView: View {
         weaponDamageStat = towerRun.stats.weaponDamage
         protectionStat = towerRun.stats.protection
         proficiencyRate = towerRun.stats.proficiencyRate
-        repairEffiency = towerRun.stats.repairEffiency
+        repairEffiency = towerRun.stats.repairEfficiency
         altFireCooldown = towerRun.stats.altFireCoolDown
         
         if let malfunctions = towerRun.malfunctions {
@@ -295,7 +295,7 @@ struct EditRunView: View {
     }
     
     private func updateTowerRun() {
-        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
+        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEfficiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
         towerRun.scoutName = scoutName
         towerRun.weapon = weapon
