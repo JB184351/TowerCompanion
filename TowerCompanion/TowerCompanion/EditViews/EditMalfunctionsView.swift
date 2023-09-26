@@ -61,20 +61,13 @@ struct EditMalfunctionsView: View {
             .disabled(malfunctions.count < 1)
         }
         .onAppear {
-            listOfPermanentMalfunctions = permanentMalfunctions
-            let permanentMalfunctions = malfunctions.filter({ $0.malfunctionType == .permanent })
-            
-            if permanentMalfunctions.count > 0 {
-                for malfunction in permanentMalfunctions {
-                    if listOfPermanentMalfunctions.contains(malfunction.malfunctionDescription) {
-                        listOfPermanentMalfunctions.removeAll(where: { $0 == malfunction.malfunctionDescription })
-                    }
-                }
-            } else {
-                listOfPermanentMalfunctions = permanentMalfunctions.map({ $0.malfunctionDescription })
-            }
+            populatePermanentMalfunctions()
         }
         .onChange(of: isPermanent) { oldValue, newValue in
+            if listOfPermanentMalfunctions.count < 1 {
+                populatePermanentMalfunctions()
+            }
+            
             malfunctionDescription = isPermanent ? listOfPermanentMalfunctions[0] : ""
             
             if isPermanent {
@@ -139,6 +132,21 @@ struct EditMalfunctionsView: View {
     
     private func isTooManyRegularMalfunctions() -> Bool {
         malfunctions.filter( { $0.malfunctionType == .normal }).count == 2
+    }
+    
+    private func populatePermanentMalfunctions() {
+        listOfPermanentMalfunctions = permanentMalfunctions
+        let userPermanentMalfunctions = malfunctions.filter({ $0.malfunctionType == .permanent })
+        
+        if userPermanentMalfunctions.count > 0 {
+            for malfunction in userPermanentMalfunctions {
+                if listOfPermanentMalfunctions.contains(malfunction.malfunctionDescription) {
+                    listOfPermanentMalfunctions.removeAll(where: { $0 == malfunction.malfunctionDescription })
+                }
+            }
+        } else {
+            listOfPermanentMalfunctions = permanentMalfunctions
+        }
     }
 }
 
