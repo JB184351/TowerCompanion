@@ -46,13 +46,6 @@ struct EditParasitesView: View {
                     }
                 }
                 .disabled(parasites.count == 5)
-                
-                Button("Remove Selected Parasites") {
-                    withAnimation {
-                        clearParasites()
-                    }
-                }
-                .disabled(parasites.count < 1)
             }
             
             if parasites.count > 0 {
@@ -64,6 +57,11 @@ struct EditParasitesView: View {
                         Text(parasite.negativeDescription)
                             .foregroundStyle(.red)
                     }
+                    .onDelete(perform: { indexSet in
+                        for index in indexSet {
+                            remove(at: index)
+                        }
+                    })
                 } header: {
                     parasites.count > 0 ? Text("Parasites") : Text("")
                 }
@@ -100,18 +98,20 @@ struct EditParasitesView: View {
         currentlySelectedParasiteName = allParasiteNames[0]
     }
     
-    private func clearParasites() {
-        parasites.removeAll()
-        allParasiteNames = parasiteNames
-        currentlySelectedParasiteName = allParasiteNames[0]
-    }
-    
     private func getParasiteEffectDescriptions(parasiteName: String) -> (String, String) {
         let parasites = Parasite.getAllParasites()
         
         guard let parasite = parasites.first(where: { $0.name == parasiteName }) else { return ("Cannot get positive effect", "Cannot get negative effect") }
         
         return (parasite.positiveDescription, parasite.negativeDescription)
+    }
+    
+    private func remove(at index: Int) {
+        let parasite = parasites[index]
+        parasites.remove(at: index)
+        allParasiteNames.append(parasite.name)
+        allParasiteNames.sort(by: { $0 < $1 })
+        currentlySelectedParasiteName = allParasiteNames[0]
     }
 }
 
