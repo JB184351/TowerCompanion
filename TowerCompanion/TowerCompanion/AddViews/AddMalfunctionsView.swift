@@ -87,6 +87,11 @@ struct AddMalfunctionsView: View {
                     Text(malfunction.malfunctionType == .normal ? "Malfunction: \(malfunction.malfunctionDescription) \nCondition To Remove: \(malfunction.conditionToRemove)" : malfunction.malfunctionDescription)
                         .multilineTextAlignment(.leading)
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        remove(at: index)
+                    }
+                })
             }
         }
     }
@@ -138,6 +143,17 @@ struct AddMalfunctionsView: View {
     
     private func isTooManyRegularMalfunctions() -> Bool {
         malfunctions.filter( { $0.malfunctionType == .normal }).count == 2
+    }
+    
+    private func remove(at index: Int) {
+        let malfunction = malfunctions[index]
+        malfunctions.remove(at: index)
+        
+        if malfunction.malfunctionType == .permanent {
+            listOfPermanentMalfunctions.append(malfunction.malfunctionDescription)
+        }
+        
+        malfunctionDescription = isPermanent ? listOfPermanentMalfunctions[0] : ""
     }
 }
 
