@@ -35,17 +35,15 @@ struct EditArtifactsView: View {
             }
             .disabled(artifacts.count == 15)
             
-            Button("Clear All") {
-                withAnimation {
-                    clearValues()
-                }
-            }
-            .disabled(artifacts.count < 1)
-            
             Section {
                 ForEach(artifacts, id: \.name) { artifact in
                     Text(artifact.name)
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        removeArtifactFromList(index: index)
+                    }
+                })
             } header: {
                 artifacts.count > 0 ? Text("Artifacts") : Text("")
             }
@@ -82,9 +80,11 @@ struct EditArtifactsView: View {
         currentlySelectedArtifact = listOfArtifacts[0]
     }
     
-    private func clearValues() {
-        artifacts.removeAll()
-        listOfArtifacts = artifactNames
+    private func removeArtifactFromList(index: Int) {
+        let artifact = artifacts[index]
+        artifacts.remove(at: index)
+        listOfArtifacts.append(artifact.name)
+        listOfArtifacts.sort(by: { $0 < $1 })
         currentlySelectedArtifact = listOfArtifacts[0]
     }
 }
