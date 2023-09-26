@@ -47,6 +47,7 @@ struct EditRunView: View {
     @State private var dateStarted = Date.now
     @State private var dateCompleted = Date.now
     
+    @State private var isFirstAppearance = true
     @FocusState private var textFieldFocus: Bool
     
     let percentFormatter: NumberFormatter = {
@@ -233,7 +234,12 @@ struct EditRunView: View {
                 }
             }
             .onAppear {
-                updateEditView()
+                if isFirstAppearance {
+                    updateEditView()
+                    isFirstAppearance = false
+                } else {
+                    updateTowerRun()
+                }
             }
         }
     }
