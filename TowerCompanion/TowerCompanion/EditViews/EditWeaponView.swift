@@ -93,6 +93,11 @@ struct EditWeaponView: View {
                 ForEach(weaponTraits, id: \.name) { trait in
                     Text("\(trait.name) \(trait.level)")
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        removeWeaponTrait(at: index)
+                    }
+                })
             } header: {
                 weaponTraits.count > 0 ? Text("Weapon Traits") : Text("")
             }
@@ -154,6 +159,13 @@ struct EditWeaponView: View {
     
     private func getAltFireDescription(for altFireName: String) -> String {
         AltFire.getAllAltFires().first(where: { $0.name == altFireName })?.altFireDescription ?? ""
+    }
+    
+    private func removeWeaponTrait(at index: Int) {
+        let weaponTrait = weaponTraits[index]
+        weaponTraits.remove(at: index)
+        weaponTraitNames.append(weaponTrait.name)
+        weaponTraitName = weaponTraitNames[0]
     }
 }
 
