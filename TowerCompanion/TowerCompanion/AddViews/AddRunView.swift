@@ -15,10 +15,10 @@ struct AddRunView: View {
     @State private var platform = "PS5"
     private let platforms = ["PS5", "PC"]
     
-    @State var weapon: Weapon
-    @State var artifacts: [Artifact]
-    @State var parasites: [Parasite]
-    @State var malfunctions: [Malfunction]
+    @State var weapon: Weapon = Weapon(name: "Modified Sidearm SD-M8", altFire: AltFire(name: "Blast Shell", level: 1, altFireDescription: "Lobs a grenade-light projectile that explodes on contact with an enemy, or after enough time has passed."), traits: [], level: 1)
+    @State var artifacts: [Artifact] = []
+    @State var parasites: [Parasite] = []
+    @State var malfunctions: [Malfunction] = []
     @State var combatValues: Combat?
     @State var explorerValues: Explorer?
     @State var skillValues: Skill?
