@@ -147,6 +147,7 @@ struct AddWeaponView: View {
         weaponTraits.remove(at: index)
         weaponTraitNames.append(weaponTrait.name)
         weaponTraitName = weaponTraitNames[0]
+        self.weapon.traits.remove(at: index)
     }
 }
 

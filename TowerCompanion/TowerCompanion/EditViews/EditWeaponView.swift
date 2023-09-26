@@ -39,11 +39,17 @@ struct EditWeaponView: View {
                     Text("\(weaponName)").tag(weaponName)
                 }
             }
+            .onChange(of: weaponName) { oldValue, newValue in
+                addWeapon()
+            }
             
             Picker("Level", selection: $weaponLevel) {
                 ForEach(1..<46) {
                     Text("\($0)").tag($0)
                 }
+            }
+            .onChange(of: weaponLevel) { oldValue, newValue in
+                addWeapon()
             }
             
             Picker("Alt-Fire", selection: $altFireName) {
@@ -51,11 +57,17 @@ struct EditWeaponView: View {
                     Text(altFire.name).tag(altFire.name)
                 }
             }
+            .onChange(of: altFireName) { oldValue, newValue in
+                addWeapon()
+            }
             
             Picker("Alt-Fire Level", selection: $altFireLevel) {
                 ForEach(1..<4) {
                     Text("\($0)").tag($0)
                 }
+            }
+            .onChange(of: altFireLevel) { oldValue, newValue in
+                addWeapon()
             }
             
             Picker("Traits", selection: $weaponTraitName) {
@@ -166,6 +178,7 @@ struct EditWeaponView: View {
         weaponTraits.remove(at: index)
         weaponTraitNames.append(weaponTrait.name)
         weaponTraitName = weaponTraitNames[0]
+        self.weapon.traits.remove(at: index)
     }
 }
 
