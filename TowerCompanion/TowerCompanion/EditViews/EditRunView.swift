@@ -47,6 +47,7 @@ struct EditRunView: View {
     @State private var dateStarted = Date.now
     @State private var dateCompleted = Date.now
     
+    @State private var isFirstAppearance = true
     @FocusState private var textFieldFocus: Bool
     
     let percentFormatter: NumberFormatter = {
@@ -212,6 +213,10 @@ struct EditRunView: View {
                     } header: {
                         Text("Edit End Run Date/Time")
                     }
+                    
+                    Button("Dismiss") {
+                        dismiss()
+                    }
                 }
             }
             .toolbar {
@@ -229,7 +234,12 @@ struct EditRunView: View {
                 }
             }
             .onAppear {
-                updateEditView()
+                if isFirstAppearance {
+                    updateEditView()
+                    isFirstAppearance = false
+                } else {
+                    updateTowerRun()
+                }
             }
         }
     }
@@ -249,7 +259,7 @@ struct EditRunView: View {
         weaponDamageStat = towerRun.stats.weaponDamage
         protectionStat = towerRun.stats.protection
         proficiencyRate = towerRun.stats.proficiencyRate
-        repairEffiency = towerRun.stats.repairEffiency
+        repairEffiency = towerRun.stats.repairEfficiency
         altFireCooldown = towerRun.stats.altFireCoolDown
         
         if let malfunctions = towerRun.malfunctions {
@@ -285,7 +295,7 @@ struct EditRunView: View {
     }
     
     private func updateTowerRun() {
-        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
+        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEfficiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
         towerRun.scoutName = scoutName
         towerRun.weapon = weapon

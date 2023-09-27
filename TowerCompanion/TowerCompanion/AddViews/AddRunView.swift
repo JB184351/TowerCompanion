@@ -15,10 +15,10 @@ struct AddRunView: View {
     @State private var platform = "PS5"
     private let platforms = ["PS5", "PC"]
     
-    @State var weapon: Weapon
-    @State var artifacts: [Artifact]
-    @State var parasites: [Parasite]
-    @State var malfunctions: [Malfunction]
+    @State var weapon: Weapon = Weapon(name: "Modified Sidearm SD-M8", altFire: AltFire(name: "Blast Shell", level: 1, altFireDescription: "Lobs a grenade-light projectile that explodes on contact with an enemy, or after enough time has passed."), traits: [], level: 1)
+    @State var artifacts: [Artifact] = []
+    @State var parasites: [Parasite] = []
+    @State var malfunctions: [Malfunction] = []
     @State var combatValues: Combat?
     @State var explorerValues: Explorer?
     @State var skillValues: Skill?
@@ -105,8 +105,8 @@ struct AddRunView: View {
                     Section {
                         Stepper("Weapon Damage \(weaponDamageStat.formatted())%", value: $weaponDamageStat, in: -150...150, step: 5)
                         Stepper("Protection \(protectionStat.formatted())%", value: $protectionStat, in: -150...150, step: 5)
-                        Stepper("Repair Effiency \(repairEffiency.formatted())%", value: $repairEffiency, in: -150...150, step: 5)
-                        Stepper("Alt-Fire Cooldown \(altFireCooldown.formatted()) seconds", value: $altFireCooldown, in: -150...150, step: 5)
+                        Stepper("Repair Efficiency \(repairEffiency.formatted())%", value: $repairEffiency, in: -150...150, step: 5)
+                        Stepper("Alt-Fire Cooldown \(altFireCooldown.formatted()) seconds", value: $altFireCooldown, in: -30...30, step: 5)
                         Stepper("Profiency Rate \(proficiencyRate.formatted())%", value: $proficiencyRate, in: -150...150, step: 5)
                         
                     } header: {
@@ -143,6 +143,7 @@ struct AddRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
+                        Text("Enter average multplier")
                         TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
@@ -156,6 +157,7 @@ struct AddRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
+                        Text("Enter highest multiplier")
                         TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
@@ -169,6 +171,7 @@ struct AddRunView: View {
                                 Button("OK", role: .none) { }
                             }
                         
+                        Text("Enter final multiplier")
                         TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
                             .keyboardType(.decimalPad)
                             .focused($textFieldFocus)
@@ -211,6 +214,10 @@ struct AddRunView: View {
                     } header: {
                         Text("Enter End Run Date/Time")
                     }
+                    
+                    Button("Dismiss") {
+                        dismiss()
+                    }
                 }
             }
             .toolbar {
@@ -231,7 +238,7 @@ struct AddRunView: View {
     }
     
     func addTowerRun() {
-        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEffiency: repairEffiency, altFireCoolDown: altFireCooldown)
+        let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEfficiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: score, multiplier: finalMultiplier, averageMultiplier: averageMutliplier, highestMultplier: highestMultplier, phase: phase, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
 

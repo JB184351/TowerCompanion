@@ -17,7 +17,7 @@ struct StatsDetailView: View {
                 HeavyTextHeadline(text: "Weapon Damage: \(stats.weaponDamage)%", color: .returnalLightBlue)
                 HeavyTextHeadline(text: "Protection: \(stats.protection)%", color: .returnalLightBlue)
                 HeavyTextHeadline(text: "Proficiency Rate: \(stats.proficiencyRate)%", color: .returnalLightBlue)
-                HeavyTextHeadline(text: "Repair Effienciency: \(stats.repairEffiency)%", color: .returnalLightBlue)
+                HeavyTextHeadline(text: "Repair Efficiency: \(stats.repairEfficiency)%", color: .returnalLightBlue)
                 HeavyTextHeadline(text: "Alt-Fire Cooldown: \(stats.altFireCoolDown) seconds", color: .returnalLightBlue)
             }
             .frame(maxWidth: .infinity, alignment: .leading)

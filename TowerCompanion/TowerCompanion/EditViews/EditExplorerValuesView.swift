@@ -28,16 +28,19 @@ struct EditExplorerValuesView: View {
     var body: some View {
         NavigationView {
             Form {
-                Text("Enter Number of Floors cleared")
-                TextField("Enter the Number Here", value: $floorsCleared, formatter: numberFormatter)
+                Text("Enter the number of Floors cleared")
+                TextField("Enter value here", value: $floorsCleared, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
+                    .onAppear {
+                        explorerValues = Explorer(floorsCleared: 0, silphiumFound: 0, obolitesCollected: 0, calibratorsCollected: 0)
+                    }
                     .onChange(of: floorsCleared) { oldValue, newValue in
                         explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
                     }
                 
-                Text("Enter Number of Silphiums found")
-                TextField("Enter the Number Here", value: $silphiumFound, formatter: numberFormatter)
+                Text("Enter the number of Silphiums found")
+                TextField("Enter value here", value: $silphiumFound, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: silphiumFound) { oldValue, newValue in
@@ -45,15 +48,15 @@ struct EditExplorerValuesView: View {
                     }
                 
                 Text("Enter the number of Obolites collected")
-                TextField("Enter the Number Here", value: $obolitesCollected, formatter: numberFormatter)
+                TextField("Enter value here", value: $obolitesCollected, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: obolitesCollected) { oldValue, newValue in
                         explorerValues = Explorer(floorsCleared: floorsCleared, silphiumFound: silphiumFound, obolitesCollected: obolitesCollected, calibratorsCollected: calibratorsCollected)
                     }
                 
-                Text("Enter the Number of Calibrators collected")
-                TextField("Enter the Number Here", value: $calibratorsCollected, formatter: numberFormatter)
+                Text("Enter the number of Calibrators collected")
+                TextField("Enter value here", value: $calibratorsCollected, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: calibratorsCollected) { oldValue, newValue in

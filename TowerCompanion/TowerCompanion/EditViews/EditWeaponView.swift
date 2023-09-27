@@ -18,6 +18,8 @@ struct EditWeaponView: View {
     @State private var weaponTraitNames: [String] = [""]
     @State private var weaponTraits = [Trait]()
     @State private var altFire = AltFire(name: "", level: 1, altFireDescription: "")
+    @State private var isFirstView = true
+    @State private var isChangedCount = 0
     @Binding var weapon: Weapon
     
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
@@ -38,11 +40,17 @@ struct EditWeaponView: View {
                     Text("\(weaponName)").tag(weaponName)
                 }
             }
+            .onChange(of: weaponName) { oldValue, newValue in
+                addWeapon()
+            }
             
             Picker("Level", selection: $weaponLevel) {
                 ForEach(1..<46) {
                     Text("\($0)").tag($0)
                 }
+            }
+            .onChange(of: weaponLevel) { oldValue, newValue in
+                addWeapon()
             }
             
             Picker("Alt-Fire", selection: $altFireName) {
@@ -50,11 +58,17 @@ struct EditWeaponView: View {
                     Text(altFire.name).tag(altFire.name)
                 }
             }
+            .onChange(of: altFireName) { oldValue, newValue in
+                addWeapon()
+            }
             
             Picker("Alt-Fire Level", selection: $altFireLevel) {
                 ForEach(1..<4) {
                     Text("\($0)").tag($0)
                 }
+            }
+            .onChange(of: altFireLevel) { oldValue, newValue in
+                addWeapon()
             }
             
             Picker("Traits", selection: $weaponTraitName) {
@@ -62,13 +76,15 @@ struct EditWeaponView: View {
                     Text(traitName).tag(traitName)
                 }
             }
-            .onAppear {
-                weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
-            }
             .onChange(of: weaponName) { oldValue, newValue in
                 weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
                 weaponTraitName = weaponTraitNames[0]
-                weaponTraits.removeAll()
+                
+                if isChangedCount == 1 {
+                    weaponTraits.removeAll()
+                }
+                
+                isChangedCount = 1
             }
             
             Picker("Weapon Trait Level", selection: $weaponTraitLevel) {
@@ -95,18 +111,34 @@ struct EditWeaponView: View {
                 ForEach(weaponTraits, id: \.name) { trait in
                     Text("\(trait.name) \(trait.level)")
                 }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        removeWeaponTrait(at: index)
+                    }
+                })
             } header: {
                 weaponTraits.count > 0 ? Text("Weapon Traits") : Text("")
-                
             }
         }
         .onAppear {
-            weaponName = weapon.name
-            weaponLevel = weapon.level
-            altFireName = weapon.altFire.name
-            altFireLevel = weapon.altFire.level
-            altFIreDescription = weapon.altFire.altFireDescription
-            weaponTraits = weapon.traits
+            if isFirstView {
+                weaponName = weapon.name
+                weaponLevel = weapon.level
+                weaponTraits = weapon.traits
+                
+                weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
+                
+                if weaponTraits.count > 0 {
+                    for weaponTrait in weaponTraits {
+                        if weaponTraitNames.contains(weaponTrait.name) {
+                            weaponTraitNames.removeAll(where: { $0 == weaponTrait.name })
+                        }
+                    }
+                }
+                
+                weaponTraitName = weaponTraitNames[0]
+                isFirstView = false
+            }
         }
     }
     
@@ -130,6 +162,7 @@ struct EditWeaponView: View {
         weaponTraits.removeAll()
         weapon.traits = []
         weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
+        weaponTraitName = weaponTraitNames[0]
     }
     
     private func addWeapon() {
@@ -141,6 +174,14 @@ struct EditWeaponView: View {
     
     private func getAltFireDescription(for altFireName: String) -> String {
         AltFire.getAllAltFires().first(where: { $0.name == altFireName })?.altFireDescription ?? ""
+    }
+    
+    private func removeWeaponTrait(at index: Int) {
+        let weaponTrait = weaponTraits[index]
+        weaponTraits.remove(at: index)
+        weaponTraitNames.append(weaponTrait.name)
+        weaponTraitName = weaponTraitNames[0]
+        self.weapon.traits.remove(at: index)
     }
 }
 

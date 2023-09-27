@@ -21,7 +21,7 @@ struct Artifact: Codable, Hashable {
         let fractalNail = Artifact(name: "Fractal Nail", artifactDescription: "Grants +10% Weapon Damage while you have a Malfunction.")
         let silverLattice = Artifact(name: "Silver Lattice", artifactDescription: "Become immune to slowdown effects.")
         let adrenalineCoolant = Artifact(name: "Adrenaline Coolant", artifactDescription: "Reduce Alt-Fire Cooldown by 1s per Adrenaline Level.")
-        let disruptingOverload = Artifact(name: "Disrupting Overloads", artifactDescription: "Successful Overloads cause weapon fire to break Shields for 6s.")
+        let disruptingOverload = Artifact(name: "Disrupting Overload", artifactDescription: "Successful Overloads cause weapon fire to break Shields for 6s.")
         let blownNightlight = Artifact(name: "Blown Nightlight", artifactDescription: "Personal Item. Being a Full or Low Integrity increase Weapon Damage by 10%.")
         let goldenCoil = Artifact(name: "Golden Coil", artifactDescription: "Grants +5% Weapon Damage for every 200 Obolites carried./n Maximum Bonus 15%")
         let rechargingResponse = Artifact(name: "Recharging Response", artifactDescription: "Getting hit reduces Alt-Fire Cooldown by 5s.")

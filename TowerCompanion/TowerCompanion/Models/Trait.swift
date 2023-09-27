@@ -22,7 +22,7 @@ struct Trait: Codable {
             return "Enemies hit by this weapon become Staggered more easily."
         case "Protection Steal":
             return "Every time the shards from the weapon hit an enemy, Selene gets a small, temporary boost in Protection when the shard returns to the weapon."
-        case "Expanding Shard":
+        case "Expanding Shards":
             return "Projectiles from this weapon get larger and deal more damage the further they travel."
         case "Returning Damage":
             return "The shards from this weapon deal damage as they return to the weapon."
@@ -224,7 +224,7 @@ struct Trait: Codable {
             return "Projectiles will pierce through hostiles, potentially damaging hostiles behind them."
         case "Burst Fire":
             return "Fires multiple projectiles in a single burst at a penalty to recoil."
-        case "Sharpnel":
+        case "Shrapnel":
             return "Projectiles have a chance to explode into multiple shards on impact."
         case "Charging Shot":
             return "Projectiles require charging, but are much more powerful."
@@ -292,7 +292,7 @@ struct Trait: Codable {
     static func getWeaponTraits(from weaponName: String) -> [String] {
         switch weaponName {
         case "Modified Sidearm SD-M8":
-            return ["Homing Missile", "Ricochet", "Snubnose Barrel", "Piercing", "Burst Fire", "Sharpnel", "Charging Shot", "Serrated Projectiles", "Hit Reload"]
+            return ["Homing Missile", "Ricochet", "Snubnose Barrel", "Piercing", "Burst Fire", "Shrapnel", "Charging Shot", "Serrated Projectiles", "Hit Reload"]
         case "Tachyomatic Carbine":
             return ["Armor Piercing", "Critical Hit", "Hardened", "High Caliber", "Rising Pithc", "Payload Rounds", "Leech Rounds", "Hypter-Accurate", "Accelerated"]
         case "Spitmaw Blaster":
@@ -308,7 +308,7 @@ struct Trait: Codable {
         case "Rotgland Lobber":
             return ["Durable Rot", "Trailing Rot", "Bouncing Rot", "Enlarged Chamber", "Explosive Rot", "Protective Rot", "Caustic Rot", "Tendril Rot", "Portal Rot"]
         case "Hollowseeker":
-            return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Sharpnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
+            return ["Phasing Rounds", "Waves", "Retarget", "Serrated Projectiles", "Shrapnel", "Split Stream", "Portal Beam", "Oscillator", "Portal Turret"]
         case "Dreadbound":
             return ["Fourth Shard", "Obolite Magnet", "Staggering", "Proection Steal", "Expanding Shards", "Returning Damage", "Explosive Shards", "Damage Steal", "Obolite Generator"]
         default:

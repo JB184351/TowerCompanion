@@ -28,23 +28,23 @@ struct EditSkillValuesView: View {
     var body: some View {
         NavigationView {
             Form {
-                Text("Enter Number of Perfect Floors Here")
-                TextField("Enter Number Here", value: $perfectFloors, formatter: numberFormatter)
+                Text("Enter the number of Perfect Floors")
+                TextField("Enter value here", value: $perfectFloors, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: perfectFloors) { oldValue, newValue in
                         skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
                     }
                 
-                Text("Add Number of consectuive Perfect floors")
-                TextField("Enter Number Here", value: $consecutivePerfectFloors, formatter: numberFormatter)
+                Text("Enter the number of consectuive Perfect Floors")
+                TextField("Enter value here", value: $consecutivePerfectFloors, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)
                     .onChange(of: consecutivePerfectFloors) { oldValue, newValue in
                         skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
                     }
                 
-                Text("Enter Peak Adrenaline Value Here")
+                Text("Enter the Peak Adrenaline value")
                 TextField("Enter Value Here", value: $peakAdrenaline, formatter: numberFormatter)
                     .keyboardType(.decimalPad)
                     .focused($textFieldFocus)
@@ -58,7 +58,7 @@ struct EditSkillValuesView: View {
                         skillValues = Skill(perfectFloors: perfectFloors, consecutivePerfectFloors: consecutivePerfectFloors, peakAdrenaline: peakAdrenaline, midairMelee: midairMelee)
                     }
                 
-                Text("Add Number of Mid-Air Melee kills.")
+                Text("Enter the number of Mid-Air Melee kills")
                 TextField("Enter Number Here", value: $midairMelee, formatter: numberFormatter)
                     .keyboardType(.numberPad)
                     .focused($textFieldFocus)

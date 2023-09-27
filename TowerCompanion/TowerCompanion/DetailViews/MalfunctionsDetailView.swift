@@ -13,13 +13,15 @@ struct MalfunctionsDetailView: View {
     var body: some View {
         DisclosureGroup("Malfunctions") {
             Spacer()
-            ForEach(malfunctions, id: \.self) { malfunction in
-                DisclosureGroup("Malfunctions") {
+            ForEach(0..<malfunctions.count) { i in
+                DisclosureGroup("Malfunction \(i + 1)") {
                     VStack {
-                        TextHeadline(text: malfunction.malfunctionDescription, color: .red)
+                        TextHeadline(text: malfunctions[i].malfunctionDescription, color: .red)
+                            .padding(.leading)
                         
-                        if malfunction.malfunctionType == .normal {
-                            TextHeadline(text: malfunction.conditionToRemove, color: .red)
+                        if malfunctions[i].malfunctionType == .normal {
+                            TextHeadline(text: malfunctions[i].conditionToRemove, color: .red)
+                                .padding(.leading)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
