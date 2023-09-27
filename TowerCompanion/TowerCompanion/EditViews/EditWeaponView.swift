@@ -19,6 +19,7 @@ struct EditWeaponView: View {
     @State private var weaponTraits = [Trait]()
     @State private var altFire = AltFire(name: "", level: 1, altFireDescription: "")
     @State private var isFirstView = true
+    @State private var isChangedCount = 0
     @Binding var weapon: Weapon
     
     private let weaponNames = ["Modified Sidearm SD-M8", "Hollowseeker", "Electropylon Driver", "Rotgland Lobber", "Pyroshell Caster", "Thermogenic Launcher", "Dreadbound", "Coilspine Shredder", "Tachyomatic Carbine", "Spitmaw Blaster"]
@@ -78,7 +79,12 @@ struct EditWeaponView: View {
             .onChange(of: weaponName) { oldValue, newValue in
                 weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
                 weaponTraitName = weaponTraitNames[0]
-                weaponTraits.removeAll()
+                
+                if isChangedCount == 1 {
+                    weaponTraits.removeAll()
+                }
+                
+                isChangedCount = 1
             }
             
             Picker("Weapon Trait Level", selection: $weaponTraitLevel) {
@@ -118,9 +124,6 @@ struct EditWeaponView: View {
             if isFirstView {
                 weaponName = weapon.name
                 weaponLevel = weapon.level
-                altFireName = weapon.altFire.name
-                altFireLevel = weapon.altFire.level
-                altFIreDescription = weapon.altFire.altFireDescription
                 weaponTraits = weapon.traits
                 
                 weaponTraitNames = Trait.getWeaponTraits(from: weaponName)
