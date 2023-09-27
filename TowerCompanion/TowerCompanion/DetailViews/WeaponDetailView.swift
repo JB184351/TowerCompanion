@@ -34,18 +34,20 @@ struct WeaponDetailView: View {
             
             Spacer()
             
-            DisclosureGroup("Weapon Traits") {
-                ForEach(weapon.traits, id: \.name) { weaponTrait in
-                    DisclosureGroup(weaponTrait.name + " \(weaponTrait.level)") {
-                        VStack {
-                            TextHeadline(text: weaponTrait.traitDescription, color: .returnalLightBlue)
+            if weapon.traits.count > 0 {
+                DisclosureGroup("Weapon Traits") {
+                    ForEach(weapon.traits, id: \.name) { weaponTrait in
+                        DisclosureGroup(weaponTrait.name + " \(weaponTrait.level)") {
+                            VStack {
+                                TextHeadline(text: weaponTrait.traitDescription, color: .returnalLightBlue)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.headline)
+                        .fontDesign(.monospaced)
+                        .padding(.leading)
+                        .foregroundStyle(.returnalLightBlue)
                     }
-                    .font(.headline)
-                    .fontDesign(.monospaced)
-                    .padding(.leading)
-                    .foregroundStyle(.returnalLightBlue)
                 }
             }
         }
