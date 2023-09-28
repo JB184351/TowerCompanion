@@ -9,6 +9,7 @@ import Foundation
 import StoreKit
 
 typealias PurchaseResult = Product.PurchaseResult
+typealias TransactionListner = Task<Void, Error>
 
 enum TipsError: LocalizedError {
     case failedVerification
@@ -24,7 +25,7 @@ enum TipsError: LocalizedError {
     }
 }
 
-enum TipsAction {
+enum TipsAction: Equatable {
     case successful
     case failed(TipsError)
     
@@ -41,7 +42,7 @@ enum TipsAction {
 }
 
 @MainActor
-final class TipStore: ObservableObject {
+final class TipStore: ObservableObject, Observable {
     
     @Published private(set) var items = [Product]()
     @Published private(set) var action: TipsAction? {
@@ -66,10 +67,18 @@ final class TipStore: ObservableObject {
         }
     }
     
+    private var transactionListner: TransactionListner?
+    
     init() {
+        transactionListner = configureTransactionListener()
+        
         Task { [weak self] in
             await self?.retrieveProducts()
         }
+    }
+    
+    deinit {
+        transactionListner?.cancel()
     }
     
     func purchase(_ item: Product) async {
@@ -88,6 +97,22 @@ final class TipStore: ObservableObject {
 }
 
 private extension TipStore {
+    
+    func configureTransactionListener() -> TransactionListner {
+        Task.detached(priority: .background) { @MainActor [weak self] in
+            do {
+                for await result in Transaction.updates {
+                    let transaction = try self?.checkVerification(result)
+                    
+                    self?.action = .successful
+                    await transaction?.finish()
+                }
+            } catch {
+                self?.action = .failed(.system(error))
+                print(error)
+            }
+        }
+    }
     
     func retrieveProducts() async {
         
