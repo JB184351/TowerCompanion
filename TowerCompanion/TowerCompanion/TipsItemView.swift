@@ -16,6 +16,7 @@ struct TipsItemView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(item?.displayName ?? "-")
+                    .bold()
                 Text(item?.description ?? "-")
             }
             
@@ -28,8 +29,9 @@ struct TipsItemView: View {
                     }
                 }
             }
-            .tint(.blue)
+            .tint(.returnalYellow)
             .buttonStyle(.bordered)
+            .font(.callout.bold())
         }
     }
 }

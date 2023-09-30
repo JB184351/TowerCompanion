@@ -25,8 +25,8 @@
       "internalID" : "8B3081E6",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Scout's need food to ",
+          "displayName" : "Need some Silphium",
           "locale" : "en_US"
         }
       ],
@@ -40,8 +40,8 @@
       "internalID" : "ECDA2088",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Gotta buy more Shield Vials",
+          "displayName" : "I need more Obolites!",
           "locale" : "en_US"
         }
       ],
@@ -55,8 +55,8 @@
       "internalID" : "9F91807D",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Most generous thank you",
+          "displayName" : "Helios",
           "locale" : "en_US"
         }
       ],
