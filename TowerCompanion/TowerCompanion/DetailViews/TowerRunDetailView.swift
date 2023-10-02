@@ -13,7 +13,7 @@ struct TowerRunDetailView: View {
     @State private var isEditViewPresented = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading) {
                     Spacer()

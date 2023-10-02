@@ -11,7 +11,7 @@ import StoreKit
 struct SettingsView: View {
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             NavigationLink("Support the app") {
                 TipView()
             }

@@ -26,7 +26,7 @@ struct AddSkillValuesView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Text("Enter the number of Perfect Floors")
                 TextField("Enter value here", value: $perfectFloors, formatter: numberFormatter)

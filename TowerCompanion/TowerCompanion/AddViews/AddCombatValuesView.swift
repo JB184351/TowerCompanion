@@ -25,7 +25,7 @@ struct AddCombatValuesView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Text("Enter the number of Weak Point kills")
                 TextField("Enter value here", value: $weakPointKills, formatter: numberFormatter)

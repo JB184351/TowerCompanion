@@ -26,7 +26,7 @@ struct AddExplorerValuesView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Text("Enter the number of Floors cleared")
                 TextField("Enter value here", value: $floorsCleared, formatter: numberFormatter)

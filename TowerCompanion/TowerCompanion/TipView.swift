@@ -14,7 +14,7 @@ struct TipView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Button("Tip Me") {
                     showTips.toggle()

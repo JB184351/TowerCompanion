@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var isSheetPresented = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(towerRuns) { run in
                     Section {
