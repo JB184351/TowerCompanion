@@ -50,6 +50,7 @@
 		30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721B2A3555EA00F0E49B /* Parasite.swift */; };
 		30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721D2A3557B700F0E49B /* Weapon.swift */; };
 		30BC72202A3686B300F0E49B /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721F2A3686B300F0E49B /* Trait.swift */; };
+		30C62DAD2AC8AA4F005ACD23 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C62DAC2AC8AA4F005ACD23 /* TipView.swift */; };
 		30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */; };
 		30CAA0D02AB91C0400C87423 /* EditSkillValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */; };
 		30CAA0D22ABA17BD00C87423 /* EditObjectivesValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0D12ABA17BD00C87423 /* EditObjectivesValuesView.swift */; };
@@ -113,6 +114,7 @@
 		30BC721B2A3555EA00F0E49B /* Parasite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parasite.swift; sourceTree = "<group>"; };
 		30BC721D2A3557B700F0E49B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		30BC721F2A3686B300F0E49B /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
+		30C62DAC2AC8AA4F005ACD23 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnalColorExtension.swift; sourceTree = "<group>"; };
 		30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillValuesView.swift; sourceTree = "<group>"; };
 		30CAA0D12ABA17BD00C87423 /* EditObjectivesValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditObjectivesValuesView.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				30CAA0D32ABA85D700C87423 /* MainView.swift */,
 				30CAA0D52ABA862B00C87423 /* SettingsView.swift */,
+				30C62DAC2AC8AA4F005ACD23 /* TipView.swift */,
 				3006466B2ABBA7C100211BA8 /* ThanksView.swift */,
 				300646672ABB7DF400211BA8 /* TipsView.swift */,
 				300646692ABB7E6A00211BA8 /* TipsItemView.swift */,
@@ -379,6 +382,7 @@
 				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				300646642ABB774800211BA8 /* MyProductsIdentifiers.swift in Sources */,
+				30C62DAD2AC8AA4F005ACD23 /* TipView.swift in Sources */,
 				303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */,
 				3006466C2ABBA7C100211BA8 /* ThanksView.swift in Sources */,
 				30CAA0D62ABA862B00C87423 /* SettingsView.swift in Sources */,
