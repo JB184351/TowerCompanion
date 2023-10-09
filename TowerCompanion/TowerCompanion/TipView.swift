@@ -16,29 +16,10 @@ struct TipView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Button("Tip Me") {
-                    showTips.toggle()
-                }
-                .tint(.blue)
-                .buttonStyle(.bordered)
+                TipsView()
+                .environmentObject(store)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .overlay {
-                if showTips {
-                    Color.black.opacity(0.8)
-                        .ignoresSafeArea()
-                        .transition(.opacity)
-                        .onTapGesture {
-                            showTips.toggle()
-                        }
-                    
-                    TipsView {
-                        showTips.toggle()
-                    }
-                    .environmentObject(store)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
-            }
             .overlay(alignment: .bottom) {
                 if showThanks {
                     ThanksView {
@@ -47,7 +28,6 @@ struct TipView: View {
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
-            .animation(.spring(), value: showTips)
             .animation(.spring(), value: showThanks)
             .onChange(of: store.action, { oldValue, newValue in
                 if newValue == .successful {

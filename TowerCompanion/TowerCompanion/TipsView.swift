@@ -10,20 +10,9 @@ import SwiftUI
 struct TipsView: View {
     @EnvironmentObject private var store: TipStore
     
-    var didTapClose: () -> ()
-    
     var body: some View {
         VStack(spacing: 8) {
-            HStack {
-                Spacer()
-                Button(action: didTapClose) {
-                    Image(systemName: "xmark")
-                        .symbolVariant(.circle.fill)
-                        .font(.system(.largeTitle, design: .rounded).bold())
-                        .symbolRenderingMode(.palette)
-                        .foregroundStyle(.gray, .gray.opacity(0.2))
-                }
-            }
+            Spacer()
             
             Text("Enjoying the app so far?")
                 .font(.system(.title2, design: .rounded).bold())
@@ -39,13 +28,16 @@ struct TipsView: View {
                     TipsItemView(item: item)
                 }
             }
+            Spacer()
+            Spacer()
         }
-        .background(.returnalDarkGreen, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-        .padding(8)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.returnalDarkGreen)
+        
     }
 }
 
 #Preview {
-    TipsView(didTapClose: { })
+    TipsView()
         .environmentObject(TipStore())
 }

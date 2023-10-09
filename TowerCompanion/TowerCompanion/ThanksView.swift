@@ -17,7 +17,7 @@ struct ThanksView: View {
                 .font(.system(.title2, design: .rounded).bold())
                 .multilineTextAlignment(.center)
             
-            Text("Thank you so much!")
+            Text("Thanks for supporting the Tower Companion app!")
                 .font(.system(.body, design: .rounded))
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 16)
@@ -33,7 +33,7 @@ struct ThanksView: View {
             }
         }
         .padding(16)
-        .background(Color.returnalDarkGreen, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .background(.black, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
         .padding(.horizontal, 8)
     }
 }
