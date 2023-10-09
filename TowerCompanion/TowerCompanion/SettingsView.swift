@@ -9,11 +9,18 @@ import SwiftUI
 import StoreKit
 
 struct SettingsView: View {
+    
+    let settingViewsText = ["Support the app"]
 
     var body: some View {
         NavigationStack {
-            NavigationLink("Support the app") {
-                TipView()
+            Spacer()
+            List {
+                ForEach(settingViewsText, id: \.self) { setting in
+                    NavigationLink(destination: TipView()) {
+                        Text(setting)
+                    }
+                }
             }
             .navigationTitle("Settings")
             .frame(alignment: .leading)
