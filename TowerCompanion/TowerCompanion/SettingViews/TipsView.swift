@@ -31,6 +31,7 @@ struct TipsView: View {
             Spacer()
             Spacer()
         }
+        .padding(8)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.returnalDarkGreen)
         
