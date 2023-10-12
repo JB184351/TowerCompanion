@@ -134,7 +134,7 @@ struct EditRunView: View {
                         TextField("Phase", value: $phase, formatter: percentFormatter)
                             .keyboardType(.numberPad)
                             .focused($textFieldFocus)
-                        Picker(towerRun.room == 1 ? "Room" : "\(towerRun.room)", selection: $room) {
+                        Picker("Room", selection: $room) {
                             ForEach(1..<21) {
                                 Text(String($0)).tag($0)
                             }
