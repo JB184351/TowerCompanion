@@ -90,6 +90,7 @@
 		305363D32A720997006D3ACC /* ParasitesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParasitesDetailView.swift; sourceTree = "<group>"; };
 		305363D52A7209CF006D3ACC /* MalfunctionsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalfunctionsDetailView.swift; sourceTree = "<group>"; };
 		305363D72A720A09006D3ACC /* StatsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailView.swift; sourceTree = "<group>"; };
+		305F05652AD8A92500A036DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3070706A2A9D78D8002ADCC4 /* AddCombatValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCombatValuesView.swift; sourceTree = "<group>"; };
 		3070706C2A9D7CCB002ADCC4 /* AddExplorerValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExplorerValuesView.swift; sourceTree = "<group>"; };
 		3070706E2A9D7F52002ADCC4 /* AddSkillValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSkillValuesView.swift; sourceTree = "<group>"; };
@@ -254,6 +255,7 @@
 		30BC72072A354FEF00F0E49B /* TowerCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				305F05652AD8A92500A036DB /* Info.plist */,
 				300646602ABB723F00211BA8 /* MyTipsStoreKitConfiguration.storekit */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
@@ -564,6 +566,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TowerCompanion/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tower Companion";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -607,6 +610,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TowerCompanion/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tower Companion";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
