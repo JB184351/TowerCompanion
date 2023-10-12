@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3006465F2ABB70AF00211BA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3006465E2ABB70AF00211BA8 /* StoreKit.framework */; };
+		300646642ABB774800211BA8 /* MyProductsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */; };
+		300646662ABB77C500211BA8 /* TipStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300646652ABB77C500211BA8 /* TipStore.swift */; };
+		300646682ABB7DF400211BA8 /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300646672ABB7DF400211BA8 /* TipsView.swift */; };
+		3006466A2ABB7E6A00211BA8 /* TipsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300646692ABB7E6A00211BA8 /* TipsItemView.swift */; };
+		3006466C2ABBA7C100211BA8 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006466B2ABBA7C100211BA8 /* ThanksView.swift */; };
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
 		303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */; };
@@ -44,9 +50,12 @@
 		30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721B2A3555EA00F0E49B /* Parasite.swift */; };
 		30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721D2A3557B700F0E49B /* Weapon.swift */; };
 		30BC72202A3686B300F0E49B /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721F2A3686B300F0E49B /* Trait.swift */; };
+		30C62DAD2AC8AA4F005ACD23 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C62DAC2AC8AA4F005ACD23 /* TipView.swift */; };
 		30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */; };
 		30CAA0D02AB91C0400C87423 /* EditSkillValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */; };
 		30CAA0D22ABA17BD00C87423 /* EditObjectivesValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0D12ABA17BD00C87423 /* EditObjectivesValuesView.swift */; };
+		30CAA0D42ABA85D700C87423 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0D32ABA85D700C87423 /* MainView.swift */; };
+		30CAA0D62ABA862B00C87423 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0D52ABA862B00C87423 /* SettingsView.swift */; };
 		30DF8B4E2AAB964100938ECB /* CombatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B4D2AAB964100938ECB /* CombatDetailView.swift */; };
 		30DF8B502AAB98C000938ECB /* ExplorerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B4F2AAB98C000938ECB /* ExplorerDetailsView.swift */; };
 		30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */; };
@@ -59,6 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3006465E2ABB70AF00211BA8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		300646602ABB723F00211BA8 /* MyTipsStoreKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MyTipsStoreKitConfiguration.storekit; sourceTree = "<group>"; };
+		300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsIdentifiers.swift; sourceTree = "<group>"; };
+		300646652ABB77C500211BA8 /* TipStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipStore.swift; sourceTree = "<group>"; };
+		300646672ABB7DF400211BA8 /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		300646692ABB7E6A00211BA8 /* TipsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsItemView.swift; sourceTree = "<group>"; };
+		3006466B2ABBA7C100211BA8 /* ThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
 		303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArtifactsView.swift; sourceTree = "<group>"; };
@@ -98,9 +114,12 @@
 		30BC721B2A3555EA00F0E49B /* Parasite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parasite.swift; sourceTree = "<group>"; };
 		30BC721D2A3557B700F0E49B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		30BC721F2A3686B300F0E49B /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
+		30C62DAC2AC8AA4F005ACD23 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnalColorExtension.swift; sourceTree = "<group>"; };
 		30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillValuesView.swift; sourceTree = "<group>"; };
 		30CAA0D12ABA17BD00C87423 /* EditObjectivesValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditObjectivesValuesView.swift; sourceTree = "<group>"; };
+		30CAA0D32ABA85D700C87423 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		30CAA0D52ABA862B00C87423 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		30DF8B4D2AAB964100938ECB /* CombatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatDetailView.swift; sourceTree = "<group>"; };
 		30DF8B4F2AAB98C000938ECB /* ExplorerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerDetailsView.swift; sourceTree = "<group>"; };
 		30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
@@ -117,12 +136,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3006465F2ABB70AF00211BA8 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3006465D2ABB70AF00211BA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3006465E2ABB70AF00211BA8 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		30423EF82A5893FB00235BC1 /* AddViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +227,7 @@
 				30BC72072A354FEF00F0E49B /* TowerCompanion */,
 				30BC72062A354FEF00F0E49B /* Products */,
 				304B1C262A57B456004F8973 /* Recovered References */,
+				3006465D2ABB70AF00211BA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,12 +242,21 @@
 		30BC72072A354FEF00F0E49B /* TowerCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				300646602ABB723F00211BA8 /* MyTipsStoreKitConfiguration.storekit */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30B49CDE2A43D5D300E855B6 /* Models */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
 				30AA61512A71F328005D69B7 /* CustomViews */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
+				30CAA0D32ABA85D700C87423 /* MainView.swift */,
+				30CAA0D52ABA862B00C87423 /* SettingsView.swift */,
+				30C62DAC2AC8AA4F005ACD23 /* TipView.swift */,
+				3006466B2ABBA7C100211BA8 /* ThanksView.swift */,
+				300646672ABB7DF400211BA8 /* TipsView.swift */,
+				300646692ABB7E6A00211BA8 /* TipsItemView.swift */,
+				300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */,
+				300646652ABB77C500211BA8 /* TipStore.swift */,
 				30DF8B552AAD436400938ECB /* EditViews */,
 				30C8969F2A5A1A38004D016D /* Extensions */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
@@ -343,7 +381,11 @@
 				30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */,
 				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
+				300646642ABB774800211BA8 /* MyProductsIdentifiers.swift in Sources */,
+				30C62DAD2AC8AA4F005ACD23 /* TipView.swift in Sources */,
 				303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */,
+				3006466C2ABBA7C100211BA8 /* ThanksView.swift in Sources */,
+				30CAA0D62ABA862B00C87423 /* SettingsView.swift in Sources */,
 				30BC721A2A35556F00F0E49B /* TowerRun.swift in Sources */,
 				3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */,
 				30AA614D2A71EF95005D69B7 /* WeaponDetailView.swift in Sources */,
@@ -355,10 +397,14 @@
 				30BC72092A354FEF00F0E49B /* TowerCompanionApp.swift in Sources */,
 				303313AC2AB3968100FDCF48 /* EditMalfunctionsView.swift in Sources */,
 				30CAA0D22ABA17BD00C87423 /* EditObjectivesValuesView.swift in Sources */,
+				3006466A2ABB7E6A00211BA8 /* TipsItemView.swift in Sources */,
+				300646662ABB77C500211BA8 /* TipStore.swift in Sources */,
+				30CAA0D42ABA85D700C87423 /* MainView.swift in Sources */,
 				3090D7F92AB52179000605D7 /* EditExplorerValuesView.swift in Sources */,
 				30BC720D2A354FEF00F0E49B /* ContentView.swift in Sources */,
 				30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */,
 				304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */,
+				300646682ABB7DF400211BA8 /* TipsView.swift in Sources */,
 				305363D02A71FBA4006D3ACC /* HeavyTextHeadline.swift in Sources */,
 				3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */,
 				30DF8B502AAB98C000938ECB /* ExplorerDetailsView.swift in Sources */,
@@ -523,6 +569,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -565,6 +612,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

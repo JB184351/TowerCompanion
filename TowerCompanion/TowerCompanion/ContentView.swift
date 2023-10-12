@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var isSheetPresented = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(towerRuns) { run in
                     Section {
@@ -32,7 +32,6 @@ struct ContentView: View {
                 })
             }
             .navigationTitle("TowerRuns")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
                     isSheetPresented = true

@@ -66,7 +66,7 @@ struct AddRunView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     // MARK: - Scoutname

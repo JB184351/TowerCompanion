@@ -1,0 +1,128 @@
+{
+  "identifier" : "59691BFD",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "0824B311",
+      "localizations" : [
+        {
+          "description" : "Help support the app.",
+          "displayName" : "Help a Scout out!",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.justinbengtson.TowerCompaniontinyTip",
+      "referenceName" : "Tiny Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "8B3081E6",
+      "localizations" : [
+        {
+          "description" : "Help me buy some bread 🍞",
+          "displayName" : "Help a Scout out!",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.justinbengtson.TowerCompanionsmallTip",
+      "referenceName" : "Small Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "ECDA2088",
+      "localizations" : [
+        {
+          "description" : "Treat me to a burger 🍔",
+          "displayName" : "Help a Scout out!",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.justinbengtson.TowerCompanionmediumTip",
+      "referenceName" : "Medium Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "9F91807D",
+      "localizations" : [
+        {
+          "description" : "Treat me to a Pizza 🍕",
+          "displayName" : "Help a Scout out!",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.justinbengtson.TowerCompanionlargeTip",
+      "referenceName" : "Large Tip",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_billingIssuesEnabled" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

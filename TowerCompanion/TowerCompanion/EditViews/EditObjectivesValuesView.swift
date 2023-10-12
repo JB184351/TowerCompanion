@@ -26,7 +26,7 @@ struct EditObjectivesValuesView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 Text("Enter the number of Pyliods eliminated")
                 TextField("Enter value here", value: $pyliodsEliminated, formatter: numberFormatter)
