@@ -174,6 +174,18 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		305F05642AD8A3FA00A036DB /* SettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				30CAA0D52ABA862B00C87423 /* SettingsView.swift */,
+				30C62DAC2AC8AA4F005ACD23 /* TipView.swift */,
+				3006466B2ABBA7C100211BA8 /* ThanksView.swift */,
+				300646672ABB7DF400211BA8 /* TipsView.swift */,
+				300646692ABB7E6A00211BA8 /* TipsItemView.swift */,
+			);
+			path = SettingViews;
+			sourceTree = "<group>";
+		};
 		30AA614E2A71EFEB005D69B7 /* DetailViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,19 +256,15 @@
 			children = (
 				300646602ABB723F00211BA8 /* MyTipsStoreKitConfiguration.storekit */,
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
+				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
+				30CAA0D32ABA85D700C87423 /* MainView.swift */,
+				300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */,
+				300646652ABB77C500211BA8 /* TipStore.swift */,
 				30B49CDE2A43D5D300E855B6 /* Models */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
 				30AA61512A71F328005D69B7 /* CustomViews */,
-				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
-				30CAA0D32ABA85D700C87423 /* MainView.swift */,
-				30CAA0D52ABA862B00C87423 /* SettingsView.swift */,
-				30C62DAC2AC8AA4F005ACD23 /* TipView.swift */,
-				3006466B2ABBA7C100211BA8 /* ThanksView.swift */,
-				300646672ABB7DF400211BA8 /* TipsView.swift */,
-				300646692ABB7E6A00211BA8 /* TipsItemView.swift */,
-				300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */,
-				300646652ABB77C500211BA8 /* TipStore.swift */,
+				305F05642AD8A3FA00A036DB /* SettingViews */,
 				30DF8B552AAD436400938ECB /* EditViews */,
 				30C8969F2A5A1A38004D016D /* Extensions */,
 				30BC720E2A354FF000F0E49B /* Assets.xcassets */,
