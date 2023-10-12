@@ -10,7 +10,7 @@
       "internalID" : "0824B311",
       "localizations" : [
         {
-          "description" : "Help me keep this on the iOS app store.",
+          "description" : "Help support the app.",
           "displayName" : "Help a Scout out!",
           "locale" : "en_US"
         }
@@ -25,8 +25,8 @@
       "internalID" : "8B3081E6",
       "localizations" : [
         {
-          "description" : "Scout's need food to ",
-          "displayName" : "Need some Silphium",
+          "description" : "Help me buy some bread 🍞",
+          "displayName" : "Help a Scout out!",
           "locale" : "en_US"
         }
       ],
@@ -40,8 +40,8 @@
       "internalID" : "ECDA2088",
       "localizations" : [
         {
-          "description" : "Gotta buy more Shield Vials",
-          "displayName" : "I need more Obolites!",
+          "description" : "Treat me to a burger 🍔",
+          "displayName" : "Help a Scout out!",
           "locale" : "en_US"
         }
       ],
@@ -55,8 +55,8 @@
       "internalID" : "9F91807D",
       "localizations" : [
         {
-          "description" : "Most generous thank you",
-          "displayName" : "Helios",
+          "description" : "Treat me to a Pizza 🍕",
+          "displayName" : "Help a Scout out!",
           "locale" : "en_US"
         }
       ],
