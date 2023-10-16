@@ -93,6 +93,12 @@ struct TowerRunDetailView: View {
                         isEditViewPresented = true
                     }
                 }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    let runText = CreateText.createText(for: towerRun)
+                    ShareLink(item: runText, preview: SharePreview("Tower Run"))
+                        
+                }
             }
             .sheet(isPresented: $isEditViewPresented, content: {
                 EditRunView(towerRun: towerRun)

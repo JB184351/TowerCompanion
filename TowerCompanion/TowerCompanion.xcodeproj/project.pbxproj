@@ -61,6 +61,7 @@
 		30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */; };
 		30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */; };
 		30DF8B572AAD43F100938ECB /* EditWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B562AAD43F100938ECB /* EditWeaponView.swift */; };
+		30E9BF212ADDC6170077CB6D /* CreateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9BF202ADDC6170077CB6D /* CreateText.swift */; };
 		30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A042A9D307C00D1D2F4 /* Combat.swift */; };
 		30FE1A072A9D30CA00D1D2F4 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */; };
 		30FE1A092A9D30F900D1D2F4 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A082A9D30F900D1D2F4 /* Skill.swift */; };
@@ -126,6 +127,7 @@
 		30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectivesDetailView.swift; sourceTree = "<group>"; };
 		30DF8B562AAD43F100938ECB /* EditWeaponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponView.swift; sourceTree = "<group>"; };
+		30E9BF202ADDC6170077CB6D /* CreateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateText.swift; sourceTree = "<group>"; };
 		30FE1A042A9D307C00D1D2F4 /* Combat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combat.swift; sourceTree = "<group>"; };
 		30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
 		30FE1A082A9D30F900D1D2F4 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				30CAA0D32ABA85D700C87423 /* MainView.swift */,
 				300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */,
 				300646652ABB77C500211BA8 /* TipStore.swift */,
+				30E9BF202ADDC6170077CB6D /* CreateText.swift */,
 				30B49CDE2A43D5D300E855B6 /* Models */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
@@ -378,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E9BF212ADDC6170077CB6D /* CreateText.swift in Sources */,
 				30FE1A072A9D30CA00D1D2F4 /* Explorer.swift in Sources */,
 				30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */,
 				305363D22A720940006D3ACC /* ArtifactsDetailView.swift in Sources */,
