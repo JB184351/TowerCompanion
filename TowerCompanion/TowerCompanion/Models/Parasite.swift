@@ -97,7 +97,7 @@ struct Parasite: Codable, Hashable {
         let jolting = ["Jolting" : "Triggers 2 Malfunctions on detach."]
         let rupturing = ["Rupturing" : "Greatly reduces Max Integrity on detach."]
         let shocking = ["Shocking" : "Triggers a Critical Malfunction on detach."]
-        let sparking = ["Sparking" : "Things"]
+        let sparking = ["Sparking" : "Triggers a Malfunction on detach."]
         
         // Suffixes
         let firestinger = ["Firestinger" : "Increases Speed and Weapon Damage by 25% for the next 15 kills, detaches afterward."]
