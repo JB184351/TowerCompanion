@@ -10,7 +10,3 @@
 <img src="https://github.com/JB184351/TowerCompanion/assets/36495451/ad9d4571-2cb4-4fbd-9f33-b30e7a495629" alt="App Screenshot 6" width="300">
 <img src="https://github.com/JB184351/TowerCompanion/assets/36495451/df7818ae-4784-4d51-b81d-5aef60dcbce5" alt="App Screenshot 7" width="300">
 <img src="https://github.com/JB184351/TowerCompanion/assets/36495451/74b1246a-1103-4f77-85b8-b8e85dfd463c" alt="App Screenshot 8" width="300"> 
-
-
-
-The app can be downloaded here: https://apps.apple.com/us/app/tower-companion/id6467444280
