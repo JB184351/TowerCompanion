@@ -1,4 +1,4 @@
-> This app is going to be a Tower of Sisyphus companion app for the game Returnal (which is on PS5 and PC) that will help the player keep track of their personal scores along with what Weapon, Artifacts, Parasites, Augments, and other important stats after they die.
+> This app is the Tower of Sisyphus companion app for the game Returnal (which is on PS5 and PC) that will help the player keep track of their personal scores along with what Weapon, Artifacts, Parasites, Augments, and other important stats after they die.
 
  # [TowerCompanion App for iOS](https://apps.apple.com/us/app/tower-companion/id6467444280)
 
