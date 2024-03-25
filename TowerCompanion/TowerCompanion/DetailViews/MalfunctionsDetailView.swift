@@ -13,14 +13,14 @@ struct MalfunctionsDetailView: View {
     var body: some View {
         DisclosureGroup("Malfunctions") {
             Spacer()
-            ForEach(0..<malfunctions.count) { i in
-                DisclosureGroup("Malfunction \(i + 1)") {
+            ForEach(Array(malfunctions.enumerated()), id: \.element) { (offset, malfunction) in
+                DisclosureGroup("Malfunction \(offset + 1)") {
                     VStack {
-                        TextHeadline(text: malfunctions[i].malfunctionDescription, color: .red)
+                        TextHeadline(text: malfunction.malfunctionDescription, color: .red)
                             .padding(.leading)
                         
-                        if malfunctions[i].malfunctionType == .normal {
-                            TextHeadline(text: malfunctions[i].conditionToRemove, color: .red)
+                        if malfunction.malfunctionType == .normal {
+                            TextHeadline(text: malfunction.conditionToRemove, color: .red)
                                 .padding(.leading)
                         }
                     }
@@ -30,7 +30,6 @@ struct MalfunctionsDetailView: View {
                 .fontDesign(.monospaced)
                 .padding(.leading)
                 .foregroundStyle(.red)
-                
             }
         }
         .font(.title2)
