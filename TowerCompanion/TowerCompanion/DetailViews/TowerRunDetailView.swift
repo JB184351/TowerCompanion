@@ -80,10 +80,10 @@ struct TowerRunDetailView: View {
                     }
                     
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .navigationTitle("Run Details")
             .toolbarColorScheme(.dark, for: .navigationBar)
+            .padding(12)
             .background(.returnalDarkGreen)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
