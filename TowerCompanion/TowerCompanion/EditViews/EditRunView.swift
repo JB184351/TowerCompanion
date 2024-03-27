@@ -145,44 +145,57 @@ struct EditRunView: View {
                     
                     // MARK: - Multipliers
                     Section {
-                        TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
-                            .keyboardType(.decimalPad)
-                            .focused($textFieldFocus)
-                            .onChange(of: averageMutliplier) { oldValue, newValue in
-                                if newValue > 100.00 || newValue < 1.00 {
-                                    multiplierTooHighAlert = true
-                                    averageMutliplier = 0.0
+                        Section {
+                            TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
+                                .keyboardType(.decimalPad)
+                                .focused($textFieldFocus)
+                                .onChange(of: averageMutliplier) { oldValue, newValue in
+                                    if newValue > 100.00 || newValue < 1.00 {
+                                        multiplierTooHighAlert = true
+                                        averageMutliplier = 0.0
+                                    }
                                 }
-                            }
-                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                Button("OK", role: .none) { }
-                            }
+                                .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
+                                    Button("OK", role: .none) { }
+                                }
+                        } header: {
+                            Text("Average Multiplier")
+                        }
                         
-                        TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
-                            .keyboardType(.decimalPad)
-                            .focused($textFieldFocus)
-                            .onChange(of: highestMultplier) { oldValue, newValue in
-                                if newValue > 100.00 || newValue < 1.00 {
-                                    multiplierTooHighAlert = true
-                                    highestMultplier = 0.0
+                        Section {
+                            TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
+                                .keyboardType(.decimalPad)
+                                .focused($textFieldFocus)
+                                .onChange(of: highestMultplier) { oldValue, newValue in
+                                    if newValue > 100.00 || newValue < 1.00 {
+                                        multiplierTooHighAlert = true
+                                        highestMultplier = 0.0
+                                    }
                                 }
-                            }
-                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                Button("OK", role: .none) { }
-                            }
+                                .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
+                                    Button("OK", role: .none) { }
+                                }
+                        } header: {
+                            Text("Highest Multiplier")
+                        }
                         
-                        TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
-                            .keyboardType(.decimalPad)
-                            .focused($textFieldFocus)
-                            .onChange(of: finalMultiplier) { oldValue, newValue in
-                                if newValue > 100.00 || newValue < 1.00 {
-                                    multiplierTooHighAlert = true
-                                    finalMultiplier = 0.0
+                        
+                        Section {
+                            TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
+                                .keyboardType(.decimalPad)
+                                .focused($textFieldFocus)
+                                .onChange(of: finalMultiplier) { oldValue, newValue in
+                                    if newValue > 100.00 || newValue < 1.00 {
+                                        multiplierTooHighAlert = true
+                                        finalMultiplier = 0.0
+                                    }
                                 }
-                            }
-                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                Button("OK", role: .none) { }
-                            }
+                                .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
+                                    Button("OK", role: .none) { }
+                                }
+                        } header: {
+                            Text("Final Multiplier")
+                        }
                     } header: {
                         Text("Enter Multiplier Details")
                     }
