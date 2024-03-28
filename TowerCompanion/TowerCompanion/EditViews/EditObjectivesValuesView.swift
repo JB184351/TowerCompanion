@@ -8,88 +8,83 @@
 import SwiftUI
 
 struct EditObjectivesValuesView: View {
-    @State private var pyliodsEliminated = 0
-    @State private var algosDefeated = 0
-    @State private var algosFinalFormDefeated = 0
-    @State private var algosInfinityFormDefeated = 0
+    @State private var pyliodsEliminated = "0"
+    @State private var algosDefeated = "0"
+    @State private var algosFinalFormDefeated = "0"
+    @State private var algosInfinityFormDefeated = "0"
     @Binding var objectiveValues: Objectives?
     
-    @FocusState private var textFieldFocus: Bool
-    
-    let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.zeroSymbol = ""
-        formatter.formatterBehavior = .default
-        
-        return formatter
-    }()
+    @FocusState private var textFieldFocus: FocusField?
     
     var body: some View {
         NavigationStack {
             Form {
                 Text("Enter the number of Pyliods eliminated")
-                TextField("Enter value here", value: $pyliodsEliminated, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $pyliodsEliminated)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($pyliodsEliminated)
                     .onChange(of: pyliodsEliminated) { oldValue, newValue in
-                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                        objectiveValues = Objectives(pylioidsEliminated: Int(pyliodsEliminated) ?? 0, algosDefeated: Int(algosDefeated) ?? 0, algosFinalFormDefeated: Int(algosFinalFormDefeated) ?? 0, algosInfinityFormDefeated: Int(algosInfinityFormDefeated) ?? 0)
                     }
                 
                 Text("Enter the number of Algos eliminated")
-                TextField("Enter value here", value: $algosDefeated, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $algosDefeated)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($algosDefeated)
                     .onChange(of: algosDefeated) { oldValue, newValue in
-                        if algosDefeated >= 2 {
-                            algosDefeated = 2
-                        } else if algosDefeated < 0 {
-                            algosDefeated = 0
+                        if Int(algosDefeated) ?? 0 >= 2 {
+                            algosDefeated = "2"
+                        } else if Int(algosDefeated) ?? 0 < 0 {
+                            algosDefeated = "0"
                         }
                         
-                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                        objectiveValues = Objectives(pylioidsEliminated: Int(pyliodsEliminated) ?? 0, algosDefeated: Int(algosDefeated) ?? 0, algosFinalFormDefeated: Int(algosFinalFormDefeated) ?? 0, algosInfinityFormDefeated: Int(algosInfinityFormDefeated) ?? 0)
                     }
                 
                 Text("Enter the number of Algos final forms eliminated")
-                TextField("Enter value here", value: $algosFinalFormDefeated, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $algosFinalFormDefeated)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($algosFinalFormDefeated)
                     .onChange(of: algosFinalFormDefeated) { oldValue, newValue in
-                        if algosFinalFormDefeated >= 1 {
-                            algosFinalFormDefeated = 1
+                        if Int(algosFinalFormDefeated) ?? 0 >= 1 {
+                            algosFinalFormDefeated = "1"
                         } else {
-                            algosFinalFormDefeated = 0
+                            algosFinalFormDefeated = "0"
                         }
                         
-                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                        objectiveValues = Objectives(pylioidsEliminated: Int(pyliodsEliminated) ?? 0, algosDefeated: Int(algosDefeated) ?? 0, algosFinalFormDefeated: Int(algosFinalFormDefeated) ?? 0, algosInfinityFormDefeated: Int(algosInfinityFormDefeated) ?? 0)
                     }
                 
                 Text("Enter the number of Algos infinity forms eliminated")
-                TextField("Enter value here", value: $algosInfinityFormDefeated, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $algosInfinityFormDefeated)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($algosFinalFormDefeated)
                     .onChange(of: algosInfinityFormDefeated) { oldValue, newValue in
-                        objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                        objectiveValues = Objectives(pylioidsEliminated: Int(pyliodsEliminated) ?? 0, algosDefeated: Int(algosDefeated) ?? 0, algosFinalFormDefeated: Int(algosFinalFormDefeated) ?? 0, algosInfinityFormDefeated: Int(algosInfinityFormDefeated) ?? 0)
                     }
             }
             .onAppear {
                 if let objectiveValues = objectiveValues {
-                    pyliodsEliminated = objectiveValues.pylioidsEliminated
-                    algosDefeated = objectiveValues.algosDefeated
-                    algosFinalFormDefeated = objectiveValues.algosFinalFormDefeated
-                    algosInfinityFormDefeated = objectiveValues.algosInfinityFormDefeated
+                    pyliodsEliminated = String(objectiveValues.pylioidsEliminated)
+                    algosDefeated = String(objectiveValues.algosDefeated)
+                    algosFinalFormDefeated = String(objectiveValues.algosFinalFormDefeated)
+                    algosInfinityFormDefeated = String(objectiveValues.algosInfinityFormDefeated)
                 }
             }
             .navigationTitle("Objective Values")
             .toolbar {
                 ToolbarItem(placement: .keyboard) {
+                    Spacer()
+                }
+                
+                ToolbarItem(placement: .keyboard) {
                     Button("Done") {
-                        textFieldFocus = false
+                        textFieldFocus = nil
                     }
                 }
             }
             .onDisappear {
-                objectiveValues = Objectives(pylioidsEliminated: pyliodsEliminated, algosDefeated: algosDefeated, algosFinalFormDefeated: algosFinalFormDefeated, algosInfinityFormDefeated: algosInfinityFormDefeated)
+                objectiveValues = Objectives(pylioidsEliminated: Int(pyliodsEliminated) ?? 0, algosDefeated: Int(algosDefeated) ?? 0, algosFinalFormDefeated: Int(algosFinalFormDefeated) ?? 0, algosInfinityFormDefeated: Int(algosInfinityFormDefeated) ?? 0)
             }
         }
     }
