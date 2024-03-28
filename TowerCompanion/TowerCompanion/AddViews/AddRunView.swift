@@ -106,6 +106,9 @@ struct AddRunView: View {
                         TextField("Score", text: $score)
                             .numbersOnly($score)
                             .focused($textFieldFocus, equals: .int)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                     } header: {
                         Text("Enter Your Score")
                     }
@@ -115,6 +118,9 @@ struct AddRunView: View {
                         TextField("Phase", text: $phase)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($phase)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                         Picker("Room", selection: $room) {
                             ForEach(1..<21) {
                                 Text(String($0)).tag($0)
@@ -130,16 +136,25 @@ struct AddRunView: View {
                         TextField("Average Multiplier", text: $averageMutliplier)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($averageMutliplier, includeDecimal: true)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                         
                         Text("Enter highest multiplier")
                         TextField("Highest Multiplier", text: $highestMultplier)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($highestMultplier, includeDecimal: true)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                         
                         Text("Enter final multiplier")
                         TextField("Final Mutliplier", text: $finalMultiplier)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($finalMultiplier, includeDecimal: true)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                     } header: {
                         Text("Enter Multiplier Details")
                     }
