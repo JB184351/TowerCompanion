@@ -39,7 +39,7 @@ struct AddRunView: View {
     @State private var multiplierTooHighAlert = false
     
     // Phase and Room
-    @State private var phase = 1
+    @State private var phase = "1"
     @State private var room = 1
     
     // Date
@@ -103,18 +103,18 @@ struct AddRunView: View {
                     
                     // MARK: - Score
                     Section {
-                        TextField("Score", value: $score, formatter: numberFormatter)
-                            .focused($textFieldFocus, equals: .int)
+                        TextField("Score", text: $score)
                             .numbersOnly($score)
+                            .focused($textFieldFocus, equals: .int)
                     } header: {
                         Text("Enter Your Score")
                     }
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Phase", value: $phase, formatter: percentFormatter)
+                        TextField("Phase", text: $phase)
                             .focused($textFieldFocus, equals: .int)
-                            .numbersOnly($score)
+                            .numbersOnly($phase)
                         Picker("Room", selection: $room) {
                             ForEach(1..<21) {
                                 Text(String($0)).tag($0)
@@ -127,17 +127,17 @@ struct AddRunView: View {
                     // MARK: - Multipliers
                     Section {
                         Text("Enter average multplier")
-                        TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
+                        TextField("Average Multiplier", text: $averageMutliplier)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($averageMutliplier, includeDecimal: true)
                         
                         Text("Enter highest multiplier")
-                        TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
+                        TextField("Highest Multiplier", text: $highestMultplier)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($highestMultplier, includeDecimal: true)
                         
                         Text("Enter final multiplier")
-                        TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
+                        TextField("Final Mutliplier", text: $finalMultiplier)
                             .focused($textFieldFocus, equals: .int)
                             .numbersOnly($finalMultiplier, includeDecimal: true)
                     } header: {
@@ -200,7 +200,7 @@ struct AddRunView: View {
     func addTowerRun() {
         let stats = Stats(weaponDamage: weaponDamageStat, protection: protectionStat, proficiencyRate: proficiencyRate, repairEfficiency: repairEffiency, altFireCoolDown: altFireCooldown)
         
-        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: Int(score) ?? 0, multiplier: Double(finalMultiplier) ?? 0.0, averageMultiplier: Double(averageMutliplier) ?? 0.0, highestMultplier: Double(highestMultplier) ?? 0, phase: phase, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
+        let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: Int(score) ?? 0, multiplier: Double(finalMultiplier) ?? 0.0, averageMultiplier: Double(averageMutliplier) ?? 0.0, highestMultplier: Double(highestMultplier) ?? 0, phase: Int(phase) ?? 0, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
 
         modelContext.insert(towerRun)
     }
