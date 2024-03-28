@@ -32,10 +32,10 @@ struct AddRunView: View {
     @State private var altFireCooldown = 0.0
     
     // Score Related Variables
-    @State private var score = 0
-    @State private var finalMultiplier = 0.0
-    @State private var averageMutliplier = 0.0
-    @State private var highestMultplier = 0.0
+    @State private var score = "0"
+    @State private var finalMultiplier = "0.0"
+    @State private var averageMutliplier = "0.0"
+    @State private var highestMultplier = "0.0"
     @State private var multiplierTooHighAlert = false
     
     // Phase and Room
@@ -46,7 +46,11 @@ struct AddRunView: View {
     @State private var dateStarted = Date.now
     @State private var dateCompleted = Date.now
     
-    @FocusState private var textFieldFocus: Bool
+    enum FocusField {
+        case int, dec
+    }
+    
+    @FocusState private var textFieldFocus: FocusField?
     
     let percentFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -121,8 +125,8 @@ struct AddRunView: View {
                     // MARK: - Score
                     Section {
                         TextField("Score", value: $score, formatter: numberFormatter)
-                            .keyboardType(.numberPad)
-                            .focused($textFieldFocus)
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($score)
                     } header: {
                         Text("Enter Your Score")
                     }
@@ -130,8 +134,8 @@ struct AddRunView: View {
                     // MARK: - Phase and Room
                     Section {
                         TextField("Phase", value: $phase, formatter: percentFormatter)
-                            .keyboardType(.numberPad)
-                            .focused($textFieldFocus)
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($score)
                         Picker("Room", selection: $room) {
                             ForEach(1..<21) {
                                 Text(String($0)).tag($0)
@@ -145,45 +149,18 @@ struct AddRunView: View {
                     Section {
                         Text("Enter average multplier")
                         TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
-                            .keyboardType(.decimalPad)
-                            .focused($textFieldFocus)
-                            .onChange(of: averageMutliplier) { oldValue, newValue in
-                                if newValue > 100.00 || newValue < 1.00 {
-                                    multiplierTooHighAlert = true
-                                    averageMutliplier = 0.0
-                                }
-                            }
-                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                Button("OK", role: .none) { }
-                            }
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($averageMutliplier, includeDecimal: true)
                         
                         Text("Enter highest multiplier")
                         TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
-                            .keyboardType(.decimalPad)
-                            .focused($textFieldFocus)
-                            .onChange(of: highestMultplier) { oldValue, newValue in
-                                if newValue > 100.00 || newValue < 1.00 {
-                                    multiplierTooHighAlert = true
-                                    highestMultplier = 0.0
-                                }
-                            }
-                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                Button("OK", role: .none) { }
-                            }
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($highestMultplier, includeDecimal: true)
                         
                         Text("Enter final multiplier")
                         TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
-                            .keyboardType(.decimalPad)
-                            .focused($textFieldFocus)
-                            .onChange(of: finalMultiplier) { oldValue, newValue in
-                                if newValue > 100.00 || newValue < 1.00 {
-                                    multiplierTooHighAlert = true
-                                    finalMultiplier = 0.0
-                                }
-                            }
-                            .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                Button("OK", role: .none) { }
-                            }
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($finalMultiplier, includeDecimal: true)
                     } header: {
                         Text("Enter Multiplier Details")
                     }
@@ -229,8 +206,12 @@ struct AddRunView: View {
                 }
                 
                 ToolbarItem(placement: .keyboard) {
+                    Spacer()
+                }
+                
+                ToolbarItem(placement: .keyboard) {
                     Button("Done") {
-                        textFieldFocus = false
+                        textFieldFocus = nil
                     }
                 }
             }

@@ -33,22 +33,27 @@ struct EditRunView: View {
     @State private var altFireCooldown = 0.0
     
     // Score Related Variables
-    @State private var score = 0
-    @State private var finalMultiplier = 0.0
-    @State private var averageMutliplier = 0.0
-    @State private var highestMultplier = 0.0
+    @State private var score = "0"
+    @State private var finalMultiplier = "0.0"
+    @State private var averageMutliplier = "0.0"
+    @State private var highestMultplier = "0.0"
     @State private var multiplierTooHighAlert = false
     
     // Phase and Room
-    @State private var phase = 1
-    @State private var room = 1
+    @State private var phase = "1"
+    @State private var room = "1"
     
     // Date
     @State private var dateStarted = Date.now
     @State private var dateCompleted = Date.now
     
     @State private var isFirstAppearance = true
-    @FocusState private var textFieldFocus: Bool
+    
+    enum FocusField {
+        case int, dec
+    }
+    
+    @FocusState private var textFieldFocus: FocusField?
     
     let percentFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -122,18 +127,24 @@ struct EditRunView: View {
                     
                     // MARK: - Score
                     Section {
-                        TextField("Score", value: $score, formatter: numberFormatter)
-                            .keyboardType(.numberPad)
-                            .focused($textFieldFocus)
+                        TextField("Score", text: $score)
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($score)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                     } header: {
                         Text("Edit Your Score")
                     }
                     
                     // MARK: - Phase and Room
                     Section {
-                        TextField("Phase", value: $phase, formatter: percentFormatter)
-                            .keyboardType(.numberPad)
-                            .focused($textFieldFocus)
+                        TextField("Phase", text: $phase)
+                            .focused($textFieldFocus, equals: .int)
+                            .numbersOnly($phase)
+                            .onAppear {
+                                UITextField.appearance().clearButtonMode = .whileEditing
+                            }
                         Picker("Room", selection: $room) {
                             ForEach(1..<21) {
                                 Text(String($0)).tag($0)
@@ -146,34 +157,22 @@ struct EditRunView: View {
                     // MARK: - Multipliers
                     Section {
                         Section {
-                            TextField("Average Multiplier", value: $averageMutliplier, formatter: percentFormatter)
-                                .keyboardType(.decimalPad)
-                                .focused($textFieldFocus)
-                                .onChange(of: averageMutliplier) { oldValue, newValue in
-                                    if newValue > 100.00 || newValue < 1.00 {
-                                        multiplierTooHighAlert = true
-                                        averageMutliplier = 0.0
-                                    }
-                                }
-                                .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                    Button("OK", role: .none) { }
+                            TextField("Average Multiplier", text: $averageMutliplier)
+                                .focused($textFieldFocus, equals: .dec)
+                                .numbersOnly($averageMutliplier, includeDecimal: true)
+                                .onAppear {
+                                    UITextField.appearance().clearButtonMode = .whileEditing
                                 }
                         } header: {
                             Text("Average Multiplier")
                         }
                         
                         Section {
-                            TextField("Highest Multiplier", value: $highestMultplier, formatter: percentFormatter)
-                                .keyboardType(.decimalPad)
-                                .focused($textFieldFocus)
-                                .onChange(of: highestMultplier) { oldValue, newValue in
-                                    if newValue > 100.00 || newValue < 1.00 {
-                                        multiplierTooHighAlert = true
-                                        highestMultplier = 0.0
-                                    }
-                                }
-                                .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                    Button("OK", role: .none) { }
+                            TextField("Highest Multiplier", text: $highestMultplier)
+                                .focused($textFieldFocus, equals: .dec)
+                                .numbersOnly($highestMultplier, includeDecimal: true)
+                                .onAppear {
+                                    UITextField.appearance().clearButtonMode = .whileEditing
                                 }
                         } header: {
                             Text("Highest Multiplier")
@@ -181,17 +180,11 @@ struct EditRunView: View {
                         
                         
                         Section {
-                            TextField("Final Mutliplier", value: $finalMultiplier, formatter: percentFormatter)
-                                .keyboardType(.decimalPad)
-                                .focused($textFieldFocus)
-                                .onChange(of: finalMultiplier) { oldValue, newValue in
-                                    if newValue > 100.00 || newValue < 1.00 {
-                                        multiplierTooHighAlert = true
-                                        finalMultiplier = 0.0
-                                    }
-                                }
-                                .alert("Only 0% to 100% is allowed", isPresented: $multiplierTooHighAlert) {
-                                    Button("OK", role: .none) { }
+                            TextField("Final Mutliplier", text: $finalMultiplier)
+                                .focused($textFieldFocus, equals: .dec)
+                                .numbersOnly($finalMultiplier, includeDecimal: true)
+                                .onAppear {
+                                    UITextField.appearance().clearButtonMode = .whileEditing
                                 }
                         } header: {
                             Text("Final Multiplier")
@@ -241,8 +234,12 @@ struct EditRunView: View {
                 }
                 
                 ToolbarItem(placement: .keyboard) {
+                    Spacer()
+                }
+                
+                ToolbarItem(placement: .keyboard) {
                     Button("Done") {
-                        textFieldFocus = false
+                        textFieldFocus = nil
                     }
                 }
             }
@@ -279,12 +276,12 @@ struct EditRunView: View {
             self.malfunctions = malfunctions
         }
         
-        score = towerRun.score
-        finalMultiplier = towerRun.finalMultiplier
-        averageMutliplier = towerRun.averageMultiplier
-        highestMultplier = towerRun.highestMultiplier
-        phase = towerRun.phase
-        room = towerRun.room
+        score = String(towerRun.score)
+        finalMultiplier = String(towerRun.finalMultiplier)
+        averageMutliplier = String(towerRun.averageMultiplier)
+        highestMultplier = String(towerRun.highestMultiplier)
+        phase = String(towerRun.phase)
+        room = String(towerRun.room)
         platform = towerRun.platform
         
         if let combat = towerRun.combat {
@@ -316,12 +313,12 @@ struct EditRunView: View {
         towerRun.parasites = parasites
         towerRun.stats = stats
         towerRun.malfunctions = malfunctions
-        towerRun.score = score
-        towerRun.finalMultiplier = finalMultiplier
-        towerRun.averageMultiplier = averageMutliplier
-        towerRun.highestMultiplier = highestMultplier
-        towerRun.phase = phase
-        towerRun.room = room
+        towerRun.score = Int(score) ?? 0
+        towerRun.finalMultiplier = Double(finalMultiplier) ?? 0.0
+        towerRun.averageMultiplier = Double(averageMutliplier) ?? 0.0
+        towerRun.highestMultiplier = Double(highestMultplier) ?? 0.0
+        towerRun.phase = Int(phase) ?? 0
+        towerRun.room = Int(room) ?? 0
         towerRun.platform = platform
         towerRun.combat = combatValues
         towerRun.explorer = explorerValues
