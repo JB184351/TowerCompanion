@@ -49,10 +49,6 @@ struct EditRunView: View {
     
     @State private var isFirstAppearance = true
     
-    enum FocusField {
-        case int, dec
-    }
-    
     @FocusState private var textFieldFocus: FocusField?
     
     let percentFormatter: NumberFormatter = {

@@ -46,28 +46,7 @@ struct AddRunView: View {
     @State private var dateStarted = Date.now
     @State private var dateCompleted = Date.now
     
-    enum FocusField {
-        case int, dec
-    }
-    
     @FocusState private var textFieldFocus: FocusField?
-    
-    let percentFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        formatter.zeroSymbol  = ""
-        return formatter
-    }()
-    
-    let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .none
-        formatter.zeroSymbol = ""
-        formatter.formatterBehavior = .default
-        
-        return formatter
-    }()
     
     var body: some View {
         NavigationStack {
