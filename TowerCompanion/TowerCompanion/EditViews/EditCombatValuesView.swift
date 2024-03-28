@@ -8,75 +8,83 @@
 import SwiftUI
 
 struct EditCombatValuesView: View {
-    @State private var weakPointKills = 0
-    @State private var meleeKills = 0
-    @State private var hostilesEliminated = 0
-    @State private var malformedHostilesEliminated = 0
+    @State private var weakPointKills = "0"
+    @State private var meleeKills = "0"
+    @State private var hostilesEliminated = "0"
+    @State private var malformedHostilesEliminated = "0"
     @Binding var combatValues: Combat?
     
-    @FocusState private var textFieldFocus: Bool
-    
-    let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.zeroSymbol = ""
-        
-        return formatter
-    }()
+    @FocusState private var textFieldFocus: FocusField?
     
     var body: some View {
         NavigationStack {
             Form {
                 Text("Enter the number of Weak Point kills")
-                TextField("Enter value here", value: $weakPointKills, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $weakPointKills)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($weakPointKills)
+                    .onAppear {
+                        UITextField.appearance().clearButtonMode = .whileEditing
+                    }
                     .onChange(of: weakPointKills) { oldValue, newValue in
-                        combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                        combatValues = Combat(weakPointKills: Int(weakPointKills) ?? 0, meleeKills: Int(meleeKills) ?? 0, hostilesEliminated: Int(hostilesEliminated) ?? 0, malformedHostilesEliminated: Int(malformedHostilesEliminated) ?? 0)
                     }
                 
                 Text("Enter the number of Melee kills")
-                TextField("Enter value here", value: $meleeKills, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $meleeKills)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($meleeKills)
+                    .onAppear {
+                        UITextField.appearance().clearButtonMode = .whileEditing
+                    }
                     .onChange(of: meleeKills) { oldValue, newValue in
-                        combatValues = Combat(weakPointKills: weakPointKills, meleeKills: newValue, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                        combatValues = Combat(weakPointKills: Int(weakPointKills) ?? 0, meleeKills: Int(meleeKills) ?? 0, hostilesEliminated: Int(hostilesEliminated) ?? 0, malformedHostilesEliminated: Int(malformedHostilesEliminated) ?? 0)
                     }
                 
                 Text("Enter the number of Hostiles eliminated")
-                TextField("Enter value here", value: $hostilesEliminated, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $hostilesEliminated)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($hostilesEliminated)
+                    .onAppear {
+                        UITextField.appearance().clearButtonMode = .whileEditing
+                    }
                     .onChange(of: hostilesEliminated) { oldValue, newValue in
-                        combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                        combatValues = Combat(weakPointKills: Int(weakPointKills) ?? 0, meleeKills: Int(meleeKills) ?? 0, hostilesEliminated: Int(hostilesEliminated) ?? 0, malformedHostilesEliminated: Int(malformedHostilesEliminated) ?? 0)
                     }
                 
                 Text("Enter the number of Malformed Hostiles eliminated")
-                TextField("Enter value here", value: $malformedHostilesEliminated, formatter: numberFormatter)
-                    .keyboardType(.numberPad)
-                    .focused($textFieldFocus)
+                TextField("Enter value here", text: $malformedHostilesEliminated)
+                    .focused($textFieldFocus, equals: .int)
+                    .numbersOnly($malformedHostilesEliminated)
+                    .onAppear {
+                        UITextField.appearance().clearButtonMode = .whileEditing
+                    }
                     .onChange(of: malformedHostilesEliminated) { oldValue, newValue in
-                        combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                        combatValues = Combat(weakPointKills: Int(weakPointKills) ?? 0, meleeKills: Int(meleeKills) ?? 0, hostilesEliminated: Int(hostilesEliminated) ?? 0, malformedHostilesEliminated: Int(malformedHostilesEliminated) ?? 0)
                     }
             }
             .onAppear {
                 if let combatValues = combatValues {
-                    weakPointKills = combatValues.weakPointKills
-                    meleeKills = combatValues.meleeKills
-                    hostilesEliminated = combatValues.hostilesEliminated
-                    malformedHostilesEliminated = combatValues.malformedHostilesEliminated
+                    weakPointKills = String(combatValues.weakPointKills)
+                    meleeKills = String(combatValues.meleeKills)
+                    hostilesEliminated = String(combatValues.hostilesEliminated)
+                    malformedHostilesEliminated = String(combatValues.malformedHostilesEliminated)
                 }
             }
             .navigationTitle("Combat Values")
             .toolbar {
                 ToolbarItem(placement: .keyboard) {
+                    Spacer()
+                }
+                
+                ToolbarItem(placement: .keyboard) {
                     Button("Done") {
-                        textFieldFocus = false
+                        textFieldFocus = nil
                     }
                 }
             }
             .onDisappear {
-                combatValues = Combat(weakPointKills: weakPointKills, meleeKills: meleeKills, hostilesEliminated: hostilesEliminated, malformedHostilesEliminated: malformedHostilesEliminated)
+                combatValues = Combat(weakPointKills: Int(weakPointKills) ?? 0, meleeKills: Int(meleeKills) ?? 0, hostilesEliminated: Int(hostilesEliminated) ?? 0, malformedHostilesEliminated: Int(malformedHostilesEliminated) ?? 0)
             }
         }
     }
