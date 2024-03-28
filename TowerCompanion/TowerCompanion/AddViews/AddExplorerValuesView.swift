@@ -40,7 +40,7 @@ struct AddExplorerValuesView: View {
                     .onAppear {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
-                    .onChange(of: floorsCleared) { oldValue, newValue in
+                    .onChange(of: silphiumFound) { oldValue, newValue in
                         explorerValues = Explorer(floorsCleared: Int(floorsCleared) ?? 0, silphiumFound: Int(silphiumFound) ?? 0, obolitesCollected: Int(obolitesCollected) ?? 0, calibratorsCollected: Int(calibratorsCollected) ?? 0)
                     }
                 
@@ -51,7 +51,7 @@ struct AddExplorerValuesView: View {
                     .onAppear {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
-                    .onChange(of: floorsCleared) { oldValue, newValue in
+                    .onChange(of: obolitesCollected) { oldValue, newValue in
                         explorerValues = Explorer(floorsCleared: Int(floorsCleared) ?? 0, silphiumFound: Int(silphiumFound) ?? 0, obolitesCollected: Int(obolitesCollected) ?? 0, calibratorsCollected: Int(calibratorsCollected) ?? 0)
                     }
                 
@@ -62,7 +62,7 @@ struct AddExplorerValuesView: View {
                     .onAppear {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
-                    .onChange(of: floorsCleared) { oldValue, newValue in
+                    .onChange(of: calibratorsCollected) { oldValue, newValue in
                         explorerValues = Explorer(floorsCleared: Int(floorsCleared) ?? 0, silphiumFound: Int(silphiumFound) ?? 0, obolitesCollected: Int(obolitesCollected) ?? 0, calibratorsCollected: Int(calibratorsCollected) ?? 0)
                     }
             }
