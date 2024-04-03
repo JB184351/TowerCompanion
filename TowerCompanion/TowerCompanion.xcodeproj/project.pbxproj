@@ -164,9 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				300D83352A463F3F007F5EB4 /* AddRunView.swift */,
-				3093E3F42BB512940025CD0C /* FocusField.swift */,
 				30B245892A4D03D4000AD9DB /* AddParasitesView.swift */,
 				304A86632A4CD3CB00797D8F /* AddWeaponView.swift */,
+				3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */,
 				304243A62A4BA4F400D51678 /* AddArtifactsView.swift */,
 				3070706A2A9D78D8002ADCC4 /* AddCombatValuesView.swift */,
 				3070706C2A9D7CCB002ADCC4 /* AddExplorerValuesView.swift */,
@@ -273,7 +273,7 @@
 				300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */,
 				300646652ABB77C500211BA8 /* TipStore.swift */,
 				30E9BF202ADDC6170077CB6D /* CreateText.swift */,
-				3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */,
+				3093E3F42BB512940025CD0C /* FocusField.swift */,
 				30B49CDE2A43D5D300E855B6 /* Models */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,

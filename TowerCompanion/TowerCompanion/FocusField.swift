@@ -8,5 +8,5 @@
 import Foundation
 
 enum FocusField {
-    case int, dec
+    case text, int, dec
 }

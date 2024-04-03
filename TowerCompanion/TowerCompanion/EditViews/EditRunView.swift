@@ -51,23 +51,6 @@ struct EditRunView: View {
     
     @FocusState private var textFieldFocus: FocusField?
     
-    let percentFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        formatter.zeroSymbol  = ""
-        return formatter
-    }()
-    
-    let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .none
-        formatter.zeroSymbol = ""
-        formatter.formatterBehavior = .default
-        
-        return formatter
-    }()
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -75,6 +58,7 @@ struct EditRunView: View {
                     // MARK: - Scoutname
                     Section(header: Text("Edit Scout Details")) {
                         TextField(towerRun.scoutName.isEmpty ? "Enter Scout Name" : towerRun.scoutName, text: $scoutName)
+                            .focused($textFieldFocus, equals: .text)
                         Picker("Select Platform", selection: $platform) {
                             ForEach(platforms, id: \.self) {
                                 Text($0).tag($0)
@@ -119,6 +103,7 @@ struct EditRunView: View {
                     // MARK: - Malfunctions
                     Section(header: Text("Enter Malfunction Details")) {
                         EditMalfunctionsView(malfunctions: $malfunctions)
+                            .focused($textFieldFocus, equals: .text)
                     }
                     
                     // MARK: - Score
