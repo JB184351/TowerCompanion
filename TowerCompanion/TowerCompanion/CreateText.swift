@@ -61,8 +61,6 @@ struct CreateText {
             artifactText += "\n"
         }
         
-    
-        
         if let parasites = run.parasites {
             parasiteText += "Parasites:\n"
             
