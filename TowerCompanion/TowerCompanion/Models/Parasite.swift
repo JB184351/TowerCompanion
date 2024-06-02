@@ -58,6 +58,7 @@ struct Parasite: Codable, Hashable {
         
         // MARK: - Positive Suffixes (Passive)
         let coldblood = ["Coldblood" : "Reduces Alt-Fire Cooldown by 3s."]
+        let firespur = ["Firespur" : "Each room cleared increases Weapon Damage by 2%. Maximum 20%."]
         let goldStalker = ["Goldstalker" : "Doubles Obolite collection radius."]
         let goldTail = ["Goldtail" : "Dropped Obolites last 1.5s longer."]
         let huskweaver = ["Huskweaver" : "Greatly increases Max Integrity."]
@@ -68,12 +69,13 @@ struct Parasite: Codable, Hashable {
         let rotstench = ["Rotstench" : "Find Salvage from hostiles more often."]
         let sageTooth = ["Sagetooth" : "Increases Proficiency Rate by 20%."]
         let scabshell = ["Scabshell" : "Increases Protection by 15%."]
+        let scabspur = ["Scabspur" : "Each room cleared increases Protection by 2%. Maximum 20%."]
         let silverscale = ["Silverscale" : "Fabrication costs reduced by 15%."]
         let slowstich = ["Slowstitch" : "Autorepairs while at Low Integrity."]
         let wiretail = ["Wiretail" : "Reduces Malfunction probability."]
         
         let negativePassivePrefixes: [[String : String]] = [atrophing, brittle, caustic, constricting, corrosive, destabilizing, distracting, impairing, latching, lethargic, malicious, oily, ominous, sedating, slimy, sluggish, benign]
-        let positivePassiveSuffixes: [[String: String]] = [coldblood, goldStalker, goldTail, huskweaver, needletooth, nervesStinger, oddkeeper, rotnose, rotstench, sageTooth, scabshell, silverscale, slowstich, wiretail]
+        let positivePassiveSuffixes: [[String: String]] = [coldblood, firespur, goldStalker, goldTail, huskweaver, needletooth, nervesStinger, oddkeeper, rotnose, rotstench, sageTooth,  scabshell, scabspur, silverscale, slowstich, wiretail]
         
         for negativePassivePrefix in negativePassivePrefixes {
             for positivePassiveSuffix in positivePassiveSuffixes {
