@@ -15,6 +15,11 @@ struct MainView: View {
                     Label("Runs", systemImage: "list.dash")
                 }
             
+            ChartsView(scoresAndDates: ScoresAndDates.mockData())
+                .tabItem {
+                    Label("Charts", systemImage: "chart.bar")
+                }
+            
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")

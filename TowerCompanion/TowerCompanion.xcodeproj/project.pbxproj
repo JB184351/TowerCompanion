@@ -14,7 +14,10 @@
 		3006466A2ABB7E6A00211BA8 /* TipsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300646692ABB7E6A00211BA8 /* TipsItemView.swift */; };
 		3006466C2ABBA7C100211BA8 /* ThanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3006466B2ABBA7C100211BA8 /* ThanksView.swift */; };
 		3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3007872D2A3AA7E100D185F4 /* Artifact.swift */; };
+		300AD66E2C2F8BC8007397BE /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300AD66D2C2F8BC8007397BE /* ChartsView.swift */; };
 		300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D83352A463F3F007F5EB4 /* AddRunView.swift */; };
+		301226202C2F8DC900F863CC /* NumbersOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3012261F2C2F8DC900F863CC /* NumbersOnlyViewModifier.swift */; };
+		30280AD42C4B2507008DEFD4 /* ScoresAndDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30280AD32C4B2507008DEFD4 /* ScoresAndDates.swift */; };
 		303313A82AB2990E00FDCF48 /* EditArtifactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */; };
 		303313AA2AB38A2A00FDCF48 /* EditParasitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */; };
 		303313AC2AB3968100FDCF48 /* EditMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */; };
@@ -34,9 +37,9 @@
 		307070712A9D80F5002ADCC4 /* AddObjectivesValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307070702A9D80F5002ADCC4 /* AddObjectivesValueView.swift */; };
 		307A929A2A439A8C002A2164 /* EditRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A92992A439A8C002A2164 /* EditRunView.swift */; };
 		3090D7F92AB52179000605D7 /* EditExplorerValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090D7F82AB52179000605D7 /* EditExplorerValuesView.swift */; };
-		3093E3F32BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093E3F22BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift */; };
 		3093E3F52BB512940025CD0C /* FocusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3093E3F42BB512940025CD0C /* FocusField.swift */; };
 		3096F3012A53A3ED0074F491 /* AddMalfunctionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */; };
+		309E2C142C41D262000326E0 /* ChartMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E2C132C41D262000326E0 /* ChartMath.swift */; };
 		30A7F7C22A37C8D0003AB0B3 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C12A37C8D0003AB0B3 /* Stat.swift */; };
 		30A7F7C42A37C932003AB0B3 /* AltFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C32A37C932003AB0B3 /* AltFire.swift */; };
 		30A7F7C82A37CF55003AB0B3 /* Malfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */; };
@@ -63,7 +66,6 @@
 		30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */; };
 		30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */; };
 		30DF8B572AAD43F100938ECB /* EditWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B562AAD43F100938ECB /* EditWeaponView.swift */; };
-		30E91A212BAA718300E97D32 /* BeginnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E91A202BAA718300E97D32 /* BeginnerTest.swift */; };
 		30E9BF212ADDC6170077CB6D /* CreateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9BF202ADDC6170077CB6D /* CreateText.swift */; };
 		30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A042A9D307C00D1D2F4 /* Combat.swift */; };
 		30FE1A072A9D30CA00D1D2F4 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */; };
@@ -80,7 +82,10 @@
 		300646692ABB7E6A00211BA8 /* TipsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsItemView.swift; sourceTree = "<group>"; };
 		3006466B2ABBA7C100211BA8 /* ThanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksView.swift; sourceTree = "<group>"; };
 		3007872D2A3AA7E100D185F4 /* Artifact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artifact.swift; sourceTree = "<group>"; };
+		300AD66D2C2F8BC8007397BE /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 		300D83352A463F3F007F5EB4 /* AddRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRunView.swift; sourceTree = "<group>"; };
+		3012261F2C2F8DC900F863CC /* NumbersOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnlyViewModifier.swift; sourceTree = "<group>"; };
+		30280AD32C4B2507008DEFD4 /* ScoresAndDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresAndDates.swift; sourceTree = "<group>"; };
 		303313A72AB2990E00FDCF48 /* EditArtifactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArtifactsView.swift; sourceTree = "<group>"; };
 		303313A92AB38A2A00FDCF48 /* EditParasitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditParasitesView.swift; sourceTree = "<group>"; };
 		303313AB2AB3968100FDCF48 /* EditMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMalfunctionsView.swift; sourceTree = "<group>"; };
@@ -101,9 +106,9 @@
 		307070702A9D80F5002ADCC4 /* AddObjectivesValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObjectivesValueView.swift; sourceTree = "<group>"; };
 		307A92992A439A8C002A2164 /* EditRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRunView.swift; sourceTree = "<group>"; };
 		3090D7F82AB52179000605D7 /* EditExplorerValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExplorerValuesView.swift; sourceTree = "<group>"; };
-		3093E3F22BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnlyViewModifier.swift; sourceTree = "<group>"; };
 		3093E3F42BB512940025CD0C /* FocusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusField.swift; sourceTree = "<group>"; };
 		3096F3002A53A3ED0074F491 /* AddMalfunctionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMalfunctionsView.swift; sourceTree = "<group>"; };
+		309E2C132C41D262000326E0 /* ChartMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMath.swift; sourceTree = "<group>"; };
 		30A7F7C12A37C8D0003AB0B3 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		30A7F7C32A37C932003AB0B3 /* AltFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltFire.swift; sourceTree = "<group>"; };
 		30A7F7C72A37CF55003AB0B3 /* Malfunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Malfunction.swift; sourceTree = "<group>"; };
@@ -132,7 +137,6 @@
 		30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectivesDetailView.swift; sourceTree = "<group>"; };
 		30DF8B562AAD43F100938ECB /* EditWeaponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponView.swift; sourceTree = "<group>"; };
-		30E91A202BAA718300E97D32 /* BeginnerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerTest.swift; sourceTree = "<group>"; };
 		30E9BF202ADDC6170077CB6D /* CreateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateText.swift; sourceTree = "<group>"; };
 		30FE1A042A9D307C00D1D2F4 /* Combat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combat.swift; sourceTree = "<group>"; };
 		30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
@@ -158,6 +162,14 @@
 				3006465E2ABB70AF00211BA8 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		30280AD22C4B24EF008DEFD4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30280AD32C4B2507008DEFD4 /* ScoresAndDates.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		30423EF82A5893FB00235BC1 /* AddViews */ = {
@@ -193,6 +205,15 @@
 				300646692ABB7E6A00211BA8 /* TipsItemView.swift */,
 			);
 			path = SettingViews;
+			sourceTree = "<group>";
+		};
+		309E2C122C41D24F000326E0 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				300AD66D2C2F8BC8007397BE /* ChartsView.swift */,
+				309E2C132C41D262000326E0 /* ChartMath.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 		30AA614E2A71EFEB005D69B7 /* DetailViews */ = {
@@ -245,8 +266,6 @@
 		30BC71FC2A354FEF00F0E49B = {
 			isa = PBXGroup;
 			children = (
-				3093E3F22BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift */,
-				30E91A202BAA718300E97D32 /* BeginnerTest.swift */,
 				30BC72072A354FEF00F0E49B /* TowerCompanion */,
 				30BC72062A354FEF00F0E49B /* Products */,
 				304B1C262A57B456004F8973 /* Recovered References */,
@@ -270,11 +289,14 @@
 				30BC72082A354FEF00F0E49B /* TowerCompanionApp.swift */,
 				30BC720C2A354FEF00F0E49B /* ContentView.swift */,
 				30CAA0D32ABA85D700C87423 /* MainView.swift */,
+				3012261F2C2F8DC900F863CC /* NumbersOnlyViewModifier.swift */,
 				300646632ABB774800211BA8 /* MyProductsIdentifiers.swift */,
 				300646652ABB77C500211BA8 /* TipStore.swift */,
 				30E9BF202ADDC6170077CB6D /* CreateText.swift */,
 				3093E3F42BB512940025CD0C /* FocusField.swift */,
+				30280AD22C4B24EF008DEFD4 /* Helpers */,
 				30B49CDE2A43D5D300E855B6 /* Models */,
+				309E2C122C41D24F000326E0 /* Charts */,
 				30423EF82A5893FB00235BC1 /* AddViews */,
 				30AA614E2A71EFEB005D69B7 /* DetailViews */,
 				30AA61512A71F328005D69B7 /* CustomViews */,
@@ -396,14 +418,14 @@
 				305363D22A720940006D3ACC /* ArtifactsDetailView.swift in Sources */,
 				307070712A9D80F5002ADCC4 /* AddObjectivesValueView.swift in Sources */,
 				30BC721C2A3555EA00F0E49B /* Parasite.swift in Sources */,
-				3093E3F32BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift in Sources */,
 				305363D62A7209CF006D3ACC /* MalfunctionsDetailView.swift in Sources */,
+				301226202C2F8DC900F863CC /* NumbersOnlyViewModifier.swift in Sources */,
 				30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */,
 				30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */,
+				300AD66E2C2F8BC8007397BE /* ChartsView.swift in Sources */,
 				303313AE2AB4D06E00FDCF48 /* EditCombatValuesView.swift in Sources */,
 				305363D82A720A09006D3ACC /* StatsDetailView.swift in Sources */,
 				30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */,
-				30E91A212BAA718300E97D32 /* BeginnerTest.swift in Sources */,
 				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				300646642ABB774800211BA8 /* MyProductsIdentifiers.swift in Sources */,
@@ -432,6 +454,7 @@
 				304243A72A4BA4F400D51678 /* AddArtifactsView.swift in Sources */,
 				300646682ABB7DF400211BA8 /* TipsView.swift in Sources */,
 				305363D02A71FBA4006D3ACC /* HeavyTextHeadline.swift in Sources */,
+				309E2C142C41D262000326E0 /* ChartMath.swift in Sources */,
 				3007872E2A3AA7E100D185F4 /* Artifact.swift in Sources */,
 				30DF8B502AAB98C000938ECB /* ExplorerDetailsView.swift in Sources */,
 				30BC721E2A3557B700F0E49B /* Weapon.swift in Sources */,
@@ -449,6 +472,7 @@
 				304A86642A4CD3CB00797D8F /* AddWeaponView.swift in Sources */,
 				30AA61502A71F1DE005D69B7 /* TextHeadline.swift in Sources */,
 				300D83362A463F3F007F5EB4 /* AddRunView.swift in Sources */,
+				30280AD42C4B2507008DEFD4 /* ScoresAndDates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
