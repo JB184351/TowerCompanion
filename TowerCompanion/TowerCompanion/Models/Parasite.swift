@@ -21,9 +21,11 @@ struct Parasite: Codable, Hashable {
         // These suffixes only go with silphic prefix
         let bladeSpinner = "Melee kills repair Integrity."
         let goldSpinner = "Collecting Obolites repairs Integrity."
+        let deathSpinner = "Killing hostiles repairs Integrity."
         
         let silphicBladeSpinner = Parasite(name: "Silphic Bladespinner", positiveDescription: bladeSpinner, negativeDescription: silphic)
         let silphicGoldSpinner = Parasite(name: "Silphic Goldspinner", positiveDescription: goldSpinner, negativeDescription: silphic)
+        let silphicDeathSpinner = Parasite(name: "Silphic Deathspinner", positiveDescription: deathSpinner, negativeDescription: silphic)
         
         // Found this one when I was playing on 8/28/2023
         // Not sure if I've seen these prefixes/suffixes with other
@@ -36,6 +38,7 @@ struct Parasite: Codable, Hashable {
         parasites.append(barbedFleshStinger)
         parasites.append(silphicGoldSpinner)
         parasites.append(silphicBladeSpinner)
+        parasites.append(silphicDeathSpinner)
         
         // MARK: - Negative Prefixes (Passive)
         let atrophing = ["Atrophing" : "Reduces Melee Damage by 50%."]
