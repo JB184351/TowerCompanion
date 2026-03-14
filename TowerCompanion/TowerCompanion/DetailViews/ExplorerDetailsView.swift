@@ -2,33 +2,25 @@
 //  ExplorerDetailsView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 9/8/23.
-//
 
 import SwiftUI
 
 struct ExplorerDetailsView: View {
     let explorer: Explorer
-    
+
     var body: some View {
-        DisclosureGroup("Explorer") {
-            Spacer()
-            VStack(alignment: .leading) {
-                TextHeadline(text: "Floors Cleared: \(explorer.floorsCleared)", color: .returnalLightBlue)
-                TextHeadline(text: "Silphium Found: \(explorer.silphiumFound)", color: .returnalLightBlue)
-                TextHeadline(text: "Obolites Collected: \(explorer.obolitesCollected)", color: .returnalLightBlue)
-                TextHeadline(text: "Calibrators Collected: \(explorer.calibratorsCollected)", color: .returnalLightBlue)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(spacing: 0) {
+            postDeathSubHeader("EXPLORER")
+            postDeathRow("FLOORS CLEARED", value: "\(explorer.floorsCleared)")
+            postDeathRow("SILPHIUM FOUND", value: "\(explorer.silphiumFound)")
+            postDeathRow("OBOLITES COLLECTED", value: "\(explorer.obolitesCollected)")
+            postDeathRow("CALIBRATORS COLLECTED", value: "\(explorer.calibratorsCollected)")
         }
-        .font(.title2)
-        .fontWeight(.heavy)
-        .fontDesign(.monospaced)
-        .padding(.leading)
-        .foregroundStyle(.returnalLightBlue)
+        .overlay(
+            Rectangle()
+                .strokeBorder(Color.returnalLightBlue.opacity(0.15), lineWidth: 1)
+        )
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
     }
 }
-
-//#Preview {
-//    ExplorerDetailsView()
-//}

@@ -2,8 +2,6 @@
 //  ParasitesDetailView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 7/26/23.
-//
 
 import SwiftUI
 
@@ -11,30 +9,44 @@ struct ParasitesDetailView: View {
     let parasites: [Parasite]
 
     var body: some View {
-        DisclosureGroup("Parasites") {
-            Spacer()
+        VStack(spacing: 8) {
             ForEach(parasites, id: \.self) { parasite in
-                DisclosureGroup(parasite.name) {
-                    VStack {
-                        TextHeadline(text: parasite.positiveDescription, color: .green)
-                        TextHeadline(text: parasite.negativeDescription, color: .red)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(parasite.name)
+                        .font(.system(size: 13, weight: .heavy, design: .monospaced))
+                        .foregroundStyle(Color.returnalPurple)
+
+                    HStack(alignment: .top, spacing: 6) {
+                        Text("+")
+                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .foregroundStyle(Color.green)
+                            .frame(width: 10)
+                        Text(parasite.positiveDescription)
+                            .font(.system(size: 11, design: .monospaced))
+                            .foregroundStyle(Color.green.opacity(0.85))
+                            .fixedSize(horizontal: false, vertical: true)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    HStack(alignment: .top, spacing: 6) {
+                        Text("−")
+                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .foregroundStyle(Color.red)
+                            .frame(width: 10)
+                        Text(parasite.negativeDescription)
+                            .font(.system(size: 11, design: .monospaced))
+                            .foregroundStyle(Color.red.opacity(0.85))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-                .font(.headline)
-                .fontDesign(.monospaced)
-                .padding(.leading)
-                .foregroundStyle(.returnalPurple)
+                .padding(12)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.white.opacity(0.03))
+                .overlay(
+                    Rectangle()
+                        .strokeBorder(Color.returnalPurple.opacity(0.35), lineWidth: 1)
+                )
             }
         }
-        .font(.title2)
-        .fontWeight(.heavy)
-        .fontDesign(.monospaced)
-        .padding(.leading)
-        .foregroundStyle(.returnalPurple)
+        .padding(.horizontal, 16)
     }
 }
-
-//#Preview {
-//    ParasitesDetailView()
-//}
