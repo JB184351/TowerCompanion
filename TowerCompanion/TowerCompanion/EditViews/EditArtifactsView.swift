@@ -14,53 +14,51 @@ struct EditArtifactsView: View {
         return Artifact.getAllArtifacts().map { $0.name }
     }
     
-    @Binding var artifacts: [Artifact]
-    
-    init(artifacts: Binding<[Artifact]>) {
-        self._artifacts = artifacts
-    }
+    @Binding var artifacts: [Artifact]?
     
     var body: some View {
-        Section {
-            Picker("Artifacts", selection: $currentlySelectedArtifact) {
-                ForEach(listOfArtifacts, id: \.self) { artifactName in
-                    Text(artifactName).tag(artifactName)
-                }
-            }
-            
-            Button("Add Artifact(s)") {
-                withAnimation {
-                    addArtifact()
-                }
-            }
-            .disabled(artifacts.count == 15)
-            
+        if let artifacts = artifacts {
             Section {
-                ForEach(artifacts, id: \.name) { artifact in
-                    Text(artifact.name)
-                }
-                .onDelete(perform: { indexSet in
-                    for index in indexSet {
-                        removeArtifactFromList(index: index)
+                Picker("Artifacts", selection: $currentlySelectedArtifact) {
+                    ForEach(listOfArtifacts, id: \.self) { artifactName in
+                        Text(artifactName).tag(artifactName)
                     }
-                })
-            } header: {
-                artifacts.count > 0 ? Text("Artifacts") : Text("")
+                }
+                
+                Button("Add Artifact(s)") {
+                    withAnimation {
+                        addArtifact()
+                    }
+                }
+                .disabled(artifacts.count == 15)
+                
+                Section {
+                    ForEach(artifacts, id: \.name) { artifact in
+                        Text(artifact.name)
+                    }
+                    .onDelete(perform: { indexSet in
+                        for index in indexSet {
+                            removeArtifactFromList(index: index)
+                        }
+                    })
+                } header: {
+                    artifacts.count > 0 ? Text("Artifacts") : Text("")
+                }
             }
-        }
-        .onAppear {
-            if artifacts.count > 0 {
-                var allArtifactNames = artifactNames
-                
-                for artifact in artifacts {
-                    if allArtifactNames.contains(artifact.name) {
-                        allArtifactNames.removeAll { $0 == artifact.name }
+            .onAppear {
+                if artifacts.count > 0 {
+                    var allArtifactNames = artifactNames
+                    
+                    for artifact in artifacts {
+                        if allArtifactNames.contains(artifact.name) {
+                            allArtifactNames.removeAll { $0 == artifact.name }
+                        }
                     }
+                    
+                    listOfArtifacts = allArtifactNames
+                } else {
+                    listOfArtifacts = artifactNames
                 }
-                
-                listOfArtifacts = allArtifactNames
-            } else {
-                listOfArtifacts = artifactNames
             }
         }
     }
@@ -74,15 +72,19 @@ struct EditArtifactsView: View {
         }
         
         let artifact = Artifact(name: currentlySelectedArtifact, artifactDescription: artifactDescription)
-        
-        artifacts.append(artifact)
+
+        var updatedArtifacts = artifacts ?? []
+        updatedArtifacts.append(artifact)
+        artifacts = updatedArtifacts
         listOfArtifacts.removeAll(where: { $0 == currentlySelectedArtifact })
         currentlySelectedArtifact = listOfArtifacts[0]
     }
-    
+
     private func removeArtifactFromList(index: Int) {
-        let artifact = artifacts[index]
-        artifacts.remove(at: index)
+        var updatedArtifacts = artifacts ?? []
+        let artifact = updatedArtifacts[index]
+        updatedArtifacts.remove(at: index)
+        artifacts = updatedArtifacts
         listOfArtifacts.append(artifact.name)
         listOfArtifacts.sort(by: { $0 < $1 })
         currentlySelectedArtifact = listOfArtifacts[0]

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TowerRunDetailView: View {
     
-    let towerRun: TowerRun
+    @Bindable var towerRun: TowerRun
     @State private var isEditViewPresented = false
     
     var body: some View {
