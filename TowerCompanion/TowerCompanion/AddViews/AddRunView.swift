@@ -220,6 +220,7 @@ struct AddRunView: View {
         let towerRun = TowerRun(scoutName: scoutName, weapon: weapon, artifacts: artifacts, parasites: parasites, stats: stats, malfunctions: malfunctions, score: Int(score) ?? 0, multiplier: Double(finalMultiplier) ?? 0.0, averageMultiplier: Double(averageMutliplier) ?? 0.0, highestMultplier: Double(highestMultplier) ?? 0, phase: Int(phase) ?? 0, room: room, platform: platform, combat: combatValues, explorer: explorerValues, skill: skillValues, objectives: objectiveValues, dateStarted: dateStarted, dateCompleted: dateCompleted)
 
         modelContext.insert(towerRun)
+        try? modelContext.save()
     }
 }
 

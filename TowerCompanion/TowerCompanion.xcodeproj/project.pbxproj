@@ -63,7 +63,6 @@
 		30DF8B522AAB9A4B00938ECB /* SkillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */; };
 		30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */; };
 		30DF8B572AAD43F100938ECB /* EditWeaponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DF8B562AAD43F100938ECB /* EditWeaponView.swift */; };
-		30E91A212BAA718300E97D32 /* BeginnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E91A202BAA718300E97D32 /* BeginnerTest.swift */; };
 		30E9BF212ADDC6170077CB6D /* CreateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E9BF202ADDC6170077CB6D /* CreateText.swift */; };
 		30FE1A052A9D307C00D1D2F4 /* Combat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A042A9D307C00D1D2F4 /* Combat.swift */; };
 		30FE1A072A9D30CA00D1D2F4 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */; };
@@ -132,7 +131,6 @@
 		30DF8B512AAB9A4B00938ECB /* SkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailView.swift; sourceTree = "<group>"; };
 		30DF8B532AAB9AD600938ECB /* ObjectivesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectivesDetailView.swift; sourceTree = "<group>"; };
 		30DF8B562AAD43F100938ECB /* EditWeaponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWeaponView.swift; sourceTree = "<group>"; };
-		30E91A202BAA718300E97D32 /* BeginnerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerTest.swift; sourceTree = "<group>"; };
 		30E9BF202ADDC6170077CB6D /* CreateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateText.swift; sourceTree = "<group>"; };
 		30FE1A042A9D307C00D1D2F4 /* Combat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combat.swift; sourceTree = "<group>"; };
 		30FE1A062A9D30CA00D1D2F4 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				3093E3F22BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift */,
-				30E91A202BAA718300E97D32 /* BeginnerTest.swift */,
 				30BC72072A354FEF00F0E49B /* TowerCompanion */,
 				30BC72062A354FEF00F0E49B /* Products */,
 				304B1C262A57B456004F8973 /* Recovered References */,
@@ -403,7 +400,6 @@
 				303313AE2AB4D06E00FDCF48 /* EditCombatValuesView.swift in Sources */,
 				305363D82A720A09006D3ACC /* StatsDetailView.swift in Sources */,
 				30DF8B542AAB9AD600938ECB /* ObjectivesDetailView.swift in Sources */,
-				30E91A212BAA718300E97D32 /* BeginnerTest.swift in Sources */,
 				3070706F2A9D7F52002ADCC4 /* AddSkillValuesView.swift in Sources */,
 				30B2458A2A4D03D4000AD9DB /* AddParasitesView.swift in Sources */,
 				300646642ABB774800211BA8 /* MyProductsIdentifiers.swift in Sources */,
