@@ -14,12 +14,12 @@ struct WeaponDetailView: View {
             // Name + level
             HStack(alignment: .firstTextBaseline) {
                 Text(weapon.name)
-                    .font(.system(size: 15, weight: .heavy, design: .monospaced))
+                    .returnalFont(size: 15, weight: .heavy)
                     .foregroundStyle(Color.returnalLightBlue)
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 8)
                 Text("LVL \(weapon.level)")
-                    .font(.system(size: 10, weight: .bold, design: .monospaced))
+                    .returnalFont(size: 10, weight: .bold)
                     .foregroundStyle(Color.returnalYellow)
                     .kerning(1)
                     .padding(.horizontal, 8)
@@ -34,20 +34,20 @@ struct WeaponDetailView: View {
             VStack(alignment: .leading, spacing: 5) {
                 HStack(spacing: 8) {
                     Text("ALT-FIRE")
-                        .font(.system(size: 9, weight: .bold, design: .monospaced))
+                        .returnalFont(size: 9, weight: .bold)
                         .foregroundStyle(Color.returnalLightBlue.opacity(0.5))
                         .kerning(2)
                     Text("LVL \(weapon.altFire.level)")
-                        .font(.system(size: 9, weight: .bold, design: .monospaced))
+                        .returnalFont(size: 9, weight: .bold)
                         .foregroundStyle(Color.returnalYellow.opacity(0.7))
                         .kerning(1)
                 }
                 Text(weapon.altFire.name)
-                    .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                    .returnalFont(size: 13, weight: .semibold)
                     .foregroundStyle(Color.returnalLightBlue)
                 if !weapon.altFire.altFireDescription.isEmpty {
                     Text(weapon.altFire.altFireDescription)
-                        .font(.system(size: 11, design: .monospaced))
+                        .returnalFont(size: 11)
                         .foregroundStyle(Color.returnalLightBlue.opacity(0.55))
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -64,28 +64,28 @@ struct WeaponDetailView: View {
             if !weapon.traits.isEmpty {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("TRAITS")
-                        .font(.system(size: 9, weight: .bold, design: .monospaced))
+                        .returnalFont(size: 9, weight: .bold)
                         .foregroundStyle(Color.returnalLightBlue.opacity(0.5))
                         .kerning(2)
 
                     ForEach(weapon.traits, id: \.name) { trait in
                         HStack(alignment: .top, spacing: 8) {
                             Text("◦")
-                                .font(.system(size: 12, design: .monospaced))
+                                .returnalFont(size: 12)
                                 .foregroundStyle(Color.returnalYellow.opacity(0.6))
                             VStack(alignment: .leading, spacing: 3) {
                                 HStack(spacing: 8) {
                                     Text(trait.name)
-                                        .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                                        .returnalFont(size: 13, weight: .semibold)
                                         .foregroundStyle(Color.returnalLightBlue)
                                     Text("LVL \(trait.level)")
-                                        .font(.system(size: 9, weight: .bold, design: .monospaced))
+                                        .returnalFont(size: 9, weight: .bold)
                                         .foregroundStyle(Color.returnalYellow.opacity(0.7))
                                         .kerning(1)
                                 }
                                 if !trait.traitDescription.isEmpty {
                                     Text(trait.traitDescription)
-                                        .font(.system(size: 11, design: .monospaced))
+                                        .returnalFont(size: 11)
                                         .foregroundStyle(Color.returnalLightBlue.opacity(0.55))
                                         .fixedSize(horizontal: false, vertical: true)
                                 }

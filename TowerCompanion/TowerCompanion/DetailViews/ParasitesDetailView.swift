@@ -13,27 +13,27 @@ struct ParasitesDetailView: View {
             ForEach(parasites, id: \.self) { parasite in
                 VStack(alignment: .leading, spacing: 8) {
                     Text(parasite.name)
-                        .font(.system(size: 13, weight: .heavy, design: .monospaced))
+                        .returnalFont(size: 13, weight: .heavy)
                         .foregroundStyle(Color.returnalPurple)
 
                     HStack(alignment: .top, spacing: 6) {
                         Text("+")
-                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .returnalFont(size: 11, weight: .bold)
                             .foregroundStyle(Color.green)
                             .frame(width: 10)
                         Text(parasite.positiveDescription)
-                            .font(.system(size: 11, design: .monospaced))
+                            .returnalFont(size: 11)
                             .foregroundStyle(Color.green.opacity(0.85))
                             .fixedSize(horizontal: false, vertical: true)
                     }
 
                     HStack(alignment: .top, spacing: 6) {
                         Text("−")
-                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .returnalFont(size: 11, weight: .bold)
                             .foregroundStyle(Color.red)
                             .frame(width: 10)
                         Text(parasite.negativeDescription)
-                            .font(.system(size: 11, design: .monospaced))
+                            .returnalFont(size: 11)
                             .foregroundStyle(Color.red.opacity(0.85))
                             .fixedSize(horizontal: false, vertical: true)
                     }

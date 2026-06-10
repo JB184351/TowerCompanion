@@ -29,7 +29,7 @@ struct CombatDetailView: View {
 
 func postDeathSubHeader(_ title: String) -> some View {
     Text(title)
-        .font(.system(size: 9, weight: .bold, design: .monospaced))
+        .returnalFont(size: 9, weight: .bold)
         .foregroundStyle(Color.returnalYellow.opacity(0.7))
         .kerning(2)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -42,12 +42,12 @@ func postDeathSubHeader(_ title: String) -> some View {
 func postDeathRow(_ label: String, value: String) -> some View {
     HStack {
         Text(label)
-            .font(.system(size: 10, weight: .bold, design: .monospaced))
+            .returnalFont(size: 10, weight: .bold)
             .foregroundStyle(Color.returnalLightBlue.opacity(0.6))
             .kerning(1)
         Spacer()
         Text(value)
-            .font(.system(size: 14, weight: .heavy, design: .monospaced))
+            .returnalFont(size: 14, weight: .heavy)
             .foregroundStyle(Color.returnalLightBlue)
     }
     .padding(.horizontal, 14)

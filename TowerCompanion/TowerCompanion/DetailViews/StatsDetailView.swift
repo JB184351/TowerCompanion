@@ -26,12 +26,12 @@ struct StatsDetailView: View {
     private func statRow(_ label: String, value: String) -> some View {
         HStack {
             Text(label)
-                .font(.system(size: 10, weight: .bold, design: .monospaced))
+                .returnalFont(size: 10, weight: .bold)
                 .foregroundStyle(Color.returnalLightBlue.opacity(0.6))
                 .kerning(1)
             Spacer()
             Text(value)
-                .font(.system(size: 14, weight: .heavy, design: .monospaced))
+                .returnalFont(size: 14, weight: .heavy)
                 .foregroundStyle(Color.returnalLightBlue)
         }
         .padding(.horizontal, 14)

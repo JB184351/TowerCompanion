@@ -15,12 +15,12 @@ struct ArtifactsDetailView: View {
             ForEach(artifacts, id: \.name) { artifact in
                 VStack(alignment: .leading, spacing: 5) {
                     Text(artifact.name)
-                        .font(.system(size: 11, weight: .heavy, design: .monospaced))
+                        .returnalFont(size: 11, weight: .heavy)
                         .foregroundStyle(Color.returnalLightBlue)
                         .fixedSize(horizontal: false, vertical: true)
                     if !artifact.artifactDescription.isEmpty {
                         Text(artifact.artifactDescription)
-                            .font(.system(size: 10, design: .monospaced))
+                            .returnalFont(size: 10)
                             .foregroundStyle(Color.returnalLightBlue.opacity(0.5))
                             .lineLimit(3)
                             .fixedSize(horizontal: false, vertical: true)

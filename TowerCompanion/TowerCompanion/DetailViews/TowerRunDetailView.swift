@@ -66,7 +66,7 @@ struct TowerRunDetailView: View {
                 Button("Edit") {
                     isEditViewPresented = true
                 }
-                .font(.system(size: 13, weight: .bold, design: .monospaced))
+                .returnalFont(size: 13, weight: .bold)
                 .foregroundStyle(Color.returnalYellow)
             }
 
@@ -74,7 +74,7 @@ struct TowerRunDetailView: View {
                 let runText = CreateText.createText(for: towerRun)
                 if let url = CreateText.createTextFile(withContent: runText, fileName: "run.txt") {
                     ShareLink(item: url, preview: SharePreview("Tower Run"))
-                        .font(.system(size: 13, weight: .bold, design: .monospaced))
+                        .returnalFont(size: 13, weight: .bold)
                         .foregroundStyle(Color.returnalYellow)
                 }
             }
@@ -89,13 +89,13 @@ struct TowerRunDetailView: View {
     private var runHeader: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(towerRun.scoutName.isEmpty ? "UNKNOWN SCOUT" : towerRun.scoutName.uppercased())
-                .font(.system(size: 22, weight: .heavy, design: .monospaced))
+                .returnalFont(size: 22, weight: .heavy, relativeTo: .title2)
                 .foregroundStyle(Color.returnalYellow)
 
             HStack(spacing: 10) {
                 platformBadge
                 Text(towerRun.dateCompleted.formatted(date: .abbreviated, time: .omitted))
-                    .font(.system(size: 11, design: .monospaced))
+                    .returnalFont(size: 11)
                     .foregroundStyle(Color.returnalLightBlue.opacity(0.6))
             }
         }
@@ -106,7 +106,7 @@ struct TowerRunDetailView: View {
 
     private var platformBadge: some View {
         Text(towerRun.platform)
-            .font(.system(size: 10, weight: .heavy, design: .monospaced))
+            .returnalFont(size: 10, weight: .heavy)
             .kerning(1)
             .foregroundStyle(Color.returnalDarkGreen)
             .padding(.horizontal, 8)
@@ -126,13 +126,13 @@ struct TowerRunDetailView: View {
 
             VStack(spacing: 4) {
                 Text("FINAL SCORE")
-                    .font(.system(size: 10, weight: .heavy, design: .monospaced))
+                    .returnalFont(size: 10, weight: .heavy)
                     .foregroundStyle(Color.returnalLightBlue.opacity(0.6))
                     .kerning(4)
                     .padding(.top, 16)
 
                 Text(towerRun.score.formatted())
-                    .font(.system(size: 46, weight: .heavy, design: .monospaced))
+                    .returnalFont(size: 46, weight: .heavy, relativeTo: .largeTitle)
                     .foregroundStyle(Color.returnalYellow)
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
@@ -161,12 +161,12 @@ struct TowerRunDetailView: View {
 
             HStack(spacing: 6) {
                 Text("PHASE \(towerRun.phase)")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .returnalFont(size: 11, weight: .bold)
                     .foregroundStyle(Color.returnalLightBlue)
                 Text("·")
                     .foregroundStyle(Color.returnalLightBlue.opacity(0.4))
                 Text("ROOM \(towerRun.room)")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .returnalFont(size: 11, weight: .bold)
                     .foregroundStyle(Color.returnalLightBlue)
             }
             .padding(.top, 12)
@@ -182,11 +182,11 @@ struct TowerRunDetailView: View {
     private func multiplierCell(label: String, value: Double) -> some View {
         VStack(spacing: 4) {
             Text(label)
-                .font(.system(size: 9, weight: .bold, design: .monospaced))
+                .returnalFont(size: 9, weight: .bold)
                 .foregroundStyle(Color.returnalLightBlue.opacity(0.5))
                 .kerning(2)
             Text(String(format: "×%.1f", value))
-                .font(.system(size: 20, weight: .heavy, design: .monospaced))
+                .returnalFont(size: 20, weight: .heavy, relativeTo: .title3)
                 .foregroundStyle(Color.returnalLightBlue)
         }
         .frame(maxWidth: .infinity)
@@ -205,7 +205,7 @@ struct ReturnalSectionHeader: View {
                 .font(.caption)
                 .foregroundStyle(Color.returnalYellow)
             Text(title)
-                .font(.system(size: 10, weight: .heavy, design: .monospaced))
+                .returnalFont(size: 10, weight: .heavy)
                 .foregroundStyle(Color.returnalYellow)
                 .kerning(3)
             Rectangle()

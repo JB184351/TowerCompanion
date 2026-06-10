@@ -54,6 +54,7 @@
 		30BC72202A3686B300F0E49B /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC721F2A3686B300F0E49B /* Trait.swift */; };
 		30C62DAD2AC8AA4F005ACD23 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C62DAC2AC8AA4F005ACD23 /* TipView.swift */; };
 		30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */; };
+		30C896A02E5A09AA004D016E /* ReturnalFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C896A12E5A09AA004D016F /* ReturnalFontExtension.swift */; };
 		30CAA0D02AB91C0400C87423 /* EditSkillValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */; };
 		30CAA0D22ABA17BD00C87423 /* EditObjectivesValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0D12ABA17BD00C87423 /* EditObjectivesValuesView.swift */; };
 		30CAA0D42ABA85D700C87423 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CAA0D32ABA85D700C87423 /* MainView.swift */; };
@@ -122,6 +123,7 @@
 		30BC721F2A3686B300F0E49B /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		30C62DAC2AC8AA4F005ACD23 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnalColorExtension.swift; sourceTree = "<group>"; };
+		30C896A12E5A09AA004D016F /* ReturnalFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnalFontExtension.swift; sourceTree = "<group>"; };
 		30CAA0CF2AB91C0400C87423 /* EditSkillValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkillValuesView.swift; sourceTree = "<group>"; };
 		30CAA0D12ABA17BD00C87423 /* EditObjectivesValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditObjectivesValuesView.swift; sourceTree = "<group>"; };
 		30CAA0D32ABA85D700C87423 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				30C8969D2A5A09AA004D016D /* ReturnalColorExtension.swift */,
+				30C896A12E5A09AA004D016F /* ReturnalFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				3093E3F32BB3B00E0025CD0C /* NumbersOnlyViewModifier.swift in Sources */,
 				305363D62A7209CF006D3ACC /* MalfunctionsDetailView.swift in Sources */,
 				30C8969E2A5A09AA004D016D /* ReturnalColorExtension.swift in Sources */,
+				30C896A02E5A09AA004D016E /* ReturnalFontExtension.swift in Sources */,
 				30423EFA2A589CB300235BC1 /* TowerRunHighlightView.swift in Sources */,
 				303313AE2AB4D06E00FDCF48 /* EditCombatValuesView.swift in Sources */,
 				305363D82A720A09006D3ACC /* StatsDetailView.swift in Sources */,
