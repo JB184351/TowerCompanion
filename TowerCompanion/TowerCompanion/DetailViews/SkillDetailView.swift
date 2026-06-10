@@ -2,33 +2,25 @@
 //  SkillDetailView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 9/8/23.
-//
 
 import SwiftUI
 
 struct SkillDetailView: View {
     let skill: Skill
-    
+
     var body: some View {
-        DisclosureGroup("Skill") {
-            Spacer()
-            VStack(alignment: .leading) {
-                TextHeadline(text: "Perfect Floors: \(skill.perfectFloors)", color: .returnalLightBlue)
-                TextHeadline(text: "Consecutive Perfect Floors: \(skill.consecutivePerfectFloors)", color: .returnalLightBlue)
-                TextHeadline(text: "Peak Adrenaline: \(skill.peakAdrenaline)", color: .returnalLightBlue)
-                TextHeadline(text: "Mid-air Melee: \(skill.midairMelee)", color: .returnalLightBlue)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(spacing: 0) {
+            postDeathSubHeader("SKILL")
+            postDeathRow("PERFECT FLOORS", value: "\(skill.perfectFloors)")
+            postDeathRow("CONSECUTIVE PERFECT", value: "\(skill.consecutivePerfectFloors)")
+            postDeathRow("PEAK ADRENALINE", value: "\(skill.peakAdrenaline)")
+            postDeathRow("MID-AIR MELEE", value: "\(skill.midairMelee)")
         }
-        .font(.title2)
-        .fontWeight(.heavy)
-        .fontDesign(.monospaced)
-        .padding(.leading)
-        .foregroundStyle(.returnalLightBlue)
+        .overlay(
+            Rectangle()
+                .strokeBorder(Color.returnalLightBlue.opacity(0.15), lineWidth: 1)
+        )
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
     }
 }
-
-//#Preview {
-//    SkillDetailView()
-//}

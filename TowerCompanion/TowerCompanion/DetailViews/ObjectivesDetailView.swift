@@ -2,33 +2,25 @@
 //  ObjectivesDetailView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 9/8/23.
-//
 
 import SwiftUI
 
 struct ObjectivesDetailView: View {
     let objectives: Objectives
-    
+
     var body: some View {
-        DisclosureGroup("Objectives") {
-            Spacer()
-            VStack(alignment: .leading) {
-                TextHeadline(text: "Pylioids defeated: \(objectives.pylioidsEliminated)", color: .returnalLightBlue)
-                TextHeadline(text: "Algos defeated: \(objectives.algosDefeated)", color: .returnalLightBlue)
-                TextHeadline(text: "Algos Final form defeated: \(objectives.algosFinalFormDefeated)", color: .returnalLightBlue)
-                TextHeadline(text: "Algos Infinity forms defeated: \(objectives.algosInfinityFormDefeated)", color: .returnalLightBlue)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(spacing: 0) {
+            postDeathSubHeader("OBJECTIVES")
+            postDeathRow("PYLIOIDS DEFEATED", value: "\(objectives.pylioidsEliminated)")
+            postDeathRow("ALGOS DEFEATED", value: "\(objectives.algosDefeated)")
+            postDeathRow("ALGOS FINAL FORM", value: "\(objectives.algosFinalFormDefeated)")
+            postDeathRow("ALGOS INFINITY FORM", value: "\(objectives.algosInfinityFormDefeated)")
         }
-        .font(.title2)
-        .fontWeight(.heavy)
-        .fontDesign(.monospaced)
-        .padding(.leading)
-        .foregroundStyle(.returnalLightBlue)
+        .overlay(
+            Rectangle()
+                .strokeBorder(Color.returnalLightBlue.opacity(0.15), lineWidth: 1)
+        )
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
     }
 }
-
-//#Preview {
-//    ObjectivesDetailView()
-//}

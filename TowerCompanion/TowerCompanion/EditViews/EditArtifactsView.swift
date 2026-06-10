@@ -32,17 +32,17 @@ struct EditArtifactsView: View {
                 }
                 .disabled(artifacts.count == 15)
                 
-                Section {
-                    ForEach(artifacts, id: \.name) { artifact in
-                        Text(artifact.name)
-                    }
-                    .onDelete(perform: { indexSet in
-                        for index in indexSet {
-                            removeArtifactFromList(index: index)
+                if !artifacts.isEmpty {
+                    Section("Artifacts") {
+                        ForEach(artifacts, id: \.name) { artifact in
+                            Text(artifact.name)
                         }
-                    })
-                } header: {
-                    artifacts.count > 0 ? Text("Artifacts") : Text("")
+                        .onDelete { indexSet in
+                            for index in indexSet {
+                                removeArtifactFromList(index: index)
+                            }
+                        }
+                    }
                 }
             }
             .onAppear {
