@@ -59,7 +59,6 @@ struct TowerRunDetailView: View {
             }
         }
         .background(Color.returnalDarkGreen)
-        .ignoresSafeArea(edges: .bottom)
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
         .toolbar {
