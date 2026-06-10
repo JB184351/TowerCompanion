@@ -11,7 +11,7 @@ struct CreateText {
     static func createTextFile(withContent content: String, fileName: String) -> URL? {
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURL = documentDirectory.appendingPathComponent(fileName)
-
+        
         do {
             try content.write(to: fileURL, atomically: false, encoding: .utf8)
             print("Text file created successfully at: \(fileURL.path)")
@@ -104,15 +104,15 @@ struct CreateText {
         let content = """
     Scout Name: \(run.scoutName)
     Platform: \(run.platform)
-
+    
     Score: \(run.score.formatted())
     Phase: \(run.phase)
     Room: \(run.room)
-
+    
     Final Multiplier: \(run.finalMultiplier)%
     Average Multiplier: \(run.averageMultiplier)%
     Highest Multiplier: \(run.highestMultiplier)%
-
+    
     Date Started: \(run.dateStarted.formatted())
     Date Completed: \(run.dateCompleted.formatted())
      

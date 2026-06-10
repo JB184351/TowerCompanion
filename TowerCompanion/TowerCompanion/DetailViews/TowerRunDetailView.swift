@@ -2,111 +2,218 @@
 //  TowerRunDetailView.swift
 //  TowerCompanion
 //
-//  Created by Justin on 7/11/23.
-//
 
 import SwiftUI
 
 struct TowerRunDetailView: View {
-    
-    let towerRun: TowerRun
-    @State private var isEditViewPresented = false
-    
-    var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
-                    VStack(alignment: .leading) {
-                        HeavyTextHeadline(text: "Scout Name: \(towerRun.scoutName)", color: .returnalYellow)
-                        HeavyTextHeadline(text: "Platform: \(towerRun.platform)", color: .returnalYellow)
-                    }
 
-                    VStack(alignment: .leading) {
-                        HeavyTextHeadline(text: "Score: \(towerRun.score.formatted())", color: .returnalLightBlue)
-                        HeavyTextHeadline(text: "Phase: \(towerRun.phase)", color: .returnalLightBlue)
-                        HeavyTextHeadline(text: "Room: \(towerRun.room)", color: .returnalLightBlue)
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        HeavyTextHeadline(text: "Final Multiplier: \(towerRun.finalMultiplier)%", color: .returnalLightBlue)
-                        HeavyTextHeadline(text: "Average Multiplier: \(towerRun.averageMultiplier)%", color: .returnalLightBlue)
-                        HeavyTextHeadline(text: "Highest Multiplier: \(towerRun.highestMultiplier)%", color: .returnalLightBlue)
-                    }
-                 
-                    VStack(alignment: .leading) {
-                        HeavyTextHeadline(text: "Date Started: \(towerRun.dateStarted.formatted())", color: .returnalLightBlue)
-                        HeavyTextHeadline(text: "Date Completed: \(towerRun.dateCompleted.formatted())", color: .returnalLightBlue)
-                    }
-                    
-                    VStack(alignment: .leading)  {
-                        WeaponDetailView(weapon: towerRun.weapon)
-                        
-                        if let artifacts = towerRun.artifacts {
-                            if artifacts.count > 0 {
-                                ArtifactsDetailView(artifacts: artifacts)
-                            }
-                        }
-                        
-                        
-                        if let parasites = towerRun.parasites {
-                            if parasites.count > 0 {
-                                ParasitesDetailView(parasites: parasites)
-                            }
-                        }
-                        
-                        if let malfunctions = towerRun.malfunctions {
-                            if malfunctions.count > 0 {
-                                MalfunctionsDetailView(malfunctions: malfunctions)
-                            }
-                        }
-                        
-                        StatsDetailView(stats: towerRun.stats)
-                        
-                        if let combatValues = towerRun.combat {
-                            CombatDetailView(combat: combatValues)
-                        }
-                        
-                        if let explorer = towerRun.explorer {
-                            ExplorerDetailsView(explorer: explorer)
-                        }
-                        
-                        if let skill = towerRun.skill {
-                            SkillDetailView(skill: skill)
-                        }
-                        
-                        if let objectives = towerRun.objectives {
-                            ObjectivesDetailView(objectives: objectives)
-                        }
-                    }
-                    
+    @Bindable var towerRun: TowerRun
+    @State private var isEditViewPresented = false
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+
+                runHeader
+                scorePanel
+
+                ReturnalSectionHeader(title: "WEAPON")
+                WeaponDetailView(weapon: towerRun.weapon)
+
+                ReturnalSectionHeader(title: "SUIT STATS")
+                StatsDetailView(stats: towerRun.stats)
+
+                if let artifacts = towerRun.artifacts, !artifacts.isEmpty {
+                    ReturnalSectionHeader(title: "ARTIFACTS")
+                    ArtifactsDetailView(artifacts: artifacts)
                 }
+
+                if let parasites = towerRun.parasites, !parasites.isEmpty {
+                    ReturnalSectionHeader(title: "PARASITES")
+                    ParasitesDetailView(parasites: parasites)
+                }
+
+                if let malfunctions = towerRun.malfunctions, !malfunctions.isEmpty {
+                    ReturnalSectionHeader(title: "MALFUNCTIONS")
+                    MalfunctionsDetailView(malfunctions: malfunctions)
+                }
+
+                if towerRun.combat != nil || towerRun.explorer != nil || towerRun.skill != nil || towerRun.objectives != nil {
+                    ReturnalSectionHeader(title: "POST-DEATH DATA")
+
+                    if let combat = towerRun.combat {
+                        CombatDetailView(combat: combat)
+                    }
+                    if let explorer = towerRun.explorer {
+                        ExplorerDetailsView(explorer: explorer)
+                    }
+                    if let skill = towerRun.skill {
+                        SkillDetailView(skill: skill)
+                    }
+                    if let objectives = towerRun.objectives {
+                        ObjectivesDetailView(objectives: objectives)
+                    }
+                }
+
+                Spacer(minLength: 40)
             }
-            .navigationTitle("Run Details")
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .padding(12)
-            .background(.returnalDarkGreen)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Edit") {
-                        isEditViewPresented = true
-                    }
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    let runText = CreateText.createText(for: towerRun)
-                    if let url = CreateText.createTextFile(withContent: runText, fileName: "run.txt") {
-                        ShareLink(item: url, preview: SharePreview("Tower Run"))
-                    }
-                }
-            }
-            .sheet(isPresented: $isEditViewPresented, content: {
-                EditRunView(towerRun: towerRun)
-            })
         }
-        .scrollIndicators(.automatic)
+        .background(Color.returnalDarkGreen)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Edit") {
+                    isEditViewPresented = true
+                }
+                .returnalFont(size: 13, weight: .bold)
+                .foregroundStyle(Color.returnalYellow)
+            }
+
+            ToolbarItem(placement: .topBarTrailing) {
+                let runText = CreateText.createText(for: towerRun)
+                if let url = CreateText.createTextFile(withContent: runText, fileName: "run.txt") {
+                    ShareLink(item: url, preview: SharePreview("Tower Run"))
+                        .returnalFont(size: 13, weight: .bold)
+                        .foregroundStyle(Color.returnalYellow)
+                }
+            }
+        }
+        .sheet(isPresented: $isEditViewPresented) {
+            EditRunView(towerRun: towerRun)
+        }
+    }
+
+    // MARK: - Run Header
+
+    private var runHeader: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(towerRun.scoutName.isEmpty ? "UNKNOWN SCOUT" : towerRun.scoutName.uppercased())
+                .returnalFont(size: 22, weight: .heavy, relativeTo: .title2)
+                .foregroundStyle(Color.returnalYellow)
+
+            HStack(spacing: 10) {
+                platformBadge
+                Text(towerRun.dateCompleted.formatted(date: .abbreviated, time: .omitted))
+                    .returnalFont(size: 11)
+                    .foregroundStyle(Color.returnalLightBlue.opacity(0.6))
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 16)
+        .padding(.bottom, 16)
+    }
+
+    private var platformBadge: some View {
+        Text(towerRun.platform)
+            .returnalFont(size: 10, weight: .heavy)
+            .kerning(1)
+            .foregroundStyle(Color.returnalDarkGreen)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 3)
+            .background(Color.returnalLightBlue)
+            .clipShape(RoundedRectangle(cornerRadius: 2))
+    }
+
+    // MARK: - Score Panel
+
+    private var scorePanel: some View {
+        VStack(spacing: 0) {
+            Rectangle()
+                .frame(height: 1)
+                .foregroundStyle(Color.returnalYellow.opacity(0.3))
+                .padding(.horizontal, 16)
+
+            VStack(spacing: 4) {
+                Text("FINAL SCORE")
+                    .returnalFont(size: 10, weight: .heavy)
+                    .foregroundStyle(Color.returnalLightBlue.opacity(0.6))
+                    .kerning(4)
+                    .padding(.top, 16)
+
+                Text(towerRun.score.formatted())
+                    .returnalFont(size: 46, weight: .heavy, relativeTo: .largeTitle)
+                    .foregroundStyle(Color.returnalYellow)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+            }
+            .frame(maxWidth: .infinity)
+
+            HStack(spacing: 0) {
+                multiplierCell(label: "AVG", value: towerRun.averageMultiplier)
+                Rectangle()
+                    .frame(width: 1)
+                    .foregroundStyle(Color.returnalLightBlue.opacity(0.15))
+                    .padding(.vertical, 8)
+                multiplierCell(label: "HIGH", value: towerRun.highestMultiplier)
+                Rectangle()
+                    .frame(width: 1)
+                    .foregroundStyle(Color.returnalLightBlue.opacity(0.15))
+                    .padding(.vertical, 8)
+                multiplierCell(label: "FINAL", value: towerRun.finalMultiplier)
+            }
+            .overlay(
+                Rectangle()
+                    .strokeBorder(Color.returnalLightBlue.opacity(0.15), lineWidth: 1)
+            )
+            .padding(.horizontal, 16)
+            .padding(.top, 14)
+
+            HStack(spacing: 6) {
+                Text("PHASE \(towerRun.phase)")
+                    .returnalFont(size: 11, weight: .bold)
+                    .foregroundStyle(Color.returnalLightBlue)
+                Text("·")
+                    .foregroundStyle(Color.returnalLightBlue.opacity(0.4))
+                Text("ROOM \(towerRun.room)")
+                    .returnalFont(size: 11, weight: .bold)
+                    .foregroundStyle(Color.returnalLightBlue)
+            }
+            .padding(.top, 12)
+            .padding(.bottom, 16)
+
+            Rectangle()
+                .frame(height: 1)
+                .foregroundStyle(Color.returnalYellow.opacity(0.3))
+                .padding(.horizontal, 16)
+        }
+    }
+
+    private func multiplierCell(label: String, value: Double) -> some View {
+        VStack(spacing: 4) {
+            Text(label)
+                .returnalFont(size: 9, weight: .bold)
+                .foregroundStyle(Color.returnalLightBlue.opacity(0.5))
+                .kerning(2)
+            Text(String(format: "×%.1f", value))
+                .returnalFont(size: 20, weight: .heavy, relativeTo: .title3)
+                .foregroundStyle(Color.returnalLightBlue)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 12)
     }
 }
 
-//#Preview {
-//    TowerRunDetailView()
-//}
+// MARK: - Section Header
+
+struct ReturnalSectionHeader: View {
+    let title: String
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Text("◈")
+                .font(.caption)
+                .foregroundStyle(Color.returnalYellow)
+            Text(title)
+                .returnalFont(size: 10, weight: .heavy)
+                .foregroundStyle(Color.returnalYellow)
+                .kerning(3)
+            Rectangle()
+                .frame(height: 1)
+                .foregroundStyle(Color.returnalYellow.opacity(0.25))
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 24)
+        .padding(.bottom, 10)
+    }
+}

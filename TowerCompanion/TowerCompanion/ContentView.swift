@@ -41,7 +41,6 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isSheetPresented) {
                 AddRunView()
-                    .modelContainer(for: TowerRun.self)
             }
             .scrollContentBackground(.hidden)
             .scrollIndicators(.automatic)
