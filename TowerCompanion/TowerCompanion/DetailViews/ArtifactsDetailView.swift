@@ -8,7 +8,15 @@ import SwiftUI
 struct ArtifactsDetailView: View {
     let artifacts: [Artifact]
 
-    private let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    private var columns: [GridItem] {
+        if dynamicTypeSize.isAccessibilitySize {
+            return [GridItem(.flexible())]
+        } else {
+            return [GridItem(.flexible()), GridItem(.flexible())]
+        }
+    }
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
@@ -22,7 +30,6 @@ struct ArtifactsDetailView: View {
                         Text(artifact.artifactDescription)
                             .returnalFont(size: 10)
                             .foregroundStyle(Color.returnalLightBlue.opacity(0.5))
-                            .lineLimit(3)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
