@@ -71,12 +71,10 @@ struct TowerRunDetailView: View {
             }
 
             ToolbarItem(placement: .topBarTrailing) {
-                let runText = CreateText.createText(for: towerRun)
-                if let url = CreateText.createTextFile(withContent: runText, fileName: "run.txt") {
-                    ShareLink(item: url, preview: SharePreview("Tower Run"))
-                        .returnalFont(size: 13, weight: .bold)
-                        .foregroundStyle(Color.returnalYellow)
-                }
+                ShareLink(item: RunTextFile(towerRun: towerRun),
+                          preview: SharePreview("Tower Run"))
+                    .returnalFont(size: 13, weight: .bold)
+                    .foregroundStyle(Color.returnalYellow)
             }
         }
         .sheet(isPresented: $isEditViewPresented) {

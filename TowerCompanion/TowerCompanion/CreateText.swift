@@ -6,22 +6,27 @@
 //
 
 import Foundation
+import CoreTransferable
+import UniformTypeIdentifiers
 
-struct CreateText {
-    static func createTextFile(withContent content: String, fileName: String) -> URL? {
-        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
-        
-        do {
-            try content.write(to: fileURL, atomically: false, encoding: .utf8)
-            print("Text file created successfully at: \(fileURL.path)")
-            return fileURL
-        } catch {
-            print("Error creating the text file: \(error)")
-            return nil
+struct RunTextFile: Transferable {
+    let text: String
+
+    init(towerRun: TowerRun) {
+        self.text = CreateText.createText(for: towerRun)
+    }
+
+    static var transferRepresentation: some TransferRepresentation {
+        FileRepresentation(exportedContentType: .plainText) { file in
+            let url = FileManager.default.temporaryDirectory
+                .appendingPathComponent("run-\(UUID().uuidString).txt")
+            try file.text.write(to: url, atomically: true, encoding: .utf8)
+            return SentTransferredFile(url)
         }
     }
-    
+}
+
+struct CreateText {
     static func createText(for run: TowerRun) -> String {
         var traitText = ""
         var artifactText = ""
