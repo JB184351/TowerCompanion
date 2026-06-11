@@ -191,7 +191,7 @@ struct AddRunView: View {
 
 // MARK: - Section Header
 
-private struct ReturnalFormHeader: View {
+struct ReturnalFormHeader: View {
     let title: String
 
     init(_ title: String) {
